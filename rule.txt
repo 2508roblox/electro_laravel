@@ -1,0 +1,4 @@
+##AuthController -> authentication features
+##ProfileController -> user profile CRUD
+##FrontendController -> view pages, search
+##Other Controller -> CRUD model
