@@ -15,6 +15,9 @@ class CartController extends Controller
      */
     public function index()
     {
+        if(!Auth::user()->id) {
+            return redirect('auth/register');
+        }
         $carts = DB::table('carts')
         ->join('products', 'products.id', '=', 'carts.product_id')
         ->join('product_colors', 'product_colors.id', '=', 'carts.product_color_id')

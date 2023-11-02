@@ -59,7 +59,7 @@ class BrandController extends Controller
     {
         $brand = brand::find($id);
         $categories = Category::all();
-
+        dd($id);
         return view('admin/brand/edit', compact('brand', 'categories'));
     }
 

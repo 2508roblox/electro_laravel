@@ -22,17 +22,19 @@ class RegisterController extends Controller
     {
         $formFields = $request->validate([
             'name' => 'required',
-            'email' =>  ['required', 'email', Rule::unique('users', 'email')],
+            'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => 'required'
         ]);
+
         $user = User::create($formFields);
         Auth::login($user);
-        $wallet = [
-            'user_id' => $user->id,
-            'balance' => 0
-        ];
-        Wallet::create($wallet);
-      return   redirect('/')->with('message', 'welcome');
+        $user_id = $user->id;
+        $wallet = new Wallet;
+        $wallet->user_id= $user_id;
+        $wallet->balance= 0;
+        $wallet->save();
+
+      return redirect('/')->with('message', 'welcome');
     }
 
     /**
