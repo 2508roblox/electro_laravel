@@ -34,7 +34,7 @@ use App\Http\Controllers\Admin\ProductColorController;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
-|
+|a
 */
 Route::group(['prefix' => 'auth'], function () {
     Route::middleware(['guest'])->group(function () {
