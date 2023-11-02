@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FrontendController;
@@ -181,7 +182,6 @@ Route::controller(WishlistController::class)->group(function () {
     Route::get('/wishlist', 'index')->name('admin.wishlist.list');
     Route::get('/wishlist/create', 'create')->name('admin.wishlist.create');
     Route::post('/wishlist/create', 'store')->name('admin.wishlist.store');
-
     Route::delete('/wishlist/{id}', 'destroy')->name('admin.wishlist.delete');
 });
 Route::controller(CartController::class)->group(function () {
@@ -206,3 +206,10 @@ Route::get('/category/{category_slug}/{sub_slug}', [FrontendController::class, '
 Route::get('/{product_slug}', [FrontendController::class, 'showSingleProduct'])->name('frontend.category.show');
 
 
+// Blog
+// Route::get('/blog', [BlogController::class, 'index'])->name('fe.blog');
+Route::prefix('blog')->group(function () {
+    Route::controller(BlogController::class)->group(function () {
+        Route::get('/', 'index')->name('fe.blog');
+    });
+});
