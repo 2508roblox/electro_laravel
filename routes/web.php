@@ -35,6 +35,8 @@ use App\Http\Controllers\Admin\ProductColorController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |a
+a
+a
 */
 Route::group(['prefix' => 'auth'], function () {
     Route::middleware(['guest'])->group(function () {
