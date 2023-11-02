@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use App\Models\Wallet;
 
 class RegisterController extends Controller
 {
@@ -26,6 +27,11 @@ class RegisterController extends Controller
         ]);
         $user = User::create($formFields);
         Auth::login($user);
+        $wallet = [
+            'user_id' => $user->id,
+            'balance' => 0
+        ];
+        Wallet::create($wallet);
       return   redirect('/')->with('message', 'welcome');
     }
 

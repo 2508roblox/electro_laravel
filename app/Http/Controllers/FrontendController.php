@@ -6,11 +6,16 @@ use App\Models\Brand;
 use App\Models\Color;
 use App\Models\Order;
 use App\Models\Slider;
+use App\Models\Wallet;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\SubCategory;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 
 class FrontendController extends Controller
 {
@@ -30,16 +35,16 @@ class FrontendController extends Controller
             '6' => 'six',
         ];
         $products = Product::join('sub_categories', 'products.sub_category_id', '=', 'sub_categories.id')
-        ->select('products.*', 'sub_categories.name as sub_category_name')
-        ->limit(15)
-        ->orderBy('id','desc')
-        ->get();
+            ->select('products.*', 'sub_categories.name as sub_category_name')
+            ->limit(15)
+            ->orderBy('id', 'desc')
+            ->get();
 
-    foreach ($products as $product) {
-        $product->image_url = $product->productImages()
-            ->orderBy('id', 'ASC')
-            ->first()->image ?? null;
-    }
+        foreach ($products as $product) {
+            $product->image_url = $product->productImages()
+                ->orderBy('id', 'ASC')
+                ->first()->image ?? null;
+        }
         return view('home', compact('sliders', 'number', 'categories', 'products'));
     }
 
@@ -156,9 +161,9 @@ class FrontendController extends Controller
         foreach ($products as $product) {
             $product->image_url =
                 $product
-                    ->productImages()
-                    ->orderBy('id', 'ASC')
-                    ->first()->image ?? null;
+                ->productImages()
+                ->orderBy('id', 'ASC')
+                ->first()->image ?? null;
         }
         $brands = Brand::with('products')->get();
         $brands = $brand->countProducts($brands, $sub_category->id);
@@ -182,10 +187,10 @@ class FrontendController extends Controller
         $images = $product->productImages()->get();
 
         $colors_quantity =  DB::table('product_colors')->join('colors', 'product_colors.color_id', '=', 'colors.id')
-        ->select('*',  'colors.name as colors_name', 'product_colors.id as product_colors_id', 'quantity as product_color_quantity'  )
-        ->where('product_colors.product_id', '=', $product->id)
-        ->get();
-        $colors = DB::table('colors')->select('*'  )->get();
+            ->select('*',  'colors.name as colors_name', 'product_colors.id as product_colors_id', 'quantity as product_color_quantity')
+            ->where('product_colors.product_id', '=', $product->id)
+            ->get();
+        $colors = DB::table('colors')->select('*')->get();
         $colorsArr = [];
         foreach ($colors as $color) {
             $colorsArr[$color->id] = $color->code;
@@ -195,6 +200,9 @@ class FrontendController extends Controller
             # code...
             $totalQuantity += $color->quantity;
         }
+
+
+
         return view(
             'frontend.pages.singleProduct',
             compact(
@@ -220,20 +228,16 @@ class FrontendController extends Controller
             $order->status = 'unpaid';
             $order->save();
             // chưa thanh toán
-        return redirect('/order')->with('message', 'Paid Cancelled, Please pay now');
-
-       }elseif($request->vnp_ResponseCode == '00'){
-        $order_id = $request->vnp_TxnRef;
-        $order = Order::find($order_id);
-        $order->status = 'paid';
-        $order->save();
-        return redirect('/order')->with('message', 'Paid Successfully, explore new our products');
-
-       }
-
-       else {
-        return redirect('/order');
-       }
+            return redirect('/order')->with('message', 'Paid Cancelled, Please pay now');
+        } elseif ($request->vnp_ResponseCode == '00') {
+            $order_id = $request->vnp_TxnRef;
+            $order = Order::find($order_id);
+            $order->status = 'paid';
+            $order->save();
+            return redirect('/order')->with('message', 'Paid Successfully, explore new our products');
+        } else {
+            return redirect('/order');
+        }
     }
 
     /**
@@ -263,8 +267,171 @@ class FrontendController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+
+    public function wallet()
     {
-        //
+        $userId = Auth::id();
+
+        $wallet = Wallet::where('user_id', $userId)->first();
+
+        $transactions = Transaction::where('wallet_id', $wallet->id)
+            ->where('status', 'complete')
+            ->get();
+
+        $totalAmount = $transactions->sum('amount');
+
+        $wallet->balance = $totalAmount;
+        $wallet->save();
+
+        Session::put('wallet', $totalAmount);
+        return view('frontend.pages.wallet', compact('wallet'));
+    }
+    public function transaction()
+    {
+
+        $userId = Auth::id();
+
+        $wallet = Wallet::where('user_id', $userId)->first();
+
+        $transactions = Transaction::where('wallet_id', $wallet->id)
+            ->get();
+
+        return view('frontend.pages.transaction', compact('transactions'));
+    }
+    public function createTransaction()
+    {
+
+        // Lấy dữ liệu từ POST
+        $walletId = $_POST['wallet_id'];
+        $amount = $_POST['amount'];
+        $type = $_POST['type'];
+        $method = $_POST['method'];
+
+        // Kiểm tra nếu amount > 0
+        if ($type == 'deposit' &&  $amount > 0) {
+            // Tạo transaction
+            $transaction = new Transaction();
+            $transaction->wallet_id = $walletId;
+            $transaction->amount = $amount;
+            $transaction->type = $type;
+            $transaction->method = $method;
+            $transaction->save();
+
+            // // Cập nhật balance trong wallets
+            // $wallet = Wallet::find($walletId);
+            // $wallet->balance += $amount;
+            // $wallet->save();
+
+            // Thực hiện các hành động khác sau khi tạo transaction và cập nhật balance
+
+            // Redirect hoặc trả về thông báo thành công
+            $userId = Auth::id();
+
+        $wallet = Wallet::where('user_id', $userId)->first();
+
+        $transactions = Transaction::where('wallet_id', $wallet->id)
+            ->where('status', 'complete')
+            ->get();
+
+        $totalAmount = $transactions->sum('amount');
+
+        $wallet->balance = $totalAmount;
+        $wallet->save();
+
+        Session::put('wallet', $totalAmount);
+        } else {
+            // withdraw
+           return;
+        }
+        if ($method == 'vn_pay') {
+
+            $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+            $vnp_Returnurl = "http://127.0.0.1:8000/checkdeposit";
+            $vnp_TmnCode = "R3E63P5P"; //Mã website tại VNPAY
+            $vnp_HashSecret = "GXDEHIEBSREFTEALNKYBXMKDKVVBEJPC"; //Chuỗi bí mật
+
+            $vnp_TxnRef = $transaction->id; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+            $vnp_OrderInfo = 'Thanh Toán đơn hàng tại Electro';
+            $vnp_OrderType = 'bank';
+            $vnp_Amount = ($amount) * 100 * 24305;
+            $vnp_Locale = 'vn';
+            $vnp_BankCode = 'NCB';
+            $vnp_IpAddr = 'http://127.0.0.1:8000/checkpayment';
+
+            $inputData = array(
+                "vnp_Version" => "2.1.0",
+                "vnp_TmnCode" => $vnp_TmnCode,
+                "vnp_Amount" => $vnp_Amount,
+                "vnp_Command" => "pay",
+                "vnp_CreateDate" => date('YmdHis'),
+                "vnp_CurrCode" => "VND",
+                "vnp_IpAddr" => $vnp_IpAddr,
+                "vnp_Locale" => $vnp_Locale,
+                "vnp_OrderInfo" => $vnp_OrderInfo,
+                "vnp_OrderType" => $vnp_OrderType,
+                "vnp_ReturnUrl" => $vnp_Returnurl,
+                "vnp_TxnRef" => $vnp_TxnRef,
+
+            );
+
+            if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+                $inputData['vnp_BankCode'] = $vnp_BankCode;
+            }
+            if (isset($vnp_Bill_State) && $vnp_Bill_State != "") {
+                $inputData['vnp_Bill_State'] = $vnp_Bill_State;
+            }
+
+            //var_dump($inputData);
+            ksort($inputData);
+            $query = "";
+            $i = 0;
+            $hashdata = "";
+            foreach ($inputData as $key => $value) {
+                if ($i == 1) {
+                    $hashdata .= '&' . urlencode($key) . "=" . urlencode($value);
+                } else {
+                    $hashdata .= urlencode($key) . "=" . urlencode($value);
+                    $i = 1;
+                }
+                $query .= urlencode($key) . "=" . urlencode($value) . '&';
+            }
+
+            $vnp_Url = $vnp_Url . "?" . $query;
+            if (isset($vnp_HashSecret)) {
+                $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret); //
+                $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+            }
+            $returnData = array(
+                'code' => '00', 'message' => 'success', 'data' => $vnp_Url
+            );
+            if (true) {
+                // after payment is completed
+
+                header('Location: ' . $vnp_Url);
+                die();
+            } else {
+                echo json_encode($returnData);
+            }
+        }
+    }
+    public function checkdeposit(Request $request)
+    {
+        if ($request->vnp_ResponseCode == '24') {
+            $tran_id = $request->vnp_TxnRef;
+            $tran = Transaction::find($tran_id);
+            $tran->save();
+            // chưa thanh toán
+            return redirect('/transaction')->with('message', 'Paid Cancelled');
+        } elseif ($request->vnp_ResponseCode == '00') {
+
+            $tran_id = $request->vnp_TxnRef;
+            $tran = Transaction::find($tran_id);
+            $tran->status = 'complete';
+
+            $tran->save();
+            return redirect('/wallet')->with('message', 'Paid Successfully, explore new our products');
+        } else {
+            return redirect('/wallet');
+        }
     }
 }

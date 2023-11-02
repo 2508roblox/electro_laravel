@@ -234,6 +234,22 @@
                                             <div class="border-bottom border-color-1 border-dotted-bottom">
                                                 <div class="p-3" id="basicsHeadingThree">
                                                     <div class="custom-control custom-radio">
+                                                        <input  {{ $balance < $totalRequiredAmount ? 'disabled' : '' }}type="radio" class="custom-control-input"
+                                                            id="wallet" name="payment_mode" value="wallet">
+                                                        <label class="custom-control-label   form-label"
+                                                            for="wallet" data-toggle="collapse"
+                                                            data-target="#basicsCollapseThree" aria-expanded="false"
+                                                            style="text-decoration: {{ $balance < $totalRequiredAmount ? 'line-through' : '' }}"
+                                                            aria-controls="basicsCollapseThree">
+                                                            Wallet ( ${{$balance}} )
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="border-bottom border-color-1 border-dotted-bottom">
+                                                <div class="p-3" id="basicsHeadingThree">
+                                                    <div class="custom-control custom-radio">
                                                         <input type="radio" class="custom-control-input"
                                                             id="thirdstylishRadio1" name="payment_mode" value="cash">
                                                         <label class="custom-control-label form-label"
