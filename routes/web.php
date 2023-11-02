@@ -23,6 +23,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminOrderController;
+use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductColorController;
 
@@ -62,6 +63,15 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/order/{id}/mail', 'sendmail')->name('admin.invoice.mail');
             Route::get('/order/{id}/download', 'downloadinvoice')->name('admin.invoice.download');
         });
+    Route::controller(CouponController::class)->group(function () {
+        Route::get('/coupon', 'index')->name('admin.coupon.list');
+        Route::get('/coupon/checkdiscount', 'checkdiscount')->name('admin.coupon.checkdiscount');
+        Route::get('/coupon/create', 'create')->name('admin.coupon.create');
+        Route::post('/coupon/create', 'store')->name('admin.coupon.store');
+        Route::get('/coupon/{id}/edit', 'edit')->name('admin.coupon.edit');
+        Route::post('/coupon/{id}/edit', 'update')->name('admin.coupon.update');
+        Route::delete('/coupon/{id}', 'destroy')->name('admin.coupon.delete');
+    });
     Route::controller(CategoryController::class)->group(function () {
         Route::get('/category', 'index')->name('admin.category.list');
         Route::get('/category/create', 'create')->name('admin.category.create');

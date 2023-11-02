@@ -221,6 +221,27 @@
                                   data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
                                       class="sa-nav__link" data-sa-collapse-trigger=""><span
                                           class="sa-nav__icon">
+                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="brand-engagement"><g data-name="Glyph"><path d="M8 62h48a1 1 0 0 0 .993-1.116l-5-43A1 1 0 0 0 51 17h-9v-5a10 10 0 0 0-20 0v5h-9a1 1 0 0 0-.993.884l-5 43A1 1 0 0 0 8 62Zm15-4a1 1 0 1 1 1-1 1 1 0 0 1-1 1Zm20-33a2 2 0 1 1-2-2 2 2 0 0 1 2 2ZM24 12a8 8 0 0 1 16 0v5H24Zm-1 11a2 2 0 1 1-2 2 2 2 0 0 1 2-2Zm-4.13 11.132a6.4 6.4 0 0 1 9.026 0L32 38.227l4.1-4.095a6.4 6.4 0 0 1 9.026 0 6.394 6.394 0 0 1 0 9.012l-12.325 12.3a1 1 0 0 1-1.407.006l-12.522-12.3a6.391 6.391 0 0 1-.002-9.018ZM12 56h7a1 1 0 0 1 0 2h-7a1 1 0 0 1 0-2Z"/><path d="M35.6 46.964a1 1 0 0 0 .707-.293l6.185-6.171a1 1 0 1 0-1.412-1.415l-6.18 6.171a1 1 0 0 0 .706 1.708Z"/><circle cx="33.321" cy="48.22" r="1"/></g></svg>
+                                        </span><span class="sa-nav__title">Coupons</span><span
+                                          class="sa-nav__arrow"><svg xmlns="http://www.w3.org/2000/svg"
+                                              width="6" height="9" viewBox="0 0 6 9" fill="currentColor">
+                                              <path
+                                                  d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
+                                              </path>
+                                          </svg></span></a>
+                                  <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
+                                    <li class="sa-nav__menu-item"><a href="{{ route('admin.coupon.list') }}"
+                                        class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span
+                                            class="sa-nav__title">Coupon List</span></a></li>
+                                            <li class="sa-nav__menu-item"><a href="{{ route('admin.coupon.create') }}"
+                                                class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span
+                                                    class="sa-nav__title">Coupon</span></a></li>
+                                  </ul>
+                              </li>
+                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
+                                  data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
+                                      class="sa-nav__link" data-sa-collapse-trigger=""><span
+                                          class="sa-nav__icon">
                                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="color-palette"><g data-name="Layer 2"><path d="M19.54 5.08A10.61 10.61 0 0 0 11.91 2a10 10 0 0 0-.05 20 2.58 2.58 0 0 0 2.53-1.89 2.52 2.52 0 0 0-.57-2.28.5.5 0 0 1 .37-.83h1.65A6.15 6.15 0 0 0 22 11.33a8.48 8.48 0 0 0-2.46-6.25zm-12.7 9.66a1.5 1.5 0 1 1 .4-2.08 1.49 1.49 0 0 1-.4 2.08zM8.3 9.25a1.5 1.5 0 1 1-.55-2 1.5 1.5 0 0 1 .55 2zM11 7a1.5 1.5 0 1 1 1.5-1.5A1.5 1.5 0 0 1 11 7zm5.75.8a1.5 1.5 0 1 1 .55-2 1.5 1.5 0 0 1-.55 2z" data-name="color-palette"/></g></svg>                                        </span><span class="sa-nav__title">Colors</span><span
                                           class="sa-nav__arrow"><svg xmlns="http://www.w3.org/2000/svg"
                                               width="6" height="9" viewBox="0 0 6 9" fill="currentColor">

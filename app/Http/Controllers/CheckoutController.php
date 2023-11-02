@@ -149,6 +149,7 @@ class CheckoutController extends Controller
 
         // Lặp qua từng cart để tạo order_items và tính tổng tiền đơn hàng
         foreach ($carts as $cart) {
+
             //descre number of product
             $descQty  = $cart->quantity;
             $descProductColorId  = $cart->product_color_id;
@@ -171,23 +172,32 @@ class CheckoutController extends Controller
                 $orderItem->price = $product->price;
             }
 
+            // Tính tổng tiền đơn hàng
+            $totalAmount += ($orderItem->price * $orderItem->quantity);
+            //
             $orderItem->save();
             $cart->delete();
 
-            // Tính tổng tiền đơn hàng
-            $totalAmount += $orderItem->price * $orderItem->quantity;
+
         }
 
         // Tính phí vận chuyển (1% giá trị tổng đơn)
-        $shippingFee = $totalAmount * 0.01;
+
 
         // Cộng phí vận chuyển vào tổng tiền đơn hàng
-        $totalAmount += $shippingFee;
+        if (!Session::get('discount') ||Session::get('discount') == 0 ) {
+            $totalAmount =($totalAmount + $request->shipping_price ) ;
+
+        }else {
+            $totalAmount = ($totalAmount + $request->shipping_price) - ($totalAmount + $request->shipping_price ) * (Session::get('discount') /100);
+
+        }
 
         // Lưu tổng tiền đơn hàng vào cột total_amount trong bảng orders
-        $order->shipping_price = $shippingFee;
+        $order->shipping_price = $request->shipping_price;
         $order->total_amount = $totalAmount;
-        $order->save();
+        $order->update();
+        Session::put('discount', 0);
         //bank payment
         if($request->payment_mode == 'wallet') {
             $userId = Auth::id();
