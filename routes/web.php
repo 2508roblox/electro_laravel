@@ -190,6 +190,12 @@ Route::controller(CartController::class)->group(function () {
 });
 
 ///// Frontend Routing
+Route::get('/wallet', [FrontendController::class, 'wallet'])->name('frontend.wallet');
+Route::post('/wallet/create', [FrontendController::class, 'wallet'])->name('frontend.wallet.store');
+Route::get('/transaction', [FrontendController::class, 'transaction'])->name('frontend.transaction');
+Route::post('/transaction/create', [FrontendController::class, 'createTransaction'])->name('frontend.transaction.store');
+Route::get('/checkdeposit', [FrontendController::class, 'checkdeposit'])->name('frontend.transaction.checkdeposit');
+// wallet
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 // show all categories and category's sub categories
 Route::get('/category/{category_slug}', [FrontendController::class, 'showCategories'])->name('frontend.category.list');
