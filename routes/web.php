@@ -38,6 +38,7 @@ use App\Http\Controllers\Admin\ProductColorController;
 a
 a
 */
+// access for guest
 Route::group(['prefix' => 'auth'], function () {
     Route::middleware(['guest'])->group(function () {
         Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -175,12 +176,13 @@ Route::controller(CheckoutController::class)->group(function () {
     Route::post('/checkout/{id}/edit', 'update')->name('admin.checkout.update');
     Route::delete('/checkout/{id}', 'destroy')->name('admin.checkout.delete');
 });
-Route::controller(WishlistController::class)->group(function () {
-    Route::get('/wishlist', 'index')->name('admin.wishlist.list');
-    Route::get('/wishlist/create', 'create')->name('admin.wishlist.create');
-    Route::post('/wishlist/create', 'store')->name('admin.wishlist.store');
 
-    Route::delete('/wishlist/{id}', 'destroy')->name('admin.wishlist.delete');
+Route::controller(WishlistController::class)->middleware(['guest'])->group(function () {
+    Route::get('/wishlist', 'index')->middleware(['auth'])->name('admin.wishlist.list');
+    Route::get('/wishlist/create', 'create')->middleware(['auth'])->name('admin.wishlist.create');
+    Route::post('/wishlist/create', 'store')->middleware(['auth'])->name('admin.wishlist.store');
+
+    Route::delete('/wishlist/{id}', 'destroy')->middleware(['auth'])->name('admin.wishlist.delete');
 });
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart', 'index')->name('admin.cart.list');
@@ -190,11 +192,11 @@ Route::controller(CartController::class)->group(function () {
 });
 
 ///// Frontend Routing
-Route::get('/wallet', [FrontendController::class, 'wallet'])->name('frontend.wallet');
-Route::post('/wallet/create', [FrontendController::class, 'wallet'])->name('frontend.wallet.store');
-Route::get('/transaction', [FrontendController::class, 'transaction'])->name('frontend.transaction');
-Route::post('/transaction/create', [FrontendController::class, 'createTransaction'])->name('frontend.transaction.store');
-Route::get('/checkdeposit', [FrontendController::class, 'checkdeposit'])->name('frontend.transaction.checkdeposit');
+Route::get('/wallet', [FrontendController::class, 'wallet'])->middleware(['auth'])->name('frontend.wallet');
+Route::post('/wallet/create', [FrontendController::class, 'wallet'])->middleware(['auth'])->name('frontend.wallet.store');
+Route::get('/transaction', [FrontendController::class, 'transaction'])->middleware(['auth'])->name('frontend.transaction');
+Route::post('/transaction/create', [FrontendController::class, 'createTransaction'])->middleware(['auth'])->name('frontend.transaction.store');
+Route::get('/checkdeposit', [FrontendController::class, 'checkdeposit'])->middleware(['auth'])->name('frontend.transaction.checkdeposit');
 // wallet
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 // show all categories and category's sub categories

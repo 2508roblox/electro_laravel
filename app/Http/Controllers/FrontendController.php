@@ -273,9 +273,7 @@ class FrontendController extends Controller
         $userId = Auth::id();
 
         $wallet = Wallet::where('user_id', $userId)->first();
-        if(!$userId) {
-            return redirect('auth/register');
-        }
+        
         $transactions = Transaction::where('wallet_id', $wallet->id)
             ->where('status', 'complete')
             ->get();
