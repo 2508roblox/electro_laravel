@@ -7,12 +7,7 @@
             <div class="container">
                 <!-- breadcrumb -->
                 <div class="my-md-3">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../home/index.html">Home</a></li>
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Blog</li>
-                        </ol>
-                    </nav>
+                    
                 </div>
                 <!-- End breadcrumb -->
             </div>
@@ -22,33 +17,106 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-9 col-wd">
-                    <div class="max-width-1100-wd">
-                        @foreach($blogs as $blog)
-                        <article class="card mb-13 border-0">
-                            <div class="js-slick-carousel u-slick overflow-hidden" data-pagi-classes="js-pagination u-slick__pagination u-slick__pagination--long u-slick__pagination--hover mb-0">
-                                <div class="js-slide">
-                                    <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="d-block"><img class="img-fluid" src="{{ asset($blog->image) }}" alt="Image Description"></a>
-                                </div>
-                                <div class="js-slide">
-                                    <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="d-block"><img class="img-fluid" src="{{ asset($blog->image) }}" alt="Image Description"></a>
-                                </div>
-                            </div>
+                    <div class="min-width-1100-wd">
+                        <article class="card mb-8 border-0">
+                            <img class="img-fluid" src="{{ asset($blog->image) }}" alt="Image Description">
                             <div class="card-body pt-5 pb-0 px-0">
-                                <h4 class="mb-3"><a href="{{ route('fe.post', ['id' => $blog->id]) }}">{{ $blog->title }}</a></h4>
+                                <div class="d-block d-md-flex flex-center-between mb-4 mb-md-0">
+                                    <h4 class="mb-md-3 mb-1">{{ $blog->title }}</h4>
+                                    <a href="#" class="font-size-12 text-gray-5 ml-md-4"><i class="far fa-comment"></i> Leave a comment</a>
+                                </div>
                                 <div class="mb-3 pb-3 border-bottom">
                                     <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                                        <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="mx-0dot5 text-gray-5">{{ $blog->tag }}</a>
+                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">{{ $blog->tag }}</a>
                                         <span class="mx-2 font-size-n5 mt-1 text-gray-5"><i class="fas fa-circle"></i></span>
-                                        <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="mx-0dot5 text-gray-5">{{ $blog->date_time }}</a>
+                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">{{ $blog->date_time }}</a>
                                     </div>
                                 </div>
-                                <p>{{ $blog->short_description }}</p>
-                                <div class="flex-horizontal-center">
-                                    <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="btn btn-soft-secondary-w mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5">Read More</a>
-                                </div>
+                                <p>{!! $blog->long_description !!}</p>
                             </div>
                         </article>
-                        @endforeach
+                        
+                        
+                        <div class="mb-10">
+                            <div class="border-bottom border-color-1 mb-10">
+                                <h4 class="section-title mb-0 pb-3 font-size-25">1 Comments</h4>
+                            </div>
+                            <ol class="nav">
+                                <li class="w-100 border-bottom pb-6 mb-6 border-color-1">
+                                    <!-- Review -->
+                                    <div class="d-block d-md-flex media">
+                                        <div class="u-xl-avatar mr-md-4 mb-4 mb-md-0">
+                                            <img class="img-fluid rounded-circle" src="../../assets/img/100X100/img19.jpg" alt="Image Description">
+                                        </div>
+                                        <div class="media-body">
+                                            <p>Fusce vitae nibh mi. Integer posuere, libero et ullamcorper facilisis, enim eros tincidunt orci, eget vestibulum sapien nisi ut leo. Cras finibus vel est ut mollis. Donec luctus condimentum ante et euismod.</p>
+                                            <div class="d-flex">
+                                                <h4 class="font-size-14 font-weight-bold mr-2"><a href="../blog/single-blog-post.html" class="">John Doe</a></h4>
+                                                <span><a href="../blog/single-blog-post.html" class="text-gray-23">March 16, 2016</a></span>
+                                                <a href="#" class="text-blue ml-auto">Reply</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Review -->
+                                </li>
+                                
+                            </ol>
+                        </div>
+                        <div class="mb-10">
+                            <div class="border-bottom border-color-1 mb-6">
+                                <h4 class="section-title mb-0 pb-3 font-size-25">Leave a Reply</h4>
+                            </div>
+                            <p class="text-gray-90">Your email address will not be published. Required fields are marked <span class="text-dark">*</span></p>
+                            <form class="js-validate" novalidate="novalidate">
+                                <div class="js-form-message mb-4">
+                                    <label class="form-label">
+                                            Comment
+                                        </label>
+
+                                    <div class="input-group">
+                                        <textarea class="form-control p-5" rows="4" name="text" placeholder=""></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <!-- Input -->
+                                        <div class="js-form-message mb-4">
+                                            <label class="form-label">
+                                                    Name
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                            <input type="text" class="form-control" name="Name" placeholder="" aria-label="" required="" data-msg="Please enter your name." data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off">
+                                        </div>
+                                        <!-- End Input -->
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <!-- Input -->
+                                        <div class="js-form-message mb-4">
+                                            <label class="form-label">
+                                                    Email address
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                            <input type="email" class="form-control" name="emailAddress" placeholder="" aria-label="" required="" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success">
+                                        </div>
+                                        <!-- End Input -->
+                                    </div>
+                                    <div class="col-md-12">
+                                        <!-- Input -->
+                                        <div class="js-form-message mb-4">
+                                            <label class="form-label">
+                                                    Website
+                                                </label>
+                                            <input type="text" class="form-control" name="website" placeholder="" aria-label="" data-msg="Please enter website name." data-error-class="u-has-error" data-success-class="u-has-success">
+                                        </div>
+                                        <!-- End Input -->
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-primary-dark-w px-5">Post Comment</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-wd">
@@ -166,7 +234,6 @@
                     </aside>
                 </div>
             </div>
-
             <!-- Brand Carousel -->
             <div class="mb-6">
                 <div class="py-2 border-top border-bottom">

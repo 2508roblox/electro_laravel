@@ -189,6 +189,7 @@ Route::controller(CartController::class)->group(function () {
 Route::prefix('blog')->group(function () {
     Route::controller(BlogController::class)->group(function () {
         Route::get('/', 'index')->name('fe.blog');
+        Route::get('/post/{id}', 'post')->name('fe.post');
     });
 });
 ///// Frontend Routing
