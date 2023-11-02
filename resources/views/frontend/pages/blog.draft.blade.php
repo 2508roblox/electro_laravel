@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                             <div class="card-body pt-5 pb-0 px-0">
-                                <h4 class="mb-3"><a href="../blog/single-blog-post.html">Robot Wars – Post with Gallery</a></h4>
+                                <h4 class="mb-3"><a href="../blog/single-blog-post.html">Robot Wars 1</a></h4>
                                 <div class="mb-3 pb-3 border-bottom">
                                     <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
                                         <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">Design,</a>
@@ -54,15 +54,22 @@
                             </div>
                         </article>
                         <article class="card mb-13 border-0">
-                            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/229791977&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                            <div class="js-slick-carousel u-slick overflow-hidden" data-pagi-classes="js-pagination u-slick__pagination u-slick__pagination--long u-slick__pagination--hover mb-0">
+                                <div class="js-slide">
+                                    <a href="../blog/single-blog-post.html" class="d-block"><img class="img-fluid" src="{{asset('../storage/images/img1.jpg')}}" alt="Image Description"></a>
+                                </div>
+                                <div class="js-slide">
+                                    <a href="../blog/single-blog-post.html" class="d-block"><img class="img-fluid" src="{{asset('../storage/images/img1.jpg')}}" alt="Image Description"></a>
+                                </div>
+                            </div>
                             <div class="card-body pt-5 pb-0 px-0">
-                                <h4 class="mb-3"><a href="../blog/single-blog-post.html">Robot Wars – Now Closed – Post with Audio</a></h4>
+                                <h4 class="mb-3"><a href="../blog/single-blog-post.html">Robot Wars 3</a></h4>
                                 <div class="mb-3 pb-3 border-bottom">
                                     <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
                                         <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">Design,</a>
                                         <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Technology,</a>
                                         <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> News,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Audio</a>
+                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Videos</a>
                                         <span class="mx-2 font-size-n5 mt-1 text-gray-5"><i class="fas fa-circle"></i></span>
                                         <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">March 4, 2016</a>
                                     </div>
@@ -71,153 +78,8 @@
                                     Sed lacinia feugiat velit, cursus molestie lectus.</p>
                                 <div class="flex-horizontal-center">
                                     <a href="../blog/single-blog-post.html" class="btn btn-soft-secondary-w mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5">Read More</a>
-                                    <a href="../blog/single-blog-post.html" class="font-size-12 text-gray-5 ml-4"><i class="far fa-comment"></i> Leave a comment</a>
+                                    <a href="../blog/single-blog-post.html" class="font-size-12 text-gray-5 ml-4"><i class="far fa-comment"></i> 3</a>
                                 </div>
-                            </div>
-                        </article>
-                        <article class="card mb-13 border-0">
-                            <iframe src="https://player.vimeo.com/video/153747736" width="100%" height="620" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                            <div class="card-body pt-5 pb-0 px-0">
-                                <h4 class="mb-3"><a href="../blog/single-blog-post.html">Robot Wars – Now Closed – Post with Video</a></h4>
-                                <div class="mb-3 pb-3 border-bottom">
-                                    <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">Design,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Technology,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> News,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Video</a>
-                                        <span class="mx-2 font-size-n5 mt-1 text-gray-5"><i class="fas fa-circle"></i></span>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">March 4, 2016</a>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam.
-                                    Sed lacinia feugiat velit, cursus molestie lectus.</p>
-                                <div class="flex-horizontal-center">
-                                    <a href="../blog/single-blog-post.html" class="btn btn-soft-secondary-w mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5">Read More</a>
-                                    <a href="../blog/single-blog-post.html" class="font-size-12 text-gray-5 ml-4"><i class="far fa-comment"></i> Leave a comment</a>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="card mb-13 border-0">
-                            <div class="card-body pt-5 pb-0 px-0">
-                                <h4 class="mb-3"><a href="../blog/single-blog-post.html">Announcement – Post without Image</a></h4>
-                                <div class="mb-3 pb-3 border-bottom">
-                                    <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">Design,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Technology,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> News,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Image</a>
-                                        <span class="mx-2 font-size-n5 mt-1 text-gray-5"><i class="fas fa-circle"></i></span>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">March 4, 2016</a>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam.
-                                    Sed lacinia feugiat velit, cursus molestie lectus.</p>
-                                <div class="flex-horizontal-center">
-                                    <a href="../blog/single-blog-post.html" class="btn btn-soft-secondary-w mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5">Read More</a>
-                                    <a href="../blog/single-blog-post.html" class="font-size-12 text-gray-5 ml-4"><i class="far fa-comment"></i> Leave a comment</a>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="card mb-13 border-0">
-                            <a href="../blog/single-blog-post.html" class="d-block"><img class="img-fluid" src="../../assets/img/1500X730/img6.jpg" alt="Image Description"></a>
-                            <div class="card-body pt-5 pb-0 px-0">
-                                <h4 class="mb-3"><a href="../blog/single-blog-post.html">Robot Wars – Now Closed</a></h4>
-                                <div class="mb-3 pb-3 border-bottom">
-                                    <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">Design,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Technology,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> News,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Image</a>
-                                        <span class="mx-2 font-size-n5 mt-1 text-gray-5"><i class="fas fa-circle"></i></span>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">March 4, 2016</a>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam.
-                                    Sed lacinia feugiat velit, cursus molestie lectus.</p>
-                                <div class="flex-horizontal-center">
-                                    <a href="../blog/single-blog-post.html" class="btn btn-soft-secondary-w mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5">Read More</a>
-                                    <a href="../blog/single-blog-post.html" class="font-size-12 text-gray-5 ml-4"><i class="far fa-comment"></i> Leave a comment</a>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="card mb-13 border-0">
-                            <a href="../blog/single-blog-post.html" class="d-block"><img class="img-fluid" src="../../assets/img/1500X730/img7.jpg" alt="Image Description"></a>
-                            <div class="card-body pt-5 pb-0 px-0">
-                                <h4 class="mb-3"><a href="../blog/single-blog-post.html">SpaceX Falcon explodes after Landing</a></h4>
-                                <div class="mb-3 pb-3 border-bottom">
-                                    <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">Design,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Technology,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> News,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Image</a>
-                                        <span class="mx-2 font-size-n5 mt-1 text-gray-5"><i class="fas fa-circle"></i></span>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">March 4, 2016</a>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam.
-                                    Sed lacinia feugiat velit, cursus molestie lectus.</p>
-                                <div class="flex-horizontal-center">
-                                    <a href="../blog/single-blog-post.html" class="btn btn-soft-secondary-w mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5">Read More</a>
-                                    <a href="../blog/single-blog-post.html" class="font-size-12 text-gray-5 ml-4"><i class="far fa-comment"></i> Leave a comment</a>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="card mb-13 border-0">
-                            <a href="../blog/single-blog-post.html" class="d-block"><img class="img-fluid" src="../../assets/img/1500X730/img4.jpg" alt="Image Description"></a>
-                            <div class="card-body pt-5 pb-0 px-0">
-                                <h4 class="mb-3"><a href="../blog/single-blog-post.html">The first flowers in space</a></h4>
-                                <div class="mb-3 pb-3 border-bottom">
-                                    <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">Design,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Technology,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> News,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Image</a>
-                                        <span class="mx-2 font-size-n5 mt-1 text-gray-5"><i class="fas fa-circle"></i></span>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">March 4, 2016</a>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam.
-                                    Sed lacinia feugiat velit, cursus molestie lectus.</p>
-                                <div class="flex-horizontal-center">
-                                    <a href="../blog/single-blog-post.html" class="btn btn-soft-secondary-w mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5">Read More</a>
-                                    <a href="../blog/single-blog-post.html" class="font-size-12 text-gray-5 ml-4"><i class="far fa-comment"></i> Leave a comment</a>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="card mb-13 border-0">
-                            <a href="../blog/single-blog-post.html" class="d-block"><img class="img-fluid" src="../../assets/img/1500X730/img8.jpg" alt="Image Description"></a>
-                            <div class="card-body pt-5 pb-0 px-0">
-                                <h4 class="mb-3"><a href="../blog/single-blog-post.html">HoloLens technical details emerge</a></h4>
-                                <div class="mb-3 pb-3 border-bottom">
-                                    <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">Design,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Technology,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> News,</a>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5"> Image</a>
-                                        <span class="mx-2 font-size-n5 mt-1 text-gray-5"><i class="fas fa-circle"></i></span>
-                                        <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">March 4, 2016</a>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero. In nec enim nisi, in ultricies quam.
-                                    Sed lacinia feugiat velit, cursus molestie lectus.</p>
-                                <div class="flex-horizontal-center">
-                                    <a href="../blog/single-blog-post.html" class="btn btn-soft-secondary-w mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5">Read More</a>
-                                    <a href="../blog/single-blog-post.html" class="font-size-12 text-gray-5 ml-4"><i class="far fa-comment"></i> Leave a comment</a>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="card mb-13 border-0">
-                            <div class="card-body p-0">
-                                <blockquote class="blockquote">
-                                    <p>Quisque a commodo lectus. Nunc vel dolor sed libero venenatis egestas. Cras non volutpat enim. Cras molestie purus id lorem sodales, in facilisis erat tristique. Aliquam luctus orci aliquet augue eleifend.</p>
-                                    <footer class="blockquote-footer"><cite title="Source Title">Steve Kowalsky</cite></footer>
-                                </blockquote>
-                            </div>
-                        </article>
-                        <article class="card mb-8 border-0">
-                            <div class="card-body p-5 p-md-10 bg-gray-1">
-                                <p class="d-block font-size-25 text-gray-39">If you are looking for a developer on ThemeForest – check out the link</p>
-                                <a href="../blog/single-blog-post.html" class="text-blue">http://wwww.transvelo.com</a>
                             </div>
                         </article>
                     </div>
