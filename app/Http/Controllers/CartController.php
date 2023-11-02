@@ -15,7 +15,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        if(!Auth::user()->id) {
+        if(!Auth::user()) {
             return redirect('auth/register');
         }
         $carts = DB::table('carts')
