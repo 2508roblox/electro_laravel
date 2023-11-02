@@ -195,6 +195,9 @@ class FrontendController extends Controller
             # code...
             $totalQuantity += $color->quantity;
         }
+
+
+
         return view(
             'frontend.pages.singleProduct',
             compact(
