@@ -210,6 +210,6 @@ Route::get('/{product_slug}', [FrontendController::class, 'showSingleProduct'])-
 // Route::get('/blog', [BlogController::class, 'index'])->name('fe.blog');
 Route::prefix('blog')->group(function () {
     Route::controller(BlogController::class)->group(function () {
-        Route::get('/', 'index')->name('fe.blog');
+        Route::get('/blog', 'index')->name('fe.blog');
     });
 });

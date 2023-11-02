@@ -27,19 +27,10 @@
                         <article class="card mb-13 border-0">
                             <div class="js-slick-carousel u-slick overflow-hidden" data-pagi-classes="js-pagination u-slick__pagination u-slick__pagination--long u-slick__pagination--hover mb-0">
                                 <div class="js-slide">
-                                    <a href="../blog/single-blog-post.html" class="d-block"><img class="img-fluid" src="../../assets/img/1500X730/img1.jpg" alt="Image Description"></a>
+                                    <a href="../blog/single-blog-post.html" class="d-block"><img class="img-fluid" src="{{asset('../storage/images/img1.jpg')}}" alt="Image Description"></a>
                                 </div>
                                 <div class="js-slide">
-                                    <a href="../blog/single-blog-post.html" class="d-block"><img class="img-fluid" src="../../assets/img/1500X730/img2.jpg" alt="Image Description"></a>
-                                </div>
-                                <div class="js-slide">
-                                    <a href="../blog/single-blog-post.html" class="d-block"><img class="img-fluid" src="../../assets/img/1500X730/img3.jpg" alt="Image Description"></a>
-                                </div>
-                                <div class="js-slide">
-                                    <a href="../blog/single-blog-post.html" class="d-block"><img class="img-fluid" src="../../assets/img/1500X730/img4.jpg" alt="Image Description"></a>
-                                </div>
-                                <div class="js-slide">
-                                    <a href="../blog/single-blog-post.html" class="d-block"><img class="img-fluid" src="../../assets/img/1500X730/img5.jpg" alt="Image Description"></a>
+                                    <a href="../blog/single-blog-post.html" class="d-block"><img class="img-fluid" src="{{asset('../storage/images/img1.jpg')}}" alt="Image Description"></a>
                                 </div>
                             </div>
                             <div class="card-body pt-5 pb-0 px-0">
