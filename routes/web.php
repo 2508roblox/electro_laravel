@@ -37,6 +37,9 @@ use App\Http\Controllers\Admin\ProductColorController;
 |a
 a
 a
+a
+a
+a
 */
 Route::group(['prefix' => 'auth'], function () {
     Route::middleware(['guest'])->group(function () {
