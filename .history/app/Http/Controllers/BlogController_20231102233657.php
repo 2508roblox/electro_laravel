@@ -17,9 +17,9 @@ class BlogController extends Controller
         // Truy vấn blog dựa trên ID
         $blog = Blog::find($id);
     
-        // if (!$blog) {
-        //     abort(404);
-        // }
+        if (!$blog) {
+            abort(404);
+        }
     
         return view('blog.post', compact('blog'));
     }
