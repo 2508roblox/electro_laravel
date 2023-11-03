@@ -27,10 +27,10 @@
                         <article class="card mb-13 border-0">
                             <div class="js-slick-carousel u-slick overflow-hidden" data-pagi-classes="js-pagination u-slick__pagination u-slick__pagination--long u-slick__pagination--hover mb-0">
                                 <div class="js-slide">
-                                    <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="d-block"><img class="img-fluid" src="{{ asset($blog->image) }}" alt="Image Description"></a>
+                                    <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="d-block"><img class="img-fluid" src="{{$blog->image }}" alt="Image Description"></a>
                                 </div>
                                 <div class="js-slide">
-                                    <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="d-block"><img class="img-fluid" src="{{ asset($blog->image) }}" alt="Image Description"></a>
+                                    <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="d-block"><img class="img-fluid" src="{{$blog->image }}" alt="Image Description"></a>
                                 </div>
                             </div>
                             <div class="card-body pt-5 pb-0 px-0">
