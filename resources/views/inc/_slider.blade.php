@@ -148,7 +148,10 @@
                                                     @endphp</a></h5>
                                                 <div class="mb-2">
                                                     <a href="{{ route('frontend.category.show', ['product_slug' => $product->slug]) }}" class="d-block text-center"><img
-                                                            class="img-fluid" src="{{ $product->image_url ? asset('storage/' . $product->image_url) : asset('client/img/212X200/img2.jpg') }}"
+                                                            class="img-fluid" src="{{ $product->image_url ?
+
+
+                                                            asset('storage/' . $product->image_url) : asset('client/img/212X200/img2.jpg') }}"
                                                             alt="Image Description"></a>
                                                 </div>
                                                 <div class="flex-center-between mb-1">
