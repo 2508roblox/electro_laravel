@@ -84,7 +84,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/brand/create', 'create')->name('admin.brand.create');
         Route::post('/brand/create', 'store')->name('admin.brand.store');
         Route::get('/brand/{id}/edit', 'edit')->name('admin.brand.edit');
-        Route::put('/brand/{id}/edit', 'update')->name('admin.brand.update');
+        Route::put('/brand/{id}/update', 'update')->name('admin.brand.update');
         Route::delete('/brand/{id}', 'destroy')->name('admin.brand.delete');
     });
     Route::controller(SubCategoryController::class)->group(function () {

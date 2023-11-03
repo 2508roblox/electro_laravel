@@ -380,6 +380,66 @@
                                   </ul>
                               </li>
                               <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
+                              data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
+                                  class="sa-nav__link" data-sa-collapse-trigger=""><span
+                                      class="sa-nav__icon">
+                                      <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="1em"   viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
+                                        <g>
+                                            <g>
+                                                <path d="M24,7l-1.7-1.7c-0.5-0.5-1.2-0.5-1.7,0L10,15.8l-4.3-4.2c-0.5-0.5-1.2-0.5-1.7,0l-1.7,1.7    c-0.5,0.5-0.5,1.2,0,1.7l5.9,5.9c0.5,0.5,1.1,0.7,1.7,0.7c0.6,0,1.2-0.2,1.7-0.7L24,8.7C24.4,8.3,24.4,7.5,24,7z"/>
+                                            </g>
+                                        </g>
+                                        <g>
+                                            <path d="M48.4,18.4H27.5c-0.9,0-1.6-0.7-1.6-1.6v-3.2c0-0.9,0.7-1.6,1.6-1.6h20.9c0.9,0,1.6,0.7,1.6,1.6v3.2   C50,17.7,49.3,18.4,48.4,18.4z"/>
+                                        </g>
+                                        <g>
+                                            <path d="M48.4,32.7H22.7c-0.9,0-1.6-0.7-1.6-1.6v-3.2c0-0.9,0.7-1.6,1.6-1.6h25.7c0.9,0,1.6,0.7,1.6,1.6v3.2   C50,32,49.3,32.7,48.4,32.7z"/>
+                                        </g>
+                                        <g>
+                                            <path d="M13,32.7H9.8c-0.9,0-1.6-0.7-1.6-1.6v-3.2c0-0.9,0.7-1.6,1.6-1.6H13c0.9,0,1.6,0.7,1.6,1.6v3.2   C14.7,32,13.9,32.7,13,32.7z"/>
+                                        </g>
+                                        <g>
+                                            <path d="M13,47H9.8c-0.9,0-1.6-0.7-1.6-1.6v-3.2c0-0.9,0.7-1.6,1.6-1.6H13c0.9,0,1.6,0.7,1.6,1.6v3.2   C14.7,46.3,13.9,47,13,47z"/>
+                                        </g>
+                                        <g>
+                                            <path d="M48.4,47H22.7c-0.9,0-1.6-0.7-1.6-1.6v-3.2c0-0.9,0.7-1.6,1.6-1.6h25.7c0.9,0,1.6,0.7,1.6,1.6v3.2   C50,46.3,49.3,47,48.4,47z"/>
+                                        </g>
+                                        </svg>
+
+                                    </span><span class="sa-nav__title">Task Manager</span><span
+                                      class="sa-nav__arrow"><svg xmlns="http://www.w3.org/2000/svg"
+                                          width="6" height="9" viewBox="0 0 6 9" fill="currentColor">
+                                          <path
+                                              d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
+                                          </path>
+                                      </svg></span></a>
+                              <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
+                                <li class="sa-nav__menu-item"><a href="https://ps26819.vercel.app/"
+                                    class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span
+                                        class="sa-nav__title">Task Manager Redirect</span></a></li>
+
+                              </ul>
+                          </li>
+                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
+                              data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
+                                  class="sa-nav__link" data-sa-collapse-trigger=""><span
+                                      class="sa-nav__icon">
+                                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="brand-engagement"><g data-name="Glyph"><path d="M8 62h48a1 1 0 0 0 .993-1.116l-5-43A1 1 0 0 0 51 17h-9v-5a10 10 0 0 0-20 0v5h-9a1 1 0 0 0-.993.884l-5 43A1 1 0 0 0 8 62Zm15-4a1 1 0 1 1 1-1 1 1 0 0 1-1 1Zm20-33a2 2 0 1 1-2-2 2 2 0 0 1 2 2ZM24 12a8 8 0 0 1 16 0v5H24Zm-1 11a2 2 0 1 1-2 2 2 2 0 0 1 2-2Zm-4.13 11.132a6.4 6.4 0 0 1 9.026 0L32 38.227l4.1-4.095a6.4 6.4 0 0 1 9.026 0 6.394 6.394 0 0 1 0 9.012l-12.325 12.3a1 1 0 0 1-1.407.006l-12.522-12.3a6.391 6.391 0 0 1-.002-9.018ZM12 56h7a1 1 0 0 1 0 2h-7a1 1 0 0 1 0-2Z"/><path d="M35.6 46.964a1 1 0 0 0 .707-.293l6.185-6.171a1 1 0 1 0-1.412-1.415l-6.18 6.171a1 1 0 0 0 .706 1.708Z"/><circle cx="33.321" cy="48.22" r="1"/></g></svg>
+                                    </span><span class="sa-nav__title">Admin Private Chat</span><span
+                                      class="sa-nav__arrow"><svg xmlns="http://www.w3.org/2000/svg"
+                                          width="6" height="9" viewBox="0 0 6 9" fill="currentColor">
+                                          <path
+                                              d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
+                                          </path>
+                                      </svg></span></a>
+                              <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
+                                <li class="sa-nav__menu-item"><a href="#"
+                                    class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span
+                                        class="sa-nav__title">Coming soon</span></a></li>
+
+                              </ul>
+                          </li>
+                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
                                   data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
                                       class="sa-nav__link" data-sa-collapse-trigger=""><span
                                           class="sa-nav__icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em"

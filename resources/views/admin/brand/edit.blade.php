@@ -4,8 +4,11 @@
 {!! implode('', $errors->all('<div>:message</div>')) !!}
 @endif
 <div id="top" class="sa-app__body">
-    <form id="form" method="POST" action="{{route('admin.brand.store')}}">
+    <form id="form" method="POST" action="{{route('admin.brand.update', ['id'=> $brand->id])}}">
+        
+
         @csrf
+        @method('PUT')
         <div class="mx-sm-2 px-2 px-sm-3 px-xxl-4 pb-6">
             <div class="container container--max--xl">
                 <div class="py-5">
@@ -35,7 +38,7 @@
                                         <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                     </div>
                                     <div class="mb-4"><label for="form-brand/name" class="form-label">Name</label>
-                                        <input  name="name"  type="text" class="form-control"
+                                        <input  name="name"  type="text" class="form-control" value="{{$brand->name}}"
                                             id="form-brand/name" />
                                             @error('name')
                                                {{$message}}
@@ -45,6 +48,7 @@
                                         <div class="input-group input-group--sa-slug"><span class="input-group-text"
                                                 id="form-brand/slug-addon">https://example.com/catalog/</span><input
                                                 name="slug"
+                                                value="{{$brand->slug}}"
                                                   type="text" class="form-control"
                                                 id="form-brand/slug"
                                                 aria-describedby="form-brand/slug-addon form-brand/slug-help" />
@@ -67,10 +71,11 @@
                                         <h2 class="mb-0 fs-exact-18">Visibility</h2>
                                     </div>
                                     <div class="mb-4"><label class="form-check"><input type="radio"
-                                                class="form-check-input" checked  name="status" value="published" /><span
+
+                                                class="form-check-input" {{ $brand->status == 1 ? 'checked' : ''}}  name="status" value="published" /><span
                                                 class="form-check-label">Published</span></label>
 
-                                        <label class="form-check mb-0"><input value="hidden" type="radio"
+                                        <label class="form-check mb-0"><input {{ $brand->status == 0 ? 'checked' : ''}}  value="hidden" type="radio"
                                                 class="form-check-input" wire:model.defer="status" name="status" /><span
                                                 class="form-check-label">Hidden</span></label>
                                     </div>
