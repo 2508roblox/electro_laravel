@@ -5,6 +5,7 @@ use App\Models\ProductColor;
 use App\Livewire\Admin\Brand\Index;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
@@ -35,9 +36,6 @@ use App\Http\Controllers\Admin\ProductColorController;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
-|a
-a
-a
 */
 // access for guest
 Route::group(['prefix' => 'auth'], function () {
@@ -200,7 +198,13 @@ Route::controller(CartController::class)->group(function () {
     Route::put('/cart/edit', 'update')->name('admin.cart.update');
     Route::get('/cart/{id}', 'destroy')->name('admin.cart.delete');
 });
-
+// Blog
+Route::prefix('blog')->group(function () {
+    Route::controller(BlogController::class)->group(function () {
+        Route::get('/', 'index')->name('fe.blog');
+        Route::get('/post/{id}', 'post')->name('fe.post');
+    });
+});
 ///// Frontend Routing
 Route::get('/wallet', [FrontendController::class, 'wallet'])->middleware(['auth'])->name('frontend.wallet');
 Route::post('/wallet/create', [FrontendController::class, 'wallet'])->middleware(['auth'])->name('frontend.wallet.store');
