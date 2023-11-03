@@ -55,7 +55,7 @@
     @include('inc._topbar');
     @yield('content');
 
-    <a class="js-go-to u-go-to" href="#" data-position='{"bottom": 15, "right": 15 }' data-type="fixed"
+    <a class="js-go-to u-go-to " style="margin-right: 5rem; margin-bottom: .5rem;"  href="#" data-position='{"bottom": 15, "right": 15 }' data-type="fixed"
         data-offset-top="400" data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown">
         <span class="fas fa-arrow-up u-go-to__inner"></span>
     </a>
@@ -63,7 +63,28 @@
     @include('inc._accountSidebar')
     @include('inc._footer')
     <!-- End Go to Top -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      intent="WELCOME"
+      chat-title="Electro Assistant"
+      agent-id="0953d30d-3636-4204-996e-37cad8d999e7"
+      language-code="en"
+      expand="true"
+    ></df-messenger>
+    <style>
+        df-messenger {
 
+        --df-messenger-bot-message: #fed700;
+        --df-messenger-chat-background-color: #fafafa;
+        --df-messenger-font-color: #000000;
+        ---df-messenger-user-message: #1187ee;
+        --df-messenger-button-titlebar-color: #fed700;
+        --df-messenger-titlebar-color: #fed700;
+    }
+    .title-wrapper {
+        background: red !important;
+    }
+        </style>
     <!-- JS Global Compulsory -->
     <script src="{{ asset('client/vendor/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('client/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}"></script>
