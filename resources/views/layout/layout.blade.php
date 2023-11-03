@@ -69,7 +69,6 @@
       chat-title="Electro Assistant"
       agent-id="0953d30d-3636-4204-996e-37cad8d999e7"
       language-code="en"
-      expand="true"
     ></df-messenger>
     <style>
         df-messenger {
