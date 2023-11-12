@@ -569,7 +569,7 @@
 
                             <!-- Contact Us -->
                             <li class="nav-item u-header__nav-item">
-                                <a class="nav-link u-header__nav-link" href="#" aria-haspopup="true" aria-expanded="false">Contact Us</a>
+                                <a class="nav-link u-header__nav-link" href="{{route('frontend.contact.view')}}" aria-haspopup="true" aria-expanded="false">Contact Us</a>
                             </li>
                             <!-- End Contact Us -->
                         </ul>

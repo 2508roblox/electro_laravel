@@ -32,8 +32,17 @@
                         <div class="border-bottom border-color-1 mb-5">
                             <h3 class="section-title mb-0 pb-2 font-size-25">Leave us a Message</h3>
                         </div>
+                        @error('firstname')
+                        {{$message}}
+                     @enderror
+                        @if (session('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                         <p class="max-width-830-xl text-gray-90">Aenean massa diam, viverra vitae luctus sed, gravida eget est. Etiam nec ipsum porttitor, consequat libero eu, dignissim eros. Nulla auctor lacinia enim id mollis. Curabitur luctus interdum eleifend. Ut tempor lorem a turpis fermentum.</p>
-                        <form class="js-validate" novalidate="novalidate">
+                        <form class="js-validate" action="{{route('frontend.contact.store')}}" method="POST" novalidate="novalidate">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <!-- Input -->
@@ -42,7 +51,7 @@
                                                 First name
                                                 <span class="text-danger">*</span>
                                             </label>
-                                        <input type="text" class="form-control" name="firstName" placeholder="" aria-label="" required="" data-msg="Please enter your frist name." data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off">
+                                        <input type="text" class="form-control" name="firstname" placeholder="" aria-label="" required="" data-msg="Please enter your frist name." data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off">
                                     </div>
                                     <!-- End Input -->
                                 </div>
@@ -54,7 +63,7 @@
                                                 Last name
                                                 <span class="text-danger">*</span>
                                             </label>
-                                        <input type="text" class="form-control" name="lastName" placeholder="" aria-label="" required="" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success">
+                                        <input type="text" class="form-control" name="lastname" placeholder="" aria-label="" required="" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success">
                                     </div>
                                     <!-- End Input -->
                                 </div>
@@ -65,7 +74,7 @@
                                         <label class="form-label">
                                                 Subject
                                             </label>
-                                        <input type="text" class="form-control" name="Subject" placeholder="" aria-label="" data-msg="Please enter subject." data-error-class="u-has-error" data-success-class="u-has-success">
+                                        <input type="text" class="form-control" name="subject" placeholder="" aria-label="" data-msg="Please enter subject." data-error-class="u-has-error" data-success-class="u-has-success">
                                     </div>
                                     <!-- End Input -->
                                 </div>
@@ -76,7 +85,7 @@
                                             </label>
 
                                         <div class="input-group">
-                                            <textarea class="form-control p-5" rows="4" name="text" placeholder=""></textarea>
+                                            <textarea class="form-control p-5" rows="4" name="message" placeholder=""></textarea>
                                         </div>
                                     </div>
                                 </div>

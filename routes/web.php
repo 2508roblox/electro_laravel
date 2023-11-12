@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductColorController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -170,6 +171,11 @@ Route::delete('/delete-pcolor', function () {
     return response()->json('Product Delete Updated!', 200);
 });
 
+Route::controller(ContactController::class)->group(function () {
+    Route::get('/contact', 'index')->name('frontend.contact.view');
+    Route::post('/contact', 'store')->name('frontend.contact.store');
+
+});
 Route::controller(OrderController::class)->group(function () {
     Route::get('/order', 'index')->name('frontend.order.list');
     Route::get('/order/{id}/detail', 'show')->name('frontend.order.show');
