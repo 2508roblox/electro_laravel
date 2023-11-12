@@ -4,7 +4,7 @@
 {!! implode('', $errors->all('<div>:message</div>')) !!}
 @endif
 <div id="top" class="sa-app__body">
-    <form id="form" method="POST" action="{{route('admin.brand.update', ['id'=> $brand->id])}}">
+    <form id="form" method="POST" action="{{route('admin.user.update', ['id'=> $user->id])}}">
         
 
         @csrf
@@ -17,13 +17,13 @@
                             <nav class="mb-2" aria-label="breadcrumb">
                                 <ol class="breadcrumb breadcrumb-sa-simple">
                                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="app-Brand-list.html">Brand</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Create brand</li>
+                                    <li class="breadcrumb-item"><a href="app-Brand-list.html">User</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Create user</li>
                                 </ol>
                             </nav>
-                            <h1 class="h3 m-0">Edit brand</h1>
+                            <h1 class="h3 m-0">Edit user</h1>
                         </div>
-                        <div class="col-auto d-flex"><a href="{{ route('admin.brand.list') }}"
+                        <div class="col-auto d-flex"><a href="{{ route('admin.user.list') }}"
                                 class="btn btn-secondary me-3">Back</a><button type="submit" id="submit_button"  href="#"
                                 class="btn btn-primary">Save</button></div>
                     </div>
@@ -37,28 +37,31 @@
                                     <div class="mb-5">
                                         <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                     </div>
-                                    <div class="mb-4"><label for="form-brand/name" class="form-label">Name</label>
-                                        <input  name="name"  type="text" class="form-control" value="{{$brand->name}}"
-                                            id="form-brand/name" />
+                                    <div class="mb-4"><label for="form-user/name" class="form-label">Name</label>
+                                        <input  name="name"  type="text" class="form-control" value="{{$user->name}}" id="form-user/name" />
                                             @error('name')
                                                {{$message}}
                                             @enderror
                                     </div>
-                                    <div class="mb-4"><label for="form-brand/slug" class="form-label">Slug</label>
-                                        <div class="input-group input-group--sa-slug"><span class="input-group-text"
-                                                id="form-brand/slug-addon">https://example.com/catalog/</span><input
-                                                name="slug"
-                                                value="{{$brand->slug}}"
-                                                  type="text" class="form-control"
-                                                id="form-brand/slug"
-                                                aria-describedby="form-brand/slug-addon form-brand/slug-help" />
-                                                @error('slug')
-                                                {{$message}}
-                                             @enderror
+                                    <div class="mb-4">
+                                        <label for="form-user/email" class="form-label">Email</label>
+                                        <div class="input-group input-group--sa-slug">
+                                            <input name="email" value="{{$user->email}}" type="email" class="form-control" id="form-user/email" />
+                                            @error('email')
+                                               {{$message}}
+                                            @enderror
                                         </div>
-                                        <div id="form-brand/slug-help" class="form-text">Unique human-readable
-                                            brand identifier. No longer than 255 characters.</div>
                                     </div>
+                                    <div class="mb-4">
+                                        <label for="form-user/created_at" class="form-label">Date create</label>
+                                        <div class="input-group input-group--sa-slug">
+                                            <input name="created_at" value="{{$user->created_at}}" type="created_at" class="form-control" id="form-user/created_at" />
+                                            @error('created_at')
+                                               {{$message}}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    
 
                                 </div>
                             </div>
@@ -68,16 +71,16 @@
                             <div class="card w-100">
                                 <div class="card-body p-5">
                                     <div class="mb-5">
-                                        <h2 class="mb-0 fs-exact-18">Visibility</h2>
+                                        <h2 class="mb-0 fs-exact-18">Role</h2>
                                     </div>
                                     <div class="mb-4"><label class="form-check"><input type="radio"
 
-                                                class="form-check-input" {{ $brand->status == 1 ? 'checked' : ''}}  name="status" value="published" /><span
-                                                class="form-check-label">Published</span></label>
+                                                class="form-check-input" {{ $user->role_as == 1 ? 'checked' : ''}}  name="role_as" value="1" /><span
+                                                class="form-check-label">Admin</span></label>
 
-                                        <label class="form-check mb-0"><input {{ $brand->status == 0 ? 'checked' : ''}}  value="hidden" type="radio"
-                                                class="form-check-input" wire:model.defer="status" name="status" /><span
-                                                class="form-check-label">Hidden</span></label>
+                                        <label class="form-check mb-0"><input {{ $user->role_as == 0 ? 'checked' : ''}}  value="0" type="radio"
+                                                class="form-check-input" name="role_as" /><span
+                                                class="form-check-label">Customer</span></label>
                                     </div>
 
                                 </div>

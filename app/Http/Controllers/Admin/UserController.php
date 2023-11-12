@@ -34,7 +34,7 @@ class UserController extends Controller
             'remember_token' => 'nullable',
             'created_at' => NOW(),
             'updated_at' => 'nullable',
-            'role_as' => "0",
+            'role_as' => "required",
         ]);
 
         $validatedData['role_as'] = $validatedData['role_as'] == 'Admin' ? '1' : '0';
@@ -56,8 +56,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = user::find($id);
-        $categories = User::all();
-        return view('admin.user.edit', compact('user', 'categories'));
+        $users = User::all();
+        return view('admin.user.edit', compact('user', 'users'));
     }
 
     /**
@@ -68,12 +68,7 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'email_verified_at' => 'nullable',
-            'password' => 'required',
-            'remember_token' => 'nullable',
-            'created_at' => 'required',
-            'updated_at' => NOW(),
-            'role_as' => "0",
+            'role_as' => 'required',
         ]);
 
         $validatedData['role_as'] = $request->has('role_as') ? '1' : '0';

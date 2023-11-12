@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 12, 2023 lúc 05:10 PM
+-- Thời gian đã tạo: Th10 12, 2023 lúc 05:46 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -617,8 +617,11 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `role_as`) VALUES
 (1, 'sagewg', 'trangiangzxc@gmail.com', NULL, '$2y$10$vCA2jPL/i7dhYEEtnXYbcuCXvyn7zPyOWbSur8oPdoC3haoGIaPWy', NULL, '2023-09-21 23:40:03', '2023-09-21 23:40:03', 1),
 (2, 'abc132', 'abc132@gmail.com', NULL, '$2y$10$nTKbv4fbrTZfV52uP.MhiejTT5LuAaJV9f/rH.44tNi8msoc/fNiC', NULL, '2023-11-12 07:10:29', '2023-11-12 07:10:29', 0),
-(3, 'shjdbv', 'shjdbv@gmail.com', NULL, '$2y$10$RRp9CaAMko0wc8KE4rGcYODGb/d5kMwo7Q3oPeHmWTl0iJpv7VxUy', NULL, '2023-11-12 07:11:07', '2023-11-12 07:11:07', 0),
-(4, 'pojfv', 'pojfv@gmail.com', NULL, '$2y$10$U1D9maZHttSaXUNIQksEgOlXe9h75.IXvj1xKfq.z9lFCY17qnsVa', NULL, '2023-11-12 07:11:29', '2023-11-12 07:11:29', 0);
+(3, 'shj2dbv', 'shj2dbv@gmail.com', NULL, '$2y$10$RRp9CaAMko0wc8KE4rGcYODGb/d5kMwo7Q3oPeHmWTl0iJpv7VxUy', NULL, '2023-11-12 07:11:07', '2023-11-12 09:34:33', 0),
+(4, 'pojfa43', 'pojfa43@gmail.com', NULL, '$2y$10$U1D9maZHttSaXUNIQksEgOlXe9h75.IXvj1xKfq.z9lFCY17qnsVa', NULL, '2023-11-12 07:11:29', '2023-11-12 09:36:56', 0),
+(6, 'sfbdndcn23', 'sfbdndcn23@gmail.com', NULL, '$2y$10$zA0WUlEAU7mzqtYZHZ.OdeBsRwR01OA80fxlPmsC3DjWzH1AGWKk6', NULL, '2023-11-12 09:43:54', '2023-11-12 09:43:54', 0),
+(7, 'nht', 'nht@gmail.com', NULL, '$2y$10$KBci.gMT4BmBM6htvl2BDuydGWpaszohzwqM8jNmYkOewX7CEIR0u', NULL, '2023-11-12 09:44:26', '2023-11-12 09:44:26', 0),
+(8, 'avv', 'avv@gmail.com', NULL, '$2y$10$A1IVkCwPZTxCV78XAzFOver.KYVtuMo1zWtTMltRFkhH/BPW2Mffu', NULL, '2023-11-12 09:46:08', '2023-11-12 09:46:08', 0);
 
 -- --------------------------------------------------------
 
@@ -936,7 +939,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `wallets`

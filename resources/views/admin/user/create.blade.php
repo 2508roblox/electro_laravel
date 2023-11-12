@@ -4,7 +4,7 @@
 {!! implode('', $errors->all('<div>:message</div>')) !!}
 @endif
 <div id="top" class="sa-app__body">
-    <form id="form" method="POST" action="{{route('admin.brand.store')}}">
+    <form id="form" method="POST" action="{{route('admin.user.store')}}">
         @csrf
         <div class="mx-sm-2 px-2 px-sm-3 px-xxl-4 pb-6">
             <div class="container container--max--xl">
@@ -14,13 +14,13 @@
                             <nav class="mb-2" aria-label="breadcrumb">
                                 <ol class="breadcrumb breadcrumb-sa-simple">
                                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item"><a href="app-Brand-list.html">Brand</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Create brand</li>
+                                    <li class="breadcrumb-item"><a href="app-Brand-list.html">User</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Create user</li>
                                 </ol>
                             </nav>
-                            <h1 class="h3 m-0">Edit brand</h1>
+                            <h1 class="h3 m-0">Edit user</h1>
                         </div>
-                        <div class="col-auto d-flex"><a href="{{ route('admin.brand.list') }}"
+                        <div class="col-auto d-flex"><a href="{{ route('admin.user.list') }}"
                                 class="btn btn-secondary me-3">Back</a><button type="submit" id="submit_button"  href="#"
                                 class="btn btn-primary">Save</button></div>
                     </div>
@@ -41,19 +41,23 @@
                                                {{$message}}
                                             @enderror
                                     </div>
-                                    <div class="mb-4"><label for="form-brand/slug" class="form-label">Slug</label>
-                                        <div class="input-group input-group--sa-slug"><span class="input-group-text"
-                                                id="form-brand/slug-addon">https://example.com/catalog/</span><input
-                                                name="slug"
-                                                  type="text" class="form-control"
-                                                id="form-brand/slug"
-                                                aria-describedby="form-brand/slug-addon form-brand/slug-help" />
-                                                @error('slug')
-                                                {{$message}}
-                                             @enderror
+                                    <div class="mb-4">
+                                        <label for="form-user/email" class="form-label">Email</label>
+                                        <div class="input-group input-group--sa-slug">
+                                            <input name="email" type="email" class="form-control" id="form-user/email" />
+                                            @error('email')
+                                               {{$message}}
+                                            @enderror
                                         </div>
-                                        <div id="form-brand/slug-help" class="form-text">Unique human-readable
-                                            brand identifier. No longer than 255 characters.</div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="form-user/password" class="form-label">Password</label>
+                                        <div class="input-group input-group--sa-slug">
+                                            <input name="password" type="password" class="form-control" id="form-user/password" />
+                                            @error('password')
+                                               {{$message}}
+                                            @enderror
+                                        </div>
                                     </div>
 
                                 </div>
@@ -64,15 +68,15 @@
                             <div class="card w-100">
                                 <div class="card-body p-5">
                                     <div class="mb-5">
-                                        <h2 class="mb-0 fs-exact-18">Visibility</h2>
+                                        <h2 class="mb-0 fs-exact-18">Role</h2>
                                     </div>
                                     <div class="mb-4"><label class="form-check"><input type="radio"
-                                                class="form-check-input" checked  name="status" value="published" /><span
-                                                class="form-check-label">Published</span></label>
+                                                class="form-check-input" checked  name="role_as" value="1" /><span
+                                                class="form-check-label">Admin</span></label>
 
                                         <label class="form-check mb-0"><input value="hidden" type="radio"
-                                                class="form-check-input" wire:model.defer="status" name="status" /><span
-                                                class="form-check-label">Hidden</span></label>
+                                                class="form-check-input" wire:model.defer="role_as" name="role_as" value="0"/><span
+                                                class="form-check-label">Customer</span></label>
                                     </div>
 
                                 </div>
