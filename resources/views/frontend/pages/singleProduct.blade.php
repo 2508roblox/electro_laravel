@@ -124,7 +124,7 @@
                             </div>
                             <div class="flex-horizontal-center flex-wrap mb-4">
                                 {{-- add wishlidt --}}
-                                <form id="addToWishlistForm" action="{{ route('admin.wishlist.store') }}" method="POST">
+                                <form id="addToWishlistForm" action="{{ route('frontend.wishlist.store') }}" method="POST">
                                     @csrf
                                     <input hidden type="text" name="wishlistProductId" value="{{ $product->id }}">
                                     <p style="cursor: pointer" id="addToWishlist"

@@ -185,12 +185,12 @@ Route::controller(CheckoutController::class)->group(function () {
     Route::delete('/checkout/{id}', 'destroy')->name('admin.checkout.delete');
 });
 
-Route::controller(WishlistController::class)->middleware(['guest'])->group(function () {
-    Route::get('/wishlist', 'index')->middleware(['auth'])->name('admin.wishlist.list');
-    Route::get('/wishlist/create', 'create')->middleware(['auth'])->name('admin.wishlist.create');
-    Route::post('/wishlist/create', 'store')->middleware(['auth'])->name('admin.wishlist.store');
+Route::controller(WishlistController::class)->group(function () {
+    Route::get('/wishlist', 'index')->middleware(['auth'])->name('frontend.wishlist.list');
+    Route::get('/wishlist/create', 'create')->middleware(['auth'])->name('frontend.wishlist.create');
+    Route::post('/wishlist/create', 'store')->middleware(['auth'])->name('frontend.wishlist.store');
 
-    Route::delete('/wishlist/{id}', 'destroy')->middleware(['auth'])->name('admin.wishlist.delete');
+    Route::delete('/wishlist/{id}', 'destroy')->middleware(['auth'])->name('frontend.wishlist.delete');
 });
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart', 'index')->name('admin.cart.list');

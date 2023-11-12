@@ -337,7 +337,7 @@
                                                                 <!-- End Compare -->
 
                                                                 <!-- wishlist -->
-                                                                <li><a class="u-header-collapse__submenu-nav-link" href="{{route('admin.wishlist.list')}}">wishlist</a></li>
+                                                                <li><a class="u-header-collapse__submenu-nav-link" href="{{route('frontend.wishlist.list')}}">wishlist</a></li>
                                                                 <!-- End wishlist -->
                                                             </ul>
                                                         </div>
@@ -461,7 +461,7 @@
                                 <li class="col d-none d-xl-block"><a href="{{route('frontend.order.list')}}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Compare">
                                 <img style="height: 26px; width: 26px" src="{{asset('client/img/order-icon.png')}}"  alt="">
                                 </a></li>
-                                <li class="col d-none d-xl-block"><a href="{{route('admin.wishlist.list')}}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Favorites"><i class="font-size-22 ec ec-favorites"></i></a></li>
+                                <li class="col d-none d-xl-block"><a href="{{route('frontend.wishlist.list')}}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Favorites"><i class="font-size-22 ec ec-favorites"></i></a></li>
                                 <li class="col d-xl-none px-2 px-sm-3"><a href="../shop/my-account.html" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="My Account"><i class="font-size-22 ec ec-user"></i></a></li>
                                 <li class="col pr-xl-0 px-2 px-sm-3">
                                     <a href="{{route('admin.cart.list')}}" class="text-gray-90 position-relative d-flex " data-toggle="tooltip" data-placement="top" title="Cart">
@@ -533,7 +533,7 @@
                                 <!-- End Submenu -->
                             </li>
                             <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Wishlist</a>
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{route('frontend.wishlist.list')}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Wishlist</a>
 
                                 <!-- Blog - Submenu -->
 
