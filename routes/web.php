@@ -15,6 +15,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Admin\SliderController;
@@ -132,6 +133,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/slider/{id}/edit', 'update')->name('admin.slider.update');
         Route::delete('/slider/{id}', 'destroy')->name('admin.slider.delete');
     });
+    // User
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/user', 'index')->name('admin.user.list');
+        Route::get('/user/create', 'create')->name('admin.user.create');
+        Route::post('/user/create', 'store')->name('admin.user.store');
+        Route::get('/user/{id}/edit', 'edit')->name('admin.user.edit');
+        Route::put('/user/{id}/update', 'update')->name('admin.user.update');
+        Route::delete('/user/{id}', 'destroy')->name('admin.user.delete');
+    });
 
     // Route::controller()->group(function() {
     //     Route::get('/subcategory')->name('admin.subcategory.list');
@@ -204,6 +214,7 @@ Route::controller(CartController::class)->group(function () {
     Route::put('/cart/edit', 'update')->name('admin.cart.update');
     Route::get('/cart/{id}', 'destroy')->name('admin.cart.delete');
 });
+
 // Blog
 Route::prefix('blog')->group(function () {
     Route::controller(BlogController::class)->group(function () {

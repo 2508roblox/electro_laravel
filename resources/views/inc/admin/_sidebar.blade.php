@@ -335,7 +335,7 @@
                                               <path
                                                   d="M8,10c-3.3,0-6,2.7-6,6H0c0-3.2,1.9-6,4.7-7.3C3.7,7.8,3,6.5,3,5c0-2.8,2.2-5,5-5s5,2.2,5,5c0,1.5-0.7,2.8-1.7,3.7c2.8,1.3,4.7,4,4.7,7.3h-2C14,12.7,11.3,10,8,10z M8,2C6.3,2,5,3.3,5,5s1.3,3,3,3s3-1.3,3-3S9.7,2,8,2z">
                                               </path>
-                                          </svg></span><span class="sa-nav__title">Customers</span><span
+                                          </svg></span><span class="sa-nav__title">Users</span><span
                                           class="sa-nav__arrow"><svg xmlns="http://www.w3.org/2000/svg"
                                               width="6" height="9" viewBox="0 0 6 9" fill="currentColor">
                                               <path
@@ -343,14 +343,15 @@
                                               </path>
                                           </svg></span></a>
                                   <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
-                                      <li class="sa-nav__menu-item"><a href="app-customers-list.html"
+                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.user.list') }}"
                                               class="sa-nav__link"><span
                                                   class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Customers List</span></a></li>
-                                      <li class="sa-nav__menu-item"><a href="app-customer.html"
+                                                  class="sa-nav__title">User Create</span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.user.list') }}"
                                               class="sa-nav__link"><span
                                                   class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Customer</span></a></li>
+                                                  class="sa-nav__title">User List</span></a></li>
+                                      
                                   </ul>
                               </li>
                               <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
