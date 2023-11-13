@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductColorController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\OtpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -181,38 +182,44 @@ Route::delete('/delete-pcolor', function () {
     return response()->json('Product Delete Updated!', 200);
 });
 
+Route::controller(OtpController::class)->group(function () {
+    Route::get('/verify-email', 'index')->name('frontend.otp.view');
+    Route::post('/verify-email', 'store')->name('frontend.otp.store');
+
+});
 Route::controller(ContactController::class)->group(function () {
     Route::get('/contact', 'index')->name('frontend.contact.view');
     Route::post('/contact', 'store')->name('frontend.contact.store');
 
 });
 Route::controller(OrderController::class)->group(function () {
-    Route::get('/order', 'index')->name('frontend.order.list');
+    Route::get('/order', 'index')->middleware(['auth', 'verifiedMail'])->name('frontend.order.list');
     Route::get('/order/{id}/detail', 'show')->name('frontend.order.show');
-    Route::post('/order/add', 'store')->name('frontend.order.store');
-    Route::put('/order/edit', 'update')->name('frontend.order.update');
-    Route::get('/order/{id}', 'destroy')->name('frontend.order.delete');
+    Route::post('/order/add', 'store')->middleware(['auth', 'verifiedMail'])->name('frontend.order.store');
+    Route::put('/order/edit', 'update')->middleware(['auth', 'verifiedMail'])->name('frontend.order.update');
+    Route::get('/order/{id}', 'destroy')->middleware(['auth', 'verifiedMail'])->name('frontend.order.delete');
 });
 Route::controller(CheckoutController::class)->group(function () {
     Route::get('/checkout', 'index')->name('admin.checkout');
-    Route::post('/checkout/create', 'store')->name('admin.checkout.store');
-    Route::get('/checkout/{id}/edit', 'edit')->name('admin.checkout.edit');
-    Route::post('/checkout/{id}/edit', 'update')->name('admin.checkout.update');
-    Route::delete('/checkout/{id}', 'destroy')->name('admin.checkout.delete');
+
+    Route::post('/checkout/create', 'store')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.store');
+    Route::get('/checkout/{id}/edit', 'edit')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.edit');
+    Route::post('/checkout/{id}/edit', 'update')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.update');
+    Route::delete('/checkout/{id}', 'destroy')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.delete');
 });
 
 Route::controller(WishlistController::class)->group(function () {
-    Route::get('/wishlist', 'index')->middleware(['auth'])->name('frontend.wishlist.list');
-    Route::get('/wishlist/create', 'create')->middleware(['auth'])->name('frontend.wishlist.create');
-    Route::post('/wishlist/create', 'store')->middleware(['auth'])->name('frontend.wishlist.store');
+    Route::get('/wishlist', 'index')->middleware(['auth', 'verifiedMail'])->name('frontend.wishlist.list');
+    Route::get('/wishlist/create', 'create')->middleware(['auth', 'verifiedMail'])->name('frontend.wishlist.create');
+    Route::post('/wishlist/create', 'store')->middleware(['auth', 'verifiedMail'])->name('frontend.wishlist.store');
 
     Route::delete('/wishlist/{id}', 'destroy')->middleware(['auth'])->name('frontend.wishlist.delete');
 });
 Route::controller(CartController::class)->group(function () {
-    Route::get('/cart', 'index')->name('admin.cart.list');
-    Route::post('/cart/add', 'store')->name('admin.wishlist.store');
-    Route::put('/cart/edit', 'update')->name('admin.cart.update');
-    Route::get('/cart/{id}', 'destroy')->name('admin.cart.delete');
+    Route::get('/cart', 'index')->middleware(['auth', 'verifiedMail'])->name('admin.cart.list');
+    Route::post('/cart/add', 'store')->middleware(['auth', 'verifiedMail'])->name('admin.wishlist.store');
+    Route::put('/cart/edit', 'update')->middleware(['auth', 'verifiedMail'])->name('admin.cart.update');
+    Route::get('/cart/{id}', 'destroy')->middleware(['auth', 'verifiedMail'])->name('admin.cart.delete');
 });
 
 // Blog
