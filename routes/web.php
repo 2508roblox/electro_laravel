@@ -221,6 +221,12 @@ Route::controller(CartController::class)->group(function () {
     Route::put('/cart/edit', 'update')->middleware(['auth', 'verifiedMail'])->name('admin.cart.update');
     Route::get('/cart/{id}', 'destroy')->middleware(['auth', 'verifiedMail'])->name('admin.cart.delete');
 });
+// Route::controller(CartController::class)->group(function () {
+//     Route::get('/cart', 'index')->name('admin.cart.list');
+//     Route::post('/cart/add', 'store')->name('admin.wishlist.store');
+//     Route::put('/cart/edit', 'update')->name('admin.cart.update');
+//     Route::get('/cart/{id}', 'destroy')->name('admin.cart.delete');
+// });
 
 // Blog
 Route::prefix('blog')->group(function () {
@@ -242,5 +248,3 @@ Route::get('/category/{category_slug}', [FrontendController::class, 'showCategor
 Route::get('/checkpayment', [FrontendController::class, 'checkpayment'])->name('frontend.category.checkpayment');
 Route::get('/category/{category_slug}/{sub_slug}', [FrontendController::class, 'showCategoryProducts'])->name('frontend.category.products');
 Route::get('/{product_slug}', [FrontendController::class, 'showSingleProduct'])->name('frontend.category.show');
-
-

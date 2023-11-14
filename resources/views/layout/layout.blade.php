@@ -18,13 +18,37 @@
 
         {{-- sssssssssssssssssss --}}
         <!-- Title -->
+<<<<<<< HEAD
+        <title> Electro Shop</title>
+=======
         <title>Electro </title>
+>>>>>>> 6f5887e73f6ad42d8d82e47999ea550d5608c6a5
 
         <!-- Required Meta Tags Always Come First -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Favicon -->
+<<<<<<< HEAD
+        <link rel="icon" href="/cropped-electro-fav-icon-2-32x32.png" sizes="32x32">
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap"
+            rel="stylesheet">
+
+        <!-- CSS Implementing Plugins -->
+        <link rel="stylesheet" href="{{ asset('client/vendor/font-awesome/css/fontawesome-all.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('client/css/font-electro.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('client/vendor/animate.css/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('client/vendor/hs-megamenu/src/hs.megamenu.css') }}">
+        <link rel="stylesheet"
+            href="{{ asset('client/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') }}">
+        <link rel="stylesheet" href="{{ asset('client/vendor/fancybox/jquery.fancybox.css') }}">
+        <link rel="stylesheet" href="{{ asset('client/vendor/slick-carousel/slick/slick.css') }}">
+        <link rel="stylesheet" href="{{ asset('client/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
+
+=======
         <link rel="shortcut icon" href="/cropped-electro-fav-icon-2-32x32.png">
 
         <!-- Google Fonts -->
@@ -44,6 +68,7 @@
         <link rel="stylesheet" href="{{ asset('client/vendor/slick-carousel/slick/slick.css') }}">
         <link rel="stylesheet" href="{{ asset('client/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
 
+>>>>>>> 6f5887e73f6ad42d8d82e47999ea550d5608c6a5
         <link rel="stylesheet" href="{{ asset('client/vendor/ion-rangeslider/css/ion.rangeSlider.css') }}">
         <link rel="stylesheet" href="{{ asset('client/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
         <!-- CSS Electro Template -->
@@ -55,7 +80,11 @@
     @include('inc._topbar');
     @yield('content');
 
+<<<<<<< HEAD
+    <a class="js-go-to u-go-to" href="#" data-position='{"bottom": 15, "right": 15 }' data-type="fixed"
+=======
     <a class="js-go-to u-go-to " style="margin-right: 5rem; margin-bottom: .5rem;"  href="#" data-position='{"bottom": 15, "right": 15 }' data-type="fixed"
+>>>>>>> 6f5887e73f6ad42d8d82e47999ea550d5608c6a5
         data-offset-top="400" data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown">
         <span class="fas fa-arrow-up u-go-to__inner"></span>
     </a>
@@ -63,6 +92,9 @@
     @include('inc._accountSidebar')
     @include('inc._footer')
     <!-- End Go to Top -->
+<<<<<<< HEAD
+
+=======
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     <df-messenger
       intent="WELCOME"
@@ -84,6 +116,7 @@
         background: red !important;
     }
         </style>
+>>>>>>> 6f5887e73f6ad42d8d82e47999ea550d5608c6a5
     <!-- JS Global Compulsory -->
     <script src="{{ asset('client/vendor/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('client/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}"></script>
