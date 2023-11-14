@@ -49,14 +49,66 @@
         <!-- CSS Electro Template -->
         <link rel="stylesheet" href="{{ asset('client/css/theme.css') }}">
     </head>
+    <script>
+        function connectToWs() {
+            const ws = new WebSocket('ws://localhost:7000');
+
+            ws.addEventListener('open', handleOpen);
+            ws.addEventListener('message', ws.send('faefaefaefaefw'));
+            ws.addEventListener('close', () => {
+                setTimeout(() => {
+                    console.log('Disconnected. Trying to reconnect.');
+                    connectToWs();
+                }, 1000);
+            });
+        }
+
+        function handleOpen() {
+            console.log('WebSocket connection opened');
+        }
+
+        function handleMessage(event) {
+            const messageData = JSON.parse(event.data);
+
+        }
+
+        connectToWs();
+    </script>
+    {{-- <script>
+        function connectToWss() {
+            const ws = new WebSocket('ws://localhost:8000');
+
+            ws.addEventListener('open', handleOpens);
+            // ws.send('faefaef');
+            ws.addEventListener('message', handleMessages);
+            ws.addEventListener('close', () => {
+                setTimeout(() => {
+                    console.log('Disconnected. Trying to reconnect.');
+                    connectToWs();
+                }, 1000);
+            });
+        }
+
+        function handleOpens() {
+            console.log('WebSocket connection opened');
+        }
+
+        function handleMessages(event) {
+            const messageData = JSON.parse(event.data);
+
+        }
+
+        connectToWss();
+    </script> --}}
 
 <body>
 
     @include('inc._topbar');
     @yield('content');
 
-    <a class="js-go-to u-go-to " style="margin-right: 5rem; margin-bottom: .5rem;"  href="#" data-position='{"bottom": 15, "right": 15 }' data-type="fixed"
-        data-offset-top="400" data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown">
+    <a class="js-go-to u-go-to " style="margin-right: 5rem; margin-bottom: .5rem;" href="#"
+        data-position='{"bottom": 15, "right": 15 }' data-type="fixed" data-offset-top="400" data-compensation="#header"
+        data-show-effect="slideInUp" data-hide-effect="slideOutDown">
         <span class="fas fa-arrow-up u-go-to__inner"></span>
     </a>
     @include('inc._sidebarNavigation')
@@ -64,26 +116,23 @@
     @include('inc._footer')
     <!-- End Go to Top -->
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger
-      intent="WELCOME"
-      chat-title="Electro Assistant"
-      agent-id="0953d30d-3636-4204-996e-37cad8d999e7"
-      language-code="en"
-    ></df-messenger>
+    <df-messenger intent="WELCOME" chat-title="Electro Assistant" agent-id="0953d30d-3636-4204-996e-37cad8d999e7"
+        language-code="en"></df-messenger>
     <style>
         df-messenger {
 
-        --df-messenger-bot-message: #fed700;
-        --df-messenger-chat-background-color: #fafafa;
-        --df-messenger-font-color: #000000;
-        ---df-messenger-user-message: #1187ee;
-        --df-messenger-button-titlebar-color: #fed700;
-        --df-messenger-titlebar-color: #fed700;
-    }
-    .title-wrapper {
-        background: red !important;
-    }
-        </style>
+            --df-messenger-bot-message: #fed700;
+            --df-messenger-chat-background-color: #fafafa;
+            --df-messenger-font-color: #000000;
+            ---df-messenger-user-message: #1187ee;
+            --df-messenger-button-titlebar-color: #fed700;
+            --df-messenger-titlebar-color: #fed700;
+        }
+
+        .title-wrapper {
+            background: red !important;
+        }
+    </style>
     <!-- JS Global Compulsory -->
     <script src="{{ asset('client/vendor/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('client/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}"></script>

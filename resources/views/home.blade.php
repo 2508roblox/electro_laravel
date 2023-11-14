@@ -1,3 +1,4 @@
+
 @extends('layout.layout')
 
 @section('content')
@@ -7334,10 +7335,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>  
             <!-- End Brand Carousel -->
         </div>
     </main>
+  
     <!-- ========== END MAIN CONTENT ========== -->
 
 

@@ -41,7 +41,48 @@
 
         gtag('config', 'UA-97489509-8');
     </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        function showNotification(mess) {
+            Toastify({
+                text: mess,
+                duration: 3000, // Thời gian hiển thị (3 giây)
+                newWindow: true,
+                close: true,
+                gravity: "top", // Vị trí hiển thị thông báo
+                position: "right", // Vị trí hiển thị thông báo
+                backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                stopOnFocus: true,
+            }).showToast();
+        }
+
+        function connectToWs() {
+            const ws = new WebSocket('ws://localhost:7000');
+
+            ws.addEventListener('open', handleOpen);
+            ws.addEventListener('message', handleMessage);
+            ws.addEventListener('close', () => {
+                setTimeout(() => {
+                    console.log('Disconnected. Trying to reconnect.');
+                    connectToWs();
+                }, 1000);
+            });
+        }
+
+        function handleOpen() {
+            console.log('WebSocket connection opened');
+        }
+
+        function handleMessage(event) {
+            const messageData = JSON.parse(event.data);
+            console.log(messageData)
+            showNotification(messageData)
+        }
+
+        connectToWs();
+    </script>
 </head>
 
 <body>
