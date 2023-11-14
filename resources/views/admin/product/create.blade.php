@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="sa-app__content">
-        <form action="{{ route('admin.product.store') }}" enctype="multipart/form-data" method="POST" class="sa-search sa-search--state--pending">
+        <form action="{{ route('admin.product.store') }}" enctype="multipart/form-data" method="POST"
+            class="sa-search sa-search--state--pending">
             @csrf
 
             <div id="top" class="sa-app__body">
@@ -34,9 +35,9 @@
                                             <div class="mb-5">
                                                 <h2 class="mb-0 fs-exact-18">Basic information</h2>
                                             </div>
-                                               @if($errors->any())
-            {!! implode('', $errors->all('<div>:message</div>')) !!}
-        @endif
+                                            @if ($errors->any())
+                                                {!! implode('', $errors->all('<div>:message</div>')) !!}
+                                            @endif
                                             <div class="mb-4"><label for="form-product/name"
                                                     class="form-label">Name</label><input name="name" type="text"
                                                     class="form-control" id="form-product/name"
@@ -45,8 +46,8 @@
                                                     class="form-label">Slug</label>
                                                 <div class="input-group input-group--sa-slug"><span class="input-group-text"
                                                         id="form-product/slug-addon">https://example.com/products/</span><input
-                                                        name="slug"
-                                                        type="text" class="form-control" id="form-product/slug"
+                                                        name="slug" type="text" class="form-control"
+                                                        id="form-product/slug"
                                                         aria-describedby="form-product/slug-addon form-product/slug-help"
                                                         value="brandix-screwdriver-screw150" /></div>
                                                 <div id="form-product/slug-help" class="form-text">Unique human-readable
@@ -55,15 +56,13 @@
                                             <div class="mb-4"><label for="form-product/description"
                                                     class="form-label">Description</label>
 
-                                                    <textarea  name="description" rows="" cols="80" required>
+                                                <textarea name="description" rows="" cols="80" required>
 
                                                     </textarea>
-                                                  <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
-                                                   <script>
-
-
-                                                       CKEDITOR.replace('description');
-                                                   </script>
+                                                <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+                                                <script>
+                                                    CKEDITOR.replace('description');
+                                                </script>
 
 
 
@@ -82,11 +81,12 @@
                                             </div>
                                             <div class="row g-4">
                                                 <div class="col"><label for="form-product/price"
-                                                        class="form-label">Promotion Price</label><input name="promotion_price"  type="number"
-                                                        class="form-control" id="form-product/price" value="1499" />
+                                                        class="form-label">Promotion Price</label><input
+                                                        name="promotion_price" type="number" class="form-control"
+                                                        id="form-product/price" value="1499" />
                                                 </div>
                                                 <div class="col"><label for="form-product/old-price"
-                                                        class="form-label">Price</label><input name="price"  type="number"
+                                                        class="form-label">Price</label><input name="price" type="number"
                                                         class="form-control" id="form-product/old-price" /></div>
                                             </div>
                                             <div class="mt-4 mb-n2"><a href="#">Schedule discount</a></div>
@@ -98,32 +98,31 @@
                                                 <h2 class="mb-0 fs-exact-18">Inventory</h2>
                                             </div>
                                             <div class="mb-4"><label for="form-product/sku"
-                                                    class="form-label">SKU</label><input type="text" class="form-control"
-                                                    id="form-product/sku" value="SCREW150" /></div>
+                                                    class="form-label">SKU</label><input type="text"
+                                                    class="form-control" id="form-product/sku" value="SCREW150" /></div>
                                             <div class="mb-4 pt-2"><label class="form-check"><input type="checkbox"
                                                         class="form-check-input" name="hot" />
-                                                        <span class="form-check-label">Trending</span></label></div>
+                                                    <span class="form-check-label">Trending</span></label></div>
                                             <div>
                                                 <label for="form-product/quantity" class="form-label">Stock
                                                     quantity</label>
-                                                </div>
+                                            </div>
 
-                                                    <hr>
-                                                @forelse ($colors as $color)
-
+                                            <hr>
+                                            @forelse ($colors as $color)
                                                 <div class="mt-3">
-                                                    <label  class="d-flex gap-2"  class="form-label">{{$color->name}}
-                                                        <input class="form-check-input" type="checkbox"   name="colors[{{$color->id}}]"  >
+                                                    <label class="d-flex gap-2" class="form-label">{{ $color->name }}
+                                                        <input class="form-check-input" type="checkbox"
+                                                            name="colors[{{ $color->id }}]">
                                                     </label>
 
 
-                                                    <input name="quantities[{{$color->id}}]" type="number" class="form-control"
-                                                    id="form-product/quantity" value="0" />
+                                                    <input name="quantities[{{ $color->id }}]" type="number"
+                                                        class="form-control" id="form-product/quantity" value="0" />
                                                 </div>
 
-                                                @empty
-
-                                                @endforelse
+                                            @empty
+                                            @endforelse
 
 
                                         </div>
@@ -267,8 +266,9 @@
                                                     snippet and bring your product to the top of search engines.</div>
                                             </div>
                                             <div class="mb-4"><label for="form-product/seo-title"
-                                                    class="form-label">Meta Keyword</label><input name="meta_keyword" type="text" class="form-control"
-                                                    id="form-product/seo-title" /></div>
+                                                    class="form-label">Meta Keyword</label><input name="meta_keyword"
+                                                    type="text" class="form-control" id="form-product/seo-title" />
+                                            </div>
                                             <div><label for="form-product/seo-description" class="form-label">Meta
                                                     description</label>
                                                 <textarea name="meta_description" id="form-product/seo-description" class="form-control" rows="2"></textarea>
@@ -283,20 +283,21 @@
                                                 <h2 class="mb-0 fs-exact-18">Visibility</h2>
                                             </div>
                                             <div class="mb-4"><label class="form-check"><input type="radio"
-                                                        class="form-check-input" value="published"  name="status" /><span
+                                                        class="form-check-input" value="published" name="status" /><span
                                                         class="form-check-label">Published</span></label><label
-                                                    class="form-check"><input type="radio" class="form-check-input" value="scheduled"
-                                                        name="status" checked="" /><span
+                                                    class="form-check"><input type="radio" class="form-check-input"
+                                                        value="scheduled" name="status" checked="" /><span
                                                         class="form-check-label">Scheduled</span></label>
                                                 <label class="form-check mb-0"><input type="radio"
-                                                        class="form-check-input" value="hidden"  name="status" /><span
+                                                        class="form-check-input" value="hidden" name="status" /><span
                                                         class="form-check-label">Hidden</span></label>
                                             </div>
                                             <div>
                                                 <label for="form-product/seo-title" class="form-label">Publish
-                                                    date</label><input name="publish_date" type="text" class="form-control datepicker-here"
-                                                    id="form-product/publish-date" data-auto-close="true"
-                                                    data-language="en" /></div>
+                                                    date</label><input name="publish_date" type="text"
+                                                    class="form-control datepicker-here" id="form-product/publish-date"
+                                                    data-auto-close="true" data-language="en" />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="card w-100 mt-5">
@@ -306,7 +307,8 @@
                                             </div>
                                             <select name="sub_category_id" class="sa-select2 form-select">
                                                 @foreach ($sub_categories as $sub_category)
-                                                    <option value="{{$sub_category->id}}">{{ $sub_category->name }}</option>
+                                                    <option value="{{ $sub_category->id }}">{{ $sub_category->name }}
+                                                    </option>
                                                 @endforeach ()
 
 
@@ -321,7 +323,7 @@
                                             </div>
                                             <select name="brand_id" class="sa-select2 form-select">
                                                 @foreach ($brands as $brand)
-                                                    <option value="{{$brand->id}}">{{ $brand->name }}</option>
+                                                    <option value="{{ $brand->id }}">{{ $brand->name }}</option>
                                                 @endforeach ()
 
 

@@ -114,11 +114,12 @@
                             your code</a>
                     </div>
                     <div id="shopCartTwo" class="collapse border border-top-0" aria-labelledby="shopCartHeadingTwo"
-                        data-parent="#shopCartAccordion1" style="">
-                        <form class="js-validate p-5" novalidate="novalidate">
+                        data-parent="#shopCartAccordion1"   style="">
+                        <form class="js-validate p-5" action="{{route('admin.coupon.checkdiscount')}}" method="GET" novalidate="novalidate">
+                            @csrf
                             <p class="w-100 text-gray-90">If you have a coupon code, please apply it below.</p>
                             <div class="input-group input-group-pill max-width-660-xl">
-                                <input type="text" class="form-control" name="name" placeholder="Coupon code"
+                                <input type="text" class="form-control" name="promotion" placeholder="Coupon code"
                                     aria-label="Promo code">
                                 <div class="input-group-append">
                                     <button type="submit"
@@ -129,6 +130,18 @@
                                 </div>
                             </div>
                         </form>
+                        @if (session('success'))
+    <div class="alert alert-success">
+        {{ 'You have '. session('success') . '% discounnt' }}
+    </div>
+@endif
+
+<!-- Hiển thị flash message lỗi -->
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
                     </div>
                 </div>
                 <!-- End Card -->
@@ -191,10 +204,21 @@
                                                 <th>Shipping Cost</th>
                                                 <td>${{ number_format($totalShippingCost) }}.00 </td>
                                             </tr>
+                                            <tr>
+                                                <th>Discount</th>
+                                                <td>
+                                                   <span> - ${{number_format((Session::get('discount')/100) * ($subtotal + $totalShippingCost))}}  </span>
+
+                                                  {{session('success') ? '    ('.session('success'). '%)   ' : '   (0%)'}}
+
+                                                </td>
+                                            <input type="number" hidden value="{{Session::get('discount')}} " name="discount_percent">
+
+                                            </tr>
                                             <input type="number" hidden value="{{$totalShippingCost}}" name="shipping_price">
                                             <tr>
                                                 <th>Total</th>
-                                                <td><strong>${{ number_format($subtotal + $totalShippingCost) }}.00
+                                                <td><strong>${{ number_format(($subtotal + $totalShippingCost) - (Session::get('discount')/100) * ($subtotal + $totalShippingCost)) }}.00
                                                     </strong></td>
                                             </tr>
                                         </tfoot>
@@ -231,6 +255,22 @@
                                             <!-- End Card -->
 
                                             <!-- Card -->
+                                            <div class="border-bottom border-color-1 border-dotted-bottom">
+                                                <div class="p-3" id="basicsHeadingThree">
+                                                    <div class="custom-control custom-radio">
+                                                        <input  {{ $balance < $totalRequiredAmount ? 'disabled' : '' }}type="radio" class="custom-control-input"
+                                                            id="wallet" name="payment_mode" value="wallet">
+                                                        <label class="custom-control-label   form-label"
+                                                            for="wallet" data-toggle="collapse"
+                                                            data-target="#basicsCollapseThree" aria-expanded="false"
+                                                            style="text-decoration: {{ $balance < $totalRequiredAmount ? 'line-through' : '' }}"
+                                                            aria-controls="basicsCollapseThree">
+                                                            Wallet ( ${{$balance}} )
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                             <div class="border-bottom border-color-1 border-dotted-bottom">
                                                 <div class="p-3" id="basicsHeadingThree">
                                                     <div class="custom-control custom-radio">

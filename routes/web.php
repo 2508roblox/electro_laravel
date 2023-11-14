@@ -5,6 +5,7 @@ use App\Models\ProductColor;
 use App\Livewire\Admin\Brand\Index;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Admin\SliderController;
@@ -23,8 +25,11 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminOrderController;
+use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductColorController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\OtpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +39,8 @@ use App\Http\Controllers\Admin\ProductColorController;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
-|
 */
+// access for guest
 Route::group(['prefix' => 'auth'], function () {
     Route::middleware(['guest'])->group(function () {
         Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -59,6 +64,15 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/order/{id}/mail', 'sendmail')->name('admin.invoice.mail');
             Route::get('/order/{id}/download', 'downloadinvoice')->name('admin.invoice.download');
         });
+    Route::controller(CouponController::class)->group(function () {
+        Route::get('/coupon', 'index')->name('admin.coupon.list');
+        Route::get('/coupon/checkdiscount', 'checkdiscount')->name('admin.coupon.checkdiscount');
+        Route::get('/coupon/create', 'create')->name('admin.coupon.create');
+        Route::post('/coupon/create', 'store')->name('admin.coupon.store');
+        Route::get('/coupon/{id}/edit', 'edit')->name('admin.coupon.edit');
+        Route::post('/coupon/{id}/edit', 'update')->name('admin.coupon.update');
+        Route::delete('/coupon/{id}', 'destroy')->name('admin.coupon.delete');
+    });
     Route::controller(CategoryController::class)->group(function () {
         Route::get('/category', 'index')->name('admin.category.list');
         Route::get('/category/create', 'create')->name('admin.category.create');
@@ -73,7 +87,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/brand/create', 'create')->name('admin.brand.create');
         Route::post('/brand/create', 'store')->name('admin.brand.store');
         Route::get('/brand/{id}/edit', 'edit')->name('admin.brand.edit');
-        Route::put('/brand/{id}/edit', 'update')->name('admin.brand.update');
+        Route::put('/brand/{id}/update', 'update')->name('admin.brand.update');
         Route::delete('/brand/{id}', 'destroy')->name('admin.brand.delete');
     });
     Route::controller(SubCategoryController::class)->group(function () {
@@ -120,6 +134,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/slider/{id}/edit', 'update')->name('admin.slider.update');
         Route::delete('/slider/{id}', 'destroy')->name('admin.slider.delete');
     });
+    // User
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/user', 'index')->name('admin.user.list');
+        Route::get('/user/create', 'create')->name('admin.user.create');
+        Route::post('/user/create', 'store')->name('admin.user.store');
+        Route::get('/user/{id}/edit', 'edit')->name('admin.user.edit');
+        Route::put('/user/{id}/update', 'update')->name('admin.user.update');
+        Route::delete('/user/{id}', 'destroy')->name('admin.user.delete');
+    });
 
     // Route::controller()->group(function() {
     //     Route::get('/subcategory')->name('admin.subcategory.list');
@@ -159,32 +182,44 @@ Route::delete('/delete-pcolor', function () {
     return response()->json('Product Delete Updated!', 200);
 });
 
+Route::controller(OtpController::class)->group(function () {
+    Route::get('/verify-email', 'index')->name('frontend.otp.view');
+    Route::post('/verify-email', 'store')->name('frontend.otp.store');
+
+});
+Route::controller(ContactController::class)->group(function () {
+    Route::get('/contact', 'index')->name('frontend.contact.view');
+    Route::post('/contact', 'store')->name('frontend.contact.store');
+
+});
 Route::controller(OrderController::class)->group(function () {
-    Route::get('/order', 'index')->name('frontend.order.list');
+    Route::get('/order', 'index')->middleware(['auth', 'verifiedMail'])->name('frontend.order.list');
     Route::get('/order/{id}/detail', 'show')->name('frontend.order.show');
-    Route::post('/order/add', 'store')->name('frontend.order.store');
-    Route::put('/order/edit', 'update')->name('frontend.order.update');
-    Route::get('/order/{id}', 'destroy')->name('frontend.order.delete');
+    Route::post('/order/add', 'store')->middleware(['auth', 'verifiedMail'])->name('frontend.order.store');
+    Route::put('/order/edit', 'update')->middleware(['auth', 'verifiedMail'])->name('frontend.order.update');
+    Route::get('/order/{id}', 'destroy')->middleware(['auth', 'verifiedMail'])->name('frontend.order.delete');
 });
 Route::controller(CheckoutController::class)->group(function () {
     Route::get('/checkout', 'index')->name('admin.checkout');
-    Route::post('/checkout/create', 'store')->name('admin.checkout.store');
-    Route::get('/checkout/{id}/edit', 'edit')->name('admin.checkout.edit');
-    Route::post('/checkout/{id}/edit', 'update')->name('admin.checkout.update');
-    Route::delete('/checkout/{id}', 'destroy')->name('admin.checkout.delete');
-});
-Route::controller(WishlistController::class)->group(function () {
-    Route::get('/wishlist', 'index')->name('admin.wishlist.list');
-    Route::get('/wishlist/create', 'create')->name('admin.wishlist.create');
-    Route::post('/wishlist/create', 'store')->name('admin.wishlist.store');
 
-    Route::delete('/wishlist/{id}', 'destroy')->name('admin.wishlist.delete');
+    Route::post('/checkout/create', 'store')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.store');
+    Route::get('/checkout/{id}/edit', 'edit')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.edit');
+    Route::post('/checkout/{id}/edit', 'update')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.update');
+    Route::delete('/checkout/{id}', 'destroy')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.delete');
+});
+
+Route::controller(WishlistController::class)->group(function () {
+    Route::get('/wishlist', 'index')->middleware(['auth', 'verifiedMail'])->name('frontend.wishlist.list');
+    Route::get('/wishlist/create', 'create')->middleware(['auth', 'verifiedMail'])->name('frontend.wishlist.create');
+    Route::post('/wishlist/create', 'store')->middleware(['auth', 'verifiedMail'])->name('frontend.wishlist.store');
+
+    Route::delete('/wishlist/{id}', 'destroy')->middleware(['auth'])->name('frontend.wishlist.delete');
 });
 Route::controller(CartController::class)->group(function () {
-    Route::get('/cart', 'index')->name('admin.cart.list');
-    Route::post('/cart/add', 'store')->name('admin.wishlist.store');
-    Route::put('/cart/edit', 'update')->name('admin.cart.update');
-    Route::get('/cart/{id}', 'destroy')->name('admin.cart.delete');
+    Route::get('/cart', 'index')->middleware(['auth', 'verifiedMail'])->name('admin.cart.list');
+    Route::post('/cart/add', 'store')->middleware(['auth', 'verifiedMail'])->name('admin.wishlist.store');
+    Route::put('/cart/edit', 'update')->middleware(['auth', 'verifiedMail'])->name('admin.cart.update');
+    Route::get('/cart/{id}', 'destroy')->middleware(['auth', 'verifiedMail'])->name('admin.cart.delete');
 });
 // Route::controller(CartController::class)->group(function () {
 //     Route::get('/cart', 'index')->name('admin.cart.list');
@@ -193,7 +228,20 @@ Route::controller(CartController::class)->group(function () {
 //     Route::get('/cart/{id}', 'destroy')->name('admin.cart.delete');
 // });
 
+// Blog
+Route::prefix('blog')->group(function () {
+    Route::controller(BlogController::class)->group(function () {
+        Route::get('/', 'index')->name('fe.blog');
+        Route::get('/post/{id}', 'post')->name('fe.post');
+    });
+});
 ///// Frontend Routing
+Route::get('/wallet', [FrontendController::class, 'wallet'])->middleware(['auth'])->name('frontend.wallet');
+Route::post('/wallet/create', [FrontendController::class, 'wallet'])->middleware(['auth'])->name('frontend.wallet.store');
+Route::get('/transaction', [FrontendController::class, 'transaction'])->middleware(['auth'])->name('frontend.transaction');
+Route::post('/transaction/create', [FrontendController::class, 'createTransaction'])->middleware(['auth'])->name('frontend.transaction.store');
+Route::get('/checkdeposit', [FrontendController::class, 'checkdeposit'])->middleware(['auth'])->name('frontend.transaction.checkdeposit');
+// wallet
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 // show all categories and category's sub categories
 Route::get('/category/{category_slug}', [FrontendController::class, 'showCategories'])->name('frontend.category.list');

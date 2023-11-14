@@ -15,7 +15,6 @@ class WishlistController extends Controller
      */
     public function index()
     {
-        // $wishlists = User::find(Auth::user()->id)->getWishlistByUserId()->get();
         $wishlists = DB::table('wishlists')
             ->join('products', 'wishlists.product_id', '=', 'products.id')
             ->leftJoin('product_colors', 'products.id', '=', 'product_colors.product_id')

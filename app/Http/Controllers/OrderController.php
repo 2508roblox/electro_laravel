@@ -45,7 +45,7 @@ class OrderController extends Controller
                 'ID' => $orderId,
                 'Date' => $date,
                 'Total Quantity' => $totalQuantity,
-                'Total Price' => $totalPrice,
+                'Total Price' => $order->total_amount,
                 'Method' => $method,
                 'Status' => $status,
             ];

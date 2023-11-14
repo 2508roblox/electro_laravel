@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost:3308
--- Thời gian đã tạo: Th10 31, 2023 lúc 03:31 AM
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 12, 2023 lúc 05:46 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -20,6 +20,34 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `electro`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `tag` varchar(255) NOT NULL,
+  `date_time` datetime NOT NULL,
+  `short_description` mediumtext NOT NULL,
+  `long_description` longtext NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `title`, `tag`, `date_time`, `short_description`, `long_description`, `image`, `slug`, `created_at`, `updated_at`, `user_id`) VALUES
+(2, 'Robot Wars', 'Design', '2023-11-02 13:54:53', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.', 'https://transvelo.github.io/electro-html/2.0/assets/img/1500X730/img1.jpg', 'robot-wars', NULL, NULL, 1),
+(3, 'Robot Wars 1', 'Games', '2023-11-02 13:54:53', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.', 'https://transvelo.github.io/electro-html/2.0/assets/img/1500X730/img7.jpg', 'robot-wars-1', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -42,7 +70,8 @@ CREATE TABLE `brands` (
 
 INSERT INTO `brands` (`id`, `name`, `slug`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'gewaegwa', 'wegaaewg', 1, '2023-09-24 19:52:35', '2023-09-24 19:52:35'),
-(2, '123', '123', 1, '2023-09-24 20:12:44', '2023-09-24 20:12:44');
+(2, '123', '123', 1, '2023-09-24 20:12:44', '2023-09-24 20:12:44'),
+(4, 'skjdlvbjsd', 'skjdlvbjsd', 1, '2023-11-12 08:24:33', '2023-11-12 08:24:33');
 
 -- --------------------------------------------------------
 
@@ -129,6 +158,50 @@ INSERT INTO `colors` (`id`, `name`, `code`, `status`, `created_at`, `updated_at`
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `coupons`
+--
+
+CREATE TABLE `coupons` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `code` varchar(255) NOT NULL,
+  `discount` int(11) NOT NULL DEFAULT 0,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1,
+  `expires_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `detail_blogs`
+--
+
+CREATE TABLE `detail_blogs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `failed_jobs`
 --
 
@@ -181,7 +254,16 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (20, '2023_09_29_082737_add_to_order_table', 7),
 (21, '2023_09_29_115137_add_id_to_orders_table', 8),
 (22, '2023_10_01_054859_add_to_orders_table', 9),
-(23, '2023_10_02_032715_add_to_sub_categories_table', 10);
+(23, '2023_10_02_032715_add_to_sub_categories_table', 10),
+(24, '2023_11_02_062149_create_wallets_table', 11),
+(25, '2023_11_02_062731_create_transaction_table', 11),
+(26, '2023_11_02_072524_add_to_transaction_table', 11),
+(27, '2023_11_02_073631_add_method_to_transaction_table', 11),
+(28, '2023_11_02_123246_create_blogs_table', 11),
+(29, '2023_11_02_130743_create_coupons_table', 11),
+(30, '2023_11_02_144609_create_detail_blogs_table', 11),
+(31, '2023_11_03_013952_add_to_blogs_table', 11),
+(32, '2023_11_12_125046_create_contacts_table', 11);
 
 -- --------------------------------------------------------
 
@@ -496,6 +578,23 @@ INSERT INTO `sub_categories` (`id`, `name`, `slug`, `category_id`, `status`, `cr
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `transaction`
+--
+
+CREATE TABLE `transaction` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `wallet_id` int(11) NOT NULL,
+  `amount` decimal(8,2) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'cancle',
+  `method` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `users`
 --
 
@@ -516,7 +615,37 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `role_as`) VALUES
-(1, 'sagewg', 'trangiangzxc@gmail.com', NULL, '$2y$10$vCA2jPL/i7dhYEEtnXYbcuCXvyn7zPyOWbSur8oPdoC3haoGIaPWy', NULL, '2023-09-21 23:40:03', '2023-09-21 23:40:03', 1);
+(1, 'sagewg', 'trangiangzxc@gmail.com', NULL, '$2y$10$vCA2jPL/i7dhYEEtnXYbcuCXvyn7zPyOWbSur8oPdoC3haoGIaPWy', NULL, '2023-09-21 23:40:03', '2023-09-21 23:40:03', 1),
+(2, 'abc132', 'abc132@gmail.com', NULL, '$2y$10$nTKbv4fbrTZfV52uP.MhiejTT5LuAaJV9f/rH.44tNi8msoc/fNiC', NULL, '2023-11-12 07:10:29', '2023-11-12 07:10:29', 0),
+(3, 'shj2dbv', 'shj2dbv@gmail.com', NULL, '$2y$10$RRp9CaAMko0wc8KE4rGcYODGb/d5kMwo7Q3oPeHmWTl0iJpv7VxUy', NULL, '2023-11-12 07:11:07', '2023-11-12 09:34:33', 0),
+(4, 'pojfa43', 'pojfa43@gmail.com', NULL, '$2y$10$U1D9maZHttSaXUNIQksEgOlXe9h75.IXvj1xKfq.z9lFCY17qnsVa', NULL, '2023-11-12 07:11:29', '2023-11-12 09:36:56', 0),
+(6, 'sfbdndcn23', 'sfbdndcn23@gmail.com', NULL, '$2y$10$zA0WUlEAU7mzqtYZHZ.OdeBsRwR01OA80fxlPmsC3DjWzH1AGWKk6', NULL, '2023-11-12 09:43:54', '2023-11-12 09:43:54', 0),
+(7, 'nht', 'nht@gmail.com', NULL, '$2y$10$KBci.gMT4BmBM6htvl2BDuydGWpaszohzwqM8jNmYkOewX7CEIR0u', NULL, '2023-11-12 09:44:26', '2023-11-12 09:44:26', 0),
+(8, 'avv', 'avv@gmail.com', NULL, '$2y$10$A1IVkCwPZTxCV78XAzFOver.KYVtuMo1zWtTMltRFkhH/BPW2Mffu', NULL, '2023-11-12 09:46:08', '2023-11-12 09:46:08', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `wallets`
+--
+
+CREATE TABLE `wallets` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `balance` decimal(8,2) NOT NULL DEFAULT 0.00,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wallets`
+--
+
+INSERT INTO `wallets` (`id`, `user_id`, `balance`, `created_at`, `updated_at`) VALUES
+(1, 2, 0.00, '2023-11-12 07:10:29', '2023-11-12 07:10:29'),
+(2, 3, 0.00, '2023-11-12 07:11:07', '2023-11-12 07:11:07'),
+(3, 4, 0.00, '2023-11-12 07:11:29', '2023-11-12 07:11:29'),
+(4, 5, 0.00, '2023-11-12 07:11:49', '2023-11-12 07:11:49');
 
 -- --------------------------------------------------------
 
@@ -535,6 +664,12 @@ CREATE TABLE `wishlists` (
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `brands`
@@ -559,6 +694,25 @@ ALTER TABLE `categories`
 -- Chỉ mục cho bảng `colors`
 --
 ALTER TABLE `colors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `coupons`
+--
+ALTER TABLE `coupons`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `coupons_code_unique` (`code`);
+
+--
+-- Chỉ mục cho bảng `detail_blogs`
+--
+ALTER TABLE `detail_blogs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -637,11 +791,23 @@ ALTER TABLE `sub_categories`
   ADD KEY `sub_categories_category_id_foreign` (`category_id`);
 
 --
+-- Chỉ mục cho bảng `transaction`
+--
+ALTER TABLE `transaction`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- Chỉ mục cho bảng `wallets`
+--
+ALTER TABLE `wallets`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `wishlists`
@@ -656,10 +822,16 @@ ALTER TABLE `wishlists`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT cho bảng `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `carts`
@@ -680,6 +852,24 @@ ALTER TABLE `colors`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT cho bảng `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `coupons`
+--
+ALTER TABLE `coupons`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `detail_blogs`
+--
+ALTER TABLE `detail_blogs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -689,7 +879,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
@@ -740,10 +930,22 @@ ALTER TABLE `sub_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT cho bảng `transaction`
+--
+ALTER TABLE `transaction`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT cho bảng `wallets`
+--
+ALTER TABLE `wallets`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `wishlists`

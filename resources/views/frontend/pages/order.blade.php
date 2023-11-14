@@ -33,7 +33,7 @@
 
                                     <th class="product-name">#ID</th>
                                     <th class="product-price">Date</th>
-                                    <th class="product-Stock w-lg-15">Total</th>
+                                    <th class="product-Stock w-lg-15">Total Amount</th>
                                     <th class="product-Stock w-lg-15">Items</th>
                                     <th class="product-Stock w-lg-15">Method</th>
                                     <th class="product-Stock w-lg-15">Status</th>
@@ -54,8 +54,7 @@
                                     </td>
                                     <td data-title="Stock Status">
                                         <!-- Stock Status -->
-                                        <span>{{ $item['Total Price'] }}</span>
-                                        <!-- End Stock Status -->
+                                     <span>${{ $item['Total Price'] }}</span>
                                     </td>
                                     <td data-title="Stock Status">
                                         <!-- Stock Status -->

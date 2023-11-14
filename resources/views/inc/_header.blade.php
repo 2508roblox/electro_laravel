@@ -337,7 +337,7 @@
                                                                 <!-- End Compare -->
 
                                                                 <!-- wishlist -->
-                                                                <li><a class="u-header-collapse__submenu-nav-link" href="{{route('admin.wishlist.list')}}">wishlist</a></li>
+                                                                <li><a class="u-header-collapse__submenu-nav-link" href="{{route('frontend.wishlist.list')}}">wishlist</a></li>
                                                                 <!-- End wishlist -->
                                                             </ul>
                                                         </div>
@@ -461,13 +461,24 @@
                                 <li class="col d-none d-xl-block"><a href="{{route('frontend.order.list')}}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Compare">
                                 <img style="height: 26px; width: 26px" src="{{asset('client/img/order-icon.png')}}"  alt="">
                                 </a></li>
-                                <li class="col d-none d-xl-block"><a href="{{route('admin.wishlist.list')}}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Favorites"><i class="font-size-22 ec ec-favorites"></i></a></li>
+                                <li class="col d-none d-xl-block"><a href="{{route('frontend.wishlist.list')}}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Favorites"><i class="font-size-22 ec ec-favorites"></i></a></li>
                                 <li class="col d-xl-none px-2 px-sm-3"><a href="../shop/my-account.html" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="My Account"><i class="font-size-22 ec ec-user"></i></a></li>
                                 <li class="col pr-xl-0 px-2 px-sm-3">
                                     <a href="{{route('admin.cart.list')}}" class="text-gray-90 position-relative d-flex " data-toggle="tooltip" data-placement="top" title="Cart">
                                             <i class="font-size-22 ec ec-shopping-bag"></i>
-                                            <span class="width-22 height-22 bg-white position-absolute d-flex align-items-center justify-content-center rounded-circle left-12 top-8 font-weight-bold font-size-12 text-dark">2</span>
-                                            <span class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">$1785.00</span>
+                                        </a>
+                                </li>
+                                <li class="col pr-xl-0 px-2 px-sm-3">
+                                    <a href="{{route('frontend.wallet')}}" class="text-gray-90 position-relative d-flex " data-toggle="tooltip" data-placement="top" title="Cart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Capa_1" width="20px" height="20px" viewBox="0 0 969.486 969.486" xml:space="preserve">
+                                            <g>
+                                                <g>
+                                                    <path d="M806.582,235.309L766.137,87.125l-137.434,37.51L571.451,9.072L114.798,235.309H0v725.105h907.137V764.973h62.35v-337.53    h-62.352V235.309H806.582z M718.441,170.63l17.654,64.68h-52.561h-75.887h-126.19l111.159-30.339l66.848-18.245L718.441,170.63z     M839.135,892.414H68V522.062v-129.13v-10.233v-69.787v-9.602h35.181h27.538h101.592h409.025h75.889h37.43h35.242h35.244h13.994    v51.272v72.86h-15.357h-35.244h-87.85H547.508h-55.217v27.356v75.888v8.758v35.244v35.244v155.039h346.846v127.441H839.135z     M901.486,696.973h-28.352h-34H560.291V591.375v-35.244v-35.244v-23.889v-1.555h3.139h90.086h129.129h56.492h34h4.445h23.904    V696.973z M540.707,100.191l21.15,42.688l-238.955,65.218L540.707,100.191z"/>
+                                                    <polygon points="614.146,564.57 614.146,576.676 614.146,631.152 680.73,631.152 680.73,564.57 658.498,564.57   "/>
+                                                </g>
+                                            </g>
+                                            </svg>
+                                            <span class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">${{Session::get('wallet')}}</span>
                                         </a>
                                 </li>
                             </ul>
@@ -508,7 +519,7 @@
 
                             <!-- Blog -->
                             <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Blog</a>
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{route('fe.blog')}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Blog</a>
 
                                 <!-- Blog - Submenu -->
 
@@ -522,7 +533,7 @@
                                 <!-- End Submenu -->
                             </li>
                             <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Wishlist</a>
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{route('frontend.wishlist.list')}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Wishlist</a>
 
                                 <!-- Blog - Submenu -->
 
@@ -558,7 +569,7 @@
 
                             <!-- Contact Us -->
                             <li class="nav-item u-header__nav-item">
-                                <a class="nav-link u-header__nav-link" href="#" aria-haspopup="true" aria-expanded="false">Contact Us</a>
+                                <a class="nav-link u-header__nav-link" href="{{route('frontend.contact.view')}}" aria-haspopup="true" aria-expanded="false">Contact Us</a>
                             </li>
                             <!-- End Contact Us -->
                         </ul>

@@ -115,7 +115,7 @@
                                     @else
                                     <span
                                     class="text-red font-weight-bold">Out of Stock</span>
-                                        
+
                                     @endif
 
 
@@ -124,7 +124,7 @@
                             </div>
                             <div class="flex-horizontal-center flex-wrap mb-4">
                                 {{-- add wishlidt --}}
-                                <form id="addToWishlistForm" action="{{ route('admin.wishlist.store') }}" method="POST">
+                                <form id="addToWishlistForm" action="{{ route('frontend.wishlist.store') }}" method="POST">
                                     @csrf
                                     <input hidden type="text" name="wishlistProductId" value="{{ $product->id }}">
                                     <p style="cursor: pointer" id="addToWishlist"
@@ -177,7 +177,7 @@
                                     <h6 class="font-size-14 mb-0">Color</h6>
                                     <!-- Select -->
                                     <div id="colorPreview" class="rounded-circle"
-                                        style="height: 19px; width: 19px;  margin-left: 1rem; background: #{{$colors_quantity[0]->code}} "> </div>
+                                        style="height: 19px; width: 19px;  margin-left: 1rem; background: #{{$colors_quantity[0]->code ?? ''}} "> </div>
 
 
                                     <select name="colorSelector" id="colorSelector"
@@ -185,7 +185,7 @@
                                         data-style="btn-sm bg-white font-weight-normal py-2 border">
                                         @foreach ($colors_quantity as $color)
                                             <option style="color: #{{$color->code}}" value="{{ $color->product_colors_id }}:{{ $color->product_color_quantity }}:{{ $color->color_id }}">
-                                                {{ $color->name }} ({{ $color->product_color_quantity }})
+                                                {   { $color->name }} ({{ $color->product_color_quantity }})
 
                                             </option>
                                         @endforeach

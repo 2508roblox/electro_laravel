@@ -59,27 +59,24 @@ class BrandController extends Controller
     {
         $brand = brand::find($id);
         $categories = Category::all();
-
-        return view('admin/brand/edit', compact('brand', 'categories'));
+        return view('admin.brand.edit', compact('brand', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request,$id)
+    public function update(Request $request,string $id)
     {
         $validatedData = $request->validate([
             'name' => 'required',
             'slug' => 'required',
-            'category_id' => 'required',
-
             'status' => 'nullable',
         ]);
 
-        $validatedData['status'] = $validatedData['status'] == 'published' ? '1' : '0';
+        $validatedData['status'] = $request->has('status') ? '1' : '0';
+        Brand::find($id)->update($validatedData);
 
-        brand::find($id)->update($validatedData);
-        return redirect('admin/brand')->with('message','brand updated successfully!');
+        return redirect()->route('admin.brand.list')->with('message', 'Brand updated successfully!');
     }
 
     /**

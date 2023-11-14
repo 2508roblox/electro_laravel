@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Wallet;
 use App\Models\Product;
 use App\Models\OrderItem;
+use App\Models\Transaction;
 use App\Models\ProductColor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class CheckoutController extends Controller
@@ -66,8 +69,25 @@ class CheckoutController extends Controller
                 'shipping_cost' => $shippingCost,
             ];
         }
+        $totalRequiredAmount = 0;
+
+        foreach ($carts as $item) {
+            $quantity = $item->quantity;
+            $productPrice =   $item->product_price;
+            $shippingCost =  $item->shipping_cost  ;
+
+            $subtotal = ($quantity * $productPrice) + $shippingCost;
+            $totalRequiredAmount += $subtotal;
+        }
+        $wallet = Wallet::where('user_id', $userId)->first();
+
+        $transactions = Transaction::where('wallet_id', $wallet->id)
+            ->where('status', 'complete')
+            ->get();
+
+        $balance = $transactions->sum('amount');
         // Truyển dữ liệu checkoutData tới view 'frontend.pages.checkout'
-        return view('frontend.pages.checkout', ['checkoutData' => $checkoutData]);
+        return view('frontend.pages.checkout', ['checkoutData' => $checkoutData, 'balance'=> $balance, 'totalRequiredAmount'=> $totalRequiredAmount]);
     }
 
 
@@ -120,6 +140,7 @@ class CheckoutController extends Controller
         $order->user_id = Auth::id();
         $order->save();
 
+
         // Lấy tất cả các cart items có user_id trong Auth
         $user = Auth::user();
         $carts = Cart::where('user_id', $user->id)->get();
@@ -128,6 +149,7 @@ class CheckoutController extends Controller
 
         // Lặp qua từng cart để tạo order_items và tính tổng tiền đơn hàng
         foreach ($carts as $cart) {
+
             //descre number of product
             $descQty  = $cart->quantity;
             $descProductColorId  = $cart->product_color_id;
@@ -150,26 +172,63 @@ class CheckoutController extends Controller
                 $orderItem->price = $product->price;
             }
 
+            // Tính tổng tiền đơn hàng
+            $totalAmount += ($orderItem->price * $orderItem->quantity);
+            //
             $orderItem->save();
             $cart->delete();
 
-            // Tính tổng tiền đơn hàng
-            $totalAmount += $orderItem->price * $orderItem->quantity;
+
         }
 
         // Tính phí vận chuyển (1% giá trị tổng đơn)
-        $shippingFee = $totalAmount * 0.01;
+
 
         // Cộng phí vận chuyển vào tổng tiền đơn hàng
-        $totalAmount += $shippingFee;
+        if (!Session::get('discount') ||Session::get('discount') == 0 ) {
+            $totalAmount =($totalAmount + $request->shipping_price ) ;
+
+        }else {
+            $totalAmount = ($totalAmount + $request->shipping_price) - ($totalAmount + $request->shipping_price ) * (Session::get('discount') /100);
+
+        }
 
         // Lưu tổng tiền đơn hàng vào cột total_amount trong bảng orders
-        $order->shipping_price = $shippingFee;
+        $order->shipping_price = $request->shipping_price;
         $order->total_amount = $totalAmount;
-        $order->save();
+        $order->update();
+        Session::put('discount', 0);
         //bank payment
+        if($request->payment_mode == 'wallet') {
+            $userId = Auth::id();
+            $wallet = Wallet::where('user_id', $userId)->first();
+            $transaction = new Transaction;
+            $transaction->wallet_id = $wallet->id;
+            $transaction->amount = -($totalAmount);
+            $transaction->type = 'withdraw';
+            $transaction->status = 'complete';
+            $transaction->method = 'shopping';
+            $transaction->save();
 
-        if ($request->payment_mode == 'bank') {
+
+            $order->status = 'paid';
+            $order->update();
+            $userId = Auth::id();
+
+            $wallet = Wallet::where('user_id', $userId)->first();
+
+            $transactions = Transaction::where('wallet_id', $wallet->id)
+                ->where('status', 'complete')
+                ->get();
+
+            $totalAmount = $transactions->sum('amount');
+
+            $wallet->balance = $totalAmount;
+            $wallet->save();
+
+            Session::put('wallet', $totalAmount);
+        }
+       else if ($request->payment_mode == 'bank') {
 
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
             $vnp_Returnurl = "http://127.0.0.1:8000/checkpayment";
@@ -318,3 +377,6 @@ class CheckoutController extends Controller
         //
     }
 }
+
+
+

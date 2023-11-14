@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
+use App\Mail\VerifyMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -18,19 +22,39 @@ class LoginController extends Controller
             'email' =>  'required',
             'password' => 'required'
         ]);
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            if (Auth::user()->role_as == '1') {
-                return redirect('/admin/dashboard') ;
-               }else {
-                return redirect('/') ;
-               }
+        //put account status to session
+        $user = User::where('email', '=', $credentials['email'])->first();
+        // check email verify
+        //check authentication
+        if (!$user) return back()->withErrors([
+            'message' => 'Invalid Email or Password',
+        ])->onlyInput('email');
+        //storage email for otp view
+        Session::put('registeredEmail',  $user->email);
+        //check account verify status
+        if ($user->email_verified_at) {
+            Session::put('verifyStatus', true);
 
+            # code...
+            if (Auth::attempt($credentials)) {
+                $request->session()->regenerate();
+                if (Auth::user()->role_as == '1') {
+                    return redirect('/admin/dashboard');
+                } else {
+                    return redirect('/');
+                }
+            }
+        } else {
+            $user->otp = random_int(100000, 999999);
+            $user->save();
+            //send mail with otp
+            Mail::to(($user->email))->send(new VerifyMail($user->otp));
+            return redirect('/verify-email');
         }
+
         return back()->withErrors([
             'message' => 'Email or password is incorrect',
         ])->onlyInput('email');
-
     }
 
     /**
@@ -39,7 +63,6 @@ class LoginController extends Controller
     public function index()
     {
         return view('auth.auth');
-
     }
 
     /**
