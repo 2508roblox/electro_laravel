@@ -1,45 +1,40 @@
-import express from 'express';
-import cors from 'cors';
-import { WebSocketServer } from 'ws';
 
+
+
+import express from 'express';
+import { createServer } from 'http';
+import { Server } from 'socket.io';
+import cors from 'cors';
 
 const app = express();
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin: 'http://127.0.0.1:8000' }));
+
+const server = createServer(app);
+const io = new Server(server, {
+    cors: {
+        origin: '*',
+        methods: ['GET', 'POST'],
+        allowedHeaders: ['Content-Type'],
+    },
+});
 
 
+app.get('/', (req, res) => {
+    res.send('start');
+});
+
+io.on('connection', (socket) => {
 
 
-app.get('/', (req, res) => res.send('Server ready'));
-const port = 7000;
-const server = app.listen(port, () => console.log(`Server running on port ${port}`));
-
-
-const wss = new WebSocketServer({ server, clientTracking: true, perMessageDeflate: false });
-
-wss.on('connection', (connection, req) => {
-    console.log('có người vừa kết nối ');
-    [...wss.clients].forEach(client => {
-        client.send(JSON.stringify('có người vừa kết nối '));
-
-
+    socket.on('chat-message', (message) => {
+        console.log('Received message from client:', message);
+        io.emit('chat-message', message);
     });
 
+});
 
-    connection.on('message', (message) => {
-        console.log('Received message:', message);
-
-        // Xử lý tin nhắn từ client ở đây
-
-        // Gửi phản hồi cho client
-        [...wss.clients].forEach(client => {
-            client.send(JSON.stringify('Received message: '));
-
-
-        });
-    });
-    connection.on('close', () => {
-
-    });
+server.listen(7000, () => {
+    console.log('listening on *:7000');
 });

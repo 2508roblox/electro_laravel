@@ -19,32 +19,32 @@ class CheckoutController extends Controller
     /**
      * Display a listing of the resource.
      */
-      function index()
+    function index()
     {
         // Lấy user ID hiện tại từ Auth
         $userId = Auth::id();
 
         // Lấy danh sách các carts của user hiện tại
         $carts = Cart::where('user_id', $userId)
-        ->join('products', 'carts.product_id', '=', 'products.id')
-        ->leftJoin('product_colors', 'carts.product_color_id', '=', 'product_colors.id')
-        ->leftJoin('colors', 'product_colors.color_id', '=', 'colors.id') // Thêm join với bảng colors
-        ->select(
-            'carts.id',
-            'carts.user_id',
-            'carts.product_id',
-            'carts.product_color_id',
-            'carts.quantity',
-            'carts.created_at',
-            'carts.updated_at',
-            'products.name AS product_name',
-            'products.price AS product_price',
-            'products.promotion_price AS product_promotion_price',
-            'product_colors.color_id',
-            'colors.name AS color_name', // Lấy ra trường name từ bảng colors
-            'colors.code AS color_code' // Lấy ra trường code từ bảng colors
-        )
-        ->get();
+            ->join('products', 'carts.product_id', '=', 'products.id')
+            ->leftJoin('product_colors', 'carts.product_color_id', '=', 'product_colors.id')
+            ->leftJoin('colors', 'product_colors.color_id', '=', 'colors.id') // Thêm join với bảng colors
+            ->select(
+                'carts.id',
+                'carts.user_id',
+                'carts.product_id',
+                'carts.product_color_id',
+                'carts.quantity',
+                'carts.created_at',
+                'carts.updated_at',
+                'products.name AS product_name',
+                'products.price AS product_price',
+                'products.promotion_price AS product_promotion_price',
+                'product_colors.color_id',
+                'colors.name AS color_name', // Lấy ra trường name từ bảng colors
+                'colors.code AS color_code' // Lấy ra trường code từ bảng colors
+            )
+            ->get();
 
         // Tạo một mảng để lưu thông tin checkout
         $checkoutData = [];
@@ -74,7 +74,7 @@ class CheckoutController extends Controller
         foreach ($carts as $item) {
             $quantity = $item->quantity;
             $productPrice =   $item->product_price;
-            $shippingCost =  $item->shipping_cost  ;
+            $shippingCost =  $item->shipping_cost;
 
             $subtotal = ($quantity * $productPrice) + $shippingCost;
             $totalRequiredAmount += $subtotal;
@@ -86,8 +86,9 @@ class CheckoutController extends Controller
             ->get();
 
         $balance = $transactions->sum('amount');
+        // dd($checkoutData);
         // Truyển dữ liệu checkoutData tới view 'frontend.pages.checkout'
-        return view('frontend.pages.checkout', ['checkoutData' => $checkoutData, 'balance'=> $balance, 'totalRequiredAmount'=> $totalRequiredAmount]);
+        return view('frontend.pages.checkout', ['checkoutData' => $checkoutData, 'balance' => $balance, 'totalRequiredAmount' => $totalRequiredAmount]);
     }
 
 
@@ -96,7 +97,6 @@ class CheckoutController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -144,6 +144,7 @@ class CheckoutController extends Controller
         // Lấy tất cả các cart items có user_id trong Auth
         $user = Auth::user();
         $carts = Cart::where('user_id', $user->id)->get();
+        // them gui thong báo
 
         $totalAmount = 0;
 
@@ -177,20 +178,16 @@ class CheckoutController extends Controller
             //
             $orderItem->save();
             $cart->delete();
-
-
         }
 
         // Tính phí vận chuyển (1% giá trị tổng đơn)
 
 
         // Cộng phí vận chuyển vào tổng tiền đơn hàng
-        if (!Session::get('discount') ||Session::get('discount') == 0 ) {
-            $totalAmount =($totalAmount + $request->shipping_price ) ;
-
-        }else {
-            $totalAmount = ($totalAmount + $request->shipping_price) - ($totalAmount + $request->shipping_price ) * (Session::get('discount') /100);
-
+        if (!Session::get('discount') || Session::get('discount') == 0) {
+            $totalAmount = ($totalAmount + $request->shipping_price);
+        } else {
+            $totalAmount = ($totalAmount + $request->shipping_price) - ($totalAmount + $request->shipping_price) * (Session::get('discount') / 100);
         }
 
         // Lưu tổng tiền đơn hàng vào cột total_amount trong bảng orders
@@ -199,12 +196,12 @@ class CheckoutController extends Controller
         $order->update();
         Session::put('discount', 0);
         //bank payment
-        if($request->payment_mode == 'wallet') {
+        if ($request->payment_mode == 'wallet') {
             $userId = Auth::id();
             $wallet = Wallet::where('user_id', $userId)->first();
             $transaction = new Transaction;
             $transaction->wallet_id = $wallet->id;
-            $transaction->amount = -($totalAmount);
+            $transaction->amount = - ($totalAmount);
             $transaction->type = 'withdraw';
             $transaction->status = 'complete';
             $transaction->method = 'shopping';
@@ -227,20 +224,19 @@ class CheckoutController extends Controller
             $wallet->save();
 
             Session::put('wallet', $totalAmount);
-        }
-       else if ($request->payment_mode == 'bank') {
+        } else if ($request->payment_mode == 'bank') {
 
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
             $vnp_Returnurl = "http://127.0.0.1:8000/checkpayment";
-            $vnp_TmnCode = "R3E63P5P";//Mã website tại VNPAY
+            $vnp_TmnCode = "R3E63P5P"; //Mã website tại VNPAY
             $vnp_HashSecret = "GXDEHIEBSREFTEALNKYBXMKDKVVBEJPC"; //Chuỗi bí mật
 
             $vnp_TxnRef = $order->id; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
             $vnp_OrderInfo = 'Thanh Toán đơn hàng tại Electro';
             $vnp_OrderType = 'bank';
-            $vnp_Amount = ( $order->shipping_price + $order->total_amount == 0.0 ? 0 : $order->shipping_price + $order->total_amount )*100*24305 ;
+            $vnp_Amount = ($order->shipping_price + $order->total_amount == 0.0 ? 0 : $order->shipping_price + $order->total_amount) * 100 * 24305;
             $vnp_Locale = 'vn';
-            $vnp_BankCode ='NCB';
+            $vnp_BankCode = 'NCB';
             $vnp_IpAddr = 'http://127.0.0.1:8000/checkpayment';
             //Add Params of 2.0.1 Version
             // $vnp_ExpireDate = $_POST['txtexpire'];
@@ -319,22 +315,20 @@ class CheckoutController extends Controller
 
             $vnp_Url = $vnp_Url . "?" . $query;
             if (isset($vnp_HashSecret)) {
-                $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);//
+                $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret); //
                 $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
             }
-            $returnData = array('code' => '00'
-                , 'message' => 'success'
-                , 'data' => $vnp_Url);
-                if (true) {
-                    // after payment is completed
+            $returnData = array(
+                'code' => '00', 'message' => 'success', 'data' => $vnp_Url
+            );
+            if (true) {
+                // after payment is completed
 
-                    header('Location: ' . $vnp_Url);
-                    die();
-                } else {
-                    echo json_encode($returnData);
-                }
-
-
+                header('Location: ' . $vnp_Url);
+                die();
+            } else {
+                echo json_encode($returnData);
+            }
         }
         return redirect('/order');
 
@@ -377,6 +371,3 @@ class CheckoutController extends Controller
         //
     }
 }
-
-
-

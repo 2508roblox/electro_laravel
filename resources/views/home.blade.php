@@ -13,6 +13,29 @@
         <!-- End Slider Section -->
 
         <div class="container">
+            <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+
+
+            <script>
+                // Kết nối tới máy chủ Socket.IO
+                const socket = io('http://localhost:7000');
+        
+                socket.on('connect', () => {
+                    console.log('Connected to server');
+                    socket.emit('chat-message', 'Có người đang truy cập');
+                });
+        
+                socket.on('disconnect', () => {
+                    console.log('Disconnected from server');
+                });
+        
+                // Gửi một sự kiện từ máy khách tới máy chủ
+        
+                // Lắng nghe sự kiện từ máy chủ
+                socket.on('chat-message', (message) => {
+                    console.log('Received message from server:', message);
+                });
+            </script>
             <!-- Banner -->
             <div class="mb-5">
                 <div class="row">
