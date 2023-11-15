@@ -29,7 +29,7 @@
                 </div>
                 <div class="sa-entity-layout"
                     data-sa-container-query="{&quot;920&quot;:&quot;sa-entity-layout--size--md&quot;,&quot;1100&quot;:&quot;sa-entity-layout--size--lg&quot;}">
-                    <form class="sa-entity-layout__body" method="POST">
+                    <div class="sa-entity-layout__body" method="POST">
                         <div class="sa-entity-layout__main">
                             <div class="card">
                                 <div class="card-body p-5">
