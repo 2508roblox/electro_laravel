@@ -37,7 +37,7 @@
                                     aria-labelledby="languageDropdownInvoker" style="animation-duration: 300ms;">
                                     <a class="dropdown-item active" href="#">English</a>
                                     <a class="dropdown-item" href="#">Deutsch</a>
-                                    <a class="dropdown-item" href="#">Español&lrm;</a>
+                                    <a class="dropdown-item" href="#">Español</a>
                                 </div>
                             </div>
                             <!-- End Language -->

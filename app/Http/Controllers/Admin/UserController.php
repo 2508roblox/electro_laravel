@@ -11,7 +11,9 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        // $users = User::all();
+        // return view('admin.user.index', compact('users'));
+        $users = User::with('wallet')->get();
         return view('admin.user.index', compact('users'));
     }
     
