@@ -30,6 +30,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductColorController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OtpController;
+use App\Http\Controllers\MyAccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,25 @@ Route::group(['prefix' => 'auth'], function () {
     });
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 });
+
+Route::group(['prefix' => 'my-account'], function () {
+    Route::middleware(['guest'])->group(function () {
+        Route::get('/login', [LoginController::class, 'index'])->name('login');
+        Route::post('/login', [LoginController::class, 'login'])->name('login.post');
+        Route::get('/register', [RegisterController::class, 'index'])->name('register');
+        Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
+    });
+    Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::get('/', [MyAccountController::class, 'index'])
+    ->name('frontend.myaccount.dashboard');
+    Route::controller(MyAccountController::class)->group(function () {
+        Route::get('/order', 'order')->name('frontend.myaccount.order');
+        Route::get('/address', 'address')->name('frontend.myaccount.address');
+        Route::get('/account-detail', 'accountdetail')->name('frontend.myaccount.accountdetail');
+        Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+        });
+});
+
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard')

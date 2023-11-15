@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 15, 2023 lúc 05:20 PM
+-- Thời gian đã tạo: Th10 15, 2023 lúc 06:38 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -599,6 +599,13 @@ CREATE TABLE `transaction` (
   `method` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `transaction`
+--
+
+INSERT INTO `transaction` (`id`, `wallet_id`, `amount`, `type`, `created_at`, `updated_at`, `status`, `method`) VALUES
+(1, 5, 1000.00, 'deposit', '2023-11-15 09:44:00', '2023-11-15 09:44:00', 'cancle', 'vn_pay');
+
 -- --------------------------------------------------------
 
 --
@@ -624,10 +631,14 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `role_as`, `otp`) VALUES
 (7, 'nht', 'nht@gmail.com', '2023-11-15 09:19:20', '$2y$10$KBci.gMT4BmBM6htvl2BDuydGWpaszohzwqM8jNmYkOewX7CEIR0u', NULL, '2023-11-12 02:44:26', '2023-11-15 09:19:20', 1, 600632),
-(9, 'smfnv zs,mfv', '1234@gmail.com', '2023-11-15 09:18:54', '$2y$10$TIjlFBqElPB6AAKgbNkEw.Egsb8BN1.pQ0VE08OY/4lss1ML6eGT2', NULL, '2023-11-13 01:25:18', '2023-11-15 09:18:54', 0, 379547),
+(9, 'smfnv zs,mfv', '1234@gmail.com', '2023-11-15 09:18:54', '$2y$10$DsBxhDoloWINtff81BuZ/O5DpkQaiLa5F05jZCDjkK2HPj2/z01tG', NULL, '2023-11-13 01:25:18', '2023-11-15 09:18:54', 0, 379547),
 (10, 'pojfa43', 'pojfa43@gmail.com', NULL, '$2y$10$o3DSN35J/L927eYc9tf7C.wf5D6nSe2il7kQ6XKnoUmwQGEVTFYk6', NULL, '2023-11-15 06:52:26', '2023-11-15 06:52:26', 0, NULL),
 (11, 'giangtran', 'trangiangzxc@gmail.com', '2023-11-15 09:19:33', '$2y$10$V3HfIfmSp.hgqsC48WzSHuIE17QXesSgNI7gqxDM4wIrUbvap5IPO', NULL, '2023-11-15 06:53:33', '2023-11-15 09:19:33', 1, NULL),
-(12, 'dfbsgtnr245', 'dfbsgtnr245@gmail.com', NULL, '$2y$10$o3DSN35J/L927eYc9tf7C.wf5D6nSe2il7kQ6XKnoUmwQGEVTFYk6', NULL, '2023-11-15 06:52:26', '2023-11-15 06:52:26', 0, NULL);
+(12, 'dfbsgtnr245', 'dfbsgtnr245@gmail.com', NULL, '$2y$10$o3DSN35J/L927eYc9tf7C.wf5D6nSe2il7kQ6XKnoUmwQGEVTFYk6', NULL, '2023-11-15 06:52:26', '2023-11-15 06:52:26', 0, NULL),
+(13, 'rsrbtgnb', 'rsrbtgnb@gmail.com', NULL, '$2y$10$TNX2j80iAaCOB3gSp44izO4mpO1ud42aluL1aiZZyYtyhx2nbPzFu', NULL, '2023-11-15 09:26:32', '2023-11-15 09:26:32', 0, NULL),
+(14, 'rmnhrtuymyr', 'rmnhrtuymyr@gmail.com', NULL, '$2y$10$v0SVb7bWqC/8MMPlF0.u1.vOiwX9NjCs4RCBeUXBpHj5ncbVMWDEa', NULL, '2023-11-15 09:27:09', '2023-11-15 09:27:09', 0, NULL),
+(15, 'tyrfynh', 'tyrfynh@gmail.com', NULL, '$2y$10$qyjKTfDdjx3mdp5AZ9CeZe57PV1rugeY8vAFUz1yX.sgWj0pcc72m', NULL, '2023-11-15 09:30:15', '2023-11-15 09:30:15', 0, NULL),
+(16, 'mfnhbuyu', 'mfnhbuyu@gmail.com', NULL, '$2y$10$A4BYNnyAeuC7dvQvcTh.bOm2dyGH3ifADBqnu2YHmYnCAltLOM6sa', NULL, '2023-11-15 09:30:43', '2023-11-15 09:39:49', 0, 100989);
 
 -- --------------------------------------------------------
 
@@ -652,7 +663,7 @@ INSERT INTO `wallets` (`id`, `user_id`, `balance`, `created_at`, `updated_at`) V
 (2, 3, 0.00, '2023-11-12 00:11:07', '2023-11-12 00:11:07'),
 (3, 4, 0.00, '2023-11-12 00:11:29', '2023-11-12 00:11:29'),
 (4, 5, 0.00, '2023-11-12 00:11:49', '2023-11-12 00:11:49'),
-(5, 9, 4563.00, '2023-11-13 01:25:23', '2023-11-15 09:18:54'),
+(5, 9, 0.00, '2023-11-13 01:25:23', '2023-11-15 10:17:49'),
 (7, 10, 65555555.00, '2023-11-15 08:34:02', '2023-11-15 09:14:57'),
 (8, 7, 99999999.00, '2023-11-15 08:46:34', '2023-11-15 09:19:21'),
 (9, 11, 99999999.00, '2023-11-15 09:01:57', '2023-11-15 09:19:33'),
@@ -944,13 +955,13 @@ ALTER TABLE `sub_categories`
 -- AUTO_INCREMENT cho bảng `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `wallets`
