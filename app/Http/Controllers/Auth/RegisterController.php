@@ -6,6 +6,7 @@ use Auth;
 use App\Models\User;
 use App\Models\Wallet;
 use App\Mail\VerifyMail;
+use App\Rules\ReCaptcha;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +28,8 @@ class RegisterController extends Controller
         $formFields = $request->validate([
             'name' => 'required',
             'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => 'required'
+            'password' => 'required',
+            'g-recaptcha-response' => ['required', new ReCaptcha]
         ]);
         //genarate otp and create user
         $formFields['otp'] = random_int(100000, 999999);

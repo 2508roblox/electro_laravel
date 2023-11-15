@@ -48,6 +48,9 @@
         <link rel="stylesheet" href="{{ asset('client/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
         <!-- CSS Electro Template -->
         <link rel="stylesheet" href="{{ asset('client/css/theme.css') }}">
+        {{-- captcha --}}
+
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <script>
         // function connectToWs() {

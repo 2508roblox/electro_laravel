@@ -127,7 +127,7 @@
                         </header>
                         <!-- End Title -->
                         <!-- Form Group -->
-                        <form method="POST" action="{{ route('register.post') }}" class="js-validate">
+                        <form method="POST" id="contactUSForm" action="{{ route('register.post') }}" class="js-validate">
                             @csrf
 
                             <!-- End Title -->
@@ -213,7 +213,11 @@
                                 </div>
                             </div>
                             <!-- End Input -->
-
+                            <div class="g-recaptcha mb-2" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
+                              <!-- End Login Buttons -->
+                              @error('g-recaptcha-response')
+                              <p style="color: red; margin-bottom: 0px"> {{ $message }}</p>
+                          @enderror
                             <div class="mb-2">
                                 <button type="submit" class="btn btn-block btn-sm btn-primary transition-3d-hover">Get
                                     Started</button>
@@ -242,8 +246,9 @@
                                     Google
                                 </a>
                             </div>
-                            <!-- End Login Buttons -->
+
                         </form>
+
                         <h3 class="font-size-18 mb-3">Sign up today and you will be able to :</h3>
                         <ul class="list-group list-group-borderless">
                             <li class="list-group-item px-0"><i class="fas fa-check mr-2 text-green font-size-16"></i>
