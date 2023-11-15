@@ -187,7 +187,7 @@
                                         else {
                                             echo '<div class="badge badge-sa-warning" bis_skin_checked="1">Not Active</div>';
                                         }
-                                        @endphp
+                                    @endphp
                                 </a></td>
                                 <td><a class="text-reset">{{ $user->email_verified_at }}</a></td>
                                 <td>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
-use App\Models\Wallet;;
+use App\Models\Wallet;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -67,15 +67,53 @@ class UserController extends Controller
      */
     public function update(Request $request,string $id)
     {
+        // $validatedData = $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     'role_as' => 'required',
+        // ]);
+
+        // $validatedData['role_as'] = $request->has('role_as') ? '1' : '0';
+        // User::find($id)->update($validatedData);
+
+        // return redirect()->route('admin.user.list')->with('message', 'User updated successfully!');
+        
         $validatedData = $request->validate([
             'name' => 'required',
-            'email' => 'required',
-            'role_as' => 'required',
+            'email' => 'required|email',
+            'role_as' => 'required|in:0,1',
+            'status' => 'required|in:active,inactive',
+            'wallet' => 'numeric',
         ]);
+        // dd($validatedData);
+    
+        $user = User::find($id);
+    
+        if (!$user) {
+            return redirect()->route('admin.user.list')->with('message', 'Error!');
+        }
+    
+        // Cập nhật thông tin cơ bản của User
+        $user->update([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'role_as' => $validatedData['role_as'],
+            'email_verified_at' => $validatedData['status'] == 'active' ? now() : null,
+        ]);
+    
+        if ($request->has('wallet')) {
+            $wallet = $user->wallet;
+    
+            if (!$wallet) {
+                // Nếu User chưa có ví, tạo mới và liên kết với User
+                $wallet = Wallet::create(['user_id' => $user->id, 'updated_at' => now(), 'created_at' => now()]);
 
-        $validatedData['role_as'] = $request->has('role_as') ? '1' : '0';
-        User::find($id)->update($validatedData);
-
+            }
+    
+            $wallet->update(['balance' => $validatedData['wallet']]);
+        }
+        // Cập nhật thông tin ví (balance) của User
+    
         return redirect()->route('admin.user.list')->with('message', 'User updated successfully!');
     }
 
