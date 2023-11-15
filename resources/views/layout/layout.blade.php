@@ -52,15 +52,14 @@
     <script>
         function connectToWs() {
             const ws = new WebSocket('ws://localhost:7000');
-
-            ws.addEventListener('open', handleOpen);
-            ws.addEventListener('message', ws.send('faefaefaefaefw'));
-            ws.addEventListener('close', () => {
-                setTimeout(() => {
-                    console.log('Disconnected. Trying to reconnect.');
-                    connectToWs();
-                }, 1000);
-            });
+            // ws.addEventListener('open', handleOpen);
+            // ws.addEventListener('message', ws.send('faefaefaefaefw'));
+            // ws.addEventListener('close', () => {
+            //     setTimeout(() => {
+            //         console.log('Disconnected. Trying to reconnect.');
+            //         connectToWs();
+            //     }, 1000);
+            // });
         }
 
         function handleOpen() {
