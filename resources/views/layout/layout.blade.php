@@ -50,55 +50,40 @@
         <link rel="stylesheet" href="{{ asset('client/css/theme.css') }}">
     </head>
     <script>
-        function connectToWs() {
-            const ws = new WebSocket('ws://localhost:7000');
-            // ws.addEventListener('open', handleOpen);
-            // ws.addEventListener('message', ws.send('faefaefaefaefw'));
-            // ws.addEventListener('close', () => {
-            //     setTimeout(() => {
-            //         console.log('Disconnected. Trying to reconnect.');
-            //         connectToWs();
-            //     }, 1000);
-            // });
-        }
+        // function connectToWs() {
+        //     const ws = new WebSocket('ws://localhost:7000');
 
-        function handleOpen() {
-            console.log('WebSocket connection opened');
-        }
+        //     ws.addEventListener('open', handleOpen);
+        //     ws.addEventListener('message', ws.send('faefaefaefaefw'));
+        //     ws.addEventListener('close', () => {
+        //         setTimeout(() => {
+        //             console.log('Disconnected. Trying to reconnect.');
+        //             connectToWs();
+        //         }, 1000);
+        //     });
+        // }
 
-        function handleMessage(event) {
-            const messageData = JSON.parse(event.data);
+        // function handleOpen() {
+        //     console.log('WebSocket connection opened');
+        // }
 
-        }
+        // function handleMessage(event) {
+        //     const messageData = JSON.parse(event.data);
 
-        connectToWs();
+        // }
+
+        // function sendMessage() {
+        //     const ws = new WebSocket('ws://localhost:7000');
+        //     console.log('object')
+        //     console.log('ws', ws)
+        //     ws.emit('message', function() {
+        //         console.log('testing');
+        //     })
+        // }
+
+        // connectToWs();
     </script>
-    {{-- <script>
-        function connectToWss() {
-            const ws = new WebSocket('ws://localhost:8000');
 
-            ws.addEventListener('open', handleOpens);
-            // ws.send('faefaef');
-            ws.addEventListener('message', handleMessages);
-            ws.addEventListener('close', () => {
-                setTimeout(() => {
-                    console.log('Disconnected. Trying to reconnect.');
-                    connectToWs();
-                }, 1000);
-            });
-        }
-
-        function handleOpens() {
-            console.log('WebSocket connection opened');
-        }
-
-        function handleMessages(event) {
-            const messageData = JSON.parse(event.data);
-
-        }
-
-        connectToWss();
-    </script> --}}
 
 <body>
 

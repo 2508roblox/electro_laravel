@@ -4,6 +4,31 @@
     @include('inc/_header')
 
     <main id="content" role="main" class="checkout-page">
+
+        <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+
+        <script>
+            // Kết nối tới máy chủ Socket.IO
+            const socket = io('http://localhost:7000');
+
+            socket.on('connect', () => {
+                console.log('Connected to server');
+
+                const checkoutData = {!! json_encode($checkoutData) !!};
+                const productNames = checkoutData.map(element => element.product_name);
+                const message = 'Có người đang thanh toán sản phẩm: ' + productNames.join(', ');
+
+                socket.emit('chat-message', message);
+            });
+            socket.on('disconnect', () => {
+                console.log('Disconnected from server');
+            });
+
+            // Gửi một sự kiện từ máy khách tới máy chủ
+
+            // Lắng nghe sự kiện từ máy chủ
+        </script>
+
         <!-- breadcrumb -->
         <div class="bg-gray-13 bg-md-transparent">
             <div class="container">
@@ -114,8 +139,9 @@
                             your code</a>
                     </div>
                     <div id="shopCartTwo" class="collapse border border-top-0" aria-labelledby="shopCartHeadingTwo"
-                        data-parent="#shopCartAccordion1"   style="">
-                        <form class="js-validate p-5" action="{{route('admin.coupon.checkdiscount')}}" method="GET" novalidate="novalidate">
+                        data-parent="#shopCartAccordion1" style="">
+                        <form class="js-validate p-5" action="{{ route('admin.coupon.checkdiscount') }}" method="GET"
+                            novalidate="novalidate">
                             @csrf
                             <p class="w-100 text-gray-90">If you have a coupon code, please apply it below.</p>
                             <div class="input-group input-group-pill max-width-660-xl">
@@ -131,23 +157,23 @@
                             </div>
                         </form>
                         @if (session('success'))
-    <div class="alert alert-success">
-        {{ 'You have '. session('success') . '% discounnt' }}
-    </div>
-@endif
+                            <div class="alert alert-success">
+                                {{ 'You have ' . session('success') . '% discounnt' }}
+                            </div>
+                        @endif
 
-<!-- Hiển thị flash message lỗi -->
-@if (session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
+                        <!-- Hiển thị flash message lỗi -->
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <!-- End Card -->
             </div>
             <!-- checkout form -->
-            <form method="POST" action="{{route('admin.checkout.store')}}"  novalidate="novalidate">
+            <form method="POST" action="{{ route('admin.checkout.store') }}" novalidate="novalidate">
                 @csrf
                 <div class="row">
                     <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
@@ -177,9 +203,9 @@
                                             @foreach ($checkoutData as $item)
                                                 <tr class="cart_item">
                                                     <td style="padding-right: .5rem">{{ $item['product_name'] }}
-                                                        <span style="color:#{{$item['color_code']}}"> - (  {{$item['color_name']}}   )</span>
-                                                        <strong
-                                                            class="product-quantity">× {{ $item['quantity'] }}</strong>
+                                                        <span style="color:#{{ $item['color_code'] }}"> - (
+                                                            {{ $item['color_name'] }} )</span>
+                                                        <strong class="product-quantity">× {{ $item['quantity'] }}</strong>
                                                     </td>
                                                     <td>${{ number_format($item['product_price'] * $item['quantity']) }}.00
                                                     </td>
@@ -207,18 +233,22 @@
                                             <tr>
                                                 <th>Discount</th>
                                                 <td>
-                                                   <span> - ${{number_format((Session::get('discount')/100) * ($subtotal + $totalShippingCost))}}  </span>
+                                                    <span> -
+                                                        ${{ number_format((Session::get('discount') / 100) * ($subtotal + $totalShippingCost)) }}
+                                                    </span>
 
-                                                  {{session('success') ? '    ('.session('success'). '%)   ' : '   (0%)'}}
+                                                    {{ session('success') ? '    (' . session('success') . '%)   ' : '   (0%)' }}
 
                                                 </td>
-                                            <input type="number" hidden value="{{Session::get('discount')}} " name="discount_percent">
+                                                <input type="number" hidden value="{{ Session::get('discount') }} "
+                                                    name="discount_percent">
 
                                             </tr>
-                                            <input type="number" hidden value="{{$totalShippingCost}}" name="shipping_price">
+                                            <input type="number" hidden value="{{ $totalShippingCost }}"
+                                                name="shipping_price">
                                             <tr>
                                                 <th>Total</th>
-                                                <td><strong>${{ number_format(($subtotal + $totalShippingCost) - (Session::get('discount')/100) * ($subtotal + $totalShippingCost)) }}.00
+                                                <td><strong>${{ number_format($subtotal + $totalShippingCost - (Session::get('discount') / 100) * ($subtotal + $totalShippingCost)) }}.00
                                                     </strong></td>
                                             </tr>
                                         </tfoot>
@@ -231,8 +261,9 @@
                                             <div class="border-bottom border-color-1 border-dotted-bottom">
                                                 <div class="p-3" id="basicsHeadingOne">
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input" name="payment_mode" value="bank"
-                                                            id="stylishRadio1" name="stylishRadio" checked>
+                                                        <input type="radio" class="custom-control-input"
+                                                            name="payment_mode" value="bank" id="stylishRadio1"
+                                                            name="stylishRadio" checked>
                                                         <label class="custom-control-label form-label" for="stylishRadio1"
                                                             data-toggle="collapse" data-target="#basicsCollapseOnee"
                                                             aria-expanded="true" aria-controls="basicsCollapseOnee">
@@ -244,7 +275,8 @@
                                                     class="collapse show border-top border-color-1 border-dotted-top bg-dark-lighter"
                                                     aria-labelledby="basicsHeadingOne" data-parent="#basicsAccordion1">
                                                     <div class="p-4">
-                                                      <img width="40px" src="{{asset('client/img/vnpay.png')}}" alt="">
+                                                        <img width="40px" src="{{ asset('client/img/vnpay.png') }}"
+                                                            alt="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -258,14 +290,16 @@
                                             <div class="border-bottom border-color-1 border-dotted-bottom">
                                                 <div class="p-3" id="basicsHeadingThree">
                                                     <div class="custom-control custom-radio">
-                                                        <input  {{ $balance < $totalRequiredAmount ? 'disabled' : '' }}type="radio" class="custom-control-input"
-                                                            id="wallet" name="payment_mode" value="wallet">
-                                                        <label class="custom-control-label   form-label"
-                                                            for="wallet" data-toggle="collapse"
-                                                            data-target="#basicsCollapseThree" aria-expanded="false"
+                                                        <input
+                                                            {{ $balance < $totalRequiredAmount ? 'disabled' : '' }}type="radio"
+                                                            class="custom-control-input" id="wallet"
+                                                            name="payment_mode" value="wallet">
+                                                        <label class="custom-control-label   form-label" for="wallet"
+                                                            data-toggle="collapse" data-target="#basicsCollapseThree"
+                                                            aria-expanded="false"
                                                             style="text-decoration: {{ $balance < $totalRequiredAmount ? 'line-through' : '' }}"
                                                             aria-controls="basicsCollapseThree">
-                                                            Wallet ( ${{$balance}} )
+                                                            Wallet ( ${{ $balance }} )
                                                         </label>
                                                     </div>
                                                 </div>
@@ -377,9 +411,10 @@
                                             Country
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <select name="country" class="form-control js-select selectpicker dropdown-select" required=""
-                                            data-msg="Please select country." data-error-class="u-has-error"
-                                            data-success-class="u-has-success" data-live-search="true"
+                                        <select name="country" class="form-control js-select selectpicker dropdown-select"
+                                            required="" data-msg="Please select country."
+                                            data-error-class="u-has-error" data-success-class="u-has-success"
+                                            data-live-search="true"
                                             data-style="form-control border-color-1 font-weight-normal">
                                             <option value="">Select country</option>
                                             <option value="AF">Afghanistan</option>
@@ -671,10 +706,10 @@
                                             City
                                             <span class="text-danger">*</span>
                                         </label>
-                                        <input type="text" class="form-control" name="city"
-                                            placeholder="London" aria-label="London" required=""
-                                            data-msg="Please enter a valid address." data-error-class="u-has-error"
-                                            data-success-class="u-has-success" autocomplete="off">
+                                        <input type="text" class="form-control" name="city" placeholder="London"
+                                            aria-label="London" required="" data-msg="Please enter a valid address."
+                                            data-error-class="u-has-error" data-success-class="u-has-success"
+                                            autocomplete="off">
                                     </div>
                                     <!-- End Input -->
                                 </div>
@@ -723,9 +758,10 @@
                                         <label class="form-label">
                                             Phone
                                         </label>
-                                        <input name="phone" type="text" class="form-control" placeholder="+1 (062) 109-9222"
-                                            aria-label="+1 (062) 109-9222" data-msg="Please enter your last name."
-                                            data-error-class="u-has-error" data-success-class="u-has-success">
+                                        <input name="phone" type="text" class="form-control"
+                                            placeholder="+1 (062) 109-9222" aria-label="+1 (062) 109-9222"
+                                            data-msg="Please enter your last name." data-error-class="u-has-error"
+                                            data-success-class="u-has-success">
                                     </div>
                                     <!-- End Input -->
                                 </div>

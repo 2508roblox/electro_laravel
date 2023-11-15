@@ -57,31 +57,29 @@
                 stopOnFocus: true,
             }).showToast();
         }
+    </script>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
 
-        function connectToWs() {
-            const ws = new WebSocket('ws://localhost:7000');
+    <script>
+        // Kết nối tới máy chủ Socket.IO
+        const socket = io('http://localhost:7000');
 
-            ws.addEventListener('open', handleOpen);
-            ws.addEventListener('message', handleMessage);
-            ws.addEventListener('close', () => {
-                setTimeout(() => {
-                    console.log('Disconnected. Trying to reconnect.');
-                    connectToWs();
-                }, 1000);
-            });
-        }
+        socket.on('connect', () => {
+            console.log('Connected to server');
+           
+        });
 
-        function handleOpen() {
-            console.log('WebSocket connection opened');
-        }
+        socket.on('disconnect', () => {
+            console.log('Disconnected from server');
+        });
 
-        function handleMessage(event) {
-            const messageData = JSON.parse(event.data);
-            console.log(messageData)
-            showNotification(messageData)
-        }
+        // Gửi một sự kiện từ máy khách tới máy chủ
 
-        connectToWs();
+        // Lắng nghe sự kiện từ máy chủ
+        socket.on('chat-message', (message) => {
+            console.log('Received message from server:', message);
+            showNotification(message)
+        });
     </script>
 </head>
 
