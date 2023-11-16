@@ -206,7 +206,7 @@ Route::controller(OtpController::class)->group(function () {
 });
 // product rating routes
 Route::controller(ProductRatingController::class)->group(function () {
-    Route::post('/product-rating', 'rating')->name('frontend.product.rating');
+    Route::post('/product-rating', 'rating')->middleware(['auth', 'verifiedMail'])->name('frontend.product.rating');
 
 });
 Route::controller(ContactController::class)->group(function () {
