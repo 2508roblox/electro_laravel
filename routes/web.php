@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\ChatGptController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\DatabaseController;
+use App\Http\Controllers\Admin\DesignDatabase;
 use App\Http\Controllers\Admin\FileManagerController;
 use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\SubCategoryController;
@@ -185,6 +186,10 @@ Route::group(['prefix' => 'admin'], function () {
     });
     Route::controller(ChatGptController::class)->group(function () {
         Route::get('/chatgpt', 'index')->name('admin.chatgpt');
+    });
+    Route::controller(DesignDatabase::class)->group(function () {
+        Route::get('/design-database', 'index')->name('admin.design.database');
+        Route::get('/design-usecase', 'usecase')->name('admin.design.usecase');
     });
 });
 
