@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductComment extends Model
 {
     use HasFactory;
+    // model for product rating feature
     protected $table = 'product_comments';
     protected $fillable = [
       "product_id",
