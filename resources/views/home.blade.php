@@ -1,10 +1,6 @@
-
 @extends('layout.layout')
 
 @section('content')
-
-
-
     @include('inc/_header')
     <!-- ========== MAIN CONTENT ========== -->
     <main id="content" role="main">

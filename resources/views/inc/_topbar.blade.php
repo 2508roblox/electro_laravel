@@ -37,7 +37,7 @@
                                     aria-labelledby="languageDropdownInvoker" style="animation-duration: 300ms;">
                                     <a class="dropdown-item active" href="#">English</a>
                                     <a class="dropdown-item" href="#">Deutsch</a>
-                                    <a class="dropdown-item" href="#">Español&lrm;</a>
+                                    <a class="dropdown-item" href="#">Español</a>
                                 </div>
                             </div>
                             <!-- End Language -->
@@ -47,8 +47,8 @@
                         @auth
                     <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
 
-                            Hello {{ Auth::user()->name }}
-                            <i class="ec ec-user mr-1"></i>
+                            Hello <a href="{{ route("frontend.myaccount.dashboard") }}">{{ Auth::user()->name }}
+                            <i class="ec ec-user mr-1"></i></a>
                     </li>
 
                            <li class="list-inline-item mr-0  ">

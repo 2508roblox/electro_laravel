@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Wallet;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -22,6 +23,8 @@ class User extends Authenticatable
         'email',
         'password',
         'otp',
+        'role_as',
+        'email_verified_at',
     ];
 
     /**
@@ -43,7 +46,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    public function getWishlistByUserId () {
+    public function getWishlistByUserId () 
+    {
         return $this->hasMany(Wishlist::class, 'user_id', 'id');
-      }
+    }
+    
+    public function wallet()
+    {
+        return $this->hasOne(Wallet::class, 'user_id', 'id');
+    }
 }

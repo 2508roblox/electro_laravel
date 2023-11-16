@@ -1,8 +1,8 @@
-@extends('layout.layout');
+@extends('layout.layout')
 @section('content')
     @include('inc/_header')
     <main id="content" role="main">
-     
+
         <!-- breadcrumb -->
         <div class="bg-gray-13 bg-md-transparent">
             <div class="container">
@@ -132,7 +132,7 @@
                                 </div>
                             </div>
                             <!-- End View More - Collapse -->
-
+                                
                             <!-- Link -->
                             <a class="link link-collapse small font-size-13 text-gray-27 d-inline-flex mt-2"
                                 data-toggle="collapse" href="#collapseBrand" role="button" aria-expanded="false"
