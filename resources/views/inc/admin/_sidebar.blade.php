@@ -615,14 +615,15 @@
                                           </svg>
                                       </span><span class="sa-nav__title">File
                                           Manager</span></a></li>
-                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"><a href="app-calendar.html"
-                                      class="sa-nav__link"><span class="sa-nav__icon">
+                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"><a
+                                      href="{{ route('admin.database', ['id' => 1]) }}" class="sa-nav__link"><span
+                                          class="sa-nav__icon">
                                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="calender">
                                               <path
                                                   d="m27.14 11.1.27-.65A1.82 1.82 0 0 0 25.72 8h-2.15a3.44 3.44 0 0 0-6.79 0h-1.36a3.43 3.43 0 0 0-6.78 0h-.39a3 3 0 0 0-2.74 1.8l-.69 1.7A1.81 1.81 0 0 0 5 13.17a1.5 1.5 0 0 0 .2.23 1.76 1.76 0 0 0 1.27.6h18.92l.83 9h-2.46L25 15H10a1 1 0 0 1 .91 1 1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1 1 1 0 0 1 .76-.95V15h-2.2A2.69 2.69 0 0 1 5 14.53L3.72 23a3.41 3.41 0 0 0 3.37 4h16.05l.31-2h5ZM10.69 8a1.45 1.45 0 0 1 2.68 0Zm8.14 0a1.45 1.45 0 0 1 1.34-.9 1.43 1.43 0 0 1 1.34.9ZM9 24a1 1 0 1 1 1-1 1 1 0 0 1-1 1Zm10.1-5.9c-.19 1.31-1.28 2.35-2.55 3.36l-.81.6h2.94l-.22 1.5h-5.55l.15-1.1 1.14-.91c1.92-1.53 2.87-2.4 3-3.31.09-.64-.22-1.14-1.12-1.14a3.25 3.25 0 0 0-1.76.64L14 16.41a4.8 4.8 0 0 1 2.67-.81c1.77 0 2.6 1.03 2.4 2.45Z"
                                                   data-name="Flash Light" />
                                           </svg>
-                                      </span><span class="sa-nav__title">Calendar</span></a></li>
+                                      </span><span class="sa-nav__title">Database Manager</span></a></li>
                               <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"><a href="app-analytics.html"
                                       class="sa-nav__link"><span class="sa-nav__icon"><svg
                                               xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"

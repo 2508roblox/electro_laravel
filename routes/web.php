@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\DatabaseController;
 use App\Http\Controllers\Admin\FileManagerController;
 use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\SubCategoryController;
@@ -177,6 +178,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/inbox/invoice/{id}', 'detail_invoice')->name('admin.inbox.invoice.detail');
         Route::get('/inbox/{id}', 'detail_verify')->name('admin.inbox.id');
     });
+    Route::controller(DatabaseController::class)->group(function () {
+        Route::get('/database', 'index')->name('admin.database');
+        Route::get('/database/{id}', 'detail')->name('admin.database.detail');
+    });
 });
 
 Route::prefix('shop')->group(function () {
@@ -214,7 +219,6 @@ Route::controller(OtpController::class)->group(function () {
 // product rating routes
 Route::controller(ProductRatingController::class)->group(function () {
     Route::post('/product-rating', 'rating')->middleware(['auth', 'verifiedMail'])->name('frontend.product.rating');
-
 });
 Route::controller(ContactController::class)->group(function () {
     Route::get('/contact', 'index')->name('frontend.contact.view');
