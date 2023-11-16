@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 15, 2023 lúc 06:38 PM
+-- Thời gian đã tạo: Th10 16, 2023 lúc 11:24 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -225,6 +225,22 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `login_histories`
+--
+
+CREATE TABLE `login_histories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `login_time` datetime NOT NULL,
+  `ip_address` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `migrations`
 --
 
@@ -270,7 +286,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (29, '2023_11_02_144609_create_detail_blogs_table', 1),
 (30, '2023_11_03_013952_add_to_blogs_table', 1),
 (31, '2023_11_12_125046_create_contacts_table', 1),
-(32, '2023_11_13_023505_add_otp_to_users_table', 1);
+(32, '2023_11_13_023505_add_otp_to_users_table', 1),
+(33, '2023_11_16_092629_create_login_histories_table', 2),
+(34, '2023_11_16_093119_create_login_histories_table', 3);
 
 -- --------------------------------------------------------
 
@@ -634,11 +652,11 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (9, 'smfnv zs,mfv', '1234@gmail.com', '2023-11-15 09:18:54', '$2y$10$DsBxhDoloWINtff81BuZ/O5DpkQaiLa5F05jZCDjkK2HPj2/z01tG', NULL, '2023-11-13 01:25:18', '2023-11-15 09:18:54', 0, 379547),
 (10, 'pojfa43', 'pojfa43@gmail.com', NULL, '$2y$10$o3DSN35J/L927eYc9tf7C.wf5D6nSe2il7kQ6XKnoUmwQGEVTFYk6', NULL, '2023-11-15 06:52:26', '2023-11-15 06:52:26', 0, NULL),
 (11, 'giangtran', 'trangiangzxc@gmail.com', '2023-11-15 09:19:33', '$2y$10$V3HfIfmSp.hgqsC48WzSHuIE17QXesSgNI7gqxDM4wIrUbvap5IPO', NULL, '2023-11-15 06:53:33', '2023-11-15 09:19:33', 1, NULL),
-(12, 'dfbsgtnr245', 'dfbsgtnr245@gmail.com', NULL, '$2y$10$o3DSN35J/L927eYc9tf7C.wf5D6nSe2il7kQ6XKnoUmwQGEVTFYk6', NULL, '2023-11-15 06:52:26', '2023-11-15 06:52:26', 0, NULL),
+(12, 'dfbsgtnr245', 'dfbsgtnr245@gmail.com', '2023-11-15 23:38:53', '$2y$10$o3DSN35J/L927eYc9tf7C.wf5D6nSe2il7kQ6XKnoUmwQGEVTFYk6', NULL, '2023-11-15 06:52:26', '2023-11-15 23:38:53', 0, NULL),
 (13, 'rsrbtgnb', 'rsrbtgnb@gmail.com', NULL, '$2y$10$TNX2j80iAaCOB3gSp44izO4mpO1ud42aluL1aiZZyYtyhx2nbPzFu', NULL, '2023-11-15 09:26:32', '2023-11-15 09:26:32', 0, NULL),
 (14, 'rmnhrtuymyr', 'rmnhrtuymyr@gmail.com', NULL, '$2y$10$v0SVb7bWqC/8MMPlF0.u1.vOiwX9NjCs4RCBeUXBpHj5ncbVMWDEa', NULL, '2023-11-15 09:27:09', '2023-11-15 09:27:09', 0, NULL),
 (15, 'tyrfynh', 'tyrfynh@gmail.com', NULL, '$2y$10$qyjKTfDdjx3mdp5AZ9CeZe57PV1rugeY8vAFUz1yX.sgWj0pcc72m', NULL, '2023-11-15 09:30:15', '2023-11-15 09:30:15', 0, NULL),
-(16, 'mfnhbuyu', 'mfnhbuyu@gmail.com', NULL, '$2y$10$A4BYNnyAeuC7dvQvcTh.bOm2dyGH3ifADBqnu2YHmYnCAltLOM6sa', NULL, '2023-11-15 09:30:43', '2023-11-15 09:39:49', 0, 100989);
+(16, 'mfnhbuyu', 'mfnhbuyu@gmail.com', '2023-11-15 23:33:01', '$2y$10$A4BYNnyAeuC7dvQvcTh.bOm2dyGH3ifADBqnu2YHmYnCAltLOM6sa', NULL, '2023-11-15 09:30:43', '2023-11-15 23:33:01', 0, 228976);
 
 -- --------------------------------------------------------
 
@@ -667,7 +685,8 @@ INSERT INTO `wallets` (`id`, `user_id`, `balance`, `created_at`, `updated_at`) V
 (7, 10, 65555555.00, '2023-11-15 08:34:02', '2023-11-15 09:14:57'),
 (8, 7, 99999999.00, '2023-11-15 08:46:34', '2023-11-15 09:19:21'),
 (9, 11, 99999999.00, '2023-11-15 09:01:57', '2023-11-15 09:19:33'),
-(10, 12, 65432765.00, '2023-11-15 09:16:34', '2023-11-15 09:16:58');
+(10, 12, 65432765.00, '2023-11-15 09:16:34', '2023-11-15 09:16:58'),
+(11, 16, 0.00, '2023-11-15 23:33:01', '2023-11-15 23:33:01');
 
 -- --------------------------------------------------------
 
@@ -743,6 +762,13 @@ ALTER TABLE `detail_blogs`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Chỉ mục cho bảng `login_histories`
+--
+ALTER TABLE `login_histories`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `login_histories_user_id_foreign` (`user_id`);
 
 --
 -- Chỉ mục cho bảng `migrations`
@@ -898,10 +924,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `login_histories`
+--
+ALTER TABLE `login_histories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
@@ -967,7 +999,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `wallets`
 --
 ALTER TABLE `wallets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `wishlists`
@@ -984,6 +1016,12 @@ ALTER TABLE `wishlists`
 --
 ALTER TABLE `carts`
   ADD CONSTRAINT `carts_product_color_id_foreign` FOREIGN KEY (`product_color_id`) REFERENCES `product_colors` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `login_histories`
+--
+ALTER TABLE `login_histories`
+  ADD CONSTRAINT `login_histories_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Các ràng buộc cho bảng `products`
