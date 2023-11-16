@@ -26,6 +26,14 @@ io.on("connection", (socket) => {
         console.log("Received message from client:", message);
         io.emit("chat-message", message);
     });
+    socket.on("chat-admin", (message) => {
+        console.log("Received message from admin:", message);
+        const otherClients = Object.keys(io.sockets.sockets).filter((clientId) => clientId !== socket.id);
+        otherClients.forEach((clientId) => {
+            io.to(clientId).emit("chat-admin", message);
+        });
+    });
+
 });
 
 server.listen(7000, () => {

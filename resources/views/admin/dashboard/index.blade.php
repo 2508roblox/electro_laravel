@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <div class="saw-indicator__body">
-                            <div class="saw-indicator__value">$3799.00</div>
+                            <div class="saw-indicator__value">${{ $totalAmount }}</div>
                             <div class="saw-indicator__delta saw-indicator__delta--rise">
                                 <div class="saw-indicator__delta-direction"><svg xmlns="http://www.w3.org/2000/svg"
                                         width="9" height="9" viewBox="0 0 9 9" fill="currentColor">
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="saw-indicator__body">
-                            <div class="saw-indicator__value">$272.98</div>
+                            <div class="saw-indicator__value">${{ $averageAmount }}</div>
                             <div class="saw-indicator__delta saw-indicator__delta--fall">
                                 <div class="saw-indicator__delta-direction"><svg xmlns="http://www.w3.org/2000/svg"
                                         width="9" height="9" viewBox="0 0 9 9" fill="currentColor">
@@ -125,7 +125,7 @@
                             </div>
                         </div>
                         <div class="saw-indicator__body">
-                            <div class="saw-indicator__value">578</div>
+                            <div class="saw-indicator__value">{{ $orderCount }}</div>
                             <div class="saw-indicator__delta saw-indicator__delta--rise">
                                 <div class="saw-indicator__delta-direction"><svg xmlns="http://www.w3.org/2000/svg"
                                         width="9" height="9" viewBox="0 0 9 9" fill="currentColor">
@@ -165,7 +165,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="saw-pulse__counter">148</div>
+                        <div class="saw-pulse__counter">{{ $userCount }}</div>
                         <div class="sa-widget-table saw-pulse__table">
                             <table>
                                 <thead>
