@@ -46,7 +46,7 @@
                                               </div>
                                               <div class="col-lg-7" data-scs-animation-in="zoomIn"
                                                   data-scs-animation-delay="500">
-                                                  <img style="max-height: 310px" class="img-fluid rounded-lg"
+                                                  <img style="height: 310px" class="img-fluid rounded-lg"
                                                       src="{{ $slider->image ? asset('storage/' . $slider->image) : 'client/img/724X360/img2.png' }}"
                                                       alt="Image Description">
                                               </div>
