@@ -50,19 +50,19 @@
     }
 
     label[for*='1']:before {
-        content: '\f1cb';
+        content: '\f015';
     }
 
     label[for*='2']:before {
-        content: '\f17d';
+        content: '\f4c0';
     }
 
     label[for*='3']:before {
-        content: '\f16b';
+        content: '\f601';
     }
 
     label[for*='4']:before {
-        content: '\f1a9';
+        content: '\f2bd';
     }
 
     label:hover {
@@ -104,7 +104,9 @@
 
 </style>
 
-<h1>Hello <u>{{ Auth::user()->name }}</u></h1>
+<h1>Hello <u>{{ Auth::user()->name }}</u>
+    
+</h1>
 
 <main>
 
@@ -120,11 +122,12 @@
     <input id="tab4" type="radio" name="tabs">
     <label for="tab4">Account details</label>
 
-    <input id="tab5" type="radio" name="tabs">
-    <label for="tab5">Logout</label>
-
     <section id="content1">
         <p>Hello <b>{{ Auth::user()->name }}</b></p>
+        <form action="{{ route('logout') }}" method="post">
+            @csrf
+            <input class="btn btn-primary" id="submit" type="submit" value="Logout" placeholder="Logout" style="display: block; font-size: 15px">
+        </form>
 
         <p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
     </section>
@@ -137,9 +140,25 @@
 
     <section id="content3">
         <p>The following addresses will be used on the checkout page by default.</p>
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
+
+        @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="col-md-12 col-xl-12" bis_skin_checked="1">
             <div class="mr-xl-6" bis_skin_checked="1">
-                <form class="js-validate" novalidate="novalidate">
+                <form class="js-validate" novalidate="novalidate" method="post" action="{{ route('frontend.myaccount.updateProfile') }}">
+                    @csrf
                     <div class="row" bis_skin_checked="1">
                         <div class="col-md-6" bis_skin_checked="1">
                             <!-- Input -->
@@ -148,7 +167,7 @@
                                     First name
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" class="form-control" name="firstName" placeholder="" aria-label="" required="" data-msg="Please enter your frist name." data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off">
+                                <input type="text" class="form-control" name="firstname" placeholder="" aria-label="" required="" data-msg="Please enter your frist name." data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off" value="{{ Auth::user()->firstname }}">
                             </div>
                             <!-- End Input -->
                         </div>
@@ -160,7 +179,7 @@
                                     Last name
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" class="form-control" name="lastName" placeholder="" aria-label="" required="" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success">
+                                <input type="text" class="form-control" name="lastname" placeholder="" aria-label="" required="" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success" value="{{ Auth::user()->lastname }}">
                             </div>
                             <!-- End Input -->
                         </div>
@@ -171,7 +190,7 @@
                                 <label class="form-label">
                                     Company Name (Optional)
                                 </label>
-                                <input type="text" class="form-control" name="Subject" placeholder="" aria-label="" data-msg="Please enter subject." data-error-class="u-has-error" data-success-class="u-has-success">
+                                <input type="text" class="form-control" name="companyname" placeholder="" aria-label="" data-msg="Please enter companyname." data-error-class="u-has-error" data-success-class="u-has-success" value="{{ Auth::user()->companyname }}">
                             </div>
                             <!-- End Input -->
                         </div>
@@ -183,11 +202,11 @@
                                     Country / Region
                                 </label>
                                 <div class="dropdown bootstrap-select js-select dropdown-select w-100" bis_skin_checked="1">
-                                    <select class="js-select selectpicker dropdown-select w-100" data-style="btn-sm bg-white font-weight-normal py-2 border" tabindex="-98">
-                                        <option value="vn" selected="">VietNam</option>
-                                        <option value="us">US</option>
-                                        <option value="tw">Taiwan</option>
-                                        <option value="china">Khựa</option>
+                                    <select class="js-select selectpicker dropdown-select w-100" data-style="btn-sm bg-white font-weight-normal py-2 border" tabindex="-98" name="country">
+                                        <option value="vietnam" {{ Auth::user()->country == 'vietnam' ? 'selected' : '' }}>VietNam</option>
+                                        <option value="us" {{ Auth::user()->country == 'us' ? 'selected' : '' }}>US</option>
+                                        <option value="taiwan" {{ Auth::user()->country == 'taiwan' ? 'selected' : '' }}>Taiwan</option>
+                                        <option value="china" {{ Auth::user()->country == 'china' ? 'selected' : '' }}>Khựa</option>
                                     </select>
                                 </div>
                                 <!-- End Input -->
@@ -199,7 +218,7 @@
                                     <label class="form-label">
                                         Street Address
                                     </label>
-                                    <input type="text" class="form-control" name="address" placeholder="Input full address" aria-label="" data-msg="Please enter address." data-error-class="u-has-error" data-success-class="u-has-success">
+                                    <input type="text" class="form-control" name="address" placeholder="Input full address" aria-label="" data-msg="Please enter address." data-error-class="u-has-error" data-success-class="u-has-success" value="{{ Auth::user()->address }}">
                                 </div>
                                 <!-- End Input -->
                             </div>
@@ -210,7 +229,7 @@
                                     <label class="form-label">
                                         Zip Code
                                     </label>
-                                    <input type="text" class="form-control" name="zipcode" placeholder="Input full address" aria-label="" data-msg="Please enter address." data-error-class="u-has-error" data-success-class="u-has-success">
+                                    <input type="number" class="form-control" name="zipcode" placeholder="Input full zipcode" aria-label="" data-msg="Please enter zipcode." data-error-class="u-has-error" data-success-class="u-has-success" value="{{ Auth::user()->zipcode }}">
                                 </div>
                                 <!-- End Input -->
                             </div>
@@ -221,7 +240,7 @@
                                     <label class="form-label">
                                         Phone
                                     </label>
-                                    <input type="text" class="form-control" name="phone" placeholder="Input full address" aria-label="" data-msg="Please enter address." data-error-class="u-has-error" data-success-class="u-has-success">
+                                    <input type="tel" class="form-control" name="phone" placeholder="Input full phone" aria-label="" data-msg="Please enter phone." data-error-class="u-has-error" data-success-class="u-has-success" value="{{ Auth::user()->phone }}">
                                 </div>
                                 <!-- End Input -->
                             </div>
@@ -232,37 +251,98 @@
                                     <label class="form-label">
                                         Email
                                     </label>
-                                    <input type="text" class="form-control" name="email" placeholder="Input email" aria-label="" data-msg="Please enter address." data-error-class="u-has-error" data-success-class="u-has-success" value="{{ Auth::user()->email }}">
+                                    <input type="email" class="form-control" name="email" placeholder="Input email" aria-label="" data-msg="Please enter email." data-error-class="u-has-error" data-success-class="u-has-success" value="{{ Auth::user()->email }}" readonly>
                                 </div>
                                 <!-- End Input -->
                             </div>
 
-
                         </div>
                         <div class="mb-3" bis_skin_checked="1">
-                            <button type="submit" class="btn btn-primary-dark-w">Submit</button>
+                            <button type="submit" class="btn btn-primary-dark-w">Save</button>
                         </div>
                 </form>
             </div>
         </div>
+
+
     </section>
 
     <section id="content4">
-        <p>
-            Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin ball tip turducken. Pork belly meatball t-bone bresaola tail filet mignon kevin turkey ribeye shank flank doner cow kielbasa shankle. Pig swine chicken hamburger, tenderloin turkey rump ball tip sirloin frankfurter meatloaf boudin brisket ham hock. Hamburger venison brisket tri-tip andouille pork belly ball tip short ribs biltong meatball chuck. Pork chop ribeye tail short ribs, beef hamburger meatball kielbasa rump corned beef porchetta landjaeger flank. Doner rump frankfurter meatball meatloaf, cow kevin pork pork loin venison fatback spare ribs salami beef ribs.
-        </p>
-        <p>
-            Jerky jowl pork chop tongue, kielbasa shank venison. Capicola shank pig ribeye leberkas filet mignon brisket beef kevin tenderloin porchetta. Capicola fatback venison shank kielbasa, drumstick ribeye landjaeger beef kevin tail meatball pastrami prosciutto pancetta. Tail kevin spare ribs ground round ham ham hock brisket shoulder. Corned beef tri-tip leberkas flank sausage ham hock filet mignon beef ribs pancetta turkey.
-        </p>
-    </section>
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
 
-    <section id="content5">
-        <p>
-            Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin ball tip turducken. Pork belly meatball t-bone bresaola tail filet mignon kevin turkey ribeye shank flank doner cow kielbasa shankle. Pig swine chicken hamburger, tenderloin turkey rump ball tip sirloin frankfurter meatloaf boudin brisket ham hock. Hamburger venison brisket tri-tip andouille pork belly ball tip short ribs biltong meatball chuck. Pork chop ribeye tail short ribs, beef hamburger meatball kielbasa rump corned beef porchetta landjaeger flank. Doner rump frankfurter meatball meatloaf, cow kevin pork pork loin venison fatback spare ribs salami beef ribs.
-        </p>
-        <p>
-            Jerky jowl pork chop tongue, kielbasa shank venison. Capicola shank pig ribeye leberkas filet mignon brisket beef kevin tenderloin porchetta. Capicola fatback venison shank kielbasa, drumstick ribeye landjaeger beef kevin tail meatball pastrami prosciutto pancetta. Tail kevin spare ribs ground round ham ham hock brisket shoulder. Corned beef tri-tip leberkas flank sausage ham hock filet mignon beef ribs pancetta turkey.
-        </p>
+        @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        <div class="col-md-12 col-xl-12" bis_skin_checked="1">
+            <div class="mr-xl-6" bis_skin_checked="1">
+                <form class="js-validate" novalidate="novalidate" method="post" action="{{ route('frontend.myaccount.updateProfile') }}">
+                    @csrf
+                    <div class="row" bis_skin_checked="1">
+                        <div class="col-md-6" bis_skin_checked="1">
+                            <!-- Input -->
+                            <div class="js-form-message mb-4" bis_skin_checked="1">
+                                <label class="form-label">
+                                    First name
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" class="form-control" name="firstname" placeholder="" aria-label="" required="" data-msg="Please enter your frist name." data-error-class="u-has-error" data-success-class="u-has-success" autocomplete="off" value="{{ Auth::user()->firstname }}">
+                            </div>
+                            <!-- End Input -->
+                        </div>
+
+                        <div class="col-md-6" bis_skin_checked="1">
+                            <!-- Input -->
+                            <div class="js-form-message mb-4" bis_skin_checked="1">
+                                <label class="form-label">
+                                    Last name
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" class="form-control" name="lastname" placeholder="" aria-label="" required="" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success" value="{{ Auth::user()->lastname }}">
+                            </div>
+                            <!-- End Input -->
+                        </div>
+
+                        <div class="col-md-12" bis_skin_checked="1">
+                            <!-- Input -->
+                            <div class="js-form-message mb-4" bis_skin_checked="1">
+                                <label class="form-label">
+                                    Display name
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" class="form-control" name="name" placeholder="" aria-label="" required="" data-msg="Please enter your display name." data-error-class="u-has-error" data-success-class="u-has-success" value="{{ Auth::user()->name }}">
+                            </div>
+                            <!-- End Input -->
+                        </div>
+
+                        <div class="col-md-12" bis_skin_checked="1">
+                            <!-- Input -->
+                            <div class="js-form-message mb-4" bis_skin_checked="1">
+                                <label class="form-label">
+                                    Email
+                                </label>
+                                <input type="email" class="form-control" name="email" placeholder="Input email" aria-label="" data-msg="Please enter email." data-error-class="u-has-error" data-success-class="u-has-success" value="{{ Auth::user()->email }}" readonly>
+                            </div>
+                            <!-- End Input -->
+                        </div>
+
+                    </div>
+                    <div class="mb-3" bis_skin_checked="1">
+                        <button type="submit" class="btn btn-primary-dark-w">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </section>
 
 </main>

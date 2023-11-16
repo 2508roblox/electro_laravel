@@ -67,8 +67,9 @@ Route::group(['prefix' => 'my-account'], function () {
         Route::get('/order', 'order')->name('frontend.myaccount.order');
         Route::get('/address', 'address')->name('frontend.myaccount.address');
         Route::get('/account-detail', 'accountdetail')->name('frontend.myaccount.accountdetail');
-        Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+        Route::post('/update-profile', [MyAccountController::class, 'updateProfile'])->name('frontend.myaccount.updateProfile');
     });
+    // Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 });
 
 Route::group(['prefix' => 'admin'], function () {

@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 16, 2023 lúc 11:24 AM
+-- Máy chủ: localhost:3308
+-- Thời gian đã tạo: Th10 16, 2023 lúc 06:35 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `electro_3`
+-- Cơ sở dữ liệu: `electro`
 --
 
 -- --------------------------------------------------------
@@ -144,15 +144,15 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `status`, `image`, `slug`, `title`, `description`, `seo_description`, `publish_date`, `created_at`, `updated_at`) VALUES
-(1, 'Laptop', 'published', 'images/nCInFxWuM3KvIce0akNGeFxVz1ZjbRv5QJ9Wgo6M.png', 'laptop', 'ewa', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'gae', '30/09/2023', '2023-09-21 17:04:27', '2023-09-29 18:13:34'),
-(4, 'Cameras', 'published', NULL, 'cameras', 'aewg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'aewg', '22/09/2023', '2023-09-21 08:14:15', '2023-09-21 08:14:15'),
-(6, 'smartphones', 'published', NULL, 'smartphones', 'agwe', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'ăge', '22/09/2023', '2023-09-21 08:15:19', '2023-09-21 08:15:19'),
-(7, 'drone', 'published', NULL, 'drone', 'geaw', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'gaew', '22/09/2023', '2023-09-21 08:16:09', '2023-09-21 08:16:09'),
-(8, 'headphones', 'published', NULL, 'headphones', 'aegw', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'ăeg', '22/09/2023', '2023-09-21 08:16:41', '2023-09-21 08:16:41'),
-(9, 'tvs', 'published', NULL, 'tvs', 'agew', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'gưea', '22/09/2023', '2023-09-21 08:16:58', '2023-09-21 08:16:58'),
-(10, 'speaker', 'published', NULL, 'speaker', 'agew', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'ưaeg', '22/09/2023', '2023-09-21 08:17:16', '2023-09-21 08:17:16'),
-(11, 'gamepad', 'published', NULL, 'gamepad', 'eawg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'ưage', '22/09/2023', '2023-09-21 08:17:45', '2023-09-21 08:17:45'),
-(12, 'smartwatch', 'published', NULL, 'smartwatch', 'aewg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'agwe', '22/09/2023', '2023-09-21 08:18:18', '2023-09-21 08:18:18');
+(1, 'Laptop', 'published', 'images/nCInFxWuM3KvIce0akNGeFxVz1ZjbRv5QJ9Wgo6M.png', 'laptop', 'ewa', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'gae', '30/09/2023', '2023-09-22 00:04:27', '2023-09-30 01:13:34'),
+(4, 'Cameras', 'published', NULL, 'cameras', 'aewg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'aewg', '22/09/2023', '2023-09-21 15:14:15', '2023-09-21 15:14:15'),
+(6, 'smartphones', 'published', NULL, 'smartphones', 'agwe', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'ăge', '22/09/2023', '2023-09-21 15:15:19', '2023-09-21 15:15:19'),
+(7, 'drone', 'published', NULL, 'drone', 'geaw', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'gaew', '22/09/2023', '2023-09-21 15:16:09', '2023-09-21 15:16:09'),
+(8, 'headphones', 'published', NULL, 'headphones', 'aegw', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'ăeg', '22/09/2023', '2023-09-21 15:16:41', '2023-09-21 15:16:41'),
+(9, 'tvs', 'published', NULL, 'tvs', 'agew', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'gưea', '22/09/2023', '2023-09-21 15:16:58', '2023-09-21 15:16:58'),
+(10, 'speaker', 'published', NULL, 'speaker', 'agew', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'ưaeg', '22/09/2023', '2023-09-21 15:17:16', '2023-09-21 15:17:16'),
+(11, 'gamepad', 'published', NULL, 'gamepad', 'eawg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'ưage', '22/09/2023', '2023-09-21 15:17:45', '2023-09-21 15:17:45'),
+(12, 'smartwatch', 'published', NULL, 'smartwatch', 'aewg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.', 'agwe', '22/09/2023', '2023-09-21 15:18:18', '2023-09-21 15:18:18');
 
 -- --------------------------------------------------------
 
@@ -174,9 +174,9 @@ CREATE TABLE `colors` (
 --
 
 INSERT INTO `colors` (`id`, `name`, `code`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Red', 'ff0000', 1, '2023-09-24 22:58:40', '2023-09-24 22:58:47'),
-(2, 'Pink', 'ee82ee', 1, '2023-09-24 22:58:53', '2023-09-24 22:58:53'),
-(4, 'Purple', '6a5acd', 1, '2023-09-24 22:59:08', '2023-09-24 22:59:08');
+(1, 'Red', 'ff0000', 1, '2023-09-25 05:58:40', '2023-09-25 05:58:47'),
+(2, 'Pink', 'ee82ee', 1, '2023-09-25 05:58:53', '2023-09-25 05:58:53'),
+(4, 'Purple', '6a5acd', 1, '2023-09-25 05:59:08', '2023-09-25 05:59:08');
 
 -- --------------------------------------------------------
 
@@ -199,7 +199,7 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `firstname`, `lastname`, `subject`, `message`, `created_at`, `updated_at`) VALUES
-(1, 'ffsdtdhdth', 'dfbgdnd', 'dntszdzgn', 'tjndgtn', '2023-11-13 01:28:16', '2023-11-13 01:28:16');
+(1, 'găeg', 'ăega', 'ăegaweg', 'ăegea', '2023-11-12 06:08:18', '2023-11-12 06:08:18');
 
 -- --------------------------------------------------------
 
@@ -223,6 +223,23 @@ CREATE TABLE `coupons` (
 
 INSERT INTO `coupons` (`id`, `code`, `discount`, `is_active`, `expires_at`, `created_at`, `updated_at`) VALUES
 (1, 'ff0000', 12, 1, '2023-11-15 07:05:09', '2023-11-02 06:37:00', '2023-11-02 07:05:09');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `customers`
+--
+
+CREATE TABLE `customers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- --------------------------------------------------------
 
 --
@@ -340,13 +357,13 @@ CREATE TABLE `orders` (
   `company` varchar(255) DEFAULT 'individual',
   `email` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
-  `status` varchar(255) DEFAULT 'pending',
+  `status` varchar(255) DEFAULT 'pending' COMMENT 'pending, confirm, received',
   `payment_mode` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `shipping_price` decimal(8,2) NOT NULL DEFAULT 0.00,
+  `shipping_price` decimal(16,2) NOT NULL DEFAULT 0.00,
   `user_id` int(11) NOT NULL,
-  `total_amount` decimal(8,2) NOT NULL DEFAULT 0.00
+  `total_amount` decimal(16,2) NOT NULL DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -354,14 +371,6 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `firstname`, `lastname`, `country`, `address`, `city`, `zipcode`, `company`, `email`, `phone`, `status`, `payment_mode`, `created_at`, `updated_at`, `shipping_price`, `user_id`, `total_amount`) VALUES
-(21, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'unpaid', 'bank', '2023-09-30 16:47:30', '2023-09-30 16:47:34', 90.00, 1, 9083.94),
-(26, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'pending', 'cash', '2023-09-30 17:01:21', '2023-09-30 17:01:21', 29.98, 1, 3027.98),
-(27, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'unpaid', 'bank', '2023-09-30 17:03:25', '2023-09-30 17:03:34', 29.98, 1, 3027.98),
-(28, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'unpaid', 'bank', '2023-09-30 17:21:56', '2023-09-30 17:22:03', 44.97, 1, 4541.97),
-(29, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'unpaid', 'bank', '2023-10-01 15:43:06', '2023-10-01 15:43:11', 11.98, 1, 1209.98),
-(30, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'pending', 'cash', '2023-10-01 18:35:38', '2023-10-01 18:35:38', 11.98, 1, 1209.98),
-(31, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'paid', 'bank', '2023-10-01 18:36:42', '2023-10-01 18:37:23', 44.97, 1, 4541.97),
-(32, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'confirm', 'cash', '2023-10-01 18:41:34', '2023-10-01 18:42:24', 1249.00, 1, 126149.00),
 (66, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'pending', 'cash', '2023-11-02 08:21:53', '2023-11-02 08:21:53', 3.96, 11, 351.96),
 (67, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'pending', 'cash', '2023-11-02 08:24:03', '2023-11-02 08:24:03', 1.17, 11, 103.99),
 (68, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'pending', 'cash', '2023-11-03 01:04:26', '2023-11-03 01:04:26', 5.99, 11, 532.39);
@@ -480,7 +489,7 @@ CREATE TABLE `products` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `sub_category_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
-  `brand_id` bigint(20) UNSIGNED NOT NULL,
+  `brand_id` bigint(20) UNSIGNED DEFAULT NULL,
   `slug` varchar(255) NOT NULL,
   `brand` varchar(255) DEFAULT NULL,
   `small_description` mediumtext NOT NULL,
@@ -642,6 +651,7 @@ INSERT INTO `product_comments` (`id`, `product_id`, `user_id`, `rating`, `conten
 (3, 10, 26, 3, 'aa', '2023-11-16 06:20:58', '2023-11-16 06:20:58'),
 (4, 11, 26, 2, 'faewf', '2023-11-16 06:28:55', '2023-11-16 06:28:55'),
 (5, 10, 26, 5, 'ffeaf', '2023-11-16 06:32:10', '2023-11-16 06:32:10');
+
 -- --------------------------------------------------------
 
 --
@@ -728,12 +738,12 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `title`, `description`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Gaming Monitors 65', '<h1><strong>END SEASONS</strong><br />\r\nMARTPHONES</h1>\r\n\r\n<p>LAST CALL FOR UP TO $250OFF!</p>', 'images/FDtRtsSoY8j2bWAx5jx2zLPrpc36hKmDaTKmolJi.png', 1, '2023-09-24 21:18:08', '2023-10-01 15:58:12'),
-(2, 'Smartphones Sale', '<h1><strong>END SEASONS</strong><br />\r\nMARTPHONES</h1>\r\n\r\n<p>LAST CALL FOR UP TO $250OFF!</p>', 'images/NfGlYbs8rOk7TECxTPeCTwH7tDWgQWIxQAXsUvZP.png', 1, '2023-09-30 00:27:48', '2023-10-01 15:59:07'),
-(3, 'End Season Sale', '<h1><strong>END SEASONS</strong><br />\r\nMARTPHONES</h1>\r\n\r\n<p>LAST CALL FOR UP TO $250OFF!</p>', NULL, 1, '2023-09-30 00:40:33', '2023-09-30 00:40:33'),
-(4, 'Laptops Arrivals', '<h1><strong>END SEASONS</strong><br />\r\nMARTPHONES</h1>\r\n\r\n<p>LAST CALL FOR UP TO $250OFF!</p>', 'images/gg6DgBvUp9Jy0UZze1hBi2eJWsXfgkg5L8Zj1BZa.png', 1, '2023-09-30 00:41:40', '2023-09-30 00:41:40'),
-(5, 'Earphones - 25%', '<h1><strong>END SEASONS</strong><br />\r\nMARTPHONES</h1>\r\n\r\n<p>LAST CALL FOR UP TO $250OFF!</p>', 'images/NrR3RjRW4S9EzA65qLa6l9z9y2S97NlKmiyLEYDp.png', 1, '2023-09-30 00:47:24', '2023-10-01 16:04:08'),
-(6, 'Tablets 10 inch Sale', '<h1><strong>END SEASONS</strong><br />\r\nMARTPHONES</h1>\r\n\r\n<p>LAST CALL FOR UP TO $250OFF!</p>', 'images/H0OPNNofiLfO6aLgvxIjl8ZTw0wjpJ39Szz2ZK2v.png', 1, '2023-09-30 00:49:22', '2023-09-30 00:49:56');
+(1, 'Gaming Monitors 65', '<h1><strong>END SEASONS</strong><br />\r\nMARTPHONES</h1>\r\n\r\n<p>LAST CALL FOR UP TO $250OFF!</p>', 'images/FDtRtsSoY8j2bWAx5jx2zLPrpc36hKmDaTKmolJi.png', 1, '2023-09-25 04:18:08', '2023-10-01 22:58:12'),
+(2, 'Smartphones Sale', '<h1><strong>END SEASONS</strong><br />\r\nMARTPHONES</h1>\r\n\r\n<p>LAST CALL FOR UP TO $250OFF!</p>', 'images/NfGlYbs8rOk7TECxTPeCTwH7tDWgQWIxQAXsUvZP.png', 1, '2023-09-30 07:27:48', '2023-10-01 22:59:07'),
+(3, 'End Season Sale', '<h1><strong>END SEASONS</strong><br />\r\nMARTPHONES</h1>\r\n\r\n<p>LAST CALL FOR UP TO $250OFF!</p>', NULL, 1, '2023-09-30 07:40:33', '2023-09-30 07:40:33'),
+(4, 'Laptops Arrivals', '<h1><strong>END SEASONS</strong><br />\r\nMARTPHONES</h1>\r\n\r\n<p>LAST CALL FOR UP TO $250OFF!</p>', 'images/gg6DgBvUp9Jy0UZze1hBi2eJWsXfgkg5L8Zj1BZa.png', 1, '2023-09-30 07:41:40', '2023-09-30 07:41:40'),
+(5, 'Earphones - 25%', '<h1><strong>END SEASONS</strong><br />\r\nMARTPHONES</h1>\r\n\r\n<p>LAST CALL FOR UP TO $250OFF!</p>', 'images/NrR3RjRW4S9EzA65qLa6l9z9y2S97NlKmiyLEYDp.png', 1, '2023-09-30 07:47:24', '2023-10-01 23:04:08'),
+(6, 'Tablets 10 inch Sale', '<h1><strong>END SEASONS</strong><br />\r\nMARTPHONES</h1>\r\n\r\n<p>LAST CALL FOR UP TO $250OFF!</p>', 'images/H0OPNNofiLfO6aLgvxIjl8ZTw0wjpJ39Szz2ZK2v.png', 1, '2023-09-30 07:49:22', '2023-09-30 07:49:56');
 
 -- --------------------------------------------------------
 
@@ -757,23 +767,23 @@ CREATE TABLE `sub_categories` (
 --
 
 INSERT INTO `sub_categories` (`id`, `name`, `slug`, `category_id`, `status`, `created_at`, `updated_at`, `image`) VALUES
-(2, 'Ultrabooks', 'accessories', 1, 1, '2023-09-22 05:31:16', '2023-10-01 13:50:04', 'images/XNf0rI3D7MJT8O6Bo6Xo1oi6hVrtmCKxllL0bcLt.png'),
-(3, 'Laptop Accessories', 'laptop-accessories', 1, 1, '2023-09-24 13:10:45', '2023-10-01 13:53:54', 'images/ryVSykpsD8wc0hjgEOS9MjcWYK3l0d2SeK9X3Sxs.png'),
-(4, 'Gaming Laptops', 'gaming-laptop', 1, 1, '2023-10-01 13:36:05', '2023-10-01 13:43:15', 'images/uIbM7Rzj0g1DHbEa5Kzl0hCSxsbIu9Ijn41Ec5jl.png'),
-(5, 'Laptop Mice', 'laptop-mice', 1, 1, '2023-10-01 13:56:53', '2023-10-01 13:56:53', 'images/sfE5FMXAtePkxW4kDgw5GX77bQ1HlKffZJtgwGSR.png'),
-(6, 'Stands and Docking Stations', 'stands-and-docking-stations', 1, 1, '2023-10-01 13:57:54', '2023-10-01 13:58:19', 'images/jkAxQPMYQ3iAkdXtvozuJUqTEvnTo9L2sy1YHfHJ.png'),
-(7, 'Digital Cameras', 'digital-camera', 4, 1, '2023-10-01 14:00:30', '2023-10-01 14:00:30', 'images/5jqlPZOw12JlhyHfzMjtzJxsMQxnRAhPPCzpj38o.png'),
-(8, 'Action Cameras', 'action-cameras', 4, 1, '2023-10-01 14:01:19', '2023-10-01 14:01:19', 'images/BgmZhMOPILEbuhldFPZ7bUewFgqPHOMDJvaDywB9.png'),
-(9, 'Instant Cameras', 'instant-cameras', 4, 1, '2023-10-01 14:02:07', '2023-10-01 14:02:07', 'images/6oonNDRSRvpqJ9c7FG0MR7wB2wXmODaYYrSq7H2e.png'),
-(10, 'Camera Accessories', 'camera-accessories', 4, 1, '2023-10-01 14:03:11', '2023-10-01 14:03:11', 'images/7v1w6WXSJgFDzfGeOUH9VCHYEtXMQfndCqBW2D0p.png'),
-(11, 'Bluetooth Speakers', 'bluetooth-speakers', 10, 1, '2023-10-01 14:05:10', '2023-10-01 14:05:10', 'images/azNnOGdQwWeqcJZZuszXSlUNFKwPFGZ9WIRxH4hx.png'),
-(12, 'Desktop Speakers', 'desktop-speakers', 10, 1, '2023-10-01 14:06:02', '2023-10-01 14:06:02', 'images/MdQa0IhTcGUoXwVOusWpdiB37gpOGAEJHuXA6AZq.png'),
-(13, 'Android Phones', 'android-phones', 6, 1, '2023-10-01 14:09:09', '2023-10-01 14:09:09', 'images/NITxf1qCCM2KvyRfprTQdNBvjGqSkIDWvgHV1uB1.png'),
-(14, 'iPhone', 'iphone', 6, 1, '2023-10-01 14:09:37', '2023-10-01 14:09:37', 'images/A1uNb0oSPjzIsP0h1ZRPyK0IO9uv9TzpYnN1jmKA.png'),
-(15, 'Budget Phones', 'budget-phone', 6, 1, '2023-10-01 14:10:44', '2023-10-01 14:12:45', 'images/xRkfHjjF88HEn1cs6BI3cms5B1uXQkhT14EWvl1T.png'),
-(16, 'Fitness Smartwatches', 'fitness-smartwatches', 12, 1, '2023-10-01 14:14:26', '2023-10-01 14:14:26', 'images/8AapsvOoFc1OM79MmXvA4BB8yju4dP7v5IUlmHuc.png'),
-(17, 'Fashion Smartwatches', 'fashion-smartwatches', 12, 1, '2023-10-01 14:15:04', '2023-10-01 14:15:04', 'images/sU0FfJ4yNxZ5GiWLen92Bpnnk0uwzenEQoroMKQa.png'),
-(18, 'Luxury Smartwatches', 'luxury-smartwatches', 12, 1, '2023-10-01 14:16:03', '2023-10-01 14:16:03', 'images/WcOAhMCwcc0lWU6d1rvsI7aXLbat2A59RJdV9hkZ.png');
+(2, 'Ultrabooks', 'accessories', 1, 1, '2023-09-22 12:31:16', '2023-10-01 20:50:04', 'images/XNf0rI3D7MJT8O6Bo6Xo1oi6hVrtmCKxllL0bcLt.png'),
+(3, 'Laptop Accessories', 'laptop-accessories', 1, 1, '2023-09-24 20:10:45', '2023-10-01 20:53:54', 'images/ryVSykpsD8wc0hjgEOS9MjcWYK3l0d2SeK9X3Sxs.png'),
+(4, 'Gaming Laptops', 'gaming-laptop', 1, 1, '2023-10-01 20:36:05', '2023-10-01 20:43:15', 'images/uIbM7Rzj0g1DHbEa5Kzl0hCSxsbIu9Ijn41Ec5jl.png'),
+(5, 'Laptop Mice', 'laptop-mice', 1, 1, '2023-10-01 20:56:53', '2023-10-01 20:56:53', 'images/sfE5FMXAtePkxW4kDgw5GX77bQ1HlKffZJtgwGSR.png'),
+(6, 'Stands and Docking Stations', 'stands-and-docking-stations', 1, 1, '2023-10-01 20:57:54', '2023-10-01 20:58:19', 'images/jkAxQPMYQ3iAkdXtvozuJUqTEvnTo9L2sy1YHfHJ.png'),
+(7, 'Digital Cameras', 'digital-camera', 4, 1, '2023-10-01 21:00:30', '2023-10-01 21:00:30', 'images/5jqlPZOw12JlhyHfzMjtzJxsMQxnRAhPPCzpj38o.png'),
+(8, 'Action Camera', 'action-cameras', 4, 1, '2023-10-01 21:01:19', '2023-11-02 19:23:29', 'images/BgmZhMOPILEbuhldFPZ7bUewFgqPHOMDJvaDywB9.png'),
+(9, 'Instant Cameras', 'instant-cameras', 4, 1, '2023-10-01 21:02:07', '2023-10-01 21:02:07', 'images/6oonNDRSRvpqJ9c7FG0MR7wB2wXmODaYYrSq7H2e.png'),
+(10, 'Camera Accessories', 'camera-accessories', 4, 1, '2023-10-01 21:03:11', '2023-10-01 21:03:11', 'images/7v1w6WXSJgFDzfGeOUH9VCHYEtXMQfndCqBW2D0p.png'),
+(11, 'Bluetooth Speakers', 'bluetooth-speakers', 10, 1, '2023-10-01 21:05:10', '2023-10-01 21:05:10', 'images/azNnOGdQwWeqcJZZuszXSlUNFKwPFGZ9WIRxH4hx.png'),
+(12, 'Desktop Speakers', 'desktop-speakers', 10, 1, '2023-10-01 21:06:02', '2023-10-01 21:06:02', 'images/MdQa0IhTcGUoXwVOusWpdiB37gpOGAEJHuXA6AZq.png'),
+(13, 'Android Phones', 'android-phones', 6, 1, '2023-10-01 21:09:09', '2023-10-01 21:09:09', 'images/NITxf1qCCM2KvyRfprTQdNBvjGqSkIDWvgHV1uB1.png'),
+(14, 'iPhone', 'iphone', 6, 1, '2023-10-01 21:09:37', '2023-10-01 21:09:37', 'images/A1uNb0oSPjzIsP0h1ZRPyK0IO9uv9TzpYnN1jmKA.png'),
+(15, 'Budget Phones', 'budget-phone', 6, 1, '2023-10-01 21:10:44', '2023-10-01 21:12:45', 'images/xRkfHjjF88HEn1cs6BI3cms5B1uXQkhT14EWvl1T.png'),
+(16, 'Fitness Smartwatches', 'fitness-smartwatches', 12, 1, '2023-10-01 21:14:26', '2023-10-01 21:14:26', 'images/8AapsvOoFc1OM79MmXvA4BB8yju4dP7v5IUlmHuc.png'),
+(17, 'Fashion Smartwatches', 'fashion-smartwatches', 12, 1, '2023-10-01 21:15:04', '2023-10-01 21:15:04', 'images/sU0FfJ4yNxZ5GiWLen92Bpnnk0uwzenEQoroMKQa.png'),
+(18, 'Luxury Smartwatches', 'luxury-smartwatches', 12, 1, '2023-10-01 21:16:03', '2023-10-01 21:16:03', 'images/WcOAhMCwcc0lWU6d1rvsI7aXLbat2A59RJdV9hkZ.png');
 
 -- --------------------------------------------------------
 
@@ -784,7 +794,7 @@ INSERT INTO `sub_categories` (`id`, `name`, `slug`, `category_id`, `status`, `cr
 CREATE TABLE `transaction` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `wallet_id` int(11) NOT NULL,
-  `amount` decimal(10,2) NOT NULL,
+  `amount` decimal(8,2) NOT NULL,
   `type` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -797,7 +807,14 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`id`, `wallet_id`, `amount`, `type`, `created_at`, `updated_at`, `status`, `method`) VALUES
-(1, 5, 1000.00, 'deposit', '2023-11-15 09:44:00', '2023-11-15 09:44:00', 'cancle', 'vn_pay');
+(10, 1, 100.00, 'deposit', '2023-11-02 00:40:25', '2023-11-02 00:40:25', 'cancle', 'vn_pay'),
+(11, 1, 111.00, 'deposit', '2023-11-02 00:40:46', '2023-11-02 00:41:00', 'complete', 'vn_pay'),
+(12, 1, 111.00, 'deposit', '2023-11-02 01:36:05', '2023-11-02 01:37:27', 'complete', 'vn_pay'),
+(13, 1, -39.39, 'withdraw', '2023-11-02 01:37:58', '2023-11-02 01:37:58', 'complete', 'shopping'),
+(14, 1, -39.39, 'withdraw', '2023-11-02 01:39:23', '2023-11-02 01:39:23', 'complete', 'shopping'),
+(15, 1, 333.00, 'deposit', '2023-11-02 01:47:34', '2023-11-02 01:47:34', 'cancle', 'vn_pay'),
+(16, 2, 22.00, 'deposit', '2023-11-02 03:53:51', '2023-11-02 03:53:51', 'cancle', 'vn_pay'),
+(17, 3, 111.00, 'deposit', '2023-11-02 18:58:01', '2023-11-02 18:58:42', 'complete', 'vn_pay');
 
 -- --------------------------------------------------------
 
@@ -854,7 +871,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 CREATE TABLE `wallets` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL,
-  `balance` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `balance` decimal(8,2) NOT NULL DEFAULT 0.00,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -947,6 +964,12 @@ ALTER TABLE `coupons`
   ADD UNIQUE KEY `coupons_code_unique` (`code`);
 
 --
+-- Chỉ mục cho bảng `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `detail_blogs`
 --
 ALTER TABLE `detail_blogs`
@@ -1015,6 +1038,14 @@ ALTER TABLE `product_colors`
   ADD KEY `product_colors_color_id_foreign` (`color_id`);
 
 --
+-- Chỉ mục cho bảng `product_comments`
+--
+ALTER TABLE `product_comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_comments_product_id_foreign` (`product_id`),
+  ADD KEY `product_comments_user_id_foreign` (`user_id`);
+
+--
 -- Chỉ mục cho bảng `product_images`
 --
 ALTER TABLE `product_images`
@@ -1075,13 +1106,13 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT cho bảng `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT cho bảng `categories`
@@ -1105,6 +1136,12 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT cho bảng `coupons`
 --
 ALTER TABLE `coupons`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `customers`
+--
+ALTER TABLE `customers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -1129,19 +1166,19 @@ ALTER TABLE `login_histories`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT cho bảng `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`
@@ -1153,19 +1190,25 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT cho bảng `product_colors`
 --
 ALTER TABLE `product_colors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT cho bảng `product_comments`
+--
+ALTER TABLE `product_comments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT cho bảng `sliders`
@@ -1183,25 +1226,25 @@ ALTER TABLE `sub_categories`
 -- AUTO_INCREMENT cho bảng `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT cho bảng `wallets`
 --
 ALTER TABLE `wallets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `wishlists`
 --
 ALTER TABLE `wishlists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -1223,8 +1266,7 @@ ALTER TABLE `login_histories`
 -- Các ràng buộc cho bảng `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_brand_id_foreign` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `products_sub_category_id_foreign` FOREIGN KEY (`sub_category_id`) REFERENCES `sub_categories` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `products_brand_id_foreign` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `product_colors`

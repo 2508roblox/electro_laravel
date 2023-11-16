@@ -157,6 +157,7 @@
                                 <th class="min-w-8x">ID</th>
                                 <th class="min-w-8x">Name</th>
                                 <th class="min-w-8x">Email</th>
+                                <th class="min-w-8x">Phone</th>
                                 <th class="min-w-8x">Date create</th>
                                 <th class="min-w-8x">Role</th>
                                 <th class="min-w-8x">Wallet</th>
@@ -176,6 +177,7 @@
                                 <td><a class="text-reset">{{$user->id}}</a></td>
                                 <td><a class="text-reset">{{$user->name}}</a></td>
                                 <td><a class="text-reset">{{$user->email}}</a></td>
+                                <td><a class="text-reset">{{$user->phone}}</a></td>
                                 <td><a class="text-reset">{{$user->created_at}}</a></td>
                                 <td><a class="text-reset">{{$user->role_as == '1' ? 'Admin' : 'Customer'}}</a></td>
                                 <td><a class="text-reset">{{ optional($user->wallet)->balance ? number_format($user->wallet->balance, 0, ',', '.') . 'đ' : 'N/A' }}</a></td>
