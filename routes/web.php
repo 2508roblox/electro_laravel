@@ -189,6 +189,11 @@ Route::prefix('shop')->group(function () {
         Route::get('/', 'index')->name('fe.shop');
     });
 });
+Route::prefix('search')->group(function () {
+    Route::controller(ShopController::class)->group(function () {
+        Route::get('/', 'search')->name('fe.search');
+    });
+});
 
 Route::post('/update-pcolor', function () {
     $id = request()->id;

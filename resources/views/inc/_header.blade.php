@@ -421,7 +421,8 @@
                     <!-- End Logo -->
                     <!-- Search Bar -->
                     <div class="d-none d-xl-block col-xl-2gdot5">
-                        <form class="js-focus-state max-width-244 ml-auto">
+                        <form action="{{route('fe.search')}}" method="GET" class="js-focus-state max-width-244 ml-auto">
+                            @csrf
                             <label class="sr-only" for="searchproduct">Search</label>
                             <div class="input-group border-bottom shadow-none placeholder-1 border-bottom-gray-18">
                                 <input type="text" class="form-control p-1 height-35 text-gray-90 shadow-none font-size-14 border-0 rounded-0 bg-transparent" name="text" id="searchproduct-item" placeholder="Search for products" aria-label="Search for products" aria-describedby="searchProduct1"
