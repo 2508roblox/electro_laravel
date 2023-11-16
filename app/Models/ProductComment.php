@@ -16,4 +16,8 @@ class ProductComment extends Model
       "quantity"
 
   ];
+  public function user()
+  {
+      return $this->belongsTo(User::class);
+  }
 }

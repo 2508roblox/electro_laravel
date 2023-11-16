@@ -12,6 +12,7 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Models\ProductComment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -197,12 +198,24 @@ class FrontendController extends Controller
         }
         $totalQuantity = 0;
         foreach ($colors_quantity as $color) {
-            # code...
             $totalQuantity += $color->quantity;
         }
 
+        // Lấy tất cả bình luận sản phẩm
+        $productComments = ProductComment::with('user')->where('product_id', $product->id)->get();
 
+        // Tính tổng số sao trung bình
+        $totalStars = $productComments->sum('rating');
+        $averageStars = $productComments->count() > 0 ? $totalStars / $productComments->count() : 0;
 
+        // Lấy số lượng đánh giá cho mỗi mức độ rating
+        $ratingCounts = $productComments->groupBy('rating')->map->count();
+//         dd(
+// $productComments,
+// $averageStars,
+// $ratingCounts
+
+//         );
         return view(
             'frontend.pages.singleProduct',
             compact(
@@ -212,9 +225,12 @@ class FrontendController extends Controller
                 'images',
                 'colors_quantity',
                 'colorsArr',
-                'totalQuantity'
-            ),
-        );
+                'totalQuantity',
+                'productComments',
+                'averageStars',
+                'ratingCounts'
+            )
+        )->with('reviewCount', $productComments->count());;
     }
 
     /**
@@ -273,7 +289,7 @@ class FrontendController extends Controller
         $userId = Auth::id();
 
         $wallet = Wallet::where('user_id', $userId)->first();
-        
+
         $transactions = Transaction::where('wallet_id', $wallet->id)
             ->where('status', 'complete')
             ->get();
