@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductColorController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\MyAccountController;
 
@@ -220,6 +221,13 @@ Route::controller(CheckoutController::class)->group(function () {
     Route::get('/checkout/{id}/edit', 'edit')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.edit');
     Route::post('/checkout/{id}/edit', 'update')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.update');
     Route::delete('/checkout/{id}', 'destroy')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.delete');
+});
+Route::controller(ForgotPasswordController::class)->group(function () {
+    Route::get('/forgot-password', 'index')->name('frontend.forgot.view');
+    // check if account email is exist
+    Route::post('/forgot-password', 'handle')->name('frontend.forgot.handle');
+
+
 });
 
 Route::controller(WishlistController::class)->group(function () {

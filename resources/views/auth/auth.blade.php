@@ -102,7 +102,7 @@
                                     <button type="submit" class="btn btn-primary-dark-w px-5">Login</button>
                                 </div>
                                 <div class="mb-2">
-                                    <a class="text-blue" href="#">Lost your password?</a>
+                                    <a class="text-blue" href="{{route('frontend.forgot.view')}}">Lost your password?</a>
                                 </div>
                             </div>
                             <!-- End Button -->
