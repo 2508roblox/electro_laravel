@@ -30,7 +30,9 @@ use App\Http\Controllers\Admin\ChatGptController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\DatabaseController;
 use App\Http\Controllers\Admin\DesignDatabase;
+use App\Http\Controllers\Admin\DocumentDatabase;
 use App\Http\Controllers\Admin\FileManagerController;
+use App\Http\Controllers\Admin\GithubController;
 use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductColorController;
@@ -190,6 +192,15 @@ Route::group(['prefix' => 'admin'], function () {
     Route::controller(DesignDatabase::class)->group(function () {
         Route::get('/design-database', 'index')->name('admin.design.database');
         Route::get('/design-usecase', 'usecase')->name('admin.design.usecase');
+    });
+    Route::controller(DocumentDatabase::class)->group(function () {
+        Route::get('/document', 'index')->name('admin.document');
+    });
+    Route::controller(GithubController::class)->group(function () {
+        Route::get('/github', 'index')->name('admin.github');
+        Route::get('/github/2508roblox', 'a2508roblox')->name('admin.github.2508roblox');
+        Route::get('/github/tranlehuyhoang', 'tranlehuyhoang')->name('admin.github.tranlehuyhoang');
+        Route::get('/github/huutai2312', 'huutai2312')->name('admin.github.huutai2312');
     });
 });
 
