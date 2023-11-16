@@ -28,6 +28,7 @@ use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\FileManagerController;
+use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductColorController;
 use App\Http\Controllers\ContactController;
@@ -169,6 +170,12 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/file-manager/blog', 'blog')->name('admin.file-manager.blog');
         Route::get('/file-manager/subcategory', 'subcategory')->name('admin.file-manager.subcategory');
     });
+    Route::controller(InBoxManagerController::class)->group(function () {
+        Route::get('/inbox', 'index')->name('admin.inbox');
+        Route::get('/inbox/invoice', 'invoice')->name('admin.inbox.invoice');
+        Route::get('/inbox/invoice/{id}', 'detail_invoice')->name('admin.inbox.invoice.detail');
+        Route::get('/inbox/{id}', 'detail_verify')->name('admin.inbox.id');
+    });
 });
 
 Route::prefix('shop')->group(function () {
@@ -229,8 +236,6 @@ Route::controller(ForgotPasswordController::class)->group(function () {
     Route::post('/forgot-password', 'handle')->name('frontend.forgot.handle');
     Route::get('/reset-password', 'reset')->name('frontend.forgot.reset');
     Route::post('/reset-password', 'store')->name('frontend.forgot.store');
-
-
 });
 
 Route::controller(WishlistController::class)->group(function () {
