@@ -28,10 +28,9 @@ io.on("connection", (socket) => {
     });
     socket.on("chat-admin", (message) => {
         console.log("Received message from admin:", message);
-        const otherClients = Object.keys(io.sockets.sockets).filter((clientId) => clientId !== socket.id);
-        otherClients.forEach((clientId) => {
-            io.to(clientId).emit("chat-admin", message);
-        });
+
+        io.emit("chat-admin", message);
+
     });
 
 });
