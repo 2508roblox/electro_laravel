@@ -37,7 +37,7 @@
                                 <div class="woocommerce-MyAccount-content" bis_skin_checked="1">
                                     <div class="woocommerce-notices-wrapper" bis_skin_checked="1"></div>
                                     <p>
-                                        Hello <strong>sfs97809</strong> (not <strong>sfs97809</strong>? <a href="https://electro.madrasthemes.com/my-account/customer-logout/?_wpnonce=fae719e39a">Log out</a>)</p>
+                                        Hello <strong>{{ Auth::user()->name }}</strong> (not <strong>{{ Auth::user()->name }}</strong>? <a href="{{ route('logout') }}">Log out</a>)</p>
                                     <p>
                                         From your account dashboard you can view your <a href="https://electro.madrasthemes.com/my-account/orders/">recent orders</a>, manage your <a href="https://electro.madrasthemes.com/my-account/edit-address/">shipping and billing addresses</a>, and <a href="https://electro.madrasthemes.com/my-account/edit-account/">edit your password and account details</a>.</p>
                                 </div>

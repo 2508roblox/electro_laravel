@@ -547,7 +547,7 @@
                                 <!-- End Submenu -->
                             </li>
                             <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Profile</a>
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{ route("frontend.myaccount.dashboard") }}" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Profile</a>
 
                                 <!-- Blog - Submenu -->
 
