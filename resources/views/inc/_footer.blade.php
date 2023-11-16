@@ -1,6 +1,6 @@
 <footer>
     <!-- Footer-top-widget -->
-    <div class="container d-none d-lg-block mb-3">
+    <div class="container d-none d-lg-block mb-3 footer-product">
         <div class="row">
             <div class="col-wd-3 col-lg-4">
                 <div class="widget-column">

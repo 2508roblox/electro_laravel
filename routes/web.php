@@ -53,15 +53,9 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::group(['prefix' => 'my-account'], function () {
-    Route::middleware(['guest'])->group(function () {
-        Route::get('/login', [LoginController::class, 'index'])->name('login');
-        Route::post('/login', [LoginController::class, 'login'])->name('login.post');
-        Route::get('/register', [RegisterController::class, 'index'])->name('register');
-        Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
-    });
-    Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
     Route::get('/', [MyAccountController::class, 'index'])
-    ->name('frontend.myaccount.dashboard');
+    ->name('frontend.myaccount.dashboard')
+    ->middleware(['auth']);
     Route::controller(MyAccountController::class)->group(function () {
         Route::get('/order', 'order')->name('frontend.myaccount.order');
         Route::get('/address', 'address')->name('frontend.myaccount.address');

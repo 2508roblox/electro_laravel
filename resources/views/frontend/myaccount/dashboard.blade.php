@@ -50,4 +50,9 @@
     </div>
 </div>
 
+<style>
+.footer-product{
+    display: none !important;
+}
+</style>
 @endsection
