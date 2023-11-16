@@ -804,6 +804,7 @@
                                     <form class="js-validate" action="{{route('frontend.product.rating')}}" method="POST">
                                         @csrf
                                         <div class="row align-items-center mb-4">
+                                            <input type="hidden" name="product_id" value="{{$product->id}}">
                                             <div class="col-md-4 col-lg-3">
                                                 <label for="rating" class="form-label mb-0">Your Review</label>
                                             </div>
