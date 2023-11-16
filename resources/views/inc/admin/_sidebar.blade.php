@@ -661,12 +661,8 @@
                               <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
                                   data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
                                       class="sa-nav__link" data-sa-collapse-trigger=""><span
-                                          class="sa-nav__icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
-                                              height="1em" viewBox="0 0 16 16" fill="currentColor">
-                                              <path
-                                                  d="M14,6.8l-0.2,0.1C14,7.3,14,7.6,14,8c0,0.4,0,0.7-0.1,1.1L14,9.2c1,0.6,1.4,1.9,0.8,3c-0.5,0.9-1.6,1.2-2.5,0.7l-0.5-0.3c-0.6,0.5-1.2,0.8-1.9,1.1v0.8c0,0.9-0.7,1.6-1.6,1.6H7.6C6.7,16,6,15.3,6,14.4v-0.8c-0.7-0.2-1.3-0.6-1.9-1.1l-0.5,0.3c-0.9,0.5-2,0.2-2.5-0.7c-0.6-1-0.3-2.4,0.8-3l0.2-0.1C2,8.7,2,8.4,2,8c0-0.4,0-0.7,0.1-1.1L2,6.8c-1.1-0.6-1.4-2-0.8-3C1.7,3,2.8,2.7,3.6,3.2l0.5,0.3C4.7,3,5.3,2.6,6,2.4V1.6C6,0.7,6.7,0,7.6,0h0.8C9.3,0,10,0.7,10,1.6v0.8c0.7,0.2,1.3,0.6,1.9,1.1l0.5-0.3c0.9-0.5,2-0.2,2.5,0.7C15.4,4.9,15.1,6.2,14,6.8z M8,5.5C6.6,5.5,5.5,6.6,5.5,8s1.1,2.5,2.5,2.5s2.5-1.1,2.5-2.5S9.4,5.5,8,5.5z">
-                                              </path>
-                                          </svg></span><span class="sa-nav__title">Github</span><span
+                                          class="sa-nav__icon"><img src="/github-mark-white.svg" alt=""
+                                              srcset=""></span><span class="sa-nav__title">Github</span><span
                                           class="sa-nav__arrow"><svg xmlns="http://www.w3.org/2000/svg"
                                               width="6" height="9" viewBox="0 0 6 9" fill="currentColor">
                                               <path
@@ -674,18 +670,15 @@
                                               </path>
                                           </svg></span></a>
                                   <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
-                                      <li class="sa-nav__menu-item"><a
-                                              href="{{ route('admin.github.2508roblox', ['id' => 1]) }}"
+                                      <li class="sa-nav__menu-item"><a href="https://github.com/2508roblox"
                                               class="sa-nav__link"><span
                                                   class="sa-nav__menu-item-padding"></span><span
                                                   class="sa-nav__title">2508roblox</span></a></li>
-                                      <li class="sa-nav__menu-item"><a
-                                              href="{{ route('admin.github.tranlehuyhoang', ['id' => 1]) }}"
+                                      <li class="sa-nav__menu-item"><a href="https://github.com/tranlehuyhoang"
                                               class="sa-nav__link"><span
                                                   class="sa-nav__menu-item-padding"></span><span
                                                   class="sa-nav__title">tranlehuyhoang</span></a></li>
-                                      <li class="sa-nav__menu-item"><a
-                                              href="{{ route('admin.github.huutai2312', ['id' => 1]) }}"
+                                      <li class="sa-nav__menu-item"><a href="https://github.com/huutai2312"
                                               class="sa-nav__link"><span
                                                   class="sa-nav__menu-item-padding"></span><span
                                                   class="sa-nav__title">huutai2312</span></a></li>
