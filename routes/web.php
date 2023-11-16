@@ -222,6 +222,7 @@ Route::controller(CheckoutController::class)->group(function () {
     Route::post('/checkout/{id}/edit', 'update')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.update');
     Route::delete('/checkout/{id}', 'destroy')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.delete');
 });
+// reset password by link generation
 Route::controller(ForgotPasswordController::class)->group(function () {
     Route::get('/forgot-password', 'index')->name('frontend.forgot.view');
     // check if account email is exist
