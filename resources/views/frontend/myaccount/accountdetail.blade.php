@@ -55,7 +55,7 @@
                                                 <span class="password-input"><input type="password" class="woocommerce-Input woocommerce-Input--password input-text" name="password_current" id="password_current" autocomplete="off"><span class="show-password-input"></span></span>
                                             </p>
                                             <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                <label for="password_1">New password (leave blank to leave unchanged)</label>
+                                                <label for="password_1">New  password (leave blank to leave unchanged)</label>
                                                 <span class="password-input"><input type="password" class="woocommerce-Input woocommerce-Input--password input-text" name="password_1" id="password_1" autocomplete="off"><span class="show-password-input"></span></span>
                                             </p>
                                             <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">

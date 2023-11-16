@@ -28,9 +28,11 @@ use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\FileManagerController;
+use App\Http\Controllers\Admin\TaskManagerController;
 use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductColorController;
+use App\Http\Controllers\Admin\GitActivityController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\OtpController;
@@ -176,6 +178,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/inbox/invoice', 'invoice')->name('admin.inbox.invoice');
         Route::get('/inbox/invoice/{id}', 'detail_invoice')->name('admin.inbox.invoice.detail');
         Route::get('/inbox/{id}', 'detail_verify')->name('admin.inbox.id');
+    });
+    Route::controller(TaskManagerController::class)->group(function () {
+        Route::get('/task-manager', 'index')->name('admin.task-manager');
+    });
+    Route::controller(GitActivityController::class)->group(function () {
+        Route::get('/branch-master', 'master')->name('admin.git-activity.master');
+        Route::get('/branch-giang', 'giang')->name('admin.git-activity.giang');
+        Route::get('/branch-hoang', 'hoang')->name('admin.git-activity.hoang');
+        Route::get('/branch-tai', 'tai')->name('admin.git-activity.tai');
     });
 });
 

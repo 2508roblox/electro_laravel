@@ -42,8 +42,14 @@
         <link rel="stylesheet" href="{{ asset('client/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
         <!-- CSS Electro Template -->
         <link rel="stylesheet" href="{{ asset('client/css/theme.css') }}">
+        
+        <!-- CSS W3SChool -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <style>
+            @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+            @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+        </style>
         {{-- captcha --}}
-
         <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <script>
