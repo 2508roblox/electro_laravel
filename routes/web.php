@@ -204,6 +204,7 @@ Route::controller(OtpController::class)->group(function () {
     Route::get('/verify-email', 'index')->name('frontend.otp.view');
     Route::post('/verify-email', 'store')->name('frontend.otp.store');
 });
+// product rating routes
 Route::controller(ProductRatingController::class)->group(function () {
     Route::post('/product-rating', 'rating')->name('frontend.product.rating');
 
