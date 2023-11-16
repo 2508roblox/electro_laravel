@@ -21,34 +21,39 @@
             </div>
         </div>
         <!-- End breadcrumb -->
+        <img class="img-fluid" src="{{asset('client/img/ecard.png')}}" alt="Image Description">
 
         <div class="container">
             <div class="mb-4">
-                <h1 class="text-center">Wallet</h1>
+                <h1 class="text-center" style="font-size: 28px; color: #333;">Wallet</h1>
             </div>
-            <div class="mb-10 cart-table" style="margin-bottom: 10rem">
-                <h1>Balance: {{$wallet->balance}}$</h1>
-                <a href="{{ route('frontend.transaction') }}" class="text-black">Transactions</a>
+            <div class="mb-10 cart-table" style="margin-bottom: 10rem; background-color: #f8f9fa; border-radius: 10px; padding: 20px;">
+                <h1 style="font-size: 24px; color: #333;">Balance: {{$wallet->balance}}$</h1>
+                <a href="{{ route('frontend.transaction') }}" class="btn btn-primary mt-3">Transactions</a>
             </div>
             <form action="{{ route('frontend.transaction.store') }}" method="POST">
                 @csrf
-                <div class="">
-                    <h1>Deposit</h1>
-                    <label for="amount">Amount:</label>
-                    <input type="number" value="{{$wallet->id}}"  hidden name="wallet_id" >
-                    <input type="text" value="deposit"  hidden name="type" >
-                    <input type="number" id="amount" name="amount" required>
+                <div class="mb-4" style="background-color: #f8f9fa; border-radius: 10px; padding: 20px;">
+                    <h1 style="font-size: 24px; color: #333;">Deposit</h1>
+                    <div class="form-group">
+                        <label for="amount">Amount:</label>
+                        <input type="number" value="{{$wallet->id}}" hidden name="wallet_id">
+                        <input type="text" value="deposit" hidden name="type">
+                        <input type="number" id="amount" name="amount" class="form-control" required>
+                    </div>
 
-                    <label for="method">Payment Method:</label>
-                    <select   name="method" required>
-                        <option value="vn_pay">VnPay</option>
-                    </select>
+                    <div class="form-group">
+                        <label for="method">Payment Method:</label>
+                        <select name="method" class="form-control" required>
+                            <option value="vn_pay">VnPay</option>
+                        </select>
+                    </div>
 
-                    <button type="submit">Deposit</button>
+                    <button type="submit" class="btn btn-primary">Deposit</button>
+                    <button type="button" class="btn btn-secondary">Cancel</button>
                 </div>
             </form>
-
-        </div>
+        </div>  
     </main>
     <hr>
 @endsection
