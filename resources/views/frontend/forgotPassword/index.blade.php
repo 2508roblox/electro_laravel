@@ -32,11 +32,21 @@
                     <div class="form-outline">
                         <input type="email" name="email" id="typeEmail" class="rounded-0 form-control my-3" />
                         <label class="form-label" for="typeEmail">Email input</label>
+                        @if(session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                        @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     </div>
                     <button  class="rounded-0 btn btn-primary w-100">Reset password</button>
                     <div class="d-flex justify-content-between mt-4">
-                        <a class="" href="#">Login</a>
-                        <a class="" href="#">Register</a>
+                        <a class="" href="{{route('login')}}">Login</a>
+                        <a class="" href="{{route('register')}}">Register</a>
                     </div>
                 </div>
             </div>

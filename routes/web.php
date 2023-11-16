@@ -219,6 +219,8 @@ Route::controller(ForgotPasswordController::class)->group(function () {
     Route::get('/forgot-password', 'index')->name('frontend.forgot.view');
     // check if account email is exist
     Route::post('/forgot-password', 'handle')->name('frontend.forgot.handle');
+    Route::get('/reset-password', 'reset')->name('frontend.forgot.reset');
+    Route::post('/reset-password', 'store')->name('frontend.forgot.store');
 
 
 });

@@ -12,13 +12,15 @@ use Illuminate\Queue\SerializesModels;
 class ResetPassMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $otp;
+    public  $email;
     /**
      * Create a new message instance.
      */
-    public function __construct($otp)
+    public function __construct($otp,  $email)
     {
-        //
+        $this->otp = $otp;
+        $this->email =  $email;
     }
 
     /**
@@ -37,7 +39,7 @@ class ResetPassMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'frontend.mail.resetPassTemplate',
         );
     }
 
