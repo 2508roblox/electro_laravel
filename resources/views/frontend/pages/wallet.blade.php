@@ -21,16 +21,32 @@
             </div>
         </div>
         <!-- End breadcrumb -->
-        <img class="img-fluid" src="{{asset('client/img/ecard.png')}}" alt="Image Description">
 
         <div class="container">
             <div class="mb-4">
                 <h1 class="text-center" style="font-size: 28px; color: #333;">Wallet</h1>
             </div>
-            <div class="mb-10 cart-table" style="margin-bottom: 10rem; background-color: #f8f9fa; border-radius: 10px; padding: 20px;">
-                <h1 style="font-size: 24px; color: #333;">Balance: {{$wallet->balance}}$</h1>
-                <a href="{{ route('frontend.transaction') }}" class="btn btn-primary mt-3">Transactions</a>
+           <div class="d-flex align-items-center justify-content-center">
+            <div class="mb-10 cart-table col-7"  style="margin-bottom: 10rem; background-color: #f8f9fa; border-radius: 10px; padding: 20px;">
+                <div class="d-flex justify-content-between">
+                    <p>Main account</p>
+                    <p>Electro wallet</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-column">
+                <h1 style="font-size: 44px; color: #333;">First Sovings Account:</h1>
+                            <p>*** **** *** 678</p>
+                        </div>
+                    <h1 style="font-size: 44px; color: #333;"> {{$wallet->balance}}$</h1>
+               </div>
+                <a href="{{ route('frontend.transaction') }}" class="btn rounded-sm btn-primary mt-3">Transactions</a>
+
             </div>
+            <div class="">
+        <img   width="500px" class="img-fluid mb-10" src="{{asset('client/img/ecard.png')}}" alt="Image Description">
+
+            </div>
+           </div>
             <form action="{{ route('frontend.transaction.store') }}" method="POST">
                 @csrf
                 <div class="mb-4" style="background-color: #f8f9fa; border-radius: 10px; padding: 20px;">
@@ -53,7 +69,7 @@
                     <button type="button" class="btn btn-secondary">Cancel</button>
                 </div>
             </form>
-        </div>  
+        </div>
     </main>
     <hr>
 @endsection
