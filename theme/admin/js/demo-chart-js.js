@@ -2,20 +2,20 @@
 
 /* global Chart */
 
-const salesData = [
-    (10 / 240) * 1200,
-    (26 / 240) * 1200,
-    (105 / 240) * 1200,
-    (57 / 240) * 1200,
-    (94 / 240) * 1200,
-    (26 / 240) * 1200,
-    (57 / 240) * 1200,
-    (48 / 240) * 1200,
-    (142 / 240) * 1200,
-    (94 / 240) * 1200,
-    (128 / 240) * 1200,
-    (222 / 240) * 1200,
-];
+// const salesData = [
+//     (100 / 240) * 1200,
+//     (26 / 240) * 1200,
+//     (105 / 240) * 1200,
+//     (57 / 240) * 1200,
+//     (94 / 240) * 1200,
+//     (26 / 240) * 1200,
+//     (57 / 240) * 1200,
+//     (48 / 240) * 1200,
+//     (142 / 240) * 1200,
+//     (94 / 240) * 1200,
+//     (128 / 240) * 1200,
+//     (222 / 240) * 1200,
+// ];
 
 const browsersData = {
     labels: ['Chrome', 'Firefox', 'Opera', 'Edge', 'Safari'],
@@ -34,13 +34,13 @@ const browsersData = {
             (128 / 240) * 1200,
             (222 / 240) * 1200,
         ],
-    }, ],
+    },],
 };
 
 /*
 // Line
 */
-(function() {
+(function () {
     const chartCanvas = document.getElementById('example-chart-js-line');
 
     if (!chartCanvas || !(chartCanvas instanceof HTMLCanvasElement)) {
@@ -59,7 +59,7 @@ const browsersData = {
                 pointRadius: 3,
                 pointBackgroundColor: '#ffd333',
                 data: salesData,
-            }, ],
+            },],
         },
         options: {
             plugins: {
@@ -75,7 +75,7 @@ const browsersData = {
                         fontSize: 13,
                         fontColor: '#828f99',
                         // Include a dollar sign in the ticks
-                        callback: function(value) {
+                        callback: function (value) {
                             return '$' + value;
                         },
                     },
@@ -105,7 +105,7 @@ const browsersData = {
 /*
 // Line Area
 */
-(function() {
+(function () {
     const chartCanvas = document.getElementById('example-chart-js-line-area');
 
     if (!chartCanvas || !(chartCanvas instanceof HTMLCanvasElement)) {
@@ -125,7 +125,7 @@ const browsersData = {
                 pointBackgroundColor: '#ffd333',
                 fill: 'origin',
                 data: salesData,
-            }, ],
+            },],
         },
         options: {
             plugins: {
@@ -141,7 +141,7 @@ const browsersData = {
                         fontSize: 13,
                         fontColor: '#828f99',
                         // Include a dollar sign in the ticks
-                        callback: function(value) {
+                        callback: function (value) {
                             return '$' + value;
                         },
                     },
@@ -171,7 +171,7 @@ const browsersData = {
 /*
 // Vertical Bar
 */
-(function() {
+(function () {
     const chartCanvas = document.getElementById('example-chart-js-vertical-bar');
 
     if (!chartCanvas || !(chartCanvas instanceof HTMLCanvasElement)) {
@@ -188,7 +188,7 @@ const browsersData = {
                 borderWidth: 0,
                 fill: 'origin',
                 data: salesData,
-            }, ],
+            },],
         },
         options: {
             plugins: {
@@ -204,7 +204,7 @@ const browsersData = {
                         fontSize: 13,
                         fontColor: '#828f99',
                         // Include a dollar sign in the ticks
-                        callback: function(value) {
+                        callback: function (value) {
                             return '$' + value;
                         },
                     },
@@ -234,7 +234,7 @@ const browsersData = {
 /*
 // Horizontal Bar
 */
-(function() {
+(function () {
     const chartCanvas = document.getElementById('example-chart-js-horizontal-bar');
 
     if (!chartCanvas || !(chartCanvas instanceof HTMLCanvasElement)) {
@@ -252,7 +252,7 @@ const browsersData = {
                 fill: 'origin',
                 barPercentage: .75,
                 data: salesData,
-            }, ],
+            },],
         },
         options: {
             indexAxis: 'y',
@@ -281,7 +281,7 @@ const browsersData = {
                         fontSize: 13,
                         fontColor: '#828f99',
                         // Include a dollar sign in the ticks
-                        callback: function(value) {
+                        callback: function (value) {
                             return '$' + value;
                         },
                     },
@@ -301,7 +301,7 @@ const browsersData = {
 /*
 // Stacked Bar
 */
-(function() {
+(function () {
     const chartCanvas = document.getElementById('example-chart-js-stacked-bar');
 
     if (!chartCanvas || !(chartCanvas instanceof HTMLCanvasElement)) {
@@ -313,19 +313,19 @@ const browsersData = {
         data: {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             datasets: [{
-                    backgroundColor: '#ffd333',
-                    borderColor: 'transparent',
-                    borderWidth: 0,
-                    fill: 'origin',
-                    data: salesData,
-                },
-                {
-                    backgroundColor: '#ff8b33',
-                    borderColor: 'transparent',
-                    borderWidth: 0,
-                    fill: 'origin',
-                    data: salesData,
-                },
+                backgroundColor: '#ffd333',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                fill: 'origin',
+                data: salesData,
+            },
+            {
+                backgroundColor: '#ff8b33',
+                borderColor: 'transparent',
+                borderWidth: 0,
+                fill: 'origin',
+                data: salesData,
+            },
             ],
         },
         options: {
@@ -343,7 +343,7 @@ const browsersData = {
                         fontSize: 13,
                         fontColor: '#828f99',
                         // Include a dollar sign in the ticks
-                        callback: function(value) {
+                        callback: function (value) {
                             return '$' + value;
                         },
                     },
@@ -374,7 +374,7 @@ const browsersData = {
 /*
 // Pie
 */
-(function() {
+(function () {
     const chartCanvas = document.getElementById('example-chart-js-pie');
 
     if (!chartCanvas || !(chartCanvas instanceof HTMLCanvasElement)) {
@@ -397,7 +397,7 @@ const browsersData = {
 /*
 // Doughnut
 */
-(function() {
+(function () {
     const chartCanvas = document.getElementById('example-chart-js-doughnut');
 
     if (!chartCanvas || !(chartCanvas instanceof HTMLCanvasElement)) {

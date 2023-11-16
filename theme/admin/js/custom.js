@@ -13,11 +13,11 @@
 // - Range filter
 */
 
-(function($, window) {
+(function ($, window) {
     /*
     // Search AJAX settings
     */
-    window.stroyka.search.getAjaxSettings = function(query) {
+    window.stroyka.search.getAjaxSettings = function (query) {
         return {
             url: 'ajax/suggestions.html?query=' + encodeURIComponent(query),
         };
@@ -26,13 +26,13 @@
     /*
     // Search debounce
     */
-    window.stroyka.search.requestMiddleware.add(function(next, query, abortController) {
-        return new Promise(function(resolve) {
-            const timer = setTimeout(function() {
+    window.stroyka.search.requestMiddleware.add(function (next, query, abortController) {
+        return new Promise(function (resolve) {
+            const timer = setTimeout(function () {
                 resolve(next(query, abortController));
             }, 500);
 
-            abortController.add(function() {
+            abortController.add(function () {
                 clearTimeout(timer);
             });
         });
@@ -41,7 +41,7 @@
     /*
     // Search simulate no results
     */
-    window.stroyka.search.requestMiddleware.add(function(next, query, abortController) {
+    window.stroyka.search.requestMiddleware.add(function (next, query, abortController) {
         if (query.length >= 6) {
             return Promise.resolve('');
         } else {
@@ -52,7 +52,7 @@
     /*
     // Datatables
     */
-    (function() {
+    (function () {
         $.fn.DataTable.ext.pager.numbers_length = 5;
         $.fn.DataTable.defaults.oLanguage.sInfo = 'Showing _START_ to _END_ of _TOTAL_';
         $.fn.DataTable.defaults.oLanguage.sLengthMenu = 'Rows per page _MENU_';
@@ -70,19 +70,19 @@
             '>' +
             '>';
 
-        $('.sa-datatables-init').each(function() {
+        $('.sa-datatables-init').each(function () {
             const tableSearchSelector = $(this).data('sa-search-input');
             const table = $(this).DataTable({
                 dom: template,
                 paging: true,
                 ordering: true,
-                drawCallback: function() {
+                drawCallback: function () {
                     $(this.api().table().container()).find('.pagination').addClass('pagination-sm');
                 },
             });
 
             if (tableSearchSelector) {
-                $(tableSearchSelector).on('input', function() {
+                $(tableSearchSelector).on('input', function () {
                     table.search(this.value).draw();
                 });
             }
@@ -92,7 +92,7 @@
     /*
     // Analytics chart
     */
-    (function() {
+    (function () {
         const chartCanvas = document.getElementById('example-chart-js-analytics');
 
         if (!chartCanvas) {
@@ -108,21 +108,21 @@
                     borderColor: 'transparent',
                     borderWidth: 0,
                     fill: 'origin',
-                    data: [
-                        (10 / 240) * 1200,
-                        (26 / 240) * 1200,
-                        (105 / 240) * 1200,
-                        (57 / 240) * 1200,
-                        (94 / 240) * 1200,
-                        (26 / 240) * 1200,
-                        (57 / 240) * 1200,
-                        (48 / 240) * 1200,
-                        (142 / 240) * 1200,
-                        (94 / 240) * 1200,
-                        (128 / 240) * 1200,
-                        (222 / 240) * 1200,
-                    ],
-                }, ],
+                    // data: [
+                    //     (10 / 240) * 1200,
+                    //     (26 / 240) * 1200,
+                    //     (105 / 240) * 1200,
+                    //     (57 / 240) * 1200,
+                    //     (94 / 240) * 1200,
+                    //     (26 / 240) * 1200,
+                    //     (57 / 240) * 1200,
+                    //     (48 / 240) * 1200,
+                    //     (142 / 240) * 1200,
+                    //     (94 / 240) * 1200,
+                    //     (128 / 240) * 1200,
+                    //     (222 / 240) * 1200,
+                    // ],
+                },],
             },
             options: {
                 maintainAspectRatio: false,
@@ -140,7 +140,7 @@
                             fontSize: 13,
                             fontColor: '#828f99',
                             // Include a dollar sign in the ticks
-                            callback: function(value) {
+                            callback: function (value) {
                                 return '$' + value;
                             },
                         },
@@ -170,13 +170,13 @@
     /*
     // Widget chart (.saw-chart)
     */
-    (function() {
-        $('.saw-chart[data-sa-data]').each(function() {
+    (function () {
+        $('.saw-chart[data-sa-data]').each(function () {
             const data = $(this).data('sa-data');
-            const labels = data.map(function(item) {
+            const labels = data.map(function (item) {
                 return item.label;
             });
-            const values = data.map(function(item) {
+            const values = data.map(function (item) {
                 return item.value;
             });
             const canvas = $(this).find('canvas')[0];
@@ -191,7 +191,7 @@
                         borderWidth: 0,
                         fill: 'origin',
                         data: values,
-                    }, ],
+                    },],
                 },
                 options: {
                     maintainAspectRatio: false,
@@ -208,7 +208,7 @@
                                 fontFamily: 'Roboto',
                                 fontSize: 13,
                                 fontColor: '#828f99',
-                                callback: function(value) {
+                                callback: function (value) {
                                     return '$' + value;
                                 },
                             },
@@ -239,15 +239,15 @@
     /*
     // Widget circle chart (.saw-chart-circle)
     */
-    $('.saw-chart-circle[data-sa-data]').each(function() {
+    $('.saw-chart-circle[data-sa-data]').each(function () {
         const data = $(this).data('sa-data');
-        const labels = data.map(function(item) {
+        const labels = data.map(function (item) {
             return item.label;
         });
-        const values = data.map(function(item) {
+        const values = data.map(function (item) {
             return item.value;
         });
-        const colors = data.map(function(item) {
+        const colors = data.map(function (item) {
             return item.color;
         });
         const canvas = $(this).find('canvas')[0];
@@ -264,7 +264,7 @@
                     data: values,
                     backgroundColor: colors,
                     hoverBackgroundColor: colors,
-                }, ],
+                },],
             },
             options: {
                 maintainAspectRatio: false,
@@ -289,7 +289,7 @@
     /*
     // Range filter
     */
-    $('.sa-filter-range').each(function() {
+    $('.sa-filter-range').each(function () {
         const min = $(this).data('min');
         const max = $(this).data('max');
         const from = $(this).data('from');
@@ -317,7 +317,7 @@
             $(this).find('.sa-filter-range__input-to')[0]
         ];
 
-        slider.noUiSlider.on('update', function(values, handle) {
+        slider.noUiSlider.on('update', function (values, handle) {
             inputs[handle].value = values[handle];
         });
     });

@@ -64,18 +64,6 @@
         // Kết nối tới máy chủ Socket.IO
         const socket = io('http://localhost:7000');
 
-        socket.on('connect', () => {
-            console.log('Connected to server');
-           
-        });
-
-        socket.on('disconnect', () => {
-            console.log('Disconnected from server');
-        });
-
-        // Gửi một sự kiện từ máy khách tới máy chủ
-
-        // Lắng nghe sự kiện từ máy chủ
         socket.on('chat-message', (message) => {
             console.log('Received message from server:', message);
             showNotification(message)

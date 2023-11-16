@@ -29,22 +29,22 @@
 // - Nouislider
 */
 
-(function($, window) {
+(function ($, window) {
     window.stroyka = {};
 
     /*
     // Sidebar
     */
-    window.stroyka.sidebar = (function() {
+    window.stroyka.sidebar = (function () {
         const appEl = $('.sa-app');
 
-        $('[data-sa-toggle-sidebar]').on('click', function() {
+        $('[data-sa-toggle-sidebar]').on('click', function () {
             window.stroyka.sidebar.toggle();
         });
-        $('[data-sa-open-sidebar]').on('click', function() {
+        $('[data-sa-open-sidebar]').on('click', function () {
             window.stroyka.sidebar.open();
         });
-        $('[data-sa-close-sidebar]').on('click', function() {
+        $('[data-sa-close-sidebar]').on('click', function () {
             window.stroyka.sidebar.close();
         });
 
@@ -65,7 +65,7 @@
         }
 
         return {
-            toggle: function(value) {
+            toggle: function (value) {
                 const shownClass = 'sa-app--' + (media.matches ? 'desktop' : 'mobile') + '-sidebar-shown';
                 const hiddenClass = 'sa-app--' + (media.matches ? 'desktop' : 'mobile') + '-sidebar-hidden';
                 const curState = appEl.hasClass(shownClass) && !appEl.hasClass(hiddenClass);
@@ -79,10 +79,10 @@
                     appEl.addClass(hiddenClass);
                 }
             },
-            open: function() {
+            open: function () {
                 window.stroyka.sidebar.toggle(true);
             },
-            close: function() {
+            close: function () {
                 window.stroyka.sidebar.toggle(false);
             },
         };
@@ -91,7 +91,7 @@
     /*
     // Sidebar menu state
     */
-    window.stroyka.sidebarMenuState = (function() {
+    window.stroyka.sidebarMenuState = (function () {
         const storageKey = 'sa-sidebar-menu-state';
         const $sidebarBody = $('.sa-sidebar__body');
 
@@ -101,8 +101,8 @@
             if (itemsState) {
                 itemsState = JSON.parse(itemsState);
 
-                itemsState.forEach(function(path) {
-                    const itemQuery = path.slice(1).map(function(itemIndex) {
+                itemsState.forEach(function (path) {
+                    const itemQuery = path.slice(1).map(function (itemIndex) {
                         return '.sa-nav__menu > .sa-nav__menu-item:eq(' + itemIndex + ')';
                     });
                     const query = '.sa-nav__section:eq(' + path[0] + ') > ' + itemQuery.join(' > ');
@@ -111,13 +111,13 @@
                 });
             }
 
-            $sidebarBody.on('sa-collapse-state', function() {
+            $sidebarBody.on('sa-collapse-state', function () {
                 function getMenuState(parentElement, path) {
                     path = path || [];
 
                     let result = [];
 
-                    $('> .sa-nav__menu > .sa-nav__menu-item', parentElement).each(function(index, element) {
+                    $('> .sa-nav__menu > .sa-nav__menu-item', parentElement).each(function (index, element) {
                         const currentPath = path.concat([index]);
 
                         if ($(element).is('.sa-nav__menu-item--open')) {
@@ -132,7 +132,7 @@
 
                 let currentState = [];
 
-                $('.sa-nav__section').each(function(sectionIndex, sectionElement) {
+                $('.sa-nav__section').each(function (sectionIndex, sectionElement) {
                     currentState = currentState.concat(getMenuState(sectionElement, [sectionIndex]));
                 });
 
@@ -141,7 +141,7 @@
         }
 
         return {
-            clear: function() {
+            clear: function () {
                 sessionStorage.removeItem(storageKey);
             },
         };
@@ -150,14 +150,14 @@
     /*
     // Sidebar scrollbar state
     */
-    window.stroyka.sidebarScrollbarState = (function() {
+    window.stroyka.sidebarScrollbarState = (function () {
         const storageKey = 'sa-sidebar-scrollbar-state';
         const $sidebarBody = $('.sa-sidebar__body');
 
         if ($sidebarBody.length > 0) {
             const simpleBar = new SimpleBar($sidebarBody[0]);
 
-            simpleBar.getScrollElement().addEventListener('scroll', function() {
+            simpleBar.getScrollElement().addEventListener('scroll', function () {
                 sessionStorage.setItem(storageKey, JSON.stringify({
                     value: simpleBar.getScrollElement().scrollTop,
                     windowHeight: window.outerHeight,
@@ -176,7 +176,7 @@
         }
 
         return {
-            clear: function() {
+            clear: function () {
                 sessionStorage.removeItem(storageKey);
             },
         };
@@ -185,16 +185,16 @@
     /*
     // Collapse
     */
-    $('[data-sa-collapse]').each(function(i, element) {
+    $('[data-sa-collapse]').each(function (i, element) {
         const collapse = element;
         const $triggers = $(collapse).find('[data-sa-collapse-trigger]');
         const $contents = $(collapse).find('[data-sa-collapse-content]');
 
-        $triggers.on('click', function(event) {
+        $triggers.on('click', function (event) {
             event.preventDefault();
 
             const $item = $(this).closest('[data-sa-collapse-item]');
-            const $content = $item.find('[data-sa-collapse-content]').filter(function(index, element) {
+            const $content = $item.find('[data-sa-collapse-content]').filter(function (index, element) {
                 return $(element).closest('[data-sa-collapse-item]').is($item);
             });
             const $parents = $item.parents();
@@ -230,7 +230,7 @@
             }
         });
 
-        $contents.on('transitionend', function(event) {
+        $contents.on('transitionend', function (event) {
             if (event.originalEvent.propertyName === 'height') {
                 $(this).css('height', '');
             }
@@ -243,11 +243,11 @@
     function AbortController() {
         const callbacks = [];
 
-        this.add = function(callback) {
+        this.add = function (callback) {
             callbacks.push(callback);
         };
-        this.abort = function() {
-            callbacks.forEach(function(callback) {
+        this.abort = function () {
+            callbacks.forEach(function (callback) {
                 callback();
             });
         }
@@ -256,21 +256,21 @@
     /*
     // Middleware
     */
-    function Middleware() {}
-    Middleware.prototype.run = function() {
+    function Middleware() { }
+    Middleware.prototype.run = function () {
         const args = [].slice.call(arguments);
         const next = args.shift();
 
         return next.apply(next, args);
     };
-    Middleware.prototype.add = function(fn, prepend) {
-        this.run = (function(run) {
-            return function() {
+    Middleware.prototype.add = function (fn, prepend) {
+        this.run = (function (run) {
+            return function () {
                 const args = [].slice.call(arguments);
                 const next = args.shift();
 
                 if (prepend) {
-                    args.unshift(function() {
+                    args.unshift(function () {
                         const nextArgs = [].slice.call(arguments);
 
                         nextArgs.unshift(next);
@@ -281,7 +281,7 @@
                     return fn.apply(fn, args);
                 }
 
-                args.unshift(function() {
+                args.unshift(function () {
                     const nextArgs = [].slice.call(arguments);
 
                     nextArgs.unshift(next);
@@ -297,10 +297,10 @@
     /*
     // Search
     */
-    window.stroyka.search = (function() {
+    window.stroyka.search = (function () {
         let abortController = new AbortController();
 
-        $('.sa-search').each(function(i, element) {
+        $('.sa-search').each(function (i, element) {
             const $search = $(element);
             const $input = $search.find('.sa-search__input');
             const $cancelButton = $search.find('.sa-search__cancel');
@@ -308,7 +308,7 @@
             const $query = $search.find('.sa-search__query');
             const $suggestions = $search.find('.sa-suggestions');
 
-            const search = function() {
+            const search = function () {
                 abortController.abort();
                 abortController = new AbortController();
 
@@ -327,7 +327,7 @@
                 const requestMiddleware = window.stroyka.search.requestMiddleware;
 
                 requestMiddleware.run(request, query, abortController).then(
-                    function(suggestionsHtml) {
+                    function (suggestionsHtml) {
                         const suggestions = $(suggestionsHtml);
 
                         $suggestions.html(suggestions);
@@ -341,7 +341,7 @@
                         $query.text($input.val());
                         $search.removeClass('sa-search--loading');
                     },
-                    function(reason) {
+                    function (reason) {
                         $search.removeClass('sa-search--loading');
 
                         if (reason !== 'abort') {
@@ -350,32 +350,32 @@
                     },
                 );
             };
-            const setState = function(state) {
+            const setState = function (state) {
                 $search.toggleClass('sa-search--state--pending', state === 'pending')
                 $search.toggleClass('sa-search--state--has-results', state === 'has-results')
                 $search.toggleClass('sa-search--state--no-results', state === 'no-results')
             };
 
-            const focus = function() {
+            const focus = function () {
                 $search.addClass('sa-search--focus');
                 $search.trigger('sa-search-focus');
             };
-            const blur = function() {
+            const blur = function () {
                 $search.removeClass('sa-search--focus');
                 $search.trigger('sa-search-blur');
             };
 
-            $search.on('mouseenter', function() {
+            $search.on('mouseenter', function () {
                 $search.addClass('sa-search--hover');
             });
-            $search.on('mouseleave', function() {
+            $search.on('mouseleave', function () {
                 $search.removeClass('sa-search--hover');
             });
-            $input.on('input', function() {
+            $input.on('input', function () {
                 search();
             });
             $input.on('focus', focus);
-            $input.on('keydown', function(event) {
+            $input.on('keydown', function (event) {
                 const ESC_KEY_CODE = 27;
 
                 if (event.which === ESC_KEY_CODE) {
@@ -384,14 +384,14 @@
                     blur();
                 }
             });
-            $cancelButton.on('click', function() {
+            $cancelButton.on('click', function () {
                 blur();
             });
-            $backdrop.on('click', function() {
+            $backdrop.on('click', function () {
                 blur();
             });
 
-            $(document).on('focusin', function() {
+            $(document).on('focusin', function () {
                 if (document.activeElement === document.body) {
                     return;
                 }
@@ -404,22 +404,22 @@
         });
 
         return {
-            getAjaxSettings: function() {
+            getAjaxSettings: function () {
                 return {};
             },
-            request: function(query, abortController) {
-                return new Promise(function(resolve, reject) {
+            request: function (query, abortController) {
+                return new Promise(function (resolve, reject) {
                     const settings = Object.assign({}, window.stroyka.search.getAjaxSettings(query), {
-                        success: function(data) {
+                        success: function (data) {
                             resolve(data);
                         },
-                        error: function(xhr, textStatus) {
+                        error: function (xhr, textStatus) {
                             reject(textStatus);
                         },
                     });
                     const xhr = $.ajax(settings);
 
-                    abortController.add(function() {
+                    abortController.add(function () {
                         xhr.abort();
                     });
                 });
@@ -431,28 +431,28 @@
     /*
     // Search state
     */
-    (function() {
+    (function () {
         const $toolbar = $('.sa-toolbar');
         const $search = $('.sa-search', $toolbar);
         const $searchInput = $('.sa-search__input', $search);
 
-        const show = function() {
+        const show = function () {
             $toolbar.addClass('sa-toolbar--search-shown');
             $toolbar.removeClass('sa-toolbar--search-hidden');
         };
-        const hide = function() {
+        const hide = function () {
             $toolbar.removeClass('sa-toolbar--search-shown');
             $toolbar.addClass('sa-toolbar--search-hidden');
         };
 
-        $search.on('sa-search-focus', function() {
+        $search.on('sa-search-focus', function () {
             show();
         });
-        $search.on('sa-search-blur', function() {
+        $search.on('sa-search-blur', function () {
             hide();
         });
 
-        $('[data-sa-action="show-search"]').on('click', function() {
+        $('[data-sa-action="show-search"]').on('click', function () {
             show();
             $searchInput[0].focus();
         });
@@ -461,7 +461,7 @@
     /*
     // Calculate toolbar visible height
     */
-    (function() {
+    (function () {
         /** @type {HTMLElement} */
         const app = document.querySelector('.sa-app--toolbar-static');
         const toolbar = document.querySelector('.sa-app__toolbar');
@@ -472,11 +472,11 @@
 
         let toolbarHeight = 0;
 
-        const calcToolbarHeight = function() {
+        const calcToolbarHeight = function () {
             toolbarHeight = toolbar.getBoundingClientRect().height;
         };
 
-        const calcToolbarVisibleHeight = function() {
+        const calcToolbarVisibleHeight = function () {
             const h = Math.max(0, toolbarHeight - window.scrollY);
 
             app.style.setProperty('--sa-toolbar-visible-height', h + 'px');
@@ -485,11 +485,11 @@
         if (window.ResizeObserver) {
             let timer;
 
-            const ro = new ResizeObserver(function(entries) {
+            const ro = new ResizeObserver(function (entries) {
                 for (let entry of entries) {
                     clearTimeout(timer);
 
-                    timer = setTimeout(function() {
+                    timer = setTimeout(function () {
                         calcToolbarHeight();
                         calcToolbarVisibleHeight();
                     }, 50);
@@ -510,7 +510,7 @@
     /*
     // Calculate footer visible height
     */
-    (function() {
+    (function () {
         /** @type {HTMLElement} */
         const app = document.querySelector('.sa-app');
         const footer = document.querySelector('.sa-app__footer');
@@ -521,10 +521,10 @@
 
         let footerTop = 0;
 
-        const calcFooterTop = function() {
+        const calcFooterTop = function () {
             footerTop = footer.getBoundingClientRect().top + window.scrollY;
         };
-        const calcFooterVisibleHeight = function() {
+        const calcFooterVisibleHeight = function () {
             const y = Math.max(0, window.scrollY + window.innerHeight - footerTop);
 
             app.style.setProperty('--sa-footer-visible-height', y + 'px');
@@ -533,11 +533,11 @@
         if (window.ResizeObserver) {
             let timer;
 
-            const ro = new ResizeObserver(function(entries) {
+            const ro = new ResizeObserver(function (entries) {
                 for (let entry of entries) {
                     clearTimeout(timer);
 
-                    timer = setTimeout(function() {
+                    timer = setTimeout(function () {
                         calcFooterTop();
                         calcFooterVisibleHeight();
                     }, 50);
@@ -558,16 +558,16 @@
     /*
     // Popovers
     */
-    $('[data-bs-toggle="popover"]').each(function() {
+    $('[data-bs-toggle="popover"]').each(function () {
         new bootstrap.Popover(this);
     });
 
     /*
     // Tooltips
     */
-    $('[data-bs-toggle="tooltip"]').each(function() {
+    $('[data-bs-toggle="tooltip"]').each(function () {
         new bootstrap.Tooltip(this, {
-            popperConfig: function(popperConfig) {
+            popperConfig: function (popperConfig) {
                 popperConfig.modifiers.push({
                     name: 'computeStyles',
                     options: {
@@ -583,7 +583,7 @@
     /*
     // Indeterminate
     */
-    $('.sa-indeterminate').each(function() {
+    $('.sa-indeterminate').each(function () {
         const element = this;
 
         if (element instanceof HTMLInputElement) {
@@ -601,9 +601,9 @@
     /*
     // Quill
     */
-    window.stroyka.quill = (function() {
+    window.stroyka.quill = (function () {
         const stroykaQuill = {
-            init: function(element) {
+            init: function (element) {
                 const $element = $(element);
                 const $container = $('<div></div>');
                 const $content = $('<div></div>');
@@ -618,13 +618,13 @@
 
                 const quill = new Quill($content[0], stroykaQuill.getSettings());
 
-                quill.on('text-change', function() {
+                quill.on('text-change', function () {
                     $element.val(container.querySelector('.ql-editor').innerHTML);
                 });
 
                 $element.addClass('sa-quill-control--ready');
             },
-            getSettings: function() {
+            getSettings: function () {
                 return {
                     theme: 'snow',
                     modules: {
@@ -682,7 +682,7 @@
             },
         };
 
-        $('.sa-quill-control').each(function() {
+        $('.sa-quill-control').each(function () {
             stroykaQuill.init(this);
         });
 
@@ -692,27 +692,27 @@
     /*
     // Toasts
     */
-    window.stroyka.toast = (function() {
+    window.stroyka.toast = (function () {
         const $container = $('.sa-app__toasts');
         const stroykaToast = {
-            init: function(element) {
+            init: function (element) {
                 const $element = $(element);
                 const toast = new bootstrap.Toast(element);
 
-                $element.on('hidden.bs.toast', function() {
+                $element.on('hidden.bs.toast', function () {
                     $element.remove();
                 });
 
                 return toast;
             },
-            insert: function(element) {
+            insert: function (element) {
                 $container.prepend(element);
 
                 return stroykaToast.init(element);
             },
         };
 
-        $('.toast').each(function() {
+        $('.toast').each(function () {
             stroykaToast.init(this);
         });
 
@@ -722,19 +722,19 @@
     /*
     // Container query
     */
-    window.stroyka.containerQuery = (function() {
+    window.stroyka.containerQuery = (function () {
         const containerQuery = {
-            init: function(element) {},
+            init: function (element) { },
         };
 
         if (!window.ResizeObserver) {
             return containerQuery;
         }
 
-        const ro = new ResizeObserver(function(entries) {
+        const ro = new ResizeObserver(function (entries) {
             const tasks = [];
 
-            entries.forEach(function(entry) {
+            entries.forEach(function (entry) {
                 const breakpoints = JSON.parse(entry.target.dataset.saContainerQuery);
                 const mode = entry.target.dataset.saContainerQueryMode || 'all'; // all, bigger
 
@@ -742,14 +742,14 @@
                     throw Error('Undefined mode:  ' + mode);
                 }
 
-                const sortFn = function(a, b) {
+                const sortFn = function (a, b) {
                     return b - a;
                 };
 
                 const add = [];
                 const remove = [];
 
-                Object.keys(breakpoints).map(parseFloat).sort(sortFn).forEach(function(width) {
+                Object.keys(breakpoints).map(parseFloat).sort(sortFn).forEach(function (width) {
                     let elementWidth = 0;
 
                     if (entry.borderBoxSize) {
@@ -769,24 +769,24 @@
                     }
                 });
 
-                tasks.push(function() {
+                tasks.push(function () {
                     entry.target.classList.remove.apply(entry.target.classList, remove);
                     entry.target.classList.add.apply(entry.target.classList, add);
                 });
             });
 
-            setTimeout(function() {
-                tasks.forEach(function(task) {
+            setTimeout(function () {
+                tasks.forEach(function (task) {
                     task();
                 });
             }, 0);
         });
 
-        containerQuery.init = function(element) {
+        containerQuery.init = function (element) {
             ro.observe(element);
         };
 
-        $('[data-sa-container-query]').each(function() {
+        $('[data-sa-container-query]').each(function () {
             containerQuery.init(this);
         });
 
@@ -796,22 +796,22 @@
     /*
     // Inbox list
     */
-    window.stroyka.inboxList = (function() {
+    window.stroyka.inboxList = (function () {
         const inboxList = {
-            init: function(context) {
+            init: function (context) {
                 const $context = $(context || document);
 
                 $context.find('.sa-inbox-list__item')
-                    .on('mouseover', function(event) {
+                    .on('mouseover', function (event) {
                         const isInteractiveElement = inboxList.getClosestInteractiveElement(event.target).length !== 0;
 
                         $(this).toggleClass('sa-inbox-list__item--hover', !isInteractiveElement);
                     })
-                    .on('mouseleave', function() {
+                    .on('mouseleave', function () {
                         $(this).removeClass('sa-inbox-list__item--hover');
                     });
             },
-            getClosestInteractiveElement: function(target) {
+            getClosestInteractiveElement: function (target) {
                 return $(target).closest('.sa-inbox-list__star, .sa-inbox-list__checkbox');
             },
         };
@@ -824,13 +824,13 @@
     /*
     // Inbox chat
     */
-    window.stroyka.inboxChat = (function() {
+    window.stroyka.inboxChat = (function () {
         const inboxChat = {
-            init: function(context) {
+            init: function (context) {
                 const $context = $(context || document);
 
                 $context.find('.sa-inbox-chat__item-header')
-                    .on('click', function(event) {
+                    .on('click', function (event) {
                         const isInteractiveElement = inboxChat.getClosestInteractiveElement(event.target).length !== 0;
 
                         if (isInteractiveElement) {
@@ -840,7 +840,7 @@
                         $(this).closest('.sa-inbox-chat__item').toggleClass('sa-inbox-chat__item--expanded');
                     });
             },
-            getClosestInteractiveElement: function(target) {
+            getClosestInteractiveElement: function (target) {
                 return $(target).closest('a, button');
             },
         };
@@ -853,14 +853,14 @@
     /*
     // Inbox sidebar
     */
-    window.stroyka.inboxSidebar = (function() {
+    window.stroyka.inboxSidebar = (function () {
         const $inbox = $('.sa-inbox');
         const openClass = 'sa-inbox--sidebar-open';
 
-        $inbox.find('.sa-inbox-toolbar__menu').on('click', function() {
+        $inbox.find('.sa-inbox-toolbar__menu').on('click', function () {
             window.stroyka.inboxSidebar.open();
         });
-        $inbox.find('.sa-inbox__backdrop').on('click', function() {
+        $inbox.find('.sa-inbox__backdrop').on('click', function () {
             window.stroyka.inboxSidebar.close();
         });
 
@@ -883,16 +883,16 @@
         }
 
         return {
-            toggle: function(value) {
+            toggle: function (value) {
                 const curState = $inbox.hasClass(openClass) && !$inbox.hasClass(openClass);
                 const newState = typeof value === 'boolean' ? value : !curState;
 
                 $inbox.toggleClass(openClass, newState);
             },
-            open: function() {
+            open: function () {
                 window.stroyka.inboxSidebar.toggle(true);
             },
-            close: function() {
+            close: function () {
                 window.stroyka.inboxSidebar.toggle(false);
             },
         };
@@ -901,28 +901,28 @@
     /*
     // Chat
     */
-    window.stroyka.chat = (function() {
+    window.stroyka.chat = (function () {
         const $chat = $('.sa-chat');
         const openClass = 'sa-chat--open';
 
-        $chat.find('.sa-chat__contact').on('click', function() {
+        $chat.find('.sa-chat__contact').on('click', function () {
             window.stroyka.chat.open();
         });
-        $chat.find('.sa-chat__header-back').on('click', function() {
+        $chat.find('.sa-chat__header-back').on('click', function () {
             window.stroyka.chat.close();
         });
 
         return {
-            toggle: function(value) {
+            toggle: function (value) {
                 const curState = $chat.hasClass(openClass) && !$chat.hasClass(openClass);
                 const newState = typeof value === 'boolean' ? value : !curState;
 
                 $chat.toggleClass(openClass, newState);
             },
-            open: function() {
+            open: function () {
                 window.stroyka.chat.toggle(true);
             },
-            close: function() {
+            close: function () {
                 window.stroyka.chat.toggle(false);
             },
         };
@@ -931,7 +931,7 @@
     /*
     // Layout sidebar
     */
-    window.stroyka.layoutSidebar = (function() {
+    window.stroyka.layoutSidebar = (function () {
         const $layout = $('.sa-layout');
         const openClass = 'sa-layout--sidebar-open';
         const media = matchMedia('(min-width: 1600px)');
@@ -952,24 +952,24 @@
             media.addListener(onMediaChange);
         }
 
-        $('[data-sa-layout-sidebar-open]').on('click', function() {
+        $('[data-sa-layout-sidebar-open]').on('click', function () {
             window.stroyka.layoutSidebar.open();
         });
-        $('[data-sa-layout-sidebar-close]').on('click', function() {
+        $('[data-sa-layout-sidebar-close]').on('click', function () {
             window.stroyka.layoutSidebar.close();
         });
 
         return {
-            toggle: function(value) {
+            toggle: function (value) {
                 const curState = $layout.hasClass(openClass) && !$layout.hasClass(openClass);
                 const newState = typeof value === 'boolean' ? value : !curState;
 
                 $layout.toggleClass(openClass, newState);
             },
-            open: function() {
+            open: function () {
                 window.stroyka.layoutSidebar.toggle(true);
             },
-            close: function() {
+            close: function () {
                 window.stroyka.layoutSidebar.toggle(false);
             },
         };
@@ -978,12 +978,12 @@
     /*
     // Responsive slug input group
     */
-    (function() {
+    (function () {
         const minInputWidth = 240;
-        const ro = new ResizeObserver(function(entries) {
+        const ro = new ResizeObserver(function (entries) {
             const tasks = [];
 
-            entries.forEach(function(entry) {
+            entries.forEach(function (entry) {
                 const breakpoint = $(entry.target).data('breakpoint');
                 let size;
 
@@ -995,7 +995,7 @@
                     size = entry.target.getBoundingClientRect().width;
                 }
 
-                tasks.push(function() {
+                tasks.push(function () {
                     if (size < breakpoint) {
                         $(entry.target).removeClass('input-group');
                         $(entry.target).find('.input-group-text').addClass('d-none');
@@ -1008,14 +1008,14 @@
                 });
             });
 
-            setTimeout(function() {
-                tasks.forEach(function(task) {
+            setTimeout(function () {
+                tasks.forEach(function (task) {
                     task();
                 });
             }, 0);
         });
 
-        $('.input-group--sa-slug').each(function() {
+        $('.input-group--sa-slug').each(function () {
             const groupWidth = $(this)[0].getBoundingClientRect().width;
             const inputWidth = $(this).find('.form-control')[0].getBoundingClientRect().width;
 
@@ -1030,9 +1030,9 @@
     /*
     // Colors
     */
-    window.stroyka.colors = (function() {
+    window.stroyka.colors = (function () {
         return {
-            getThemeColor: function() {
+            getThemeColor: function () {
                 return getComputedStyle(document.documentElement).getPropertyValue('--sa-scheme-theme--main-color');
             },
         };
@@ -1041,11 +1041,11 @@
     /*
     // Nouislider
     */
-    window.stroyka.nouislider = (function() {
-        const calcPipsSize = function(slider) {
-            const size = [].slice.call(slider.target.querySelectorAll('.noUi-value')).map(function(element) {
+    window.stroyka.nouislider = (function () {
+        const calcPipsSize = function (slider) {
+            const size = [].slice.call(slider.target.querySelectorAll('.noUi-value')).map(function (element) {
                 return element.getBoundingClientRect();
-            }).reduce(function(acc, cur) {
+            }).reduce(function (acc, cur) {
                 return {
                     width: Math.max(acc.width, cur.width),
                     height: Math.max(acc.height, cur.height),
@@ -1058,7 +1058,7 @@
             slider.target.style.setProperty('--sa-nouislider-pips--max-width', size.width + 'px');
             slider.target.style.setProperty('--sa-nouislider-pips--max-height', size.height + 'px');
         };
-        const create = function(element, options) {
+        const create = function (element, options) {
             options = options || {};
             options = Object.assign({}, options, {
                 direction: options.direction || window.getComputedStyle(element).direction,

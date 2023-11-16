@@ -25,6 +25,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminOrderController;
+use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductColorController;
@@ -62,23 +63,23 @@ Route::group(['prefix' => 'my-account'], function () {
         Route::get('/address', 'address')->name('frontend.myaccount.address');
         Route::get('/account-detail', 'accountdetail')->name('frontend.myaccount.accountdetail');
         Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
-        });
+    });
 });
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard')
         ->middleware(['auth', 'isAdmin']);
-        Route::controller(AdminOrderController::class)->group(function () {
-            Route::get('/order', 'index')->name('admin.order.list');
-            Route::get('/order/{id}/detail', 'show')->name('admin.order.show');
-            Route::post('/order/add', 'store')->name('admin.order.store');
-            Route::get('/order/{id}/edit', 'update')->name('admin.order.update');
-            Route::put('/order/edit', 'cancle')->name('admin.order.cancle');
-            Route::get('/order/{id}/generate', 'viewinvoice')->name('admin.invoice.view');
-            Route::get('/order/{id}/mail', 'sendmail')->name('admin.invoice.mail');
-            Route::get('/order/{id}/download', 'downloadinvoice')->name('admin.invoice.download');
-        });
+    Route::controller(AdminOrderController::class)->group(function () {
+        Route::get('/order', 'index')->name('admin.order.list');
+        Route::get('/order/{id}/detail', 'show')->name('admin.order.show');
+        Route::post('/order/add', 'store')->name('admin.order.store');
+        Route::get('/order/{id}/edit', 'update')->name('admin.order.update');
+        Route::put('/order/edit', 'cancle')->name('admin.order.cancle');
+        Route::get('/order/{id}/generate', 'viewinvoice')->name('admin.invoice.view');
+        Route::get('/order/{id}/mail', 'sendmail')->name('admin.invoice.mail');
+        Route::get('/order/{id}/download', 'downloadinvoice')->name('admin.invoice.download');
+    });
     Route::controller(CouponController::class)->group(function () {
         Route::get('/coupon', 'index')->name('admin.coupon.list');
         Route::get('/coupon/checkdiscount', 'checkdiscount')->name('admin.coupon.checkdiscount');
@@ -158,15 +159,9 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/user/{id}/update', 'update')->name('admin.user.update');
         Route::delete('/user/{id}', 'destroy')->name('admin.user.delete');
     });
-
-    // Route::controller()->group(function() {
-    //     Route::get('/subcategory')->name('admin.subcategory.list');
-    //     Route::get('/category/create', 'create')->name('admin.category.create');
-    //     Route::post('/category/create', 'store')->name('admin.category.store');
-    //     Route::get('/category/{id}/edit', 'edit')->name('admin.category.edit');
-    //     Route::post('/category/{id}/edit', 'update')->name('admin.category.update');
-    //     Route::delete('/category/{id}', 'destroy')->name('admin.category.delete');
-    // });
+    Route::controller(ChatController::class)->group(function () {
+        Route::get('/chat', 'index')->name('admin.chat');
+    });
 });
 
 Route::prefix('shop')->group(function () {
@@ -200,12 +195,10 @@ Route::delete('/delete-pcolor', function () {
 Route::controller(OtpController::class)->group(function () {
     Route::get('/verify-email', 'index')->name('frontend.otp.view');
     Route::post('/verify-email', 'store')->name('frontend.otp.store');
-
 });
 Route::controller(ContactController::class)->group(function () {
     Route::get('/contact', 'index')->name('frontend.contact.view');
     Route::post('/contact', 'store')->name('frontend.contact.store');
-
 });
 Route::controller(OrderController::class)->group(function () {
     Route::get('/order', 'index')->middleware(['auth', 'verifiedMail'])->name('frontend.order.list');
