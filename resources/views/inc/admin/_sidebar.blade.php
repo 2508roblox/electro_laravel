@@ -624,14 +624,31 @@
                                                   data-name="Flash Light" />
                                           </svg>
                                       </span><span class="sa-nav__title">Database Manager</span></a></li>
-                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"><a href="app-analytics.html"
-                                      class="sa-nav__link"><span class="sa-nav__icon"><svg
-                                              xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                              viewBox="0 0 16 16" fill="currentColor">
+                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"><a
+                                      href="{{ route('admin.chatgpt') }}" class="sa-nav__link"><span
+                                          class="sa-nav__icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                                              height="1em" viewBox="0 0 16 16" fill="currentColor">
                                               <path
                                                   d="M14.5,15h-1c-0.8,0-1.5-0.7-1.5-1.5v-8C12,4.7,12.7,4,13.5,4h1C15.3,4,16,4.7,16,5.5v8C16,14.3,15.3,15,14.5,15z M8.5,15h-1C6.7,15,6,14.3,6,13.5v-11C6,1.7,6.7,1,7.5,1h1C9.3,1,10,1.7,10,2.5v11C10,14.3,9.3,15,8.5,15z M2.5,15h-1C0.7,15,0,14.3,0,13.5v-5C0,7.7,0.7,7,1.5,7h1C3.3,7,4,7.7,4,8.5v5C4,14.3,3.3,15,2.5,15z">
                                               </path>
-                                          </svg></span><span class="sa-nav__title">Analytics</span></a></li>
+                                          </svg></span><span class="sa-nav__title">Chat Gpt</span></a></li>
+                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"><a
+                                      href="{{ route('admin.design.database') }}" class="sa-nav__link"><span
+                                          class="sa-nav__icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                                              height="1em" viewBox="0 0 16 16" fill="currentColor">
+                                              <path
+                                                  d="M14.5,15h-1c-0.8,0-1.5-0.7-1.5-1.5v-8C12,4.7,12.7,4,13.5,4h1C15.3,4,16,4.7,16,5.5v8C16,14.3,15.3,15,14.5,15z M8.5,15h-1C6.7,15,6,14.3,6,13.5v-11C6,1.7,6.7,1,7.5,1h1C9.3,1,10,1.7,10,2.5v11C10,14.3,9.3,15,8.5,15z M2.5,15h-1C0.7,15,0,14.3,0,13.5v-5C0,7.7,0.7,7,1.5,7h1C3.3,7,4,7.7,4,8.5v5C4,14.3,3.3,15,2.5,15z">
+                                              </path>
+                                          </svg></span><span class="sa-nav__title">Entity-Relationship
+                                          Diagram</span></a></li>
+                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"><a
+                                      href="{{ route('admin.design.usecase') }}" class="sa-nav__link"><span
+                                          class="sa-nav__icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                                              height="1em" viewBox="0 0 16 16" fill="currentColor">
+                                              <path
+                                                  d="M14.5,15h-1c-0.8,0-1.5-0.7-1.5-1.5v-8C12,4.7,12.7,4,13.5,4h1C15.3,4,16,4.7,16,5.5v8C16,14.3,15.3,15,14.5,15z M8.5,15h-1C6.7,15,6,14.3,6,13.5v-11C6,1.7,6.7,1,7.5,1h1C9.3,1,10,1.7,10,2.5v11C10,14.3,9.3,15,8.5,15z M2.5,15h-1C0.7,15,0,14.3,0,13.5v-5C0,7.7,0.7,7,1.5,7h1C3.3,7,4,7.7,4,8.5v5C4,14.3,3.3,15,2.5,15z">
+                                              </path>
+                                          </svg></span><span class="sa-nav__title">Use Case</span></a></li>
                               <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
                                   data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
                                       class="sa-nav__link" data-sa-collapse-trigger=""><span
