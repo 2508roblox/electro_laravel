@@ -34,6 +34,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\MyAccountController;
+use App\Http\Controllers\ProductRatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -202,6 +203,10 @@ Route::delete('/delete-pcolor', function () {
 Route::controller(OtpController::class)->group(function () {
     Route::get('/verify-email', 'index')->name('frontend.otp.view');
     Route::post('/verify-email', 'store')->name('frontend.otp.store');
+});
+Route::controller(ProductRatingController::class)->group(function () {
+    Route::post('/product-rating', 'rating')->name('frontend.product.rating');
+
 });
 Route::controller(ContactController::class)->group(function () {
     Route::get('/contact', 'index')->name('frontend.contact.view');

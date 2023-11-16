@@ -801,55 +801,82 @@
                                 <div class="col-md-6">
                                     <h3 class="font-size-18 mb-5">Add a review</h3>
                                     <!-- Form -->
-                                    <form class="js-validate">
+                                    <form class="js-validate" action="{{route('frontend.product.rating')}}" method="POST">
+                                        @csrf
                                         <div class="row align-items-center mb-4">
                                             <div class="col-md-4 col-lg-3">
                                                 <label for="rating" class="form-label mb-0">Your Review</label>
                                             </div>
                                             <div class="col-md-8 col-lg-9">
-                                                <a href="#" class="d-block">
-                                                    <div class="text-warning text-ls-n2 font-size-16">
-                                                        <small class="far fa-star text-muted"></small>
-                                                        <small class="far fa-star text-muted"></small>
-                                                        <small class="far fa-star text-muted"></small>
-                                                        <small class="far fa-star text-muted"></small>
-                                                        <small class="far fa-star text-muted"></small>
-                                                    </div>
-                                                </a>
+                                                <div class="rating">
+                                                    <input type="radio" id="star5" name="rating" value="5">
+                                                    <label for="star5"></label>
+                                                    <input type="radio" id="star4" name="rating" value="4">
+                                                    <label for="star4"></label>
+                                                    <input type="radio" id="star3" name="rating" value="3">
+                                                    <label for="star3"></label>
+                                                    <input type="radio" id="star2" name="rating" value="2">
+                                                    <label for="star2"></label>
+                                                    <input type="radio" id="star1" name="rating" value="1">
+                                                    <label for="star1"></label>
+                                                </div>
                                             </div>
+                                            <style>
+                                                .rating {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+.rating > input {
+    display: none;
+}
+
+.rating > label:before {
+    content: "\2605";
+    margin: 5px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.rating > input:checked ~ label:before {
+    color: gold;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+                                            </style>
+                                            <script>
+                                            const ratingInputs = document.querySelectorAll('.rating input');
+
+ratingInputs.forEach(input => {
+    input.addEventListener('change', function() {
+        const selectedRating = parseInt(this.value);
+
+        ratingInputs.forEach(input => {
+            const label = input.nextElementSibling;
+
+            if (parseInt(input.value) > selectedRating) {
+                label.classList.add('text-muted');
+            } else {
+                label.classList.remove('text-muted');
+            }
+        });
+    });
+});
+                                            </script>
                                         </div>
                                         <div class="js-form-message form-group mb-3 row">
                                             <div class="col-md-4 col-lg-3">
                                                 <label for="descriptionTextarea" class="form-label">Your Review</label>
                                             </div>
                                             <div class="col-md-8 col-lg-9">
-                                                <textarea class="form-control" rows="3" id="descriptionTextarea" data-msg="Please enter your message."
+                                                <textarea class="form-control" name="content" rows="3" id="descriptionTextarea" data-msg="Please enter your message."
                                                     data-error-class="u-has-error" data-success-class="u-has-success"></textarea>
                                             </div>
                                         </div>
-                                        <div class="js-form-message form-group mb-3 row">
-                                            <div class="col-md-4 col-lg-3">
-                                                <label for="inputName" class="form-label">Name <span
-                                                        class="text-danger">*</span></label>
-                                            </div>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input type="text" class="form-control" name="name" id="inputName"
-                                                    aria-label="Alex Hecker" required data-msg="Please enter your name."
-                                                    data-error-class="u-has-error" data-success-class="u-has-success">
-                                            </div>
-                                        </div>
-                                        <div class="js-form-message form-group mb-3 row">
-                                            <div class="col-md-4 col-lg-3">
-                                                <label for="emailAddress" class="form-label">Email <span
-                                                        class="text-danger">*</span></label>
-                                            </div>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input type="email" class="form-control" name="emailAddress"
-                                                    id="emailAddress" aria-label="alexhecker@pixeel.com" required
-                                                    data-msg="Please enter a valid email address."
-                                                    data-error-class="u-has-error" data-success-class="u-has-success">
-                                            </div>
-                                        </div>
+
+
                                         <div class="row">
                                             <div class="offset-md-4 offset-lg-3 col-auto">
                                                 <button type="submit"
