@@ -38,7 +38,7 @@ class FrontendController extends Controller
         $products = Product::join('sub_categories', 'products.sub_category_id', '=', 'sub_categories.id')
             ->select('products.*', 'sub_categories.name as sub_category_name')
             ->limit(15)
-            ->orderBy('id', 'desc')
+            ->orderBy('id', 'asc')
             ->get();
 
         foreach ($products as $product) {
