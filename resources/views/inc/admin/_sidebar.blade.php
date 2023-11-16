@@ -604,7 +604,8 @@
                                           class="sa-nav__menu-item-badge badge badge-sa-pill badge-sa-theme">8</span></a>
                               </li>
                               <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"><a
-                                      href="app-file-manager.html" class="sa-nav__link"><span class="sa-nav__icon">
+                                      href="{{ route('admin.file-manager') }}" class="sa-nav__link"><span
+                                          class="sa-nav__icon">
 
                                           <svg xmlns="http://www.w3.org/2000/svg" id="file" x="0" y="0"
                                               version="1.1" viewBox="0 0 29 29" xml:space="preserve">

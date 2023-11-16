@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\CouponController;
+use App\Http\Controllers\Admin\FileManagerController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductColorController;
 use App\Http\Controllers\ContactController;
@@ -56,8 +57,8 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::group(['prefix' => 'my-account'], function () {
     Route::get('/', [MyAccountController::class, 'index'])
-    ->name('frontend.myaccount.dashboard')
-    ->middleware(['auth']);
+        ->name('frontend.myaccount.dashboard')
+        ->middleware(['auth']);
     Route::controller(MyAccountController::class)->group(function () {
         Route::get('/order', 'order')->name('frontend.myaccount.order');
         Route::get('/address', 'address')->name('frontend.myaccount.address');
@@ -161,6 +162,12 @@ Route::group(['prefix' => 'admin'], function () {
     });
     Route::controller(ChatController::class)->group(function () {
         Route::get('/chat', 'index')->name('admin.chat');
+    });
+    Route::controller(FileManagerController::class)->group(function () {
+        Route::get('/file-manager', 'index')->name('admin.file-manager');
+        Route::get('/file-manager/slide', 'slide')->name('admin.file-manager.slide');
+        Route::get('/file-manager/blog', 'blog')->name('admin.file-manager.blog');
+        Route::get('/file-manager/subcategory', 'subcategory')->name('admin.file-manager.subcategory');
     });
 });
 
