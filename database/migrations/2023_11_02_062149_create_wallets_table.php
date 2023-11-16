@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('wallets', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->decimal('balance')->default(0);
+            $table->decimal('balance', 10, 2)->default(0);
             $table->timestamps();
         });
     }

@@ -27,7 +27,7 @@
                 <h1 class="text-center">Wallet</h1>
             </div>
             <div class="mb-10 cart-table" style="margin-bottom: 10rem">
-                <h1>Balance: {{$wallet->balance}}$</h1>
+                <h1>Balance: {{$wallet->balance}}đ</h1>
                 <a href="{{ route('frontend.transaction') }}" class="text-black">Transactions</a>
             </div>
             <form action="{{ route('frontend.transaction.store') }}" method="POST">
@@ -50,4 +50,5 @@
 
         </div>
     </main>
+    <hr>
 @endsection

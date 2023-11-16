@@ -70,20 +70,17 @@
                                     <div class="mb-5">
                                         <h2 class="mb-0 fs-exact-18">Role</h2>
                                     </div>
-                                    <div class="mb-4"><label class="form-check"><input type="radio"
-                                                class="form-check-input" checked  name="role_as" value="1" /><span
-                                                class="form-check-label">Admin</span></label>
+                                    <div class="mb-4">
+                                        <label class="form-check">
+                                            <input type="radio" class="form-check-input" name="role_as" value="1" />
+                                            <span class="form-check-label">Admin</span>
+                                        </label>
 
-                                        <label class="form-check mb-0"><input value="hidden" type="radio"
-                                                class="form-check-input" wire:model.defer="role_as" name="role_as" value="0"/><span
-                                                class="form-check-label">Customer</span></label>
+                                        <label class="form-check mb-0">
+                                            <input type="radio" class="form-check-input" name="role_as" value="0"/>
+                                            <span class="form-check-label">Customer</span>
+                                        </label>
                                     </div>
-
-                                </div>
-                            </div>
-                            <div class="card w-100 mt-5">
-                                <div class="card-body p-5">
-
 
                                 </div>
                             </div>

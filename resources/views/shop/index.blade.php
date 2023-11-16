@@ -1,4 +1,4 @@
-@extends('layout.layout');
+@extends('layout.layout')
 @section('content')
     @include('inc/_header')
     <main id="content" role="main">

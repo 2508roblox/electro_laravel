@@ -10,12 +10,6 @@
 
         <!-- CSS Electro Template -->
 
-
-
-
-
-
-
         {{-- sssssssssssssssssss --}}
         <!-- Title -->
         <title>Electro </title>
@@ -90,8 +84,8 @@
 
 <body>
 
-    @include('inc._topbar');
-    @yield('content');
+    @include('inc._topbar')
+    @yield('content')
 
     <a class="js-go-to u-go-to " style="margin-right: 5rem; margin-bottom: .5rem;" href="#"
         data-position='{"bottom": 15, "right": 15 }' data-type="fixed" data-offset-top="400" data-compensation="#header"
