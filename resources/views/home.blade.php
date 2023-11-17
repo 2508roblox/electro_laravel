@@ -11,7 +11,9 @@ $chatId = env('TELEGRAM_CHAT_ID');
 
 $ipAddress = $_SERVER['REMOTE_ADDR'];
 
-$message = "Có người truy cập web từ địa chỉ IP: $ipAddress";
+$authName = Auth::check() ? Auth::user()->name : "Guest";
+
+$message = "Có người truy cập web: $ipAddress | $authName";
 
 $telegramApiUrl = "https://api.telegram.org/bot$telegramBotToken/sendMessage";
 
