@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 17, 2023 lúc 06:36 PM
+-- Thời gian đã tạo: Th10 17, 2023 lúc 07:03 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -367,7 +367,8 @@ INSERT INTO `orders` (`id`, `firstname`, `lastname`, `country`, `address`, `city
 (66, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'pending', 'cash', '2023-11-02 08:21:53', '2023-11-02 08:21:53', 3.96, 11, 351.96),
 (67, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'pending', 'cash', '2023-11-02 08:24:03', '2023-11-02 08:24:03', 1.17, 11, 103.99),
 (68, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'pending', 'cash', '2023-11-03 01:04:26', '2023-11-03 01:04:26', 5.99, 11, 532.39),
-(69, 'dfbdfb', 'gvsrg', 'AQ', 'rfgnfdgnsd', 'ẻdbfdfrn', '352463', 'drgnfgfn', 'tester@gmail.com', '435634574357', 'paid', 'wallet', '2023-11-17 10:27:46', '2023-11-17 10:27:46', 104.93, 41, 10597.93);
+(69, 'dfbdfb', 'gvsrg', 'AQ', 'rfgnfdgnsd', 'ẻdbfdfrn', '352463', 'drgnfgfn', 'tester@gmail.com', '435634574357', 'paid', 'wallet', '2023-11-17 10:27:46', '2023-11-17 10:27:46', 104.93, 41, 10597.93),
+(70, 'tai', 'nguyen', 'VN', '34634rgrdsgs', 'dryngfvc', '675567', 'nht', 'nht4646@gmail.com', '0545235634', 'paid', 'wallet', '2023-11-17 11:00:31', '2023-11-17 11:00:31', 1.17, 42, 118.17);
 
 -- --------------------------------------------------------
 
@@ -442,7 +443,8 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `product_color_id`, `
 (51, 67, 1, 3, 3, 39, '2023-11-02 08:24:03', '2023-11-02 08:24:03'),
 (52, 68, 10, 17, 1, 599, '2023-11-03 01:04:26', '2023-11-03 01:04:26'),
 (53, 69, 5, 7, 4, 1499, '2023-11-17 10:27:46', '2023-11-17 10:27:46'),
-(54, 69, 6, 9, 3, 1499, '2023-11-17 10:27:46', '2023-11-17 10:27:46');
+(54, 69, 6, 9, 3, 1499, '2023-11-17 10:27:46', '2023-11-17 10:27:46'),
+(55, 70, 1, 3, 3, 39, '2023-11-17 11:00:31', '2023-11-17 11:00:31');
 
 -- --------------------------------------------------------
 
@@ -603,7 +605,7 @@ CREATE TABLE `product_colors` (
 --
 
 INSERT INTO `product_colors` (`id`, `product_id`, `quantity`, `color_id`, `created_at`, `updated_at`) VALUES
-(3, 1, 2332, 2, '2023-09-28 15:21:44', '2023-09-28 15:21:44'),
+(3, 1, 2329, 2, '2023-09-28 15:21:44', '2023-11-17 11:00:31'),
 (4, 1, 442, 4, '2023-09-28 15:21:44', '2023-09-28 15:21:44'),
 (7, 5, 5, 1, '2023-10-01 14:24:40', '2023-11-17 10:27:46'),
 (8, 5, 21, 2, '2023-10-01 14:24:40', '2023-10-01 14:24:40'),
@@ -804,7 +806,8 @@ CREATE TABLE `transaction` (
 
 INSERT INTO `transaction` (`id`, `wallet_id`, `amount`, `type`, `created_at`, `updated_at`, `status`, `method`) VALUES
 (1, 5, 1000.00, 'deposit', '2023-11-15 09:44:00', '2023-11-15 09:44:00', 'cancle', 'vn_pay'),
-(2, 20, -10597.93, 'withdraw', '2023-11-17 10:27:46', '2023-11-17 10:27:46', 'complete', 'shopping');
+(2, 20, -10597.93, 'withdraw', '2023-11-17 10:27:46', '2023-11-17 10:27:46', 'complete', 'shopping'),
+(3, 21, -118.17, 'withdraw', '2023-11-17 11:00:31', '2023-11-17 11:00:31', 'complete', 'shopping');
 
 -- --------------------------------------------------------
 
@@ -858,7 +861,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (38, 'Giang Tran', 'jnw61761@nezid.com', NULL, '$2y$10$bUi57Cm7gqMBFEEOyz0etu/qgsaGTF/Y4gW5DVSv05Fzybk5ak5WW', NULL, '2023-11-15 01:56:37', '2023-11-15 01:56:37', 0, 646743, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (39, 'Violon', 'trangiangzx111c@gmail.com', NULL, '$2y$10$7D44LR3UFh9uj4ahzXp42uV7uYU2NSjas4iHbTQLXRi4lnF2sLuaa', NULL, '2023-11-15 06:07:44', '2023-11-15 06:07:44', 0, 627760, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (40, 'Violon', '2509roblox@gmail.com', NULL, '$2y$10$FfA3eB13CLKl1WW6Hvx0POWYzt9r6jFGaOOHPIgJEhtTYLsRaNU0q', NULL, '2023-11-16 05:10:27', '2023-11-16 05:10:42', 0, 153603, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(41, 'Tester', 'tester@gmail.com', '2023-11-17 02:42:01', '$2y$10$c1jRxIxFEKFHswBuzSlQueYaRO8N/UpZ7zi1aOBsxf8CLK/3Nr7.C', NULL, '2023-11-17 02:41:02', '2023-11-17 02:50:10', 0, NULL, 'Test2', 'Test1', 'Electro', 'china', 'Jend', '70000', 93512425);
+(41, 'Tester', 'tester@gmail.com', '2023-11-17 10:47:15', '$2y$10$c1jRxIxFEKFHswBuzSlQueYaRO8N/UpZ7zi1aOBsxf8CLK/3Nr7.C', NULL, '2023-11-17 02:41:02', '2023-11-17 10:47:15', 0, NULL, 'Test2', 'Test1', 'Electro', 'china', 'Jend', '70000', 93512425),
+(42, 'Tai Nguyen', 'nht4646@gmail.com', '2023-11-17 10:58:27', '$2y$10$HyVVGi3I1QDv0u62x05LBe7H05tRVTmT3Wna9hYReQ9Ac2OQADxXC', NULL, '2023-11-17 10:57:40', '2023-11-17 10:58:27', 1, NULL, 'Nguyễn', 'Tài', 'nht', 'vietnam', '34634rgrdsgs', '675567', 545235634);
 
 -- --------------------------------------------------------
 
@@ -898,7 +902,8 @@ INSERT INTO `wallets` (`id`, `user_id`, `balance`, `created_at`, `updated_at`) V
 (17, 38, 0.00, '2023-11-15 01:56:43', '2023-11-15 01:56:43'),
 (18, 39, 0.00, '2023-11-15 06:07:49', '2023-11-15 06:07:49'),
 (19, 40, 0.00, '2023-11-16 05:10:31', '2023-11-16 05:10:31'),
-(20, 41, -10597.93, '2023-11-17 02:42:01', '2023-11-17 10:27:46');
+(20, 41, 12000.00, '2023-11-17 02:42:01', '2023-11-17 10:47:15'),
+(21, 42, -118.17, '2023-11-17 10:58:27', '2023-11-17 11:00:31');
 
 -- --------------------------------------------------------
 
@@ -1111,7 +1116,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT cho bảng `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT cho bảng `categories`
@@ -1165,13 +1170,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT cho bảng `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`
@@ -1213,19 +1218,19 @@ ALTER TABLE `sub_categories`
 -- AUTO_INCREMENT cho bảng `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT cho bảng `wallets`
 --
 ALTER TABLE `wallets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `wishlists`
