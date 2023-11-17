@@ -298,7 +298,7 @@
                                                     <div class="sa-file__thumbnail sa-box">
                                                         <div class="sa-box__body">
                                                             <div class="sa-box__container sa-file__image">
-                                                                <img src="/{{ $image->image }}" alt=" "
+                                                                <img src="/storage/{{ $image->image }}" alt=" "
                                                                     width="320" height="180">
                                                             </div>
                                                         </div>
