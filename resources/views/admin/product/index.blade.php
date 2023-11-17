@@ -191,7 +191,7 @@
                         id="dropdownMenuButton" data-bs-toggle="dropdown" data-bs-offset="0,1"
                         aria-expanded="false"><span
                             class="sa-toolbar-user__avatar sa-symbol sa-symbol--shape--rounded"><img
-                                src="images/customers/customer-4-64x64.jpg" width="64" height="64"
+                                src="/admin/images/customers/customer-4-64x64.jpg" width="64" height="64"
                                 alt="" /></span><span class="sa-toolbar-user__info"><span
                                 class="sa-toolbar-user__title">Konstantin Veselovsky</span><span
                                 class="sa-toolbar-user__subtitle">stroyka@example.com</span></span></button>
@@ -224,7 +224,7 @@
                             <h1 class="h3 m-0">Products</h1>
                         </div>
                         <div class="col-auto d-flex"><a href="#" class="btn btn-secondary me-3">Import</a><a
-                                href="{{route('admin.product.create')}}" class="btn btn-primary">New product</a></div>
+                                href="{{ route('admin.product.create') }}" class="btn btn-primary">New product</a></div>
                     </div>
                 </div>
             </div>
@@ -354,20 +354,21 @@
                                                     aria-label="..." /></td>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <a href="{{route('admin.product.create')}}" class="me-4">
+                                                    <a href="{{ route('admin.product.create') }}" class="me-4">
                                                         <div
                                                             class="sa-symbol sa-symbol--shape--rounded sa-symbol--size--lg">
-                                                            <img src="{{ $product->image ? asset('storage/' . $product->image) : 'images/products/product-1-40x40.jpg'}} " width="40"
-                                                                height="40" alt="" />
+                                                            <img src="{{ $product->image ? asset('storage/' . $product->image) : 'images/products/product-1-40x40.jpg' }} "
+                                                                width="40" height="40" alt="" />
                                                         </div>
                                                     </a>
-                                                    <div><a href="{{route('admin.product.create')}}"
-                                                            class="text-reset">{{ $product->product_name}}</a>
+                                                    <div><a href="{{ route('admin.product.create') }}"
+                                                            class="text-reset">{{ $product->product_name }}</a>
                                                         <div class="sa-meta mt-0">
                                                             <ul class="sa-meta__list">
                                                                 <li class="sa-meta__item">ID: <span
                                                                         title="Click to copy product ID"
-                                                                        class="st-copy">#00{{ $product->product_id }}</span></li>
+                                                                        class="st-copy">#00{{ $product->product_id }}</span>
+                                                                </li>
                                                                 <li class="sa-meta__item">SKU: <span
                                                                         title="Click to copy product SKU"
                                                                         class="st-copy">KL370090</span></li>
@@ -377,7 +378,7 @@
                                                 </div>
                                             </td>
                                             <td><a href="app-category.html" class="text-reset">
-                                                {{$product->sub_category_name}}</a></td>
+                                                    {{ $product->sub_category_name }}</a></td>
                                             <td>
 
                                                 @if ($product->total_quantity != null)
@@ -415,16 +416,22 @@
                                                         </svg></button>
                                                     <ul class="dropdown-menu dropdown-menu-end"
                                                         aria-labelledby="product-context-menu-0">
-                                                        <li><a class="dropdown-item" href="{{route('admin.product.edit', ['id' => $product->product_id])}}">Edit</a></li>
+                                                        <li><a class="dropdown-item"
+                                                                href="{{ route('admin.product.edit', ['id' => $product->product_id]) }}">Edit</a>
+                                                        </li>
                                                         <li>
                                                             <hr class="dropdown-divider" />
                                                         </li>
-                                                        <li>  <form action="{{route('admin.product.delete', ['id' => $product->product_id])}}" method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
+                                                        <li>
+                                                            <form
+                                                                action="{{ route('admin.product.delete', ['id' => $product->product_id]) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
 
-                                                            <button   type="submit" class="dropdown-item text-danger">Delete </button>
-                                                        </form>
+                                                                <button type="submit"
+                                                                    class="dropdown-item text-danger">Delete </button>
+                                                            </form>
                                                         </li>
                                                     </ul>
                                                 </div>
