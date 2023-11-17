@@ -6,7 +6,7 @@
     <head>
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
         <!-- CSS Electro Template -->
 
@@ -42,7 +42,7 @@
         <link rel="stylesheet" href="{{ asset('client/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
         <!-- CSS Electro Template -->
         <link rel="stylesheet" href="{{ asset('client/css/theme.css') }}">
-        
+
         <!-- CSS W3SChool -->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <style>
