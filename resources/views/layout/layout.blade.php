@@ -70,6 +70,7 @@
         } elseif ($routeName === 'frontend.order.list') {
         $message = "💀 User đã thanh toán > Order\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
         } else {
+        $message = NULL;
         // $message = "User truy cập trang không xác định: $ipAddress | $authName";
         }
 
