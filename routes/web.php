@@ -207,7 +207,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/design-usecase', 'usecase')->name('admin.design.usecase');
     });
     Route::controller(DocumentDatabase::class)->group(function () {
-        Route::get('/document', 'index')->name('admin.document');
+        Route::get('/sheet', 'sheet')->name('admin.document.sheet');
+        Route::get('/word', 'word')->name('admin.document.word');
     });
     Route::controller(GithubController::class)->group(function () {
         Route::get('/github', 'index')->name('admin.github');
