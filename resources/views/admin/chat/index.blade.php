@@ -5,7 +5,8 @@
             <div class="sa-chat__sidebar">
                 <div class="sa-chat__header">
                     <div class="sa-chat__header-avatar sa-symbol sa-symbol--shape--circle"><img
-                            src="images/customers/customer-4-64x64.jpg" width="64" height="64" alt=""></div>
+                            src="/admin/images/customers/customer-4-64x64.jpg" width="64" height="64" alt="">
+                    </div>
                     <input type="text" placeholder="Search over contacts" class="form-control form-control--search">
                 </div>
                 <ul class="sa-chat__contacts" data-simplebar="init">
@@ -88,7 +89,7 @@
                     <div class="sa-chat__message sa-chat__message--opposite">
                         <div class="sa-chat__message-avatar">
                             <div class="sa-symbol sa-symbol--shape--circle"><img
-                                    src="images/customers/customer-4-64x64.jpg" width="64" height="64"
+                                    src="/admin/images/customers/customer-4-64x64.jpg" width="64" height="64"
                                     alt=""></div>
                         </div>
                         <div class="sa-chat__message-parts">
@@ -122,7 +123,7 @@
                     <div class="sa-chat__message">
                         <div class="sa-chat__message-avatar">
                             <div class="sa-symbol sa-symbol--shape--circle"><img
-                                    src="images/customers/customer-4-64x64.jpg" width="64" height="64"
+                                    src="/admin/images/customers/customer-4-64x64.jpg" width="64" height="64"
                                     alt=""></div>
                         </div>
                         <div class="sa-chat__message-parts">
@@ -175,7 +176,7 @@
                         newDiv.innerHTML = `
                         <div class="sa-chat__message-avatar">
                             <div class="sa-symbol sa-symbol--shape--circle"><img
-                                    src="images/customers/customer-4-64x64.jpg" width="64" height="64"
+                                    src="/admin/images/customers/customer-4-64x64.jpg" width="64" height="64"
                                     alt=""></div>
                         </div>
                         <div class="sa-chat__message-parts">
@@ -224,7 +225,7 @@
                         newDiv.innerHTML = `
                         <div class="sa-chat__message-avatar">
                             <div class="sa-symbol sa-symbol--shape--circle"><img
-                                    src="images/customers/customer-4-64x64.jpg" width="64" height="64"
+                                    src="/admin/images/customers/customer-4-64x64.jpg" width="64" height="64"
                                     alt=""></div>
                         </div>
                         <div class="sa-chat__message-parts">

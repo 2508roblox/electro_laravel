@@ -216,7 +216,9 @@ Route::group(['prefix' => 'admin'], function () {
     });
     Route::controller(InfomationController::class)->group(function () {
         Route::get('/infomation/soucer', 'index')->name('admin.infomation.soucer');
-        Route::get('/infomation/', 'index')->name('admin.github');
+        Route::get('/infomation/function', 'function')->name('admin.infomation.function');
+        Route::get('/infomation/technology', 'technology')->name('admin.infomation.technology');
+        Route::get('/infomation/assignment', 'assignment')->name('admin.infomation.assignment');
     });
 });
 
