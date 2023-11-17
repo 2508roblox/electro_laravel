@@ -22,9 +22,7 @@
         <link rel="shortcut icon" href="/cropped-electro-fav-icon-2-32x32.png">
 
         <!-- Google Fonts -->
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap"
-            rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
 
         <!-- CSS Implementing Plugins -->
         <link rel="stylesheet" href="{{ asset('client/vendor/font-awesome/css/fontawesome-all.min.css') }}">
@@ -32,8 +30,7 @@
 
         <link rel="stylesheet" href="{{ asset('client/vendor/animate.css/animate.min.css') }}">
         <link rel="stylesheet" href="{{ asset('client/vendor/hs-megamenu/src/hs.megamenu.css') }}">
-        <link rel="stylesheet"
-            href="{{ asset('client/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') }}">
+        <link rel="stylesheet" href="{{ asset('client/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') }}">
         <link rel="stylesheet" href="{{ asset('client/vendor/fancybox/jquery.fancybox.css') }}">
         <link rel="stylesheet" href="{{ asset('client/vendor/slick-carousel/slick/slick.css') }}">
         <link rel="stylesheet" href="{{ asset('client/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
@@ -45,9 +42,11 @@
 
         <!-- CSS W3SChool -->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <style>
             @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
             @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+
         </style>
         {{-- captcha --}}
         <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -85,6 +84,7 @@
         // }
 
         // connectToWs();
+
     </script>
 
 
@@ -93,9 +93,7 @@
     @include('inc._topbar')
     @yield('content')
 
-    <a class="js-go-to u-go-to " style="margin-right: 5rem; margin-bottom: .5rem;" href="#"
-        data-position='{"bottom": 15, "right": 15 }' data-type="fixed" data-offset-top="400" data-compensation="#header"
-        data-show-effect="slideInUp" data-hide-effect="slideOutDown">
+    <a class="js-go-to u-go-to " style="margin-right: 5rem; margin-bottom: .5rem;" href="#" data-position='{"bottom": 15, "right": 15 }' data-type="fixed" data-offset-top="400" data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown">
         <span class="fas fa-arrow-up u-go-to__inner"></span>
     </a>
     @include('inc._sidebarNavigation')
@@ -103,8 +101,7 @@
     @include('inc._footer')
     <!-- End Go to Top -->
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger intent="WELCOME" chat-title="Electro Assistant" agent-id="0953d30d-3636-4204-996e-37cad8d999e7"
-        language-code="en"></df-messenger>
+    <df-messenger intent="WELCOME" chat-title="Electro Assistant" agent-id="0953d30d-3636-4204-996e-37cad8d999e7" language-code="en"></df-messenger>
     <style>
         df-messenger {
 
@@ -119,6 +116,7 @@
         .title-wrapper {
             background: red !important;
         }
+
     </style>
     <!-- JS Global Compulsory -->
     <script src="{{ asset('client/vendor/jquery/dist/jquery.min.js') }}"></script>
@@ -208,11 +206,11 @@
         $(window).on('load', function() {
             // initialization of HSMegaMenu component
             $('.js-mega-menu').HSMegaMenu({
-                event: 'hover',
-                direction: 'horizontal',
-                pageContainer: $('.container'),
-                breakpoint: 767.98,
-                hideTimeOut: 0
+                event: 'hover'
+                , direction: 'horizontal'
+                , pageContainer: $('.container')
+                , breakpoint: 767.98
+                , hideTimeOut: 0
             });
         });
 
@@ -235,12 +233,12 @@
 
             // initialization of countdowns
             var countdowns = $.HSCore.components.HSCountdown.init('.js-countdown', {
-                yearsElSelector: '.js-cd-years',
-                monthsElSelector: '.js-cd-months',
-                daysElSelector: '.js-cd-days',
-                hoursElSelector: '.js-cd-hours',
-                minutesElSelector: '.js-cd-minutes',
-                secondsElSelector: '.js-cd-seconds'
+                yearsElSelector: '.js-cd-years'
+                , monthsElSelector: '.js-cd-months'
+                , daysElSelector: '.js-cd-days'
+                , hoursElSelector: '.js-cd-hours'
+                , minutesElSelector: '.js-cd-minutes'
+                , secondsElSelector: '.js-cd-seconds'
             });
 
             // initialization of malihu scrollbar
@@ -277,8 +275,8 @@
             $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
                 beforeClose: function() {
                     $('#hamburgerTrigger').removeClass('is-active');
-                },
-                afterClose: function() {
+                }
+                , afterClose: function() {
                     $('#headerSidebarList .collapse.show').collapse('hide');
                 }
             });
@@ -301,6 +299,7 @@
             // initialization of select picker
             $.HSCore.components.HSSelectPicker.init('.js-select');
         });
+
     </script>
 </body>
 

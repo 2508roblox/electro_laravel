@@ -79,6 +79,13 @@ class UserController extends Controller
         // return redirect()->route('admin.user.list')->with('message', 'User updated successfully!');
         
         $validatedData = $request->validate([
+            'firstname' => '',
+            'lastname' => '',
+            'phone' => '',
+            'companyname' => '',
+            'country' => '',
+            'address' => '',
+            'zipcode' => '',
             'name' => 'required',
             'email' => 'required|email',
             'role_as' => 'required|in:0,1',
@@ -95,6 +102,13 @@ class UserController extends Controller
     
         // Cập nhật thông tin cơ bản của User
         $user->update([
+            'firstname' => $validatedData['firstname'],
+            'lastname' => $validatedData['lastname'],
+            'phone' => $validatedData['phone'],
+            'companyname' => $validatedData['companyname'],
+            'country' => $validatedData['country'],
+            'address' => $validatedData['address'],
+            'zipcode' => $validatedData['zipcode'],
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'role_as' => $validatedData['role_as'],

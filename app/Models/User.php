@@ -25,6 +25,13 @@ class User extends Authenticatable
         'otp',
         'role_as',
         'email_verified_at',
+        'firstname',
+        'lastname',
+        'companyname',
+        'country',
+        'address',
+        'zipcode',
+        'phone',
     ];
 
     /**

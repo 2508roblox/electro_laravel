@@ -42,7 +42,19 @@
                                                {{$message}}
                                             @enderror
                                     </div>
-                                    <div class="mb-4"><label for="form-user/name" class="form-label">Name</label>
+                                    <div class="mb-4"><label for="form-user/firstname" class="form-label">First Name</label>
+                                        <input  name="firstname"  type="text" class="form-control" value="{{$user->firstname}}" id="form-user/firstname" />
+                                            @error('firstname')
+                                               {{$message}}
+                                            @enderror
+                                    </div>
+                                    <div class="mb-4"><label for="form-user/lastname" class="form-label">Last Name</label>
+                                        <input  name="lastname"  type="text" class="form-control" value="{{$user->lastname}}" id="form-user/lastname" />
+                                            @error('firstname')
+                                               {{$message}}
+                                            @enderror
+                                    </div>
+                                    <div class="mb-4"><label for="form-user/name" class="form-label">Display Name</label>
                                         <input  name="name"  type="text" class="form-control" value="{{$user->name}}" id="form-user/name" />
                                             @error('name')
                                                {{$message}}
@@ -53,6 +65,33 @@
                                         <div class="input-group input-group--sa-slug">
                                             <input name="email" value="{{$user->email}}" type="email" class="form-control" id="form-user/email" />
                                             @error('email')
+                                               {{$message}}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="form-user/phone" class="form-label">Phone</label>
+                                        <div class="input-group input-group--sa-slug">
+                                            <input name="phone" value="{{$user->phone}}" type="phone" class="form-control" id="form-user/phone" />
+                                            @error('phone')
+                                               {{$message}}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="form-user/companyname" class="form-label">Company Name</label>
+                                        <div class="input-group input-group--sa-slug">
+                                            <input name="companyname" value="{{$user->companyname}}" type="companyname" class="form-control" id="form-user/companyname" />
+                                            @error('companyname')
+                                               {{$message}}
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="form-user/address" class="form-label">Address</label>
+                                        <div class="input-group input-group--sa-slug">
+                                            <input name="address" value="{{$user->address}}" type="address" class="form-control" id="form-user/address" />
+                                            @error('address')
                                                {{$message}}
                                             @enderror
                                         </div>
@@ -76,6 +115,17 @@
                                         </div>
                                     </div>
                                     <div class="mb-4">
+                                        <label for="form-user/country" class="form-label">Country / Region</label>
+                                        <div class="input-group input-group--sa-slug">
+                                            <select name="country" class="sa-select2 form-select select2-hidden-accessible" data-select2-id="123" tabindex="-1" aria-hidden="true">
+                                                <option value="vietnam" data-select2-id="123" {{ $user->country == 'vietnam' ? 'selected' : '' }}>VietNam</option>
+                                                <option value="us" data-select2-id="1435" {{ $user->country == 'us' ? 'selected' : '' }}>US</option>
+                                                <option value="taiwan" data-select2-id="1455" {{ $user->country == 'taiwan' ? 'selected' : '' }}>Taiwan</option>
+                                                <option value="china" data-select2-id="1415" {{ $user->country == 'china' ? 'selected' : '' }}>Khựa</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
                                         <label for="form-user/status" class="form-label">Status</label>
                                         <div class="input-group input-group--sa-slug">
                                             <select name="status" class="sa-select2 form-select select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
@@ -84,7 +134,15 @@
                                             </select>
                                         </div>
                                     </div>
-
+                                    <div class="mb-4">
+                                        <label for="form-user/zipcode" class="form-label">Zip Code</label>
+                                        <div class="input-group input-group--sa-slug">
+                                            <input name="zipcode" value="{{$user->zipcode}}" type="zipcode" class="form-control" id="form-user/zipcode" />
+                                            @error('zipcode')
+                                               {{$message}}
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
