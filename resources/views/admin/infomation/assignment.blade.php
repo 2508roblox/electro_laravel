@@ -1,5 +1,4 @@
 @extends('layout.admin')
-
 @section('content')
     <div class="sa-app__content">
         <!-- sa-app__toolbar -->
@@ -155,7 +154,7 @@
                                                 Product added to cart</div>
                                             <div
                                                 class="sa-notifications__item-subtitle sa-notifications__item-subtitle--nowrap">
-                                                Drill Screwdriver couponix ALX7054 200 Watts</div>
+                                                Drill Screwdriver Brandix ALX7054 200 Watts</div>
                                         </div>
                                     </a>
                                 </li>
@@ -177,7 +176,7 @@
                                                 Customer Ryan Ford says</div>
                                             <div
                                                 class="sa-notifications__item-subtitle sa-notifications__item-subtitle--nowrap">
-                                                What is a screen dimension of couponix Series B monitor?</div>
+                                                What is a screen dimension of Brandix Series B monitor?</div>
                                         </div>
                                     </a>
                                 </li>
@@ -219,17 +218,17 @@
                                 <nav class="mb-2" aria-label="breadcrumb">
                                     <ol class="breadcrumb breadcrumb-sa-simple">
                                         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">coupon</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Brand</li>
                                     </ol>
                                 </nav>
-                                <h1 class="h3 m-0">coupon</h1>
+                                <h1 class="h3 m-0">Brand</h1>
                             </div>
-                            <div class="col-auto d-flex"><a href="{{ route('admin.coupon.create') }}"
-                                    class="btn btn-primary">New coupon</a></div>
+                            <div class="col-auto d-flex"><a href="{{ route('admin.brand.create') }}"
+                                    class="btn btn-primary">New brand</a></div>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="p-4"><input type="text" placeholder="Start typing to search for coupon"
+                        <div class="p-4"><input type="text" placeholder="Start typing to search for Brand"
                                 class="form-control form-control--search mx-auto" id="table-search" /></div>
                         <div class="sa-divider"></div>
                         <table class="sa-datatables-init" data-order="[[ 1, &quot;asc&quot; ]]"
@@ -238,59 +237,29 @@
                                 <tr>
                                     <th class="w-min" data-orderable="false"><input type="checkbox"
                                             class="form-check-input m-0 fs-exact-16 d-block" aria-label="..." /></th>
-                                    <th class="min-w-15x">Code</th>
-                                    <th class="min-w-15x">discount</th>
-                                    <th>Status</th>
-                                    <th>Expires date</th>
-                                    <th class="w-min" data-orderable="false"></th>
+                                    <th class="min-w-15x">Name</th>
+                                    <th class="min-w-15x">Parent Category</th>
+                                    <th>Items</th>
+                                    <th>Visibility</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($coupons as $coupon)
-                                    <tr>
-                                        <td><input type="checkbox" class="form-check-input m-0 fs-exact-16 d-block"
-                                                aria-label="..." /></td>
-                                        <td>{{ $coupon->code }}</td>
-                                        <td>{{ $coupon->discount }}</td>
-                                        <td>{{ $coupon->is_active ? 'Active' : 'Inactive' }}</td>
-                                        <td>{{ $coupon->expires_at }}</td>
-                                        <td>
-                                            <div class="dropdown"><button class="btn btn-sa-muted btn-sm" type="button"
-                                                    id="coupon-context-menu-0" data-bs-toggle="dropdown"
-                                                    aria-expanded="false" aria-label="More"><svg
-                                                        xmlns="http://www.w3.org/2000/svg" width="3" height="13"
-                                                        fill="currentColor">
-                                                        <path
-                                                            d="M1.5,8C0.7,8,0,7.3,0,6.5S0.7,5,1.5,5S3,5.7,3,6.5S2.3,8,1.5,8z M1.5,3C0.7,3,0,2.3,0,1.5S0.7,0,1.5,0 S3,0.7,3,1.5S2.3,3,1.5,3z M1.5,10C2.3,10,3,10.7,3,11.5S2.3,13,1.5,13S0,12.3,0,11.5S0.7,10,1.5,10z">
-                                                        </path>
-                                                    </svg></button>
-                                                <ul class="dropdown-menu dropdown-menu-end"
-                                                    aria-labelledby="coupon-context-menu-0">
-                                                    <li><a class="dropdown-item"
-                                                            href="{{ route('admin.coupon.edit', ['id' => $coupon->id]) }}">Edit</a>
-                                                    </li>
-                                                    <li>
-                                                        <hr class="dropdown-divider" />
-                                                    </li>
-                                                    <li>
-                                                        <form
-                                                            action="{{ route('admin.coupon.delete', ['id' => $coupon->id]) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="dropdown-item text-danger"
-                                                                href="#">Delete</button>
-                                                        </form>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="6">No coupons found.</td>
-                                    </tr>
-                                @endforelse
+
+                                <tr>
+                                    <td><input type="checkbox" class="form-check-input m-0 fs-exact-16 d-block"
+                                            aria-label="..." /></td>
+                                    <td><a href="app-brand.html" class="text-reset">$brand->nam</a></td>
+                                    <td><a href="app-brand.html" class="text-reset">$brand->category_i</a></td>
+                                    <td>3</td>
+                                    <td>
+                                        <div class="badge badge-sa-success">$brand->status == '1' ? 'Publish' : 'Hidden
+                                        </div>
+                                    </td>
+
+                                </tr>
+
+
+
                             </tbody>
                         </table>
                     </div>
