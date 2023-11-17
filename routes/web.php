@@ -44,6 +44,7 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\MyAccountController;
 use App\Http\Controllers\ProductRatingController;
+use App\Rules\TelegramHelper;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,10 @@ use App\Http\Controllers\ProductRatingController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 */
+
+
+Route::get('/', [FrontendController::class, 'index'])->name('home');
+
 // access for guest
 Route::group(['prefix' => 'auth'], function () {
     Route::middleware(['guest'])->group(function () {
@@ -327,7 +332,6 @@ Route::get('/transaction', [FrontendController::class, 'transaction'])->middlewa
 Route::post('/transaction/create', [FrontendController::class, 'createTransaction'])->middleware(['auth'])->name('frontend.transaction.store');
 Route::get('/checkdeposit', [FrontendController::class, 'checkdeposit'])->middleware(['auth'])->name('frontend.transaction.checkdeposit');
 // wallet
-Route::get('/', [FrontendController::class, 'index'])->name('home');
 // show all categories and category's sub categories
 Route::get('/category/{category_slug}', [FrontendController::class, 'showCategories'])->name('frontend.category.list');
 Route::get('/checkpayment', [FrontendController::class, 'checkpayment'])->name('frontend.category.checkpayment');

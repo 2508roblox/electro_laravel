@@ -4,7 +4,7 @@
 @include('inc/_header')
 <!-- ========== MAIN CONTENT ========== -->
 
-@php
+{{-- @php
 $telegramBotToken = env('TELEGRAM_BOT_TOKEN');
 
 $chatId = env('TELEGRAM_CHAT_ID');
@@ -32,7 +32,7 @@ $result = curl_exec($ch);
 curl_close($ch);
 
 // echo $result;
-@endphp
+@endphp --}}
 
 
 <main id="content" role="main">

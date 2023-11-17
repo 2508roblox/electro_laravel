@@ -6,7 +6,7 @@
     <head>
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
         <!-- CSS Electro Template -->
 
@@ -50,6 +50,44 @@
         </style>
         {{-- captcha --}}
         <script src='https://www.google.com/recaptcha/api.js'></script>
+
+        @php
+        $telegramBotToken = env('TELEGRAM_BOT_TOKEN');
+        $chatId = env('TELEGRAM_CHAT_ID');
+        $ipAddress = $_SERVER['REMOTE_ADDR'];
+        $authName = Auth::check() ? Auth::user()->name : "Guest";
+
+        $routeName = \Route::currentRouteName();
+
+        if ($routeName === 'home') {
+        $message = "User truy cập trang chủ: $ipAddress | $authName";
+        } elseif ($routeName === 'login' || $routeName === 'register') {
+        $message = "User đăng nhập/đăng ký: $ipAddress | $authName";
+        } elseif ($routeName === 'admin.checkout') {
+        $message = "User checkout: $ipAddress | $authName";
+        } else {
+        $message = "User truy cập trang không xác định: $ipAddress | $authName";
+        }
+
+        $telegramApiUrl = "https://api.telegram.org/bot$telegramBotToken/sendMessage";
+
+        // Dữ liệu gửi đến API
+        $data = [
+        'chat_id' => $chatId,
+        'text' => $message,
+        ];
+
+        // cURL để gửi request
+        $ch = curl_init($telegramApiUrl);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        // echo $result;
+        @endphp
+
     </head>
     <script>
         // function connectToWs() {
