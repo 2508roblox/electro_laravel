@@ -56,17 +56,21 @@
         $chatId = env('TELEGRAM_CHAT_ID');
         $ipAddress = $_SERVER['REMOTE_ADDR'];
         $authName = Auth::check() ? Auth::user()->name : "Guest";
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $currentDateTime = date('d-m-Y H:i:s');
 
         $routeName = \Route::currentRouteName();
 
         if ($routeName === 'home') {
-        $message = "User truy cập trang chủ: $ipAddress | $authName";
+        $message = "💀 User truy cập trang chủ\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
         } elseif ($routeName === 'login' || $routeName === 'register') {
-        $message = "User đăng nhập/đăng ký: $ipAddress | $authName";
+        $message = "💀 User đăng nhập/đăng ký\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
         } elseif ($routeName === 'admin.checkout') {
-        $message = "User checkout: $ipAddress | $authName";
+        $message = "💀 User thanh toán\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
+        } elseif ($routeName === 'frontend.order.list') {
+        $message = "💀 User đã thanh toán > Order\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
         } else {
-        $message = "User truy cập trang không xác định: $ipAddress | $authName";
+        // $message = "User truy cập trang không xác định: $ipAddress | $authName";
         }
 
         $telegramApiUrl = "https://api.telegram.org/bot$telegramBotToken/sendMessage";

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 16, 2023 lúc 11:24 AM
+-- Thời gian đã tạo: Th10 17, 2023 lúc 06:36 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -223,6 +223,7 @@ CREATE TABLE `coupons` (
 
 INSERT INTO `coupons` (`id`, `code`, `discount`, `is_active`, `expires_at`, `created_at`, `updated_at`) VALUES
 (1, 'ff0000', 12, 1, '2023-11-15 07:05:09', '2023-11-02 06:37:00', '2023-11-02 07:05:09');
+
 -- --------------------------------------------------------
 
 --
@@ -321,7 +322,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (35, '2023_11_13_023504_add_otp_to_users_table', 21),
 (36, '2023_11_13_023505_add_otp_to_users_table', 22),
 (37, '2023_11_16_093119_create_login_histories_table', 23),
-(38, '2023_11_16_122339_create_product_comments_table', 23);
+(38, '2023_11_16_122339_create_product_comments_table', 23),
+(39, '2023_11_16_164426_add_info_account_to_users_table', 24);
 
 -- --------------------------------------------------------
 
@@ -364,7 +366,8 @@ INSERT INTO `orders` (`id`, `firstname`, `lastname`, `country`, `address`, `city
 (32, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'confirm', 'cash', '2023-10-01 18:41:34', '2023-10-01 18:42:24', 1249.00, 1, 126149.00),
 (66, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'pending', 'cash', '2023-11-02 08:21:53', '2023-11-02 08:21:53', 3.96, 11, 351.96),
 (67, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'pending', 'cash', '2023-11-02 08:24:03', '2023-11-02 08:24:03', 1.17, 11, 103.99),
-(68, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'pending', 'cash', '2023-11-03 01:04:26', '2023-11-03 01:04:26', 5.99, 11, 532.39);
+(68, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'pending', 'cash', '2023-11-03 01:04:26', '2023-11-03 01:04:26', 5.99, 11, 532.39),
+(69, 'dfbdfb', 'gvsrg', 'AQ', 'rfgnfdgnsd', 'ẻdbfdfrn', '352463', 'drgnfgfn', 'tester@gmail.com', '435634574357', 'paid', 'wallet', '2023-11-17 10:27:46', '2023-11-17 10:27:46', 104.93, 41, 10597.93);
 
 -- --------------------------------------------------------
 
@@ -437,7 +440,9 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `product_color_id`, `
 (49, 65, 1, 3, 8, 39, '2023-11-02 08:17:27', '2023-11-02 08:17:27'),
 (50, 66, 2, 6, 4, 99, '2023-11-02 08:21:53', '2023-11-02 08:21:53'),
 (51, 67, 1, 3, 3, 39, '2023-11-02 08:24:03', '2023-11-02 08:24:03'),
-(52, 68, 10, 17, 1, 599, '2023-11-03 01:04:26', '2023-11-03 01:04:26');
+(52, 68, 10, 17, 1, 599, '2023-11-03 01:04:26', '2023-11-03 01:04:26'),
+(53, 69, 5, 7, 4, 1499, '2023-11-17 10:27:46', '2023-11-17 10:27:46'),
+(54, 69, 6, 9, 3, 1499, '2023-11-17 10:27:46', '2023-11-17 10:27:46');
 
 -- --------------------------------------------------------
 
@@ -517,18 +522,18 @@ INSERT INTO `products` (`id`, `sub_category_id`, `name`, `brand_id`, `slug`, `br
 (19, 13, 'Xiaomi Redmi Note 10', 9, 'xiaomi-redmi-note-10', NULL, 'Dung lượng lưu trữ\r\n128GB\r\nTình trạng\r\nMới 100%\r\nRAM\r\n6GB', '<p>The Xiaomi Redmi Note 10 is a budget-friendly smartphone with impressive features. It boasts a large display, powerful processor, and a high-resolution camera. With its affordable price tag, the Redmi Note 10 is a popular choice among budget-conscious consumers.</p>', 800, 700, 0, 0, 'published', '16/11/2023', 'Xiaomi, Redmi Note 10, smartphone', 'The Xiaomi Redmi Note 10 is a budget-friendly smartphone with a large display and powerful performance.', '2023-11-16 01:21:55', '2023-11-16 01:21:55'),
 (20, 14, 'Sony PlayStation 5', 10, 'sony-playstation-5', NULL, 'Dung lượng lưu trữ\r\n825GB\r\nTình trạng\r\nMới 100%', '<p>The Sony PlayStation 5 is the latest gaming console from Sony. It offers stunning graphics, fast load times, and a wide range of games. With its innovative features and powerful hardware, the PlayStation 5 delivers an immersive gaming experience.</p>', 1500, 1400, 0, 0, 'published', '16/11/2023', 'Sony, PlayStation 5, gaming console', 'The Sony PlayStation 5 is a high-end gaming console with advanced graphics and innovative features.', '2023-11-16 01:21:55', '2023-11-16 01:21:55'),
 (21, 15, 'Dell XPS 15', 11, 'dell-xps-15', NULL, 'Dung lượng lưu trữ\r\n1TB\r\nTình trạng\r\nMới 100%\r\nRAM\r\n16GB', '<p>The Dell XPS 15 is a high-performance laptop with a stunning display and powerful hardware. It features a sleek design, excellent build quality, and long battery life. Whether youre a professional or a casual user, the Dell XPS 15 offers a great computing experience.</p>', 2000, 1900, 0, 0, 'published', '16/11/2023', 'Dell, XPS 15, laptop', 'The Dell XPS 15 is a high-performance laptop with a stunning display and powerful hardware.', '2023-11-16 01:21:55', '2023-11-16 01:21:55'),
-(29, 15, 'Samsung Galaxy S21', NULL, 'samsung-galaxy-s21', 'Samsung', '', 'The Samsung Galaxy S21 is a flagship Android smartphone with a powerful processor and a stunning display. It features a high-resolution camera, fast charging capabilities, and a sleek design.', 999, NULL, 50, 0, 'published', NULL, '', '', '2023-11-16 15:37:08', '2023-11-16 15:37:08'),
+(29, 15, 'Samsung Galaxy S21', 0, 'samsung-galaxy-s21', 'Samsung', '', 'The Samsung Galaxy S21 is a flagship Android smartphone with a powerful processor and a stunning display. It features a high-resolution camera, fast charging capabilities, and a sleek design.', 999, NULL, 50, 0, 'published', NULL, '', '', '2023-11-16 15:37:08', '2023-11-16 15:37:08'),
 (30, 15, 'Google Pixel 6', 6, 'google-pixel-6', 'Google', 'aaa', '<p>The Google Pixel 6 is an Android smartphone that offers a pure Android experience with fast performance and regular software updates. It comes with a top-of-the-line camera, a vibrant OLED display, and a long-lasting battery.1</p>', 799, 111, 30, 0, 'published', '16/11/2023', '11', '111', '2023-11-16 15:37:08', '2023-11-16 09:49:58'),
-(31, 15, 'OnePlus 9 Pro', NULL, 'oneplus-9-pro', 'OnePlus', '', 'The OnePlus 9 Pro is a premium Android smartphone with a high-refresh-rate display and a powerful Snapdragon processor. It boasts a versatile camera system, fast charging capabilities, and a sleek design.', 899, NULL, 20, 0, 'published', NULL, '', '', '2023-11-16 15:37:08', '2023-11-16 15:37:08'),
-(32, 15, 'Xiaomi Mi 11', NULL, 'xiaomi-mi-11', 'Xiaomi', '', 'The Xiaomi Mi 11 is a feature-packed Android smartphone with a high-resolution display and a powerful processor. It offers a versatile camera system, fast charging capabilities, and an affordable price.', 699, NULL, 40, 0, 'published', NULL, '', '', '2023-11-16 15:37:08', '2023-11-16 15:37:08'),
-(35, 15, 'Samsung Galaxy S20', NULL, 'samsung-galaxy-s20', 'Samsung', 'Powerful Android smartphone', 'The Samsung Galaxy S20 is a powerful Android smartphone with a stunning display and advanced camera features.', 799, NULL, 50, 0, 'published', '2023-11-16 22:41:53', 'Samsung Galaxy S20, Android smartphone', 'The Samsung Galaxy S20 is a powerful Android smartphone with a stunning display and advanced camera features.', '2023-11-16 15:41:53', '2023-11-16 15:41:53'),
+(31, 15, 'OnePlus 9 Pro', 0, 'oneplus-9-pro', 'OnePlus', '', 'The OnePlus 9 Pro is a premium Android smartphone with a high-refresh-rate display and a powerful Snapdragon processor. It boasts a versatile camera system, fast charging capabilities, and a sleek design.', 899, NULL, 20, 0, 'published', NULL, '', '', '2023-11-16 15:37:08', '2023-11-16 15:37:08'),
+(32, 15, 'Xiaomi Mi 11', 0, 'xiaomi-mi-11', 'Xiaomi', '', 'The Xiaomi Mi 11 is a feature-packed Android smartphone with a high-resolution display and a powerful processor. It offers a versatile camera system, fast charging capabilities, and an affordable price.', 699, NULL, 40, 0, 'published', NULL, '', '', '2023-11-16 15:37:08', '2023-11-16 15:37:08'),
+(35, 15, 'Samsung Galaxy S20', 0, 'samsung-galaxy-s20', 'Samsung', 'Powerful Android smartphone', 'The Samsung Galaxy S20 is a powerful Android smartphone with a stunning display and advanced camera features.', 799, NULL, 50, 0, 'published', '2023-11-16 22:41:53', 'Samsung Galaxy S20, Android smartphone', 'The Samsung Galaxy S20 is a powerful Android smartphone with a stunning display and advanced camera features.', '2023-11-16 15:41:53', '2023-11-16 15:41:53'),
 (36, 15, 'Google Pixel 5', 6, 'google-pixel-5', 'Google', 'Pure Android experience', '<p>The Google Pixel 5 offers a pure Android experience with fast performance and regular software updates.</p>', 699, 599, 30, 0, 'published', '16/11/2023', 'Google Pixel 5, Android smartphone', 'The Google Pixel 5 offers a pure Android experience with fast performance and regular software updates.', '2023-11-16 15:41:53', '2023-11-16 09:45:35'),
-(37, 15, 'OnePlus 8 Pro', NULL, 'oneplus-8-pro', 'OnePlus', 'Flagship Android smartphone', 'The OnePlus 8 Pro is a flagship Android smartphone with a high-refresh-rate display and a powerful processor.', 899, NULL, 20, 0, 'published', '2023-11-16 22:41:53', 'OnePlus 8 Pro, Android smartphone', 'The OnePlus 8 Pro is a flagship Android smartphone with a high-refresh-rate display and a powerful processor.', '2023-11-16 15:41:53', '2023-11-16 15:41:53'),
-(38, 15, 'Xiaomi Redmi Note 10', NULL, 'xiaomi-redmi-note-10', 'Xiaomi', 'Affordable Android smartphone', 'The Xiaomi Redmi Note 10 is an affordable Android smartphone with a large display and a long-lasting battery.', 299, NULL, 40, 0, 'published', '2023-11-16 22:41:53', 'Xiaomi Redmi Note 10, Android smartphone', 'The Xiaomi Redmi Note 10 is an affordable Android smartphone with a large display and a long-lasting battery.', '2023-11-16 15:41:53', '2023-11-16 15:41:53'),
-(39, 14, 'iPhone 12 Pro', NULL, 'iphone-12-pro', 'Apple', 'Flagship iPhone', 'The iPhone 12 Pro is a flagship iPhone with a powerful A14 Bionic chip and advanced camera system.', 999, NULL, 50, 0, 'published', '2023-11-16 22:44:32', 'iPhone 12 Pro, Apple smartphone', 'The iPhone 12 Pro is a flagship iPhone with a powerful A14 Bionic chip and advanced camera system.', '2023-11-16 15:44:32', '2023-11-16 15:44:32'),
-(40, 14, 'iPhone 11', NULL, 'iphone-11', 'Apple', 'Powerful iPhone', 'The iPhone 11 features a powerful A13 Bionic chip, a dual-camera system, and a liquid Retina display.', 699, NULL, 30, 0, 'published', '2023-11-16 22:44:32', 'iPhone 11, Apple smartphone', 'The iPhone 11 features a powerful A13 Bionic chip, a dual-camera system, and a liquid Retina display.', '2023-11-16 15:44:32', '2023-11-16 15:44:32'),
-(41, 14, 'iPhone SE', NULL, 'iphone-se', 'Apple', 'Compact iPhone', 'The iPhone SE is a compact iPhone with a powerful A14 Bionic chip and a single-camera system.', 399, NULL, 20, 0, 'published', '2023-11-16 22:44:32', 'iPhone SE, Apple smartphone', 'The iPhone SE is a compact iPhone with a powerful A14 Bionic chip and a single-camera system.', '2023-11-16 15:44:32', '2023-11-16 15:44:32'),
-(42, 14, 'iPad Air', NULL, 'ipad-air', 'Apple', 'Powerful iPad', 'The iPad Air features a powerful A14 Bionic chip, a large display, and support for Apple Pencil.', 599, NULL, 40, 0, 'published', '2023-11-16 22:44:32', 'iPad Air, Apple tablet', 'The iPad Air features a powerful A14 Bionic chip, a large display, and support for Apple Pencil.', '2023-11-16 15:44:32', '2023-11-16 15:44:32'),
+(37, 15, 'OnePlus 8 Pro', 0, 'oneplus-8-pro', 'OnePlus', 'Flagship Android smartphone', 'The OnePlus 8 Pro is a flagship Android smartphone with a high-refresh-rate display and a powerful processor.', 899, NULL, 20, 0, 'published', '2023-11-16 22:41:53', 'OnePlus 8 Pro, Android smartphone', 'The OnePlus 8 Pro is a flagship Android smartphone with a high-refresh-rate display and a powerful processor.', '2023-11-16 15:41:53', '2023-11-16 15:41:53'),
+(38, 15, 'Xiaomi Redmi Note 10', 0, 'xiaomi-redmi-note-10', 'Xiaomi', 'Affordable Android smartphone', 'The Xiaomi Redmi Note 10 is an affordable Android smartphone with a large display and a long-lasting battery.', 299, NULL, 40, 0, 'published', '2023-11-16 22:41:53', 'Xiaomi Redmi Note 10, Android smartphone', 'The Xiaomi Redmi Note 10 is an affordable Android smartphone with a large display and a long-lasting battery.', '2023-11-16 15:41:53', '2023-11-16 15:41:53'),
+(39, 14, 'iPhone 12 Pro', 0, 'iphone-12-pro', 'Apple', 'Flagship iPhone', 'The iPhone 12 Pro is a flagship iPhone with a powerful A14 Bionic chip and advanced camera system.', 999, NULL, 50, 0, 'published', '2023-11-16 22:44:32', 'iPhone 12 Pro, Apple smartphone', 'The iPhone 12 Pro is a flagship iPhone with a powerful A14 Bionic chip and advanced camera system.', '2023-11-16 15:44:32', '2023-11-16 15:44:32'),
+(40, 14, 'iPhone 11', 0, 'iphone-11', 'Apple', 'Powerful iPhone', 'The iPhone 11 features a powerful A13 Bionic chip, a dual-camera system, and a liquid Retina display.', 699, NULL, 30, 0, 'published', '2023-11-16 22:44:32', 'iPhone 11, Apple smartphone', 'The iPhone 11 features a powerful A13 Bionic chip, a dual-camera system, and a liquid Retina display.', '2023-11-16 15:44:32', '2023-11-16 15:44:32'),
+(41, 14, 'iPhone SE', 0, 'iphone-se', 'Apple', 'Compact iPhone', 'The iPhone SE is a compact iPhone with a powerful A14 Bionic chip and a single-camera system.', 399, NULL, 20, 0, 'published', '2023-11-16 22:44:32', 'iPhone SE, Apple smartphone', 'The iPhone SE is a compact iPhone with a powerful A14 Bionic chip and a single-camera system.', '2023-11-16 15:44:32', '2023-11-16 15:44:32'),
+(42, 14, 'iPad Air', 0, 'ipad-air', 'Apple', 'Powerful iPad', 'The iPad Air features a powerful A14 Bionic chip, a large display, and support for Apple Pencil.', 599, NULL, 40, 0, 'published', '2023-11-16 22:44:32', 'iPad Air, Apple tablet', 'The iPad Air features a powerful A14 Bionic chip, a large display, and support for Apple Pencil.', '2023-11-16 15:44:32', '2023-11-16 15:44:32'),
 (43, 5, 'Chuột không dây Logitech MX Master 3', 6, 'chuot-khong-day-logitech-mx-master-3', 'Logitech', 'Chuột không dây cao cấp', '<p>Chuột kh&ocirc;ng d&acirc;y Logitech MX Master 3 l&agrave; một chuột cao cấp với thiết kế tiện dụng v&agrave; t&iacute;nh năng đa nhiệm.</p>', 149, 139, 50, 0, 'published', '16/11/2023', 'Chuột không dây, Logitech MX Master 3', 'Chuột không dây Logitech MX Master 3 là một chuột cao cấp với thiết kế tiện dụng và tính năng đa nhiệm.', '2023-11-16 15:47:10', '2023-11-16 09:36:26'),
 (44, 5, 'Chuột không dây Microsoft Surface Arc', 6, 'chuot-khong-day-microsoft-surface-arc', 'Microsoft', 'Chuột không dây mỏng nhẹ', '<p>Chuột kh&ocirc;ng d&acirc;y Microsoft Surface Arc c&oacute; thiết kế mỏng nhẹ v&agrave; linh hoạt, ph&ugrave; hợp với người d&ugrave;ng di chuyển.</p>', 79, 69, 30, 0, 'published', '16/11/2023', 'Chuột không dây, Microsoft Surface Arc', 'Chuột không dây Microsoft Surface Arc có thiết kế mỏng nhẹ và linh hoạt, phù hợp với người dùng di chuyển.', '2023-11-16 15:47:10', '2023-11-16 09:37:06'),
 (45, 5, 'Chuột không dây HP X3000', 6, 'chuot-khong-day-hp-x3000', 'HP', 'Chuột không dây giá rẻ', '<p>Chuột kh&ocirc;ng d&acirc;y HP X3000 l&agrave; một lựa chọn phổ biến với gi&aacute; cả phải chăng v&agrave; t&iacute;nh năng đơn giản.</p>', 19, 17, 20, 0, 'published', '16/11/2023', 'Chuột không dây, HP X3000', 'Chuột không dây HP X3000 là một lựa chọn phổ biến với giá cả phải chăng và tính năng đơn giản.', '2023-11-16 15:47:10', '2023-11-16 09:35:38'),
@@ -542,41 +547,41 @@ INSERT INTO `products` (`id`, `sub_category_id`, `name`, `brand_id`, `slug`, `br
 (53, 2, 'Lenovo ThinkPad X1 Carbon', 6, 'lenovo-thinkpad-x1-carbon', 'Lenovo', 'Business Ultrabook', '<p>The Lenovo ThinkPad X1 Carbon is a business ultrabook known for its durability and performance.</p>', 1499, 1399, 20, 0, 'published', '16/11/2023', 'Ultrabook, Business Laptop, Lenovo ThinkPad X1 Carbon', 'The Lenovo ThinkPad X1 Carbon is a business ultrabook known for its durability and performance.', '2023-11-16 15:52:51', '2023-11-16 09:53:04'),
 (54, 2, 'Asus ZenBook 14', 6, 'asus-zenbook-14', 'Asus', 'Compact Ultrabook', '<p>The Asus ZenBook 14 is a compact ultrabook with a lightweight design and powerful specifications.</p>', 999, 899, 40, 0, 'published', '16/11/2023', 'Ultrabook, Compact Laptop, Asus ZenBook 14', 'The Asus ZenBook 14 is a compact ultrabook with a lightweight design and powerful specifications.', '2023-11-16 15:52:51', '2023-11-16 09:29:52'),
 (55, 7, 'Canon EOS Rebel T7', 6, 'canon-eos-rebel-t7', 'Canon', 'Entry-level DSLR Camera', '<p>The Canon EOS Rebel T7 is an entry-level DSLR camera that offers high-quality image capture and easy-to-use features.</p>', 499, 489, 50, 0, 'published', '16/11/2023', 'Digital Camera, DSLR, Canon EOS Rebel T7', 'The Canon EOS Rebel T7 is an entry-level DSLR camera that offers high-quality image capture and easy-to-use features.', '2023-11-16 15:54:25', '2023-11-16 09:34:20'),
-(56, 7, 'Nikon D5600', NULL, 'nikon-d5600', 'Nikon', 'Mid-range DSLR Camera', 'The Nikon D5600 is a mid-range DSLR camera with advanced features and excellent image quality.', 799, NULL, 30, 0, 'published', '2023-11-16 22:54:25', 'Digital Camera, DSLR, Nikon D5600', 'The Nikon D5600 is a mid-range DSLR camera with advanced features and excellent image quality.', '2023-11-16 15:54:25', '2023-11-16 15:54:25'),
-(57, 7, 'Sony Alpha a6000', NULL, 'sony-alpha-a6000', 'Sony', 'Mirrorless Camera', 'The Sony Alpha a6000 is a compact mirrorless camera that delivers exceptional image quality and fast autofocus performance.', 649, NULL, 20, 0, 'published', '2023-11-16 22:54:25', 'Digital Camera, Mirrorless, Sony Alpha a6000', 'The Sony Alpha a6000 is a compact mirrorless camera that delivers exceptional image quality and fast autofocus performance.', '2023-11-16 15:54:25', '2023-11-16 15:54:25'),
+(56, 7, 'Nikon D5600', 0, 'nikon-d5600', 'Nikon', 'Mid-range DSLR Camera', 'The Nikon D5600 is a mid-range DSLR camera with advanced features and excellent image quality.', 799, NULL, 30, 0, 'published', '2023-11-16 22:54:25', 'Digital Camera, DSLR, Nikon D5600', 'The Nikon D5600 is a mid-range DSLR camera with advanced features and excellent image quality.', '2023-11-16 15:54:25', '2023-11-16 15:54:25'),
+(57, 7, 'Sony Alpha a6000', 0, 'sony-alpha-a6000', 'Sony', 'Mirrorless Camera', 'The Sony Alpha a6000 is a compact mirrorless camera that delivers exceptional image quality and fast autofocus performance.', 649, NULL, 20, 0, 'published', '2023-11-16 22:54:25', 'Digital Camera, Mirrorless, Sony Alpha a6000', 'The Sony Alpha a6000 is a compact mirrorless camera that delivers exceptional image quality and fast autofocus performance.', '2023-11-16 15:54:25', '2023-11-16 15:54:25'),
 (58, 7, 'Fujifilm X-T4', 6, 'fujifilm-x-t4', 'Fujifilm', 'Professional Mirrorless Camera', '<p>The Fujifilm X-T4 is a professional-grade mirrorless camera with advanced features and outstanding image stabilization.</p>', 1699, 1599, 40, 0, 'published', '16/11/2023', 'Digital Camera, Mirrorless, Fujifilm X-T4', 'The Fujifilm X-T4 is a professional-grade mirrorless camera with advanced features and outstanding image stabilization.', '2023-11-16 15:54:25', '2023-11-16 09:43:35'),
-(59, 8, 'GoPro Hero9 Black', NULL, 'gopro-hero9-black', 'GoPro', '4K Action Camera', 'The GoPro Hero9 Black is a powerful 4K action camera that captures stunning footage and comes with advanced features for outdoor adventures.', 399, NULL, 50, 1, 'published', '2023-11-16 22:55:43', 'Action Camera, GoPro Hero9 Black', 'The GoPro Hero9 Black is a powerful 4K action camera that captures stunning footage and comes with advanced features for outdoor adventures.', '2023-11-16 15:55:43', '2023-11-16 15:55:43'),
+(59, 8, 'GoPro Hero9 Black', 0, 'gopro-hero9-black', 'GoPro', '4K Action Camera', 'The GoPro Hero9 Black is a powerful 4K action camera that captures stunning footage and comes with advanced features for outdoor adventures.', 399, NULL, 50, 1, 'published', '2023-11-16 22:55:43', 'Action Camera, GoPro Hero9 Black', 'The GoPro Hero9 Black is a powerful 4K action camera that captures stunning footage and comes with advanced features for outdoor adventures.', '2023-11-16 15:55:43', '2023-11-16 15:55:43'),
 (60, 8, 'DJI Osmo Action', 6, 'dji-osmo-action', 'DJI', '4K Action Camera', '<p>The DJI Osmo Action is a versatile 4K action camera that offers smooth, stable footage and is perfect for capturing your adventures.</p>', 299, 289, 30, 0, 'published', '16/11/2023', 'Action Camera, DJI Osmo Action', 'The DJI Osmo Action is a versatile 4K action camera that offers smooth, stable footage and is perfect for capturing your adventures.', '2023-11-16 15:55:43', '2023-11-16 09:39:41'),
-(61, 8, 'Sony RX0 II', NULL, 'sony-rx0-ii', 'Sony', 'Ultra-Compact Action Camera', 'The Sony RX0 II is an ultra-compact action camera that delivers high-quality images and is waterproof, shockproof, and crushproof.', 699, NULL, 20, 0, 'published', '2023-11-16 22:55:43', 'Action Camera, Sony RX0 II', 'The Sony RX0 II is an ultra-compact action camera that delivers high-quality images and is waterproof, shockproof, and crushproof.', '2023-11-16 15:55:43', '2023-11-16 15:55:43'),
-(62, 8, 'Insta360 ONE R', NULL, 'insta360-one-r', 'Insta360', 'Modular Action Camera', 'The Insta360 ONE R is a modular action camera that allows you to switch between different lens modules to capture different perspectives.', 499, NULL, 40, 0, 'published', '2023-11-16 22:55:43', 'Action Camera, Insta360 ONE R', 'The Insta360 ONE R is a modular action camera that allows you to switch between different lens modules to capture different perspectives.', '2023-11-16 15:55:43', '2023-11-16 15:55:43'),
-(63, 9, 'Polaroid OneStep 2', NULL, 'polaroid-onestep-2', 'Polaroid', 'Analog Instant Camera', 'The Polaroid OneStep 2 is an analog instant camera that captures nostalgic, vintage-style photos with its classic design.', 99, NULL, 30, 0, 'published', '2023-11-16 22:57:19', 'Instant Camera, Polaroid OneStep 2', 'The Polaroid OneStep 2 is an analog instant camera that captures nostalgic, vintage-style photos with its classic design.', '2023-11-16 15:57:19', '2023-11-16 15:57:19'),
-(64, 9, 'Leica Sofort', NULL, 'leica-sofort', 'Leica', 'Premium Instant Camera', 'The Leica Sofort is a premium instant camera that combines classic design with modern features, producing high-quality instant prints.', 299, NULL, 20, 0, 'published', '2023-11-16 22:57:19', 'Instant Camera, Leica Sofort', 'The Leica Sofort is a premium instant camera that combines classic design with modern features, producing high-quality instant prints.', '2023-11-16 15:57:19', '2023-11-16 15:57:19'),
-(65, 9, 'Kodak Printomatic', NULL, 'kodak-printomatic', 'Kodak', 'Digital Instant Print Camera', 'The Kodak Printomatic is a digital instant print camera that captures and prints photos in an instant, giving you physical copies to share and enjoy.', 79, NULL, 40, 0, 'published', '2023-11-16 22:57:19', 'Instant Camera, Kodak Printomatic', 'The Kodak Printomatic is a digital instant print camera that captures and prints photos in an instant, giving you physical copies to share and enjoy.', '2023-11-16 15:57:19', '2023-11-16 15:57:19'),
+(61, 8, 'Sony RX0 II', 0, 'sony-rx0-ii', 'Sony', 'Ultra-Compact Action Camera', 'The Sony RX0 II is an ultra-compact action camera that delivers high-quality images and is waterproof, shockproof, and crushproof.', 699, NULL, 20, 0, 'published', '2023-11-16 22:55:43', 'Action Camera, Sony RX0 II', 'The Sony RX0 II is an ultra-compact action camera that delivers high-quality images and is waterproof, shockproof, and crushproof.', '2023-11-16 15:55:43', '2023-11-16 15:55:43'),
+(62, 8, 'Insta360 ONE R', 0, 'insta360-one-r', 'Insta360', 'Modular Action Camera', 'The Insta360 ONE R is a modular action camera that allows you to switch between different lens modules to capture different perspectives.', 499, NULL, 40, 0, 'published', '2023-11-16 22:55:43', 'Action Camera, Insta360 ONE R', 'The Insta360 ONE R is a modular action camera that allows you to switch between different lens modules to capture different perspectives.', '2023-11-16 15:55:43', '2023-11-16 15:55:43'),
+(63, 9, 'Polaroid OneStep 2', 0, 'polaroid-onestep-2', 'Polaroid', 'Analog Instant Camera', 'The Polaroid OneStep 2 is an analog instant camera that captures nostalgic, vintage-style photos with its classic design.', 99, NULL, 30, 0, 'published', '2023-11-16 22:57:19', 'Instant Camera, Polaroid OneStep 2', 'The Polaroid OneStep 2 is an analog instant camera that captures nostalgic, vintage-style photos with its classic design.', '2023-11-16 15:57:19', '2023-11-16 15:57:19'),
+(64, 9, 'Leica Sofort', 0, 'leica-sofort', 'Leica', 'Premium Instant Camera', 'The Leica Sofort is a premium instant camera that combines classic design with modern features, producing high-quality instant prints.', 299, NULL, 20, 0, 'published', '2023-11-16 22:57:19', 'Instant Camera, Leica Sofort', 'The Leica Sofort is a premium instant camera that combines classic design with modern features, producing high-quality instant prints.', '2023-11-16 15:57:19', '2023-11-16 15:57:19'),
+(65, 9, 'Kodak Printomatic', 0, 'kodak-printomatic', 'Kodak', 'Digital Instant Print Camera', 'The Kodak Printomatic is a digital instant print camera that captures and prints photos in an instant, giving you physical copies to share and enjoy.', 79, NULL, 40, 0, 'published', '2023-11-16 22:57:19', 'Instant Camera, Kodak Printomatic', 'The Kodak Printomatic is a digital instant print camera that captures and prints photos in an instant, giving you physical copies to share and enjoy.', '2023-11-16 15:57:19', '2023-11-16 15:57:19'),
 (67, 9, 'Fujifilm Instax Mini 9', 6, 'fujifilm-instax-mini-9', 'Fujifilm', 'Instant Film Camera', '<p>The Fujifilm Instax Mini 9 is a fun and easy-to-use instant film camera that prints credit card-sized photos instantly.</p>', 69, 59, 50, 0, 'published', '16/11/2023', 'Instant Camera, Fujifilm Instax Mini 9', 'The Fujifilm Instax Mini 9 is a fun and easy-to-use instant film camera that prints credit card-sized photos instantly.', '2023-11-16 15:57:19', '2023-11-16 09:42:58'),
-(68, 10, 'SanDisk Memory Card', NULL, 'sandisk-memory-card', 'SanDisk', 'High-Speed Memory Card', 'The SanDisk Memory Card is a high-speed memory card that offers ample storage space and fast data transfer for capturing and storing your precious moments.', 49, NULL, 30, 0, 'published', '2023-11-16 22:58:15', 'Camera Accessories, SanDisk Memory Card', 'The SanDisk Memory Card is a high-speed memory card that offers ample storage space and fast data transfer for capturing and storing your precious moments.', '2023-11-16 15:58:15', '2023-11-16 15:58:15'),
-(69, 10, 'Lowepro Camera Bag', NULL, 'lowepro-camera-bag', 'Lowepro', 'Camera Backpack', 'The Lowepro Camera Bag is a durable and spacious camera backpack that provides excellent protection and organization for your camera gear during travel and outdoor adventures.', 79, NULL, 20, 0, 'published', '2023-11-16 22:58:15', 'Camera Accessories, Lowepro Camera Bag', 'The Lowepro Camera Bag is a durable and spacious camera backpack that provides excellent protection and organization for your camera gear during travel and outdoor adventures.', '2023-11-16 15:58:15', '2023-11-16 15:58:15'),
-(70, 10, 'Rode VideoMic', NULL, 'rode-videomic', 'Rode', 'Camera Microphone', 'The Rode VideoMic is a high-quality camera microphone that enhances the audio recording of your videos, capturing clear and professional sound.', 129, NULL, 40, 0, 'published', '2023-11-16 22:58:15', 'Camera Accessories, Rode VideoMic', 'The Rode VideoMic is a high-quality camera microphone that enhances the audio recording of your videos, capturing clear and professional sound.', '2023-11-16 15:58:15', '2023-11-16 15:58:15'),
-(71, 10, 'Manfrotto Tripod', NULL, 'manfrotto-tripod', 'Manfrotto', 'Professional Camera Tripod', 'The Manfrotto Tripod is a professional-grade camera tripod that provides stability and flexibility for capturing high-quality photos and videos.', 149, NULL, 50, 1, 'published', '2023-11-16 22:58:15', 'Camera Accessories, Manfrotto Tripod', 'The Manfrotto Tripod is a professional-grade camera tripod that provides stability and flexibility for capturing high-quality photos and videos.', '2023-11-16 15:58:15', '2023-11-16 15:58:15'),
-(72, 11, 'JBL Flip 5', NULL, 'jbl-flip-5', 'JBL', 'Portable Bluetooth Speaker', 'The JBL Flip 5 is a portable Bluetooth speaker that delivers powerful and immersive sound in a compact and rugged design, making it perfect for outdoor adventures and parties.', 99, NULL, 50, 1, 'published', '2023-11-16 22:59:29', 'Bluetooth Speakers, JBL Flip 5', 'The JBL Flip 5 is a portable Bluetooth speaker that delivers powerful and immersive sound in a compact and rugged design, making it perfect for outdoor adventures and parties.', '2023-11-16 15:59:29', '2023-11-16 15:59:29'),
-(73, 11, 'Sony XB33', NULL, 'sony-xb33', 'Sony', 'Waterproof Bluetooth Speaker', 'The Sony XB33 is a waterproof Bluetooth speaker that combines deep, punchy bass with clear and dynamic sound, making it ideal for pool parties and beach outings.', 149, NULL, 30, 0, 'published', '2023-11-16 22:59:29', 'Bluetooth Speakers, Sony XB33', 'The Sony XB33 is a waterproof Bluetooth speaker that combines deep, punchy bass with clear and dynamic sound, making it ideal for pool parties and beach outings.', '2023-11-16 15:59:29', '2023-11-16 15:59:29'),
-(74, 11, 'UE Boom 3', NULL, 'ue-boom-3', 'UE', 'Portable Wireless Speaker', 'The UE Boom 3 is a portable wireless speaker that delivers 360-degree sound with deep bass and stunning clarity, creating an immersive listening experience anywhere you go.', 129, NULL, 20, 0, 'published', '2023-11-16 22:59:29', 'Bluetooth Speakers, UE Boom 3', 'The UE Boom 3 is a portable wireless speaker that delivers 360-degree sound with deep bass and stunning clarity, creating an immersive listening experience anywhere you go.', '2023-11-16 15:59:29', '2023-11-16 15:59:29'),
+(68, 10, 'SanDisk Memory Card', 0, 'sandisk-memory-card', 'SanDisk', 'High-Speed Memory Card', 'The SanDisk Memory Card is a high-speed memory card that offers ample storage space and fast data transfer for capturing and storing your precious moments.', 49, NULL, 30, 0, 'published', '2023-11-16 22:58:15', 'Camera Accessories, SanDisk Memory Card', 'The SanDisk Memory Card is a high-speed memory card that offers ample storage space and fast data transfer for capturing and storing your precious moments.', '2023-11-16 15:58:15', '2023-11-16 15:58:15'),
+(69, 10, 'Lowepro Camera Bag', 0, 'lowepro-camera-bag', 'Lowepro', 'Camera Backpack', 'The Lowepro Camera Bag is a durable and spacious camera backpack that provides excellent protection and organization for your camera gear during travel and outdoor adventures.', 79, NULL, 20, 0, 'published', '2023-11-16 22:58:15', 'Camera Accessories, Lowepro Camera Bag', 'The Lowepro Camera Bag is a durable and spacious camera backpack that provides excellent protection and organization for your camera gear during travel and outdoor adventures.', '2023-11-16 15:58:15', '2023-11-16 15:58:15'),
+(70, 10, 'Rode VideoMic', 0, 'rode-videomic', 'Rode', 'Camera Microphone', 'The Rode VideoMic is a high-quality camera microphone that enhances the audio recording of your videos, capturing clear and professional sound.', 129, NULL, 40, 0, 'published', '2023-11-16 22:58:15', 'Camera Accessories, Rode VideoMic', 'The Rode VideoMic is a high-quality camera microphone that enhances the audio recording of your videos, capturing clear and professional sound.', '2023-11-16 15:58:15', '2023-11-16 15:58:15'),
+(71, 10, 'Manfrotto Tripod', 0, 'manfrotto-tripod', 'Manfrotto', 'Professional Camera Tripod', 'The Manfrotto Tripod is a professional-grade camera tripod that provides stability and flexibility for capturing high-quality photos and videos.', 149, NULL, 50, 1, 'published', '2023-11-16 22:58:15', 'Camera Accessories, Manfrotto Tripod', 'The Manfrotto Tripod is a professional-grade camera tripod that provides stability and flexibility for capturing high-quality photos and videos.', '2023-11-16 15:58:15', '2023-11-16 15:58:15'),
+(72, 11, 'JBL Flip 5', 0, 'jbl-flip-5', 'JBL', 'Portable Bluetooth Speaker', 'The JBL Flip 5 is a portable Bluetooth speaker that delivers powerful and immersive sound in a compact and rugged design, making it perfect for outdoor adventures and parties.', 99, NULL, 50, 1, 'published', '2023-11-16 22:59:29', 'Bluetooth Speakers, JBL Flip 5', 'The JBL Flip 5 is a portable Bluetooth speaker that delivers powerful and immersive sound in a compact and rugged design, making it perfect for outdoor adventures and parties.', '2023-11-16 15:59:29', '2023-11-16 15:59:29'),
+(73, 11, 'Sony XB33', 0, 'sony-xb33', 'Sony', 'Waterproof Bluetooth Speaker', 'The Sony XB33 is a waterproof Bluetooth speaker that combines deep, punchy bass with clear and dynamic sound, making it ideal for pool parties and beach outings.', 149, NULL, 30, 0, 'published', '2023-11-16 22:59:29', 'Bluetooth Speakers, Sony XB33', 'The Sony XB33 is a waterproof Bluetooth speaker that combines deep, punchy bass with clear and dynamic sound, making it ideal for pool parties and beach outings.', '2023-11-16 15:59:29', '2023-11-16 15:59:29'),
+(74, 11, 'UE Boom 3', 0, 'ue-boom-3', 'UE', 'Portable Wireless Speaker', 'The UE Boom 3 is a portable wireless speaker that delivers 360-degree sound with deep bass and stunning clarity, creating an immersive listening experience anywhere you go.', 129, NULL, 20, 0, 'published', '2023-11-16 22:59:29', 'Bluetooth Speakers, UE Boom 3', 'The UE Boom 3 is a portable wireless speaker that delivers 360-degree sound with deep bass and stunning clarity, creating an immersive listening experience anywhere you go.', '2023-11-16 15:59:29', '2023-11-16 15:59:29'),
 (75, 11, 'Bose SoundLink Revolve', 6, 'bose-soundlink-revolve', 'Bose', '360-Degree Bluetooth Speaker', '<p>The Bose SoundLink Revolve is a 360-degree Bluetooth speaker that offers true 360-degree sound for consistent, uniform coverage, ensuring a great listening experience from every angle.</p>', 199, 189, 40, 0, 'published', '16/11/2023', 'Bluetooth Speakers, Bose SoundLink Revolve', 'The Bose SoundLink Revolve is a 360-degree Bluetooth speaker that offers true 360-degree sound for consistent, uniform coverage, ensuring a great listening experience from every angle.', '2023-11-16 15:59:29', '2023-11-16 09:31:17'),
-(77, 12, 'Logitech Z623', NULL, 'logitech-z623', 'Logitech', '2.1 Speaker System', 'The Logitech Z623 is a powerful 2.1 speaker system that delivers rich and immersive sound for your desktop or computer setup, enhancing your audio experience while gaming, watching movies, or listening to music.', 149, NULL, 50, 1, 'published', '2023-11-16 23:00:29', 'Desktop Speakers, Logitech Z623', 'The Logitech Z623 is a powerful 2.1 speaker system that delivers rich and immersive sound for your desktop or computer setup, enhancing your audio experience while gaming, watching movies, or listening to music.', '2023-11-16 16:00:29', '2023-11-16 16:00:29'),
+(77, 12, 'Logitech Z623', 0, 'logitech-z623', 'Logitech', '2.1 Speaker System', 'The Logitech Z623 is a powerful 2.1 speaker system that delivers rich and immersive sound for your desktop or computer setup, enhancing your audio experience while gaming, watching movies, or listening to music.', 149, NULL, 50, 1, 'published', '2023-11-16 23:00:29', 'Desktop Speakers, Logitech Z623', 'The Logitech Z623 is a powerful 2.1 speaker system that delivers rich and immersive sound for your desktop or computer setup, enhancing your audio experience while gaming, watching movies, or listening to music.', '2023-11-16 16:00:29', '2023-11-16 16:00:29'),
 (78, 12, 'Edifier R1280T', 6, 'edifier-r1280t', 'Edifier', 'Active Bookshelf Speakers', '<p>The Edifier R1280T is a pair of active bookshelf speakers that produce clear and balanced audio with rich bass, making them ideal for desktop use or as a compact stereo system.</p>', 99, 89, 30, 0, 'published', '16/11/2023', 'Desktop Speakers, Edifier R1280T', 'The Edifier R1280T is a pair of active bookshelf speakers that produce clear and balanced audio with rich bass, making them ideal for desktop use or as a compact stereo system.', '2023-11-16 16:00:29', '2023-11-16 09:40:14'),
-(79, 12, 'Harman Kardon SoundSticks III', NULL, 'harman-kardon-soundsticks-iii', 'Harman Kardon', '3-Piece Speaker System', 'The Harman Kardon SoundSticks III is a visually stunning 3-piece speaker system with a transparent design and exceptional sound quality, perfect for enhancing your desktop audio experience.', 199, NULL, 20, 0, 'published', '2023-11-16 23:00:29', 'Desktop Speakers, Harman Kardon SoundSticks III', 'The Harman Kardon SoundSticks III is a visually stunning 3-piece speaker system with a transparent design and exceptional sound quality, perfect for enhancing your desktop audio experience.', '2023-11-16 16:00:29', '2023-11-16 16:00:29'),
+(79, 12, 'Harman Kardon SoundSticks III', 0, 'harman-kardon-soundsticks-iii', 'Harman Kardon', '3-Piece Speaker System', 'The Harman Kardon SoundSticks III is a visually stunning 3-piece speaker system with a transparent design and exceptional sound quality, perfect for enhancing your desktop audio experience.', 199, NULL, 20, 0, 'published', '2023-11-16 23:00:29', 'Desktop Speakers, Harman Kardon SoundSticks III', 'The Harman Kardon SoundSticks III is a visually stunning 3-piece speaker system with a transparent design and exceptional sound quality, perfect for enhancing your desktop audio experience.', '2023-11-16 16:00:29', '2023-11-16 16:00:29'),
 (80, 12, 'Bose Companion 2 Series III', 6, 'bose-companion-2-series-iii', 'Bose', 'Multimedia Speaker System', '<p>The Bose Companion 2 Series III is a multimedia speaker system that delivers clear and balanced audio for your computer or laptop, providing an immersive sound experience for your music, movies, and games.</p>', 99, 89, 40, 0, 'published', '16/11/2023', 'Desktop Speakers, Bose Companion 2 Series III', 'The Bose Companion 2 Series III is a multimedia speaker system that delivers clear and balanced audio for your computer or laptop, providing an immersive sound experience for your music, movies, and games.', '2023-11-16 16:00:29', '2023-11-16 09:32:10'),
 (82, 16, 'Fitbit Versa 3', 6, 'fitbit-versa-3', 'Fitbit', 'Advanced Fitness Smartwatch', '<p>The Fitbit Versa 3 is an advanced fitness smartwatch that tracks your workouts, monitors your heart rate, and provides personalized insights to help you reach your fitness goals. With built-in GPS and a long battery life, its the perfect companion for your active lifestyle.</p>', 229, 219, 50, 0, 'published', '16/11/2023', 'Fitness Smartwatches, Fitbit Versa 3', 'The Fitbit Versa 3 is an advanced fitness smartwatch that tracks your workouts, monitors your heart rate, and provides personalized insights to help you reach your fitness goals. With built-in GPS and a long battery life, its the perfect companion for your active lifestyle.', '2023-11-16 16:01:52', '2023-11-16 09:41:12'),
 (83, 16, 'Apple Watch Series 7', 6, 'apple-watch-series-7', 'Apple', 'High-End Fitness Smartwatch', '<p>The Apple Watch Series 7 is a high-end fitness smartwatch that features a larger display, advanced health tracking capabilities, and seamless integration with your iPhone. With its sleek design and powerful features, its the ultimate smartwatch for fitness enthusiasts.</p>', 399, 150, 30, 0, 'published', '16/11/2023', 'Fitness Smartwatches, Apple Watch Series 7', 'The Apple Watch Series 7 is a high-end fitness smartwatch that features a larger display, advanced health tracking capabilities, and seamless integration with your iPhone. With its sleek design and powerful features, its the ultimate smartwatch for fitness enthusiasts.', '2023-11-16 16:01:52', '2023-11-16 09:29:09'),
-(84, 16, 'Samsung Galaxy Watch4', NULL, 'samsung-galaxy-watch4', 'Samsung', 'Versatile Fitness Smartwatch', 'The Samsung Galaxy Watch4 is a versatile fitness smartwatch that combines stylish design with advanced health and fitness tracking features. With its comprehensive set of sensors and intuitive interface, it helps you stay motivated and achieve your fitness goals.', 299, NULL, 20, 0, 'published', '2023-11-16 23:01:52', 'Fitness Smartwatches, Samsung Galaxy Watch4', 'The Samsung Galaxy Watch4 is a versatile fitness smartwatch that combines stylish design with advanced health and fitness tracking features. With its comprehensive set of sensors and intuitive interface, it helps you stay motivated and achieve your fitness goals.', '2023-11-16 16:01:52', '2023-11-16 16:01:52'),
+(84, 16, 'Samsung Galaxy Watch4', 0, 'samsung-galaxy-watch4', 'Samsung', 'Versatile Fitness Smartwatch', 'The Samsung Galaxy Watch4 is a versatile fitness smartwatch that combines stylish design with advanced health and fitness tracking features. With its comprehensive set of sensors and intuitive interface, it helps you stay motivated and achieve your fitness goals.', 299, NULL, 20, 0, 'published', '2023-11-16 23:01:52', 'Fitness Smartwatches, Samsung Galaxy Watch4', 'The Samsung Galaxy Watch4 is a versatile fitness smartwatch that combines stylish design with advanced health and fitness tracking features. With its comprehensive set of sensors and intuitive interface, it helps you stay motivated and achieve your fitness goals.', '2023-11-16 16:01:52', '2023-11-16 16:01:52'),
 (85, 16, 'Garmin Forerunner 945', 6, 'garmin-forerunner-945', 'Garmin', 'Advanced GPS Smartwatch', '<p>The Garmin Forerunner 945 is an advanced GPS smartwatch designed for serious athletes. It offers comprehensive activity tracking, built-in maps, and advanced performance metrics to help you train smarter and achieve new personal records.</p>', 599, 499, 40, 0, 'published', '16/11/2023', 'Fitness Smartwatches, Garmin Forerunner 945', 'The Garmin Forerunner 945 is an advanced GPS smartwatch designed for serious athletes. It offers comprehensive activity tracking, built-in maps, and advanced performance metrics to help you train smarter and achieve new personal records.', '2023-11-16 16:01:52', '2023-11-16 09:44:49'),
 (87, 17, 'Apple Watch SE', 6, 'apple-watch-se', 'Apple', 'Stylish Fashion Smartwatch', '<p>The Apple Watch SE is a stylish fashion smartwatch that combines advanced features with an affordable price. With its sleek design, customizable watch faces, and seamless integration with your iPhone, its the perfect accessory to complement your fashion-forward lifestyle.</p>', 279, 100, 50, 0, 'published', '16/11/2023', 'Fashion Smartwatches, Apple Watch SE', 'The Apple Watch SE is a stylish fashion smartwatch that combines advanced features with an affordable price. With its sleek design, customizable watch faces, and seamless integration with your iPhone, its the perfect accessory to complement your fashion-forward lifestyle.', '2023-11-16 16:02:46', '2023-11-16 09:28:30'),
-(88, 17, 'Samsung Galaxy Watch Active 2', NULL, 'samsung-galaxy-watch-active-2', 'Samsung', 'Sleek Fashion Smartwatch', 'The Samsung Galaxy Watch Active 2 is a sleek fashion smartwatch that offers a perfect blend of style and functionality. With its slim design, vibrant display, and comprehensive health tracking features, it s a versatile accessory for any fashion-conscious individual.', 249, NULL, 30, 0, 'published', '2023-11-16 23:02:46', 'Fashion Smartwatches, Samsung Galaxy Watch Active 2', 'The Samsung Galaxy Watch Active 2 is a sleek fashion smartwatch that offers a perfect blend of style and functionality. With its slim design, vibrant display, and comprehensive health tracking features, it s a versatile accessory for any fashion-conscious individual.', '2023-11-16 16:02:46', '2023-11-16 16:02:46'),
+(88, 17, 'Samsung Galaxy Watch Active 2', 0, 'samsung-galaxy-watch-active-2', 'Samsung', 'Sleek Fashion Smartwatch', 'The Samsung Galaxy Watch Active 2 is a sleek fashion smartwatch that offers a perfect blend of style and functionality. With its slim design, vibrant display, and comprehensive health tracking features, it s a versatile accessory for any fashion-conscious individual.', 249, NULL, 30, 0, 'published', '2023-11-16 23:02:46', 'Fashion Smartwatches, Samsung Galaxy Watch Active 2', 'The Samsung Galaxy Watch Active 2 is a sleek fashion smartwatch that offers a perfect blend of style and functionality. With its slim design, vibrant display, and comprehensive health tracking features, it s a versatile accessory for any fashion-conscious individual.', '2023-11-16 16:02:46', '2023-11-16 16:02:46'),
 (89, 17, 'Fossil Gen 5', 6, 'fossil-gen-5', 'Fossil', 'Premium Fashion Smartwatch', '<p>The Fossil Gen 5 is a premium fashion smartwatch that combines classic design with modern technology. With its stainless steel case, customizable dials, and advanced features like heart rate monitoring and GPS, it s a stylish and functional accessory for the fashion-forward individual.</p>', 299, 289, 20, 0, 'published', '16/11/2023', 'Fashion Smartwatches, Fossil Gen 5', 'The Fossil Gen 5 is a premium fashion smartwatch that combines classic design with modern technology. With its stainless steel case, customizable dials, and advanced features like heart rate monitoring and GPS, it s a stylish and functional accessory for the fashion-forward individual.', '2023-11-16 16:02:46', '2023-11-16 09:42:29'),
-(90, 17, 'Michael Kors Access Bradshaw 2', NULL, 'michael-kors-access-bradshaw-2', 'Michael Kors', 'Luxury Fashion Smartwatch', 'The Michael Kors Access Bradshaw 2 is a luxury fashion smartwatch that exudes sophistication and style. With its stainless steel construction, elegant design, and a wide range of customizable features, it s the perfect accessory to elevate your fashion game.', 399, NULL, 40, 0, 'published', '2023-11-16 23:02:46', 'Fashion Smartwatches, Michael Kors Access Bradshaw 2', 'The Michael Kors Access Bradshaw 2 is a luxury fashion smartwatch that exudes sophistication and style. With its stainless steel construction, elegant design, and a wide range of customizable features, it s the perfect accessory to elevate your fashion game.', '2023-11-16 16:02:46', '2023-11-16 16:02:46'),
-(92, 18, 'TAG Heuer Connected', NULL, 'tag-heuer-connected', 'TAG Heuer', 'Elegant Luxury Smartwatch', 'The TAG Heuer Connected is an elegant luxury smartwatch that seamlessly combines traditional Swiss watchmaking with advanced technology. With its premium materials, customizable dials, and a wide range of smart features, it a statement piece for the discerning individual.', 1999, NULL, 50, 1, 'published', '2023-11-16 23:05:35', 'Luxury Smartwatches, TAG Heuer Connected', 'The TAG Heuer Connected is an elegant luxury smartwatch that seamlessly combines traditional Swiss watchmaking with advanced technology. With its premium materials, customizable dials, and a wide range of smart features, its a statement piece for the discerning individual.', '2023-11-16 16:05:35', '2023-11-16 16:05:35'),
-(93, 18, 'Omega Seamaster Aqua Terra', NULL, 'omega-seamaster-aqua-terra', 'Omega', 'Sophisticated Luxury Smartwatch', 'The Omega Seamaster Aqua Terra is a sophisticated luxury smartwatch that embodies the spirit of the iconic Seamaster collection. With its refined design, precision movement, and smart features, its a timepiece that combines elegance and innovation.', 3999, NULL, 30, 0, 'published', '2023-11-16 23:05:35', 'Luxury Smartwatches, Omega Seamaster Aqua Terra', 'The Omega Seamaster Aqua Terra is a sophisticated luxury smartwatch that embodies the spirit of the iconic Seamaster collection. With its refined design, precision movement, and smart features, its a timepiece that combines elegance and innovation.', '2023-11-16 16:05:35', '2023-11-16 16:05:35'),
+(90, 17, 'Michael Kors Access Bradshaw 2', 0, 'michael-kors-access-bradshaw-2', 'Michael Kors', 'Luxury Fashion Smartwatch', 'The Michael Kors Access Bradshaw 2 is a luxury fashion smartwatch that exudes sophistication and style. With its stainless steel construction, elegant design, and a wide range of customizable features, it s the perfect accessory to elevate your fashion game.', 399, NULL, 40, 0, 'published', '2023-11-16 23:02:46', 'Fashion Smartwatches, Michael Kors Access Bradshaw 2', 'The Michael Kors Access Bradshaw 2 is a luxury fashion smartwatch that exudes sophistication and style. With its stainless steel construction, elegant design, and a wide range of customizable features, it s the perfect accessory to elevate your fashion game.', '2023-11-16 16:02:46', '2023-11-16 16:02:46'),
+(92, 18, 'TAG Heuer Connected', 0, 'tag-heuer-connected', 'TAG Heuer', 'Elegant Luxury Smartwatch', 'The TAG Heuer Connected is an elegant luxury smartwatch that seamlessly combines traditional Swiss watchmaking with advanced technology. With its premium materials, customizable dials, and a wide range of smart features, it a statement piece for the discerning individual.', 1999, NULL, 50, 1, 'published', '2023-11-16 23:05:35', 'Luxury Smartwatches, TAG Heuer Connected', 'The TAG Heuer Connected is an elegant luxury smartwatch that seamlessly combines traditional Swiss watchmaking with advanced technology. With its premium materials, customizable dials, and a wide range of smart features, its a statement piece for the discerning individual.', '2023-11-16 16:05:35', '2023-11-16 16:05:35'),
+(93, 18, 'Omega Seamaster Aqua Terra', 0, 'omega-seamaster-aqua-terra', 'Omega', 'Sophisticated Luxury Smartwatch', 'The Omega Seamaster Aqua Terra is a sophisticated luxury smartwatch that embodies the spirit of the iconic Seamaster collection. With its refined design, precision movement, and smart features, its a timepiece that combines elegance and innovation.', 3999, NULL, 30, 0, 'published', '2023-11-16 23:05:35', 'Luxury Smartwatches, Omega Seamaster Aqua Terra', 'The Omega Seamaster Aqua Terra is a sophisticated luxury smartwatch that embodies the spirit of the iconic Seamaster collection. With its refined design, precision movement, and smart features, its a timepiece that combines elegance and innovation.', '2023-11-16 16:05:35', '2023-11-16 16:05:35'),
 (94, 18, 'Breitling Exospace B55', 6, 'breitling-exospace-b55', 'Breitling', 'Aviation-inspired Luxury Smartwatch', '<p>The Breitling Exospace B55 is an aviation-inspired luxury smartwatch that offers a perfect blend of style and functionality. With its robust construction, COSC-certified movement, and advanced connectivity features, its a timepiece for the modern aviator.</p>', 4999, 4889, 20, 0, 'published', '16/11/2023', 'Luxury Smartwatches, Breitling Exospace B55', 'The Breitling Exospace B55 is an aviation-inspired luxury smartwatch that offers a perfect blend of style and functionality. With its robust construction, COSC-certified movement, and advanced connectivity features, its a timepiece for the modern aviator.', '2023-11-16 16:05:35', '2023-11-16 09:33:11'),
-(95, 18, 'Rolex Oyster Perpetual', NULL, 'rolex-oyster-perpetual', 'Rolex', 'Iconic Luxury Smartwatch', 'The Rolex Oyster Perpetual is an iconic luxury smartwatch that represents the epitome of timeless elegance. With its legendary design, precise movement, and exceptional craftsmanship, its a symbol of status and sophistication.', 7999, NULL, 40, 0, 'published', '2023-11-16 23:05:35', 'Luxury Smartwatches, Rolex Oyster Perpetual', 'The Rolex Oyster Perpetual is an iconic luxury smartwatch that represents the epitome of timeless elegance. With its legendary design, precise movement, and exceptional craftsmanship, its a symbol of status and sophistication.', '2023-11-16 16:05:35', '2023-11-16 16:05:35');
+(95, 18, 'Rolex Oyster Perpetual', 0, 'rolex-oyster-perpetual', 'Rolex', 'Iconic Luxury Smartwatch', 'The Rolex Oyster Perpetual is an iconic luxury smartwatch that represents the epitome of timeless elegance. With its legendary design, precise movement, and exceptional craftsmanship, its a symbol of status and sophistication.', 7999, NULL, 40, 0, 'published', '2023-11-16 23:05:35', 'Luxury Smartwatches, Rolex Oyster Perpetual', 'The Rolex Oyster Perpetual is an iconic luxury smartwatch that represents the epitome of timeless elegance. With its legendary design, precise movement, and exceptional craftsmanship, its a symbol of status and sophistication.', '2023-11-16 16:05:35', '2023-11-16 16:05:35');
 
 -- --------------------------------------------------------
 
@@ -600,9 +605,9 @@ CREATE TABLE `product_colors` (
 INSERT INTO `product_colors` (`id`, `product_id`, `quantity`, `color_id`, `created_at`, `updated_at`) VALUES
 (3, 1, 2332, 2, '2023-09-28 15:21:44', '2023-09-28 15:21:44'),
 (4, 1, 442, 4, '2023-09-28 15:21:44', '2023-09-28 15:21:44'),
-(7, 5, 9, 1, '2023-10-01 14:24:40', '2023-10-01 18:36:42'),
+(7, 5, 5, 1, '2023-10-01 14:24:40', '2023-11-17 10:27:46'),
 (8, 5, 21, 2, '2023-10-01 14:24:40', '2023-10-01 14:24:40'),
-(9, 6, 12, 1, '2023-10-01 14:26:44', '2023-10-01 14:26:44'),
+(9, 6, 9, 1, '2023-10-01 14:26:44', '2023-11-17 10:27:46'),
 (10, 6, 100, 4, '2023-10-01 14:26:44', '2023-10-01 14:26:44'),
 (11, 7, 12, 1, '2023-10-01 14:30:18', '2023-10-01 14:30:18'),
 (12, 7, 100, 4, '2023-10-01 14:30:18', '2023-10-01 14:30:18'),
@@ -642,6 +647,7 @@ INSERT INTO `product_comments` (`id`, `product_id`, `user_id`, `rating`, `conten
 (3, 10, 26, 3, 'aa', '2023-11-16 06:20:58', '2023-11-16 06:20:58'),
 (4, 11, 26, 2, 'faewf', '2023-11-16 06:28:55', '2023-11-16 06:28:55'),
 (5, 10, 26, 5, 'ffeaf', '2023-11-16 06:32:10', '2023-11-16 06:32:10');
+
 -- --------------------------------------------------------
 
 --
@@ -797,7 +803,8 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`id`, `wallet_id`, `amount`, `type`, `created_at`, `updated_at`, `status`, `method`) VALUES
-(1, 5, 1000.00, 'deposit', '2023-11-15 09:44:00', '2023-11-15 09:44:00', 'cancle', 'vn_pay');
+(1, 5, 1000.00, 'deposit', '2023-11-15 09:44:00', '2023-11-15 09:44:00', 'cancle', 'vn_pay'),
+(2, 20, -10597.93, 'withdraw', '2023-11-17 10:27:46', '2023-11-17 10:27:46', 'complete', 'shopping');
 
 -- --------------------------------------------------------
 
@@ -815,35 +822,43 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `role_as` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0 as user, 1 as admin',
-  `otp` int(11) DEFAULT NULL
+  `otp` int(11) DEFAULT NULL,
+  `lastname` varchar(255) DEFAULT NULL,
+  `firstname` varchar(255) DEFAULT NULL,
+  `companyname` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `zipcode` varchar(255) DEFAULT NULL,
+  `phone` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `role_as`, `otp`) VALUES
-(1, 'sagewg', 'trangiangzxc@gmail.com', '2023-11-13 10:03:47', '$2y$10$cTNRwOh0VEMdB7eDJ5UJjOKKvDWRIEgPRC3UiAI8RwoZwc8h71o8u', NULL, '2023-09-21 23:40:03', '2023-11-16 05:11:36', 1, 439771),
-(10, 'Violon', 'fawefa@gaegwg', NULL, '$2y$10$u2Znp2zZv158IA6KkqPAeOlArCX3w5iMf3DHEVyhodU9ptsmmApzS', NULL, '2023-11-02 03:53:34', '2023-11-02 03:53:34', 0, NULL),
-(11, 'Violon', '1@1', '2023-11-16 11:02:26', '$2y$10$QNG.ESAu5apfxVnH.bs3EeZC49SBIEWDGeVJPJfnp8y/HxCdoZo6q', NULL, '2023-11-02 07:05:47', '2023-11-13 00:14:04', 1, 738193),
-(12, 'Violon', 'trangiangzxcz@gmail.com', '2023-11-13 10:03:21', '$2y$10$71rmRnxc/ysIWVcmD5Fl.u6vlw8fFduDnOqKRX3ClDcUDVmH.EtQq', NULL, '2023-11-12 19:19:02', '2023-11-12 19:19:02', 0, NULL),
-(14, 'awegaw', '2508roaablox@gmail.com', NULL, '$2y$10$8aBwfNZE1eCkJdR2ywma4OyEnlh.3NGfrdzL1GvpXuARKY6zRvbT6', NULL, '2023-11-12 19:39:25', '2023-11-12 19:39:25', 0, NULL),
-(15, 'awegaw', '250aaa8roaablox@gmail.com', NULL, '$2y$10$83erwsYnjzfUR9D4KIb4nOV5dI2uccUACbJJb.JHbM7dE1UnZEeuK', NULL, '2023-11-12 19:41:20', '2023-11-12 19:41:20', 0, NULL),
-(16, 'rweawg', 'admaerain1@gaegwg', NULL, '$2y$10$vkzzqEFMgtXHOir2dbLu9.HDVOdW309c2sKATrVqoNintUHPW1RBK', NULL, '2023-11-12 19:42:52', '2023-11-12 19:42:52', 0, NULL),
-(17, 'gaewg', 'tranaagangzxc@gmail.com', NULL, '$2y$10$tvm/qMK6PlTUcPBB2BGXEul6ruCSlvbk3WDZf65T6G.qzTgohmHHq', NULL, '2023-11-12 19:44:29', '2023-11-12 19:44:29', 0, 731217),
-(26, 'Violon', 'giangtlhps26818@fpt.edu.vn', '2023-11-09 08:26:09', '$2y$10$e7gNOWviCwsTYJRAKtd4i.UrA41SGrb5Uw6QsdEH1rSq/qP8L0s7u', NULL, '2023-11-13 00:29:53', '2023-11-16 05:11:54', 0, 717375),
-(27, 'fafwe', 'ruw20367@zbock.com', NULL, '$2y$10$Rv64nQOrDAAaLF3KDz7FkONeWkffKUSNjKJrCM7un3sudR.D71ua6', NULL, '2023-11-13 01:04:45', '2023-11-13 01:04:45', 0, 628142),
-(28, 'fafwe', 'aqo91086@omeie.com', '2023-11-13 01:07:49', '$2y$10$z6G/a2nz6Ld3VHjv0bd.peJa17lNwUH1VUtHNw1La2e8fkkficNyS', NULL, '2023-11-13 01:05:40', '2023-11-13 01:07:49', 0, 459861),
-(29, 'Giang Trần', 'sks40695@omeie.com', '2023-11-13 01:11:39', '$2y$10$gGX4eqtsdpah/vRQH1WVEebLyi59LibJ6nbjpp606D6wYA1NBOkja', NULL, '2023-11-13 01:08:19', '2023-11-13 01:11:39', 0, 958119),
-(30, 'kfg00672', 'kfg00672@omeie.com', '2023-11-13 01:42:24', '$2y$10$WHPJsH2L0fIKuCqTNiF0CuKSGFZHtzjiv0Phj5YIFPhbJyrFZR3/6', NULL, '2023-11-13 01:40:25', '2023-11-13 01:42:24', 0, 594667),
-(31, 'fawef', 'adminaa1@gaegwg', NULL, '$2y$10$O7H/gaWkqeD9XoQ8S7GU4.BdaEgIuFMMEX5fyn38bOq1sRBScsvo2', NULL, '2023-11-14 04:25:27', '2023-11-14 04:25:27', 0, 288550),
-(32, 'giang', 'wqg21278@nezid.com', NULL, '$2y$10$ybplFtfIDEcBX3Y5Yep4guOa4.TIRcfBVsfYqs0kkHP3qw0hUclSy', NULL, '2023-11-15 00:32:53', '2023-11-15 00:32:53', 0, 585090),
-(33, 'giang', 'fojovav244@jucatyo.com', NULL, '$2y$10$kYgYgCbezxUUbHKhR2bKPeU3vnwyjBpkSiCFubL6Pt3Fi.z76uDX2', NULL, '2023-11-15 00:34:13', '2023-11-15 00:35:37', 0, 524118),
-(35, 'giang', 'epf00196@omeie.com', NULL, '$2y$10$wm3Z0DKp1ebQyVBVVD6.j.ijfG2EMAR8y0WAghZv.LAdkKR3Vu2da', NULL, '2023-11-15 00:56:42', '2023-11-15 00:56:42', 0, 140192),
-(36, 'giang', 'bwa91296@nezid.com', NULL, '$2y$10$AaMppZ3PSv8LN9eh0.hd3uwQTZgbYOPqGy9xh1XiOtika7SYIAtsm', NULL, '2023-11-15 01:00:28', '2023-11-15 01:00:28', 0, 434190),
-(38, 'Giang Tran', 'jnw61761@nezid.com', NULL, '$2y$10$bUi57Cm7gqMBFEEOyz0etu/qgsaGTF/Y4gW5DVSv05Fzybk5ak5WW', NULL, '2023-11-15 01:56:37', '2023-11-15 01:56:37', 0, 646743),
-(39, 'Violon', 'trangiangzx111c@gmail.com', NULL, '$2y$10$7D44LR3UFh9uj4ahzXp42uV7uYU2NSjas4iHbTQLXRi4lnF2sLuaa', NULL, '2023-11-15 06:07:44', '2023-11-15 06:07:44', 0, 627760),
-(40, 'Violon', '2509roblox@gmail.com', NULL, '$2y$10$FfA3eB13CLKl1WW6Hvx0POWYzt9r6jFGaOOHPIgJEhtTYLsRaNU0q', NULL, '2023-11-16 05:10:27', '2023-11-16 05:10:42', 0, 153603);
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `role_as`, `otp`, `lastname`, `firstname`, `companyname`, `country`, `address`, `zipcode`, `phone`) VALUES
+(1, 'giang 123', 'trangiangzxc@gmail.com', '2023-11-13 10:03:47', '$2y$10$cTNRwOh0VEMdB7eDJ5UJjOKKvDWRIEgPRC3UiAI8RwoZwc8h71o8u', NULL, '2023-09-21 23:40:03', '2023-11-17 01:20:43', 1, 439771, 'dfhdg', 'ghjmghf', 'dsjkfhvb', 'china', 'jmdbflaikeed', '3456', 45373547),
+(10, 'Violon', 'fawefa@gaegwg', NULL, '$2y$10$u2Znp2zZv158IA6KkqPAeOlArCX3w5iMf3DHEVyhodU9ptsmmApzS', NULL, '2023-11-02 03:53:34', '2023-11-02 03:53:34', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 'Violon', '1@1', '2023-11-16 11:02:26', '$2y$10$QNG.ESAu5apfxVnH.bs3EeZC49SBIEWDGeVJPJfnp8y/HxCdoZo6q', NULL, '2023-11-02 07:05:47', '2023-11-13 00:14:04', 1, 738193, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 'Violon', 'trangiangzxcz@gmail.com', '2023-11-13 10:03:21', '$2y$10$71rmRnxc/ysIWVcmD5Fl.u6vlw8fFduDnOqKRX3ClDcUDVmH.EtQq', NULL, '2023-11-12 19:19:02', '2023-11-12 19:19:02', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 'awegaw', '2508roaablox@gmail.com', NULL, '$2y$10$8aBwfNZE1eCkJdR2ywma4OyEnlh.3NGfrdzL1GvpXuARKY6zRvbT6', NULL, '2023-11-12 19:39:25', '2023-11-12 19:39:25', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 'awegaw', '250aaa8roaablox@gmail.com', NULL, '$2y$10$83erwsYnjzfUR9D4KIb4nOV5dI2uccUACbJJb.JHbM7dE1UnZEeuK', NULL, '2023-11-12 19:41:20', '2023-11-12 19:41:20', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 'rweawg', 'admaerain1@gaegwg', NULL, '$2y$10$vkzzqEFMgtXHOir2dbLu9.HDVOdW309c2sKATrVqoNintUHPW1RBK', NULL, '2023-11-12 19:42:52', '2023-11-12 19:42:52', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 'gaewg', 'tranaagangzxc@gmail.com', NULL, '$2y$10$tvm/qMK6PlTUcPBB2BGXEul6ruCSlvbk3WDZf65T6G.qzTgohmHHq', NULL, '2023-11-12 19:44:29', '2023-11-12 19:44:29', 0, 731217, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(26, 'Violon', 'giangtlhps26818@fpt.edu.vn', '2023-11-09 08:26:09', '$2y$10$e7gNOWviCwsTYJRAKtd4i.UrA41SGrb5Uw6QsdEH1rSq/qP8L0s7u', NULL, '2023-11-13 00:29:53', '2023-11-16 05:11:54', 0, 717375, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(27, 'fafwe', 'ruw20367@zbock.com', NULL, '$2y$10$Rv64nQOrDAAaLF3KDz7FkONeWkffKUSNjKJrCM7un3sudR.D71ua6', NULL, '2023-11-13 01:04:45', '2023-11-13 01:04:45', 0, 628142, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(28, 'fafwe', 'aqo91086@omeie.com', '2023-11-13 01:07:49', '$2y$10$z6G/a2nz6Ld3VHjv0bd.peJa17lNwUH1VUtHNw1La2e8fkkficNyS', NULL, '2023-11-13 01:05:40', '2023-11-13 01:07:49', 0, 459861, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(29, 'Giang Trần', 'sks40695@omeie.com', '2023-11-13 01:11:39', '$2y$10$gGX4eqtsdpah/vRQH1WVEebLyi59LibJ6nbjpp606D6wYA1NBOkja', NULL, '2023-11-13 01:08:19', '2023-11-13 01:11:39', 0, 958119, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(30, 'kfg00672', 'kfg00672@omeie.com', '2023-11-13 01:42:24', '$2y$10$WHPJsH2L0fIKuCqTNiF0CuKSGFZHtzjiv0Phj5YIFPhbJyrFZR3/6', NULL, '2023-11-13 01:40:25', '2023-11-13 01:42:24', 0, 594667, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(31, 'fawef', 'adminaa1@gaegwg', NULL, '$2y$10$O7H/gaWkqeD9XoQ8S7GU4.BdaEgIuFMMEX5fyn38bOq1sRBScsvo2', NULL, '2023-11-14 04:25:27', '2023-11-14 04:25:27', 0, 288550, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(32, 'giang', 'wqg21278@nezid.com', NULL, '$2y$10$ybplFtfIDEcBX3Y5Yep4guOa4.TIRcfBVsfYqs0kkHP3qw0hUclSy', NULL, '2023-11-15 00:32:53', '2023-11-15 00:32:53', 0, 585090, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(33, 'giang', 'fojovav244@jucatyo.com', NULL, '$2y$10$kYgYgCbezxUUbHKhR2bKPeU3vnwyjBpkSiCFubL6Pt3Fi.z76uDX2', NULL, '2023-11-15 00:34:13', '2023-11-15 00:35:37', 0, 524118, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(35, 'giang', 'epf00196@omeie.com', NULL, '$2y$10$wm3Z0DKp1ebQyVBVVD6.j.ijfG2EMAR8y0WAghZv.LAdkKR3Vu2da', NULL, '2023-11-15 00:56:42', '2023-11-15 00:56:42', 0, 140192, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(36, 'giang', 'bwa91296@nezid.com', NULL, '$2y$10$AaMppZ3PSv8LN9eh0.hd3uwQTZgbYOPqGy9xh1XiOtika7SYIAtsm', NULL, '2023-11-15 01:00:28', '2023-11-15 01:00:28', 0, 434190, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(38, 'Giang Tran', 'jnw61761@nezid.com', NULL, '$2y$10$bUi57Cm7gqMBFEEOyz0etu/qgsaGTF/Y4gW5DVSv05Fzybk5ak5WW', NULL, '2023-11-15 01:56:37', '2023-11-15 01:56:37', 0, 646743, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(39, 'Violon', 'trangiangzx111c@gmail.com', NULL, '$2y$10$7D44LR3UFh9uj4ahzXp42uV7uYU2NSjas4iHbTQLXRi4lnF2sLuaa', NULL, '2023-11-15 06:07:44', '2023-11-15 06:07:44', 0, 627760, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(40, 'Violon', '2509roblox@gmail.com', NULL, '$2y$10$FfA3eB13CLKl1WW6Hvx0POWYzt9r6jFGaOOHPIgJEhtTYLsRaNU0q', NULL, '2023-11-16 05:10:27', '2023-11-16 05:10:42', 0, 153603, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(41, 'Tester', 'tester@gmail.com', '2023-11-17 02:42:01', '$2y$10$c1jRxIxFEKFHswBuzSlQueYaRO8N/UpZ7zi1aOBsxf8CLK/3Nr7.C', NULL, '2023-11-17 02:41:02', '2023-11-17 02:50:10', 0, NULL, 'Test2', 'Test1', 'Electro', 'china', 'Jend', '70000', 93512425);
 
 -- --------------------------------------------------------
 
@@ -882,7 +897,8 @@ INSERT INTO `wallets` (`id`, `user_id`, `balance`, `created_at`, `updated_at`) V
 (16, 37, 0.00, '2023-11-15 01:01:13', '2023-11-15 01:01:13'),
 (17, 38, 0.00, '2023-11-15 01:56:43', '2023-11-15 01:56:43'),
 (18, 39, 0.00, '2023-11-15 06:07:49', '2023-11-15 06:07:49'),
-(19, 40, 0.00, '2023-11-16 05:10:31', '2023-11-16 05:10:31');
+(19, 40, 0.00, '2023-11-16 05:10:31', '2023-11-16 05:10:31'),
+(20, 41, -10597.93, '2023-11-17 02:42:01', '2023-11-17 10:27:46');
 
 -- --------------------------------------------------------
 
@@ -897,6 +913,13 @@ CREATE TABLE `wishlists` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `wishlists`
+--
+
+INSERT INTO `wishlists` (`id`, `product_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 51, 41, '2023-11-17 02:46:45', '2023-11-17 02:46:45');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -1015,6 +1038,13 @@ ALTER TABLE `product_colors`
   ADD KEY `product_colors_color_id_foreign` (`color_id`);
 
 --
+-- Chỉ mục cho bảng `product_comments`
+--
+ALTER TABLE `product_comments`
+  ADD KEY `product_comments_product_id_foreign` (`product_id`),
+  ADD KEY `product_comments_user_id_foreign` (`user_id`);
+
+--
 -- Chỉ mục cho bảng `product_images`
 --
 ALTER TABLE `product_images`
@@ -1075,13 +1105,13 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT cho bảng `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT cho bảng `categories`
@@ -1105,7 +1135,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT cho bảng `coupons`
 --
 ALTER TABLE `coupons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `detail_blogs`
@@ -1129,19 +1159,19 @@ ALTER TABLE `login_histories`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT cho bảng `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`
@@ -1153,19 +1183,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT cho bảng `product_colors`
 --
 ALTER TABLE `product_colors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT cho bảng `sliders`
@@ -1183,25 +1213,25 @@ ALTER TABLE `sub_categories`
 -- AUTO_INCREMENT cho bảng `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT cho bảng `wallets`
 --
 ALTER TABLE `wallets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `wishlists`
 --
 ALTER TABLE `wishlists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
