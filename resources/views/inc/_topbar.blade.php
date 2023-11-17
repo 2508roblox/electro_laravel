@@ -34,7 +34,7 @@
                     <!-- Account Sidebar Toggle Button -->
                     @auth
                     <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
-                        Hello <a href="{{ route("frontend.myaccount.dashboard") }}">{{ Auth::user()->name }}
+                        Hello, <a href="{{ route("frontend.myaccount.dashboard") }}">{{ Auth::user()->name }}
                             <i class="ec ec-user mr-1"></i></a>
                     </li>
                     <li class="list-inline-item mr-0  ">

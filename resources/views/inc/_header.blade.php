@@ -25,10 +25,10 @@
                     <div class="d-none d-xl-block col-xl-5">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border mr-0">
-                                <a href="tel:+060800801858" class="u-header-topbar__nav-link"><i class="ec ec-phone mr-1"></i> +060 (800) 801-858</a>
+                                <a href="tel:+060800801858" class="u-header-topbar__nav-link"><i class="ec ec-phone mr-1"></i> +0989 999 999</a>
                             </li>
                             <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border">
-                                <a href="mailto:info@electro.com" class="u-header-topbar__nav-link"><i class="ec ec-mail mr-1"></i> info@electro.com</a>
+                                <a href="mailto:info@electro.com" class="u-header-topbar__nav-link"><i class="ec ec-mail mr-1"></i> trangiangzxc@electro.com</a>
                             </li>
                         </ul>
                     </div>

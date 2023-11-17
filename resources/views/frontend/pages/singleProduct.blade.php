@@ -99,7 +99,10 @@
                                             <small class="fas fa-star"></small>
                                             <small class="far fa-star text-muted"></small>
                                         </div>
-                                        <span class="text-secondary font-size-13">(3 customer reviews)</span>
+                                        <span class="text-secondary font-size-13">(
+                                            {{
+                                             isset($productComments) ? count($productComments) : '0'
+                                            }} customer reviews)</span>
                                     </a>
                                 </div>
                                 <div class="d-md-flex align-items-center">
@@ -185,7 +188,7 @@
                                         data-style="btn-sm bg-white font-weight-normal py-2 border">
                                         @foreach ($colors_quantity as $color)
                                             <option style="color: #{{$color->code}}" value="{{ $color->product_colors_id }}:{{ $color->product_color_quantity }}:{{ $color->color_id }}">
-                                                {   { $color->name }} ({{ $color->product_color_quantity }})
+                                                {{ $color->name }} ({{ $color->product_color_quantity }})
 
                                             </option>
                                         @endforeach

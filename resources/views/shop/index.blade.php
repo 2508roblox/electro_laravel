@@ -346,6 +346,7 @@
                                                         <div class="mb-2">
                                                             <a href="{{ route('frontend.category.show', ['product_slug' => $product->slug]) }} "
                                                                 class="d-block text-center"><img class="img-fluid"
+                                                                style="max-height: 175px !important"
                                                                     src="{{ $product->image_url ? asset('storage/' . $product->image_url) : asset('client/img/212X200/img2.jpg') }}"
                                                                     alt="Image Description"></a>
                                                         </div>
@@ -532,6 +533,7 @@
                                                     <div class="mb-2">
                                                         <a href="{{ route('frontend.category.show', ['product_slug' => $product->slug]) }}"
                                                             class="d-block text-center"><img class="img-fluid"
+                                                            style="max-height: 175px !important"
                                                                 src="{{ $product->image_url ? asset('storage/' . $product->image_url) : asset('client/img/212X200/img2.jpg') }}"
                                                                 alt="Image Description"></a>
                                                     </div>
@@ -595,6 +597,7 @@
                                                     <div class="mb-2">
                                                         <a href="{{ route('frontend.category.show', ['product_slug' => $product->slug]) }}"
                                                             class="d-block text-center"><img class="img-fluid"
+                                                            style="max-height: 175px !important"
                                                                 src="{{ $product->image_url ? asset('storage/' . $product->image_url) : asset('client/img/212X200/img2.jpg') }}"
                                                                 alt="Image Description"></a>
                                                     </div>
@@ -664,7 +667,7 @@
                                                     <div class="mb-2">
                                                         <a href="{{ route('frontend.category.show', ['product_slug' => $product->slug]) }}"
                                                             class="d-block text-center"><img class="img-fluid"
-                                                                style="height: 170px"
+                                                                style="height: 170px; max-height: 175px !important"
                                                                 src="{{ $product->image_url ? asset('storage/' . $product->image_url) : asset('client/img/212X200/img2.jpg') }}"
                                                                 alt="Image Description"></a>
                                                     </div>
@@ -775,6 +778,7 @@
                                                     <div class="mb-2">
                                                         <a href="{{ route('frontend.category.show', ['product_slug' => $product->slug]) }}"
                                                             class="d-block text-center"><img class="img-fluid"
+                                                            style="max-height: 175px !important"
                                                                 src="{{ $product->image_url ? asset('storage/' . $product->image_url) : asset('client/img/212X200/img2.jpg') }}"
                                                                 alt="Image Description"></a>
                                                     </div>
