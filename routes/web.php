@@ -38,6 +38,7 @@ use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductColorController;
 use App\Http\Controllers\Admin\GitActivityController;
+use App\Http\Controllers\Admin\InfomationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\OtpController;
@@ -212,6 +213,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/github/2508roblox', 'a2508roblox')->name('admin.github.2508roblox');
         Route::get('/github/tranlehuyhoang', 'tranlehuyhoang')->name('admin.github.tranlehuyhoang');
         Route::get('/github/huutai2312', 'huutai2312')->name('admin.github.huutai2312');
+    });
+    Route::controller(InfomationController::class)->group(function () {
+        Route::get('/infomation/soucer', 'index')->name('admin.infomation.soucer');
+        Route::get('/infomation/', 'index')->name('admin.github');
     });
 });
 
