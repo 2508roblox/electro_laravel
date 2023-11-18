@@ -38,27 +38,56 @@
 
                     <div class="mb-10">
                         <div class="border-bottom border-color-1 mb-10">
-                            <h4 class="section-title mb-0 pb-3 font-size-25">1 Comments</h4>
+                            <h4 class="section-title mb-0 pb-3 font-size-25">{{ $blog->comments_count }} Comments</h4>
                         </div>
                         <ol class="nav">
+                            @if($blog->comments)
+                            @foreach($blog->comments->where('status', 'published') as $comment)
                             <li class="w-100 border-bottom pb-6 mb-6 border-color-1">
                                 <!-- Review -->
                                 <div class="d-block d-md-flex media br5left-pd10">
                                     <div class="media-body">
                                         <div class="d-flex">
-                                            <h4 class="font-size-17 font-weight-bold mr-2">John Doe</h4>
-                                            <a href="#" class="text-blue ml-auto">Report</a>
+                                            {{-- <h4 class="font-size-17 font-weight-bold mr-2">{{ $comment->user->name }}</h4> --}}
+                                            @if ($comment->user)
+                                            <h4 class="font-size-17 font-weight-bold mr-2">{{ $comment->user->name }}</h4>
+                                            @else
+                                            <h4 class="font-size-17 font-weight-bold mr-2">Người dùng không tồn tại</h4>
+                                            @endif
+                                            <a class="text-blue ml-auto" onclick="reportComment({{ $comment->id }})">Report</a>
                                         </div>
-                                        <p>Fusce vitae nibh mi. Integer posuere, libero et ullamcorper facilisis, enim eros tincidunt orci, eget vestibulum sapien nisi ut leo. Cras finibus vel est ut mollis. Donec luctus condimentum ante et euismod.</p>
+                                        <p>{{ $comment->content }}</p>
                                         <div class="d-flex">
-                                            <span class="font-size-14">March 16, 2016</span>
+                                            <span class="font-size-14">{{ $comment->created_at->format('F d, Y') }}</span>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- End Review -->
                             </li>
-
+                            @endforeach
+                            @endif
                         </ol>
+
+                        <script>
+                            function reportComment(commentId) {
+                                // Hiển thị cảnh báo
+                                alert("Bạn đã báo cáo comment này!");
+
+                                // Gửi yêu cầu Ajax để cập nhật số lượng report
+                                $.ajax({
+                                    url: "{{ route('reportComment', '') }}" + "/" + commentId
+                                    , method: "GET"
+                                    , success: function(response) {
+                                        // Cập nhật giao diện nếu cần
+                                    }
+                                    , error: function(error) {
+                                        // Xử lý lỗi nếu cần
+                                    }
+                                });
+                            }
+
+                        </script>
+
                     </div>
                     <div class="mb-10">
                         <div class="border-bottom border-color-1 mb-6">
@@ -66,7 +95,7 @@
                         </div>
                         @if(Auth::check())
                         <p class="text-gray-90">Your email address will not be published. Required fields are marked <span class="text-dark">*</span></p>
-                        <form class="js-validate" novalidate="novalidate">
+                        <form class="js-validate" novalidate="novalidate" action="{{ route('storeComment', $blog->id) }}" method="post">
                             @csrf
                             <div class="js-form-message mb-4">
                                 <label class="form-label">

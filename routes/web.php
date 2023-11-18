@@ -323,6 +323,8 @@ Route::prefix('blog')->group(function () {
     Route::controller(BlogController::class)->group(function () {
         Route::get('/', 'index')->name('fe.blog');
         Route::get('/post/{id}', 'post')->name('fe.post');
+        Route::get('/report-comment/{commentId}', 'reportComment')->name('reportComment');
+        Route::post('/store-comment/{blogId}', 'storeComment')->name('storeComment');
     });
 });
 ///// Frontend Routing
