@@ -40,7 +40,6 @@ class LoginController extends Controller
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
                 $ip = $request->header('X-Forwarded-For') ?? $request->ip() ?? $_SERVER['HTTP_CLIENT_IP'];
-
                 // Thêm dòng sau đoạn code đăng nhập thành công
                 $this->recordLoginHistory(Auth::user()->id, $ip );
 
