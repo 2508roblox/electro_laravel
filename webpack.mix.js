@@ -1,0 +1,47 @@
+const mix = require('laravel-mix');
+
+
+mix.scripts([
+    'public/client/vendor/jquery/dist/jquery.min.js',
+    'public/client/vendor/jquery-migrate/dist/jquery-migrate.min.js',
+    'public/client/vendor/popper.js/dist/umd/popper.min.js',
+    'public/client/vendor/bootstrap/bootstrap.min.js',
+    'public/client/vendor/appear.js',
+    'public/client/vendor/jquery.countdown.min.js',
+    'public/client/vendor/hs-megamenu/src/hs.megamenu.js',
+    'public/client/vendor/svg-injector/dist/svg-injector.min.js',
+    'public/client/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
+    'public/client/vendor/jquery-validation/dist/jquery.validate.min.js',
+    'public/client/vendor/fancybox/jquery.fancybox.min.js',
+    'public/client/vendor/typed.js/lib/typed.min.js',
+    'public/client/vendor/slick-carousel/slick/slick.js',
+    'public/client/vendor/bootstrap-select/dist/js/bootstrap-select.min.js',
+    'public/client/js/hs.core.js',
+    'public/client/js/components/hs.countdown.js',
+    'public/client/js/components/hs.header.js',
+    'public/client/js/components/hs.hamburgers.js',
+    'public/client/js/components/hs.unfold.js',
+    'public/client/js/components/hs.focus-state.js',
+    'public/client/js/components/hs.malihu-scrollbar.js',
+    'public/client/js/components/hs.validation.js',
+    'public/client/js/components/hs.range-slider.js',
+    'public/client/js/components/hs.fancybox.js',
+    'public/client/js/components/hs.onscroll-animation.js',
+    'public/client/js/components/hs.slick-carousel.js',
+    'public/client/js/components/hs.show-animation.js',
+    'public/client/js/components/hs.svg-injector.js',
+    'public/client/js/components/hs.go-to.js',
+    'public/client/js/components/hs.selectpicker.js',
+], 'public/js/all.js')
+.styles([
+    'public/client/vendor/font-awesome/css/fontawesome-all.min.css',
+    'public/client/vendor/animate.css/animate.min.css',
+    'public/client/vendor/hs-megamenu/src/hs.megamenu.css',
+    'public/client/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css',
+    'public/client/vendor/fancybox/jquery.fancybox.css',
+    'public/client/vendor/slick-carousel/slick/slick.css',
+    'public/client/vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
+    'public/client/vendor/ion-rangeslider/css/ion.rangeSlider.css',
+    'public/client/css/theme.css',
+], 'public/css/all.css').sourceMaps()
+   .version();

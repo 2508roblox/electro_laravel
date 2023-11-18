@@ -1,8 +1,10 @@
 {
     "private": true,
-    "type": "module",
     "scripts": {
-        "dev": "vite",
+        "dev": "npm run development",
+        "development": "mix",
+        "mix": "mix",
+
         "build": "vite build"
     },
     "devDependencies": {
@@ -15,6 +17,7 @@
         "express": "^4.18.2",
         "fs": "^0.0.1-security",
         "http": "^0.0.1-security",
+        "laravel-mix": "^6.0.49",
         "node-fetch": "^3.3.2",
         "socket.io": "^4.7.2",
         "ws": "^8.14.2"
