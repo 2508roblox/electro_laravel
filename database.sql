@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 18, 2023 lúc 09:31 AM
+-- Thời gian đã tạo: Th10 18, 2023 lúc 11:05 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -48,6 +48,45 @@ CREATE TABLE `blogs` (
 INSERT INTO `blogs` (`id`, `title`, `tag`, `date_time`, `short_description`, `long_description`, `image`, `slug`, `created_at`, `updated_at`, `user_id`) VALUES
 (2, 'Robot Wars', 'Design', '2023-11-02 13:54:53', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.', 'https://transvelo.github.io/electro-html/2.0/assets/img/1500X730/img1.jpg', 'robot-wars', NULL, NULL, 1),
 (3, 'Robot Wars 1', 'Games', '2023-11-02 13:54:53', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.', 'https://transvelo.github.io/electro-html/2.0/assets/img/1500X730/img7.jpg', 'robot-wars-1', NULL, NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `blog_comments`
+--
+
+CREATE TABLE `blog_comments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `blog_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `user_role` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'draft',
+  `ip_address` varchar(255) NOT NULL,
+  `ip_spam` varchar(255) NOT NULL,
+  `report_count` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `blog_comments`
+--
+
+INSERT INTO `blog_comments` (`id`, `blog_id`, `user_id`, `user_role`, `content`, `status`, `ip_address`, `ip_spam`, `report_count`, `created_at`, `updated_at`) VALUES
+(1, 2, 42, '1', 'dhtdrth', 'published', '127.0.0.1', '', '1', '2023-11-18 02:08:53', '2023-11-18 02:33:45'),
+(2, 2, 42, '1', 'dsnbdtn', 'published', '127.0.0.1', '', '3', '2023-11-18 02:08:58', '2023-11-18 02:35:57'),
+(3, 3, 42, '1', 'abcxyz', 'published', '127.0.0.1', '', '0', '2023-11-18 02:29:43', '2023-11-18 02:29:43'),
+(4, 2, 41, '0', 'lksajbvslkvnbosldjkbvrs', 'published', '127.0.0.1', '', '0', '2023-11-18 02:37:25', '2023-11-18 02:37:25'),
+(5, 2, 41, '0', 'fhntyntthmturrc', 'draft', '127.0.0.1', '', '0', '2023-11-18 02:42:17', '2023-11-18 02:42:17'),
+(6, 2, 41, '0', 'unhrb', 'draft', '127.0.0.1', '', '0', '2023-11-18 02:43:23', '2023-11-18 02:43:23'),
+(7, 2, 41, '0', 'tfjmggyj', 'draft', '127.0.0.1', '', '0', '2023-11-18 02:45:15', '2023-11-18 02:45:15'),
+(8, 2, 41, '0', 'lkjbjh', 'draft', '127.0.0.1', '', '0', '2023-11-18 02:45:54', '2023-11-18 02:45:54'),
+(9, 2, 41, '0', 'sdvsdv', 'draft', '127.0.0.1', '', '0', '2023-11-18 02:48:24', '2023-11-18 02:48:24'),
+(10, 2, 41, '0', 'fdbdfxcbf', 'draft', '127.0.0.1', '', '0', '2023-11-18 02:52:12', '2023-11-18 02:52:12'),
+(11, 2, 41, '0', 'sfsfbfsb', 'draft', '127.0.0.1', '', '0', '2023-11-18 02:52:31', '2023-11-18 02:52:31'),
+(12, 2, 42, '1', 'sdvdsfvbdf', 'draft', '127.0.0.1', '', '0', '2023-11-18 03:02:54', '2023-11-18 03:02:54'),
+(13, 2, 42, '1', 'sdvdsfvbdf', 'draft', '127.0.0.1', '', '0', '2023-11-18 03:03:58', '2023-11-18 03:03:58');
 
 -- --------------------------------------------------------
 
@@ -117,7 +156,8 @@ INSERT INTO `carts` (`id`, `user_id`, `product_id`, `product_color_id`, `quantit
 (65, 26, 6, 9, 1, '2023-11-15 00:51:19', '2023-11-15 00:51:19'),
 (66, 1, 11, 20, 1, '2023-11-15 02:02:26', '2023-11-15 02:02:26'),
 (67, 26, 10, 18, 1, '2023-11-16 06:11:41', '2023-11-16 06:11:41'),
-(68, 26, 11, 20, 1, '2023-11-16 06:28:43', '2023-11-16 06:28:43');
+(68, 26, 11, 20, 1, '2023-11-16 06:28:43', '2023-11-16 06:28:43'),
+(72, 42, 1, 3, 1, '2023-11-18 01:38:24', '2023-11-18 01:38:24');
 
 -- --------------------------------------------------------
 
@@ -937,6 +977,14 @@ ALTER TABLE `blogs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `blog_comments`
+--
+ALTER TABLE `blog_comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `blog_comments_blog_id_foreign` (`blog_id`),
+  ADD KEY `blog_comments_user_id_foreign` (`user_id`);
+
+--
 -- Chỉ mục cho bảng `brands`
 --
 ALTER TABLE `brands`
@@ -1107,6 +1155,12 @@ ALTER TABLE `blogs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT cho bảng `blog_comments`
+--
+ALTER TABLE `blog_comments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT cho bảng `brands`
 --
 ALTER TABLE `brands`
@@ -1116,7 +1170,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT cho bảng `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT cho bảng `categories`
@@ -1241,6 +1295,13 @@ ALTER TABLE `wishlists`
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `blog_comments`
+--
+ALTER TABLE `blog_comments`
+  ADD CONSTRAINT `blog_comments_blog_id_foreign` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`),
+  ADD CONSTRAINT `blog_comments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Các ràng buộc cho bảng `carts`

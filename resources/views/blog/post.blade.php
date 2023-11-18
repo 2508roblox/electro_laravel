@@ -23,13 +23,13 @@
                         <div class="card-body pt-5 pb-0 px-0">
                             <div class="d-block d-md-flex flex-center-between mb-4 mb-md-0">
                                 <h4 class="mb-md-3 mb-1">{{ $blog->title }}</h4>
-                                <a href="#" class="font-size-12 text-gray-5 ml-md-4"><i class="far fa-comment"></i> Leave a comment</a>
+                                <a href="#commentblog" class="font-size-12 text-gray-5 ml-md-4"><i class="far fa-comment"></i> Leave a comment</a>
                             </div>
                             <div class="mb-3 pb-3 border-bottom">
                                 <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                                    <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">{{ $blog->tag }}</a>
+                                    <a href="" class="mx-0dot5 text-gray-5">{{ $blog->tag }}</a>
                                     <span class="mx-2 font-size-n5 mt-1 text-gray-5"><i class="fas fa-circle"></i></span>
-                                    <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">{{ $blog->date_time }}</a>
+                                    <a href="" class="mx-0dot5 text-gray-5">{{ $blog->date_time }}</a>
                                 </div>
                             </div>
                             <p>{!! $blog->long_description !!}</p>
@@ -71,7 +71,7 @@
                         <script>
                             function reportComment(commentId) {
                                 // Hiển thị cảnh báo
-                                alert("Bạn đã báo cáo comment này!");
+                                alert("Cảm ơn bạn đã báo cáo comment này!");
 
                                 // Gửi yêu cầu Ajax để cập nhật số lượng report
                                 $.ajax({
@@ -89,12 +89,26 @@
                         </script>
 
                     </div>
-                    <div class="mb-10">
+                    <div class="mb-10" id="commentblog">
                         <div class="border-bottom border-color-1 mb-6">
                             <h4 class="section-title mb-0 pb-3 font-size-25">Leave a Reply</h4>
                         </div>
                         @if(Auth::check())
                         <p class="text-gray-90">Your email address will not be published. Required fields are marked <span class="text-dark">*</span></p>
+                        @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                        @endif
+                        @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
                         <form class="js-validate" novalidate="novalidate" action="{{ route('storeComment', $blog->id) }}" method="post">
                             @csrf
                             <div class="js-form-message mb-4">
@@ -131,16 +145,6 @@
                                     </div>
                                     <!-- End Input -->
                                 </div>
-                                <div class="col-md-12">
-                                    <!-- Input -->
-                                    <div class="js-form-message mb-4">
-                                        <label class="form-label">
-                                            Website
-                                        </label>
-                                        <input type="text" class="form-control" name="website" placeholder="" aria-label="" data-msg="Please enter website name." data-error-class="u-has-error" data-success-class="u-has-success">
-                                    </div>
-                                    <!-- End Input -->
-                                </div>
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary-dark-w px-5">Post Comment</button>
@@ -156,4 +160,5 @@
         </div>
     </div>
 </main>
+
 @endsection
