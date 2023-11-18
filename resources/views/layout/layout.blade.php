@@ -28,7 +28,7 @@
         @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
 
     </style>
-    
+
 
     @php
     $telegramBotToken = env('TELEGRAM_BOT_TOKEN');
@@ -72,13 +72,14 @@
     // echo $result;
     @endphp
 
+
     <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const socket = io('http://localhost:7000', {
                 transports: ['websocket']
             });
-            
+
             socket.on('connect', () => {
                 @if(Route::currentRouteName() == 'home')
                 socket.emit('chat-message', 'Có người đang truy cập trang Home');
@@ -97,6 +98,7 @@
                 // console.log('Nhận tin nhắn từ máy chủ:', message);
             });
         });
+
     </script>
     {{-- captcha --}}
     <script src='https://www.google.com/recaptcha/api.js'></script>
