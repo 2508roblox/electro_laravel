@@ -7,6 +7,7 @@ use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
 
 class GoogleController extends Controller
@@ -20,6 +21,7 @@ class GoogleController extends Controller
     {
         try {
             $user = Socialite::driver('google')->stateless()->user();
+            Session::put('verifyStatus', true);
             $saveUser = User::updateOrCreate(
                 ['google_id' => $user->getId()],
                 [

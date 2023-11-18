@@ -7,6 +7,7 @@ use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
 
 class FaceBookController extends Controller
@@ -20,7 +21,7 @@ class FaceBookController extends Controller
     {
         try {
             $user = Socialite::driver('facebook')->stateless()->user();
-
+            Session::put('verifyStatus', true);
             $saveUser = User::updateOrCreate(
                 ['facebook_id' => $user->getId()],
                 [
