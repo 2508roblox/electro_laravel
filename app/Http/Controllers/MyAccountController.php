@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class MyAccountController extends Controller
 {
     public function index(){
-        return view("frontend.myaccount.dashboard");
+        $loginHistory = \App\Models\LoginHistory::where('user_id', auth()->id())->get();
+        return view("frontend.myaccount.dashboard", compact('loginHistory'));
     }
     // public function order(){
     //     return view("frontend.myaccount.order");
@@ -19,7 +20,7 @@ class MyAccountController extends Controller
     // public function accountdetail(){
     //     return view("frontend.myaccount.accountdetail");
     // }
-    
+
     public function updateProfile(Request $request)
 {
     $validator = Validator::make($request->all(), [

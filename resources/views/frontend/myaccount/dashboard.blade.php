@@ -148,11 +148,15 @@
                 <td>{{ $history->login_time }}</td>
                 </tr>
                 @endforeach --}}
-                @if(isset($loginHistory))
-                {{ dd($loginHistory) }}
-                @else
-                {{ "Biến loginHistory không tồn tại." }}
-                @endif
+
+                        @foreach ($loginHistory as $attribute)
+                        <tr>
+                            <td>{{ $attribute['id'] }}</td>
+                            <td>{{ $attribute['ip_address'] }}</td>
+                            <td>{{ $attribute['created_at'] }}</td>
+                        </tr>
+                        @endforeach
+
             </tbody>
         </table>
 

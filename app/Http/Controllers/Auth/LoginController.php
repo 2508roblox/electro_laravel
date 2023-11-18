@@ -39,9 +39,10 @@ class LoginController extends Controller
             # code...
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
+                $ip = $request->header('X-Forwarded-For') ?? $request->ip() ?? $_SERVER['HTTP_CLIENT_IP'];
 
                 // Thêm dòng sau đoạn code đăng nhập thành công
-                $this->recordLoginHistory(Auth::user()->id, $request->ip());
+                $this->recordLoginHistory(Auth::user()->id, $ip );
 
                 if (Auth::user()->role_as == '1') {
                     return redirect('/admin/dashboard');
