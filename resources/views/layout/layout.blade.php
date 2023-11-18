@@ -14,9 +14,6 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="/cropped-electro-fav-icon-2-32x32.png">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap" rel="stylesheet">
-
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="{{ asset('client/vendor/font-awesome/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('client/css/font-electro.css') }}">
@@ -37,9 +34,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
         @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
-
     </style>
     {{-- captcha --}}
     <script src='https://www.google.com/recaptcha/api.js'></script>

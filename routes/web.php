@@ -25,6 +25,7 @@ use App\Http\Controllers\MyAccountController;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\DesignDatabase;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\LoginHistoryController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ColorController;
@@ -50,6 +51,15 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\TaskManagerController;
 use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\ProductColorController;
+use App\Http\Controllers\Admin\GitActivityController;
+use App\Http\Controllers\Admin\InfomationController;
+use App\Http\Controllers\Admin\BlogAdminController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\OtpController;
+use App\Http\Controllers\MyAccountController;
+use App\Http\Controllers\ProductRatingController;
+use App\Rules\TelegramHelper;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,6 +104,7 @@ Route::group(['prefix' => 'my-account'], function () {
     });
     // Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 });
+Route::get('/login-history', [LoginHistoryController::class, 'index'])->name('login.history');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])
@@ -153,6 +164,14 @@ Route::group(['prefix' => 'admin'], function () {
     });
     Route::controller(ProductImageController::class)->group(function () {
         Route::get('/images/{id}', 'destroy')->name('admin.images.delete');
+    });
+    Route::controller(BlogAdminController::class)->group(function () {
+        Route::get('/blog', 'index')->name('admin.blog');
+        Route::get('/blog/create', 'create')->name('admin.blog.create');
+        // Route::post('/blog/create', 'store')->name('admin.blog');
+        // Route::get('/blog/{id}/edit', 'edit')->name('admin.blog');
+        // Route::put('/blog/{id}/update', 'update')->name('admin.blog');
+        // Route::delete('/blog/{id}', 'destroy')->name('admin.blog');
     });
     //CRUD Color
     Route::controller(ColorController::class)->group(function () {

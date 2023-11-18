@@ -1,4 +1,10 @@
 <footer>
+    <script>
+        var script_font = document.createElement('link');
+        script_font.href = 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap';
+        script_font.setAttribute('rel', 'stylesheet');
+        document.body.appendChild(script_font);
+    </script>
     <!-- Footer-top-widget -->
     <div class="container d-none d-lg-block mb-3 footer-product">
         <div class="row">

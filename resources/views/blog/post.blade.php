@@ -23,13 +23,13 @@
                         <div class="card-body pt-5 pb-0 px-0">
                             <div class="d-block d-md-flex flex-center-between mb-4 mb-md-0">
                                 <h4 class="mb-md-3 mb-1">{{ $blog->title }}</h4>
-                                <a href="#" class="font-size-12 text-gray-5 ml-md-4"><i class="far fa-comment"></i> Leave a comment</a>
+                                <a href="#commentblog" class="font-size-12 text-gray-5 ml-md-4"><i class="far fa-comment"></i> Leave a comment</a>
                             </div>
                             <div class="mb-3 pb-3 border-bottom">
                                 <div class="list-group list-group-horizontal flex-wrap list-group-borderless align-items-center mx-n0dot5">
-                                    <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">{{ $blog->tag }}</a>
+                                    <a href="" class="mx-0dot5 text-gray-5">{{ $blog->tag }}</a>
                                     <span class="mx-2 font-size-n5 mt-1 text-gray-5"><i class="fas fa-circle"></i></span>
-                                    <a href="../blog/single-blog-post.html" class="mx-0dot5 text-gray-5">{{ $blog->date_time }}</a>
+                                    <a href="" class="mx-0dot5 text-gray-5">{{ $blog->date_time }}</a>
                                 </div>
                             </div>
                             <p>{!! $blog->long_description !!}</p>
@@ -42,7 +42,7 @@
                         </div>
                         <ol class="nav">
                             @if($blog->comments)
-                            @foreach($blog->comments->where('status', 'published') as $comment)
+                            @foreach($blog->comments->where('status', 'published')->sortByDesc('created_at') as $comment)
                             <li class="w-100 border-bottom pb-6 mb-6 border-color-1">
                                 <!-- Review -->
                                 <div class="d-block d-md-flex media br5left-pd10">
@@ -54,7 +54,7 @@
                                             @else
                                             <h4 class="font-size-17 font-weight-bold mr-2">Người dùng không tồn tại</h4>
                                             @endif
-                                            <a class="text-blue ml-auto" onclick="reportComment({{ $comment->id }})">Report</a>
+                                            <a class="text-blue ml-auto report-comment" type="button" onclick="reportComment({{ $comment->id }})">Report</a>
                                         </div>
                                         <p>{{ $comment->content }}</p>
                                         <div class="d-flex">
@@ -68,20 +68,38 @@
                             @endif
                         </ol>
 
+                        <!-- Thêm modal Bootstrap -->
+                        <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="reportModalLabel">Thông báo</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- Nội dung modal -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <script>
                             function reportComment(commentId) {
-                                // Hiển thị cảnh báo
-                                alert("Bạn đã báo cáo comment này!");
-
                                 // Gửi yêu cầu Ajax để cập nhật số lượng report
+                                $('#reportModal .modal-body').html('<div class="alert alert-success">Reported!</div>');
+                                $('#reportModal').modal('show');
                                 $.ajax({
                                     url: "{{ route('reportComment', '') }}" + "/" + commentId
                                     , method: "GET"
                                     , success: function(response) {
-                                        // Cập nhật giao diện nếu cần
+                                        // Hiển thị modal "Done" khi thành công
                                     }
                                     , error: function(error) {
-                                        // Xử lý lỗi nếu cần
+                                        // Hiển thị modal lỗi nếu có lỗi
+                                        // $('#reportModal .modal-body').html('<div class="alert alert-danger">Lỗi: ' + error.statusText + '</div>');
+                                        // $('#reportModal').modal('show');
                                     }
                                 });
                             }
@@ -89,12 +107,26 @@
                         </script>
 
                     </div>
-                    <div class="mb-10">
+                    <div class="mb-10" id="commentblog">
                         <div class="border-bottom border-color-1 mb-6">
                             <h4 class="section-title mb-0 pb-3 font-size-25">Leave a Reply</h4>
                         </div>
                         @if(Auth::check())
                         <p class="text-gray-90">Your email address will not be published. Required fields are marked <span class="text-dark">*</span></p>
+                        @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                        @endif
+                        @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
                         <form class="js-validate" novalidate="novalidate" action="{{ route('storeComment', $blog->id) }}" method="post">
                             @csrf
                             <div class="js-form-message mb-4">
@@ -131,16 +163,6 @@
                                     </div>
                                     <!-- End Input -->
                                 </div>
-                                <div class="col-md-12">
-                                    <!-- Input -->
-                                    <div class="js-form-message mb-4">
-                                        <label class="form-label">
-                                            Website
-                                        </label>
-                                        <input type="text" class="form-control" name="website" placeholder="" aria-label="" data-msg="Please enter website name." data-error-class="u-has-error" data-success-class="u-has-success">
-                                    </div>
-                                    <!-- End Input -->
-                                </div>
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary-dark-w px-5">Post Comment</button>
@@ -156,4 +178,5 @@
         </div>
     </div>
 </main>
+
 @endsection
