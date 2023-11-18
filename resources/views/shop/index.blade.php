@@ -245,39 +245,7 @@
                             <button type="submit" class="btn px-4 btn-primary-dark-w py-2 rounded-lg">Filter</button>
                         </div>
                     </div>
-                    <div class="mb-8">
-                        <div class="border-bottom border-color-1 mb-5">
-                            <h3 class="section-title section-title__sm mb-0 pb-2 font-size-18">Latest Products</h3>
-                        </div>
-                        <ul class="list-unstyled">
-                            <li class="mb-4">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <a href=" " class="d-block width-75">
-                                            <img class="img-fluid" src="../../assets/img/300X300/img1.jpg"
-                                                alt="Image Description">
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <h3 class="text-lh-1dot2 font-size-14 mb-0"><a href=" ">Notebook Black Spire
-                                                V Nitro VN7-591G</a></h3>
-                                        <div class="text-warning text-ls-n2 font-size-16 mb-1" style="width: 80px;">
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="fas fa-star"></small>
-                                            <small class="far fa-star text-muted"></small>
-                                        </div>
-                                        <div class="font-weight-bold">
-                                            <del class="font-size-11 text-gray-9 d-block">$2299.00</del>
-                                            <ins class="font-size-15 text-red text-decoration-none d-block">$1999.00</ins>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
+                    
                 </div>
                 <div class="col-xl-9 col-wd-9gdot5">
                     <!-- Recommended Products -->
@@ -889,69 +857,7 @@
                     <!-- End Shop Pagination -->
                 </div>
             </div>
-            <!-- Brand Carousel -->
-            <div class="mb-6">
-                <div class="py-2 border-top border-bottom">
-                    <div class="js-slick-carousel u-slick my-1" data-slides-show="5" data-slides-scroll="1"
-                        data-arrows-classes="d-none d-lg-inline-block u-slick__arrow-normal u-slick__arrow-centered--y"
-                        data-arrow-left-classes="fa fa-angle-left u-slick__arrow-classic-inner--left z-index-9"
-                        data-arrow-right-classes="fa fa-angle-right u-slick__arrow-classic-inner--right"
-                        data-responsive='[{
-                            "breakpoint": 992,
-                            "settings": {
-                                "slidesToShow": 2
-                            }
-                        }, {
-                            "breakpoint": 768,
-                            "settings": {
-                                "slidesToShow": 1
-                            }
-                        }, {
-                            "breakpoint": 554,
-                            "settings": {
-                                "slidesToShow": 1
-                            }
-                        }]'>
-                        <div class="js-slide">
-                            <a href="#" class="link-hover__brand">
-                                <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img1.png"
-                                    alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="js-slide">
-                            <a href="#" class="link-hover__brand">
-                                <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img2.png"
-                                    alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="js-slide">
-                            <a href="#" class="link-hover__brand">
-                                <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img3.png"
-                                    alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="js-slide">
-                            <a href="#" class="link-hover__brand">
-                                <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img4.png"
-                                    alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="js-slide">
-                            <a href="#" class="link-hover__brand">
-                                <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img5.png"
-                                    alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="js-slide">
-                            <a href="#" class="link-hover__brand">
-                                <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img6.png"
-                                    alt="Image Description">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Brand Carousel -->
+            
         </div>
     </main>
 @endsection
