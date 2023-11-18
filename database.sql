@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 18, 2023 lúc 05:23 PM
+-- Thời gian đã tạo: Th10 18, 2023 lúc 08:37 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -75,7 +75,7 @@ CREATE TABLE `blog_comments` (
 --
 
 INSERT INTO `blog_comments` (`id`, `blog_id`, `user_id`, `user_role`, `content`, `status`, `ip_address`, `ip_spam`, `report_count`, `created_at`, `updated_at`) VALUES
-(1, 2, 42, '1', 'dhtdrth', 'published', '127.0.0.1', '', '5', '2023-11-18 02:08:53', '2023-11-18 07:53:03'),
+(1, 2, 42, '1', 'dhtdrth', 'published', '127.0.0.1', '', '6', '2023-11-18 02:08:53', '2023-11-18 11:01:26'),
 (2, 2, 42, '1', 'dsnbdtn', 'published', '127.0.0.1', '', '11', '2023-11-18 02:08:58', '2023-11-18 07:52:58'),
 (3, 3, 42, '1', 'abcxyz', 'published', '127.0.0.1', '', '0', '2023-11-18 02:29:43', '2023-11-18 02:29:43'),
 (4, 2, 41, '0', 'lksajbvslkvnbosldjkbvrs', 'published', '127.0.0.1', '', '2', '2023-11-18 02:37:25', '2023-11-18 07:04:00'),
@@ -87,7 +87,8 @@ INSERT INTO `blog_comments` (`id`, `blog_id`, `user_id`, `user_role`, `content`,
 (10, 2, 41, '0', 'fdbdfxcbf', 'draft', '127.0.0.1', '', '0', '2023-11-18 02:52:12', '2023-11-18 02:52:12'),
 (11, 2, 41, '0', 'sfsfbfsb', 'draft', '127.0.0.1', '', '0', '2023-11-18 02:52:31', '2023-11-18 02:52:31'),
 (12, 2, 42, '1', 'sdvdsfvbdf', 'draft', '127.0.0.1', '', '0', '2023-11-18 03:02:54', '2023-11-18 03:02:54'),
-(13, 2, 42, '1', 'sdvdsfvbdf', 'draft', '127.0.0.1', '', '0', '2023-11-18 03:03:58', '2023-11-18 03:03:58');
+(13, 2, 42, '1', 'sdvdsfvbdf', 'draft', '127.0.0.1', '', '0', '2023-11-18 03:03:58', '2023-11-18 03:03:58'),
+(14, 3, 42, '1', 'lskrbgleikfv', 'draft', '127.0.0.1', '', '0', '2023-11-18 12:07:22', '2023-11-18 12:07:22');
 
 -- --------------------------------------------------------
 
@@ -157,8 +158,7 @@ INSERT INTO `carts` (`id`, `user_id`, `product_id`, `product_color_id`, `quantit
 (65, 26, 6, 9, 1, '2023-11-15 00:51:19', '2023-11-15 00:51:19'),
 (66, 1, 11, 20, 1, '2023-11-15 02:02:26', '2023-11-15 02:02:26'),
 (67, 26, 10, 18, 1, '2023-11-16 06:11:41', '2023-11-16 06:11:41'),
-(68, 26, 11, 20, 1, '2023-11-16 06:28:43', '2023-11-16 06:28:43'),
-(72, 42, 1, 3, 1, '2023-11-18 01:38:24', '2023-11-18 01:38:24');
+(68, 26, 11, 20, 1, '2023-11-16 06:28:43', '2023-11-16 06:28:43');
 
 -- --------------------------------------------------------
 
@@ -309,6 +309,15 @@ CREATE TABLE `login_histories` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `login_histories`
+--
+
+INSERT INTO `login_histories` (`id`, `user_id`, `login_time`, `ip_address`, `status`, `created_at`, `updated_at`) VALUES
+(1, 42, '2023-11-18 18:08:56', '127.0.0.1', 'success', '2023-11-18 11:08:56', '2023-11-18 11:08:56'),
+(2, 42, '2023-11-18 18:44:46', '127.0.0.1', 'success', '2023-11-18 11:44:46', '2023-11-18 11:44:46'),
+(3, 42, '2023-11-18 19:25:44', '127.0.0.1', 'success', '2023-11-18 12:25:44', '2023-11-18 12:25:44');
+
 -- --------------------------------------------------------
 
 --
@@ -366,7 +375,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (38, '2023_11_16_122339_create_product_comments_table', 23),
 (39, '2023_11_16_164426_add_info_account_to_users_table', 24),
 (40, '2023_11_18_041644_create_blog_comments_table', 16),
-(41, '2023_11_18_145638_add_status_to_blogs_table', 16);
+(41, '2023_11_18_145638_add_status_to_blogs_table', 16),
+(42, '2023_11_18_01_add_facebook_id_to_users_table', 25),
+(43, '2023_11_18_113749_add_google_id_to_users_table', 25);
 
 -- --------------------------------------------------------
 
@@ -411,7 +422,8 @@ INSERT INTO `orders` (`id`, `firstname`, `lastname`, `country`, `address`, `city
 (67, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'pending', 'cash', '2023-11-02 08:24:03', '2023-11-02 08:24:03', 1.17, 11, 103.99),
 (68, 'faweg', 'ăegaw', 'AT', 'HCM', 'gaearg', '54336', 'gaweg', 'trangiangzxc@gmail.com', '0589317493', 'pending', 'cash', '2023-11-03 01:04:26', '2023-11-03 01:04:26', 5.99, 11, 532.39),
 (69, 'dfbdfb', 'gvsrg', 'AQ', 'rfgnfdgnsd', 'ẻdbfdfrn', '352463', 'drgnfgfn', 'tester@gmail.com', '435634574357', 'paid', 'wallet', '2023-11-17 10:27:46', '2023-11-17 10:27:46', 104.93, 41, 10597.93),
-(70, 'tai', 'nguyen', 'VN', '34634rgrdsgs', 'dryngfvc', '675567', 'nht', 'nht4646@gmail.com', '0545235634', 'paid', 'wallet', '2023-11-17 11:00:31', '2023-11-17 11:00:31', 1.17, 42, 118.17);
+(70, 'tai', 'nguyen', 'VN', '34634rgrdsgs', 'dryngfvc', '675567', 'nht', 'nht4646@gmail.com', '0545235634', 'paid', 'wallet', '2023-11-17 11:00:31', '2023-11-17 11:00:31', 1.17, 42, 118.17),
+(71, 'tai', 'nguyen', 'VN', '34634rgrdsgs', 'dryngfvc', '675567', 'nht', 'nht4646@gmail.com', '0545235634', 'paid', 'wallet', '2023-11-18 12:04:23', '2023-11-18 12:04:23', 16.55, 42, 1671.55);
 
 -- --------------------------------------------------------
 
@@ -487,7 +499,9 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `product_color_id`, `
 (52, 68, 10, 17, 1, 599, '2023-11-03 01:04:26', '2023-11-03 01:04:26'),
 (53, 69, 5, 7, 4, 1499, '2023-11-17 10:27:46', '2023-11-17 10:27:46'),
 (54, 69, 6, 9, 3, 1499, '2023-11-17 10:27:46', '2023-11-17 10:27:46'),
-(55, 70, 1, 3, 3, 39, '2023-11-17 11:00:31', '2023-11-17 11:00:31');
+(55, 70, 1, 3, 3, 39, '2023-11-17 11:00:31', '2023-11-17 11:00:31'),
+(56, 71, 1, 3, 4, 39, '2023-11-18 12:04:23', '2023-11-18 12:04:23'),
+(57, 71, 6, 9, 1, 1499, '2023-11-18 12:04:23', '2023-11-18 12:04:23');
 
 -- --------------------------------------------------------
 
@@ -648,11 +662,11 @@ CREATE TABLE `product_colors` (
 --
 
 INSERT INTO `product_colors` (`id`, `product_id`, `quantity`, `color_id`, `created_at`, `updated_at`) VALUES
-(3, 1, 2329, 2, '2023-09-28 15:21:44', '2023-11-17 11:00:31'),
+(3, 1, 2325, 2, '2023-09-28 15:21:44', '2023-11-18 12:04:23'),
 (4, 1, 442, 4, '2023-09-28 15:21:44', '2023-09-28 15:21:44'),
 (7, 5, 5, 1, '2023-10-01 14:24:40', '2023-11-17 10:27:46'),
 (8, 5, 21, 2, '2023-10-01 14:24:40', '2023-10-01 14:24:40'),
-(9, 6, 9, 1, '2023-10-01 14:26:44', '2023-11-17 10:27:46'),
+(9, 6, 8, 1, '2023-10-01 14:26:44', '2023-11-18 12:04:23'),
 (10, 6, 100, 4, '2023-10-01 14:26:44', '2023-10-01 14:26:44'),
 (11, 7, 12, 1, '2023-10-01 14:30:18', '2023-10-01 14:30:18'),
 (12, 7, 100, 4, '2023-10-01 14:30:18', '2023-10-01 14:30:18'),
@@ -850,7 +864,8 @@ CREATE TABLE `transaction` (
 INSERT INTO `transaction` (`id`, `wallet_id`, `amount`, `type`, `created_at`, `updated_at`, `status`, `method`) VALUES
 (1, 5, 1000.00, 'deposit', '2023-11-15 09:44:00', '2023-11-15 09:44:00', 'cancle', 'vn_pay'),
 (2, 20, -10597.93, 'withdraw', '2023-11-17 10:27:46', '2023-11-17 10:27:46', 'complete', 'shopping'),
-(3, 21, -118.17, 'withdraw', '2023-11-17 11:00:31', '2023-11-17 11:00:31', 'complete', 'shopping');
+(3, 21, -118.17, 'withdraw', '2023-11-17 11:00:31', '2023-11-17 11:00:31', 'complete', 'shopping'),
+(4, 21, -1671.55, 'withdraw', '2023-11-18 12:04:23', '2023-11-18 12:04:23', 'complete', 'shopping');
 
 -- --------------------------------------------------------
 
@@ -875,37 +890,39 @@ CREATE TABLE `users` (
   `country` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `zipcode` varchar(255) DEFAULT NULL,
-  `phone` int(11) DEFAULT NULL
+  `phone` int(11) DEFAULT NULL,
+  `facebook_id` varchar(255) DEFAULT NULL,
+  `google_id` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `role_as`, `otp`, `lastname`, `firstname`, `companyname`, `country`, `address`, `zipcode`, `phone`) VALUES
-(1, 'giang 123', 'trangiangzxc@gmail.com', '2023-11-13 10:03:47', '$2y$10$cTNRwOh0VEMdB7eDJ5UJjOKKvDWRIEgPRC3UiAI8RwoZwc8h71o8u', NULL, '2023-09-21 23:40:03', '2023-11-17 01:20:43', 1, 439771, 'dfhdg', 'ghjmghf', 'dsjkfhvb', 'china', 'jmdbflaikeed', '3456', 45373547),
-(10, 'Violon', 'fawefa@gaegwg', NULL, '$2y$10$u2Znp2zZv158IA6KkqPAeOlArCX3w5iMf3DHEVyhodU9ptsmmApzS', NULL, '2023-11-02 03:53:34', '2023-11-02 03:53:34', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 'Violon', '1@1', '2023-11-16 11:02:26', '$2y$10$QNG.ESAu5apfxVnH.bs3EeZC49SBIEWDGeVJPJfnp8y/HxCdoZo6q', NULL, '2023-11-02 07:05:47', '2023-11-13 00:14:04', 1, 738193, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 'Violon', 'trangiangzxcz@gmail.com', '2023-11-13 10:03:21', '$2y$10$71rmRnxc/ysIWVcmD5Fl.u6vlw8fFduDnOqKRX3ClDcUDVmH.EtQq', NULL, '2023-11-12 19:19:02', '2023-11-12 19:19:02', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(14, 'awegaw', '2508roaablox@gmail.com', NULL, '$2y$10$8aBwfNZE1eCkJdR2ywma4OyEnlh.3NGfrdzL1GvpXuARKY6zRvbT6', NULL, '2023-11-12 19:39:25', '2023-11-12 19:39:25', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(15, 'awegaw', '250aaa8roaablox@gmail.com', NULL, '$2y$10$83erwsYnjzfUR9D4KIb4nOV5dI2uccUACbJJb.JHbM7dE1UnZEeuK', NULL, '2023-11-12 19:41:20', '2023-11-12 19:41:20', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(16, 'rweawg', 'admaerain1@gaegwg', NULL, '$2y$10$vkzzqEFMgtXHOir2dbLu9.HDVOdW309c2sKATrVqoNintUHPW1RBK', NULL, '2023-11-12 19:42:52', '2023-11-12 19:42:52', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(17, 'gaewg', 'tranaagangzxc@gmail.com', NULL, '$2y$10$tvm/qMK6PlTUcPBB2BGXEul6ruCSlvbk3WDZf65T6G.qzTgohmHHq', NULL, '2023-11-12 19:44:29', '2023-11-12 19:44:29', 0, 731217, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(26, 'Violon', 'giangtlhps26818@fpt.edu.vn', '2023-11-09 08:26:09', '$2y$10$e7gNOWviCwsTYJRAKtd4i.UrA41SGrb5Uw6QsdEH1rSq/qP8L0s7u', NULL, '2023-11-13 00:29:53', '2023-11-16 05:11:54', 0, 717375, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(27, 'fafwe', 'ruw20367@zbock.com', NULL, '$2y$10$Rv64nQOrDAAaLF3KDz7FkONeWkffKUSNjKJrCM7un3sudR.D71ua6', NULL, '2023-11-13 01:04:45', '2023-11-13 01:04:45', 0, 628142, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(28, 'fafwe', 'aqo91086@omeie.com', '2023-11-13 01:07:49', '$2y$10$z6G/a2nz6Ld3VHjv0bd.peJa17lNwUH1VUtHNw1La2e8fkkficNyS', NULL, '2023-11-13 01:05:40', '2023-11-13 01:07:49', 0, 459861, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(29, 'Giang Trần', 'sks40695@omeie.com', '2023-11-13 01:11:39', '$2y$10$gGX4eqtsdpah/vRQH1WVEebLyi59LibJ6nbjpp606D6wYA1NBOkja', NULL, '2023-11-13 01:08:19', '2023-11-13 01:11:39', 0, 958119, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(30, 'kfg00672', 'kfg00672@omeie.com', '2023-11-13 01:42:24', '$2y$10$WHPJsH2L0fIKuCqTNiF0CuKSGFZHtzjiv0Phj5YIFPhbJyrFZR3/6', NULL, '2023-11-13 01:40:25', '2023-11-13 01:42:24', 0, 594667, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(31, 'fawef', 'adminaa1@gaegwg', NULL, '$2y$10$O7H/gaWkqeD9XoQ8S7GU4.BdaEgIuFMMEX5fyn38bOq1sRBScsvo2', NULL, '2023-11-14 04:25:27', '2023-11-14 04:25:27', 0, 288550, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(32, 'giang', 'wqg21278@nezid.com', NULL, '$2y$10$ybplFtfIDEcBX3Y5Yep4guOa4.TIRcfBVsfYqs0kkHP3qw0hUclSy', NULL, '2023-11-15 00:32:53', '2023-11-15 00:32:53', 0, 585090, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(33, 'giang', 'fojovav244@jucatyo.com', NULL, '$2y$10$kYgYgCbezxUUbHKhR2bKPeU3vnwyjBpkSiCFubL6Pt3Fi.z76uDX2', NULL, '2023-11-15 00:34:13', '2023-11-15 00:35:37', 0, 524118, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(35, 'giang', 'epf00196@omeie.com', NULL, '$2y$10$wm3Z0DKp1ebQyVBVVD6.j.ijfG2EMAR8y0WAghZv.LAdkKR3Vu2da', NULL, '2023-11-15 00:56:42', '2023-11-15 00:56:42', 0, 140192, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(36, 'giang', 'bwa91296@nezid.com', NULL, '$2y$10$AaMppZ3PSv8LN9eh0.hd3uwQTZgbYOPqGy9xh1XiOtika7SYIAtsm', NULL, '2023-11-15 01:00:28', '2023-11-15 01:00:28', 0, 434190, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(38, 'Giang Tran', 'jnw61761@nezid.com', NULL, '$2y$10$bUi57Cm7gqMBFEEOyz0etu/qgsaGTF/Y4gW5DVSv05Fzybk5ak5WW', NULL, '2023-11-15 01:56:37', '2023-11-15 01:56:37', 0, 646743, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(39, 'Violon', 'trangiangzx111c@gmail.com', NULL, '$2y$10$7D44LR3UFh9uj4ahzXp42uV7uYU2NSjas4iHbTQLXRi4lnF2sLuaa', NULL, '2023-11-15 06:07:44', '2023-11-15 06:07:44', 0, 627760, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(40, 'Violon', '2509roblox@gmail.com', NULL, '$2y$10$FfA3eB13CLKl1WW6Hvx0POWYzt9r6jFGaOOHPIgJEhtTYLsRaNU0q', NULL, '2023-11-16 05:10:27', '2023-11-16 05:10:42', 0, 153603, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(41, 'Tester', 'tester@gmail.com', '2023-11-17 10:47:15', '$2y$10$c1jRxIxFEKFHswBuzSlQueYaRO8N/UpZ7zi1aOBsxf8CLK/3Nr7.C', NULL, '2023-11-17 02:41:02', '2023-11-17 10:47:15', 0, NULL, 'Test2', 'Test1', 'Electro', 'china', 'Jend', '70000', 93512425),
-(42, 'Tai Nguyen', 'nht4646@gmail.com', '2023-11-17 10:58:27', '$2y$10$HyVVGi3I1QDv0u62x05LBe7H05tRVTmT3Wna9hYReQ9Ac2OQADxXC', NULL, '2023-11-17 10:57:40', '2023-11-17 10:58:27', 1, NULL, 'Nguyễn', 'Tài', 'nht', 'vietnam', '34634rgrdsgs', '675567', 545235634);
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `role_as`, `otp`, `lastname`, `firstname`, `companyname`, `country`, `address`, `zipcode`, `phone`, `facebook_id`, `google_id`) VALUES
+(1, 'giang 123', 'trangiangzxc@gmail.com', '2023-11-13 10:03:47', '$2y$10$cTNRwOh0VEMdB7eDJ5UJjOKKvDWRIEgPRC3UiAI8RwoZwc8h71o8u', NULL, '2023-09-21 23:40:03', '2023-11-17 01:20:43', 1, 439771, 'dfhdg', 'ghjmghf', 'dsjkfhvb', 'china', 'jmdbflaikeed', '3456', 45373547, NULL, NULL),
+(10, 'Violon', 'fawefa@gaegwg', NULL, '$2y$10$u2Znp2zZv158IA6KkqPAeOlArCX3w5iMf3DHEVyhodU9ptsmmApzS', NULL, '2023-11-02 03:53:34', '2023-11-02 03:53:34', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 'Violon', '1@1', '2023-11-16 11:02:26', '$2y$10$QNG.ESAu5apfxVnH.bs3EeZC49SBIEWDGeVJPJfnp8y/HxCdoZo6q', NULL, '2023-11-02 07:05:47', '2023-11-13 00:14:04', 1, 738193, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 'Violon', 'trangiangzxcz@gmail.com', '2023-11-13 10:03:21', '$2y$10$71rmRnxc/ysIWVcmD5Fl.u6vlw8fFduDnOqKRX3ClDcUDVmH.EtQq', NULL, '2023-11-12 19:19:02', '2023-11-12 19:19:02', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 'awegaw', '2508roaablox@gmail.com', NULL, '$2y$10$8aBwfNZE1eCkJdR2ywma4OyEnlh.3NGfrdzL1GvpXuARKY6zRvbT6', NULL, '2023-11-12 19:39:25', '2023-11-12 19:39:25', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 'awegaw', '250aaa8roaablox@gmail.com', NULL, '$2y$10$83erwsYnjzfUR9D4KIb4nOV5dI2uccUACbJJb.JHbM7dE1UnZEeuK', NULL, '2023-11-12 19:41:20', '2023-11-12 19:41:20', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 'rweawg', 'admaerain1@gaegwg', NULL, '$2y$10$vkzzqEFMgtXHOir2dbLu9.HDVOdW309c2sKATrVqoNintUHPW1RBK', NULL, '2023-11-12 19:42:52', '2023-11-12 19:42:52', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 'gaewg', 'tranaagangzxc@gmail.com', NULL, '$2y$10$tvm/qMK6PlTUcPBB2BGXEul6ruCSlvbk3WDZf65T6G.qzTgohmHHq', NULL, '2023-11-12 19:44:29', '2023-11-12 19:44:29', 0, 731217, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(26, 'Violon', 'giangtlhps26818@fpt.edu.vn', '2023-11-09 08:26:09', '$2y$10$e7gNOWviCwsTYJRAKtd4i.UrA41SGrb5Uw6QsdEH1rSq/qP8L0s7u', NULL, '2023-11-13 00:29:53', '2023-11-16 05:11:54', 0, 717375, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(27, 'fafwe', 'ruw20367@zbock.com', NULL, '$2y$10$Rv64nQOrDAAaLF3KDz7FkONeWkffKUSNjKJrCM7un3sudR.D71ua6', NULL, '2023-11-13 01:04:45', '2023-11-13 01:04:45', 0, 628142, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(28, 'fafwe', 'aqo91086@omeie.com', '2023-11-13 01:07:49', '$2y$10$z6G/a2nz6Ld3VHjv0bd.peJa17lNwUH1VUtHNw1La2e8fkkficNyS', NULL, '2023-11-13 01:05:40', '2023-11-13 01:07:49', 0, 459861, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(29, 'Giang Trần', 'sks40695@omeie.com', '2023-11-13 01:11:39', '$2y$10$gGX4eqtsdpah/vRQH1WVEebLyi59LibJ6nbjpp606D6wYA1NBOkja', NULL, '2023-11-13 01:08:19', '2023-11-13 01:11:39', 0, 958119, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(30, 'kfg00672', 'kfg00672@omeie.com', '2023-11-13 01:42:24', '$2y$10$WHPJsH2L0fIKuCqTNiF0CuKSGFZHtzjiv0Phj5YIFPhbJyrFZR3/6', NULL, '2023-11-13 01:40:25', '2023-11-13 01:42:24', 0, 594667, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(31, 'fawef', 'adminaa1@gaegwg', NULL, '$2y$10$O7H/gaWkqeD9XoQ8S7GU4.BdaEgIuFMMEX5fyn38bOq1sRBScsvo2', NULL, '2023-11-14 04:25:27', '2023-11-14 04:25:27', 0, 288550, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(32, 'giang', 'wqg21278@nezid.com', NULL, '$2y$10$ybplFtfIDEcBX3Y5Yep4guOa4.TIRcfBVsfYqs0kkHP3qw0hUclSy', NULL, '2023-11-15 00:32:53', '2023-11-15 00:32:53', 0, 585090, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(33, 'giang', 'fojovav244@jucatyo.com', NULL, '$2y$10$kYgYgCbezxUUbHKhR2bKPeU3vnwyjBpkSiCFubL6Pt3Fi.z76uDX2', NULL, '2023-11-15 00:34:13', '2023-11-15 00:35:37', 0, 524118, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(35, 'giang', 'epf00196@omeie.com', NULL, '$2y$10$wm3Z0DKp1ebQyVBVVD6.j.ijfG2EMAR8y0WAghZv.LAdkKR3Vu2da', NULL, '2023-11-15 00:56:42', '2023-11-15 00:56:42', 0, 140192, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(36, 'giang', 'bwa91296@nezid.com', NULL, '$2y$10$AaMppZ3PSv8LN9eh0.hd3uwQTZgbYOPqGy9xh1XiOtika7SYIAtsm', NULL, '2023-11-15 01:00:28', '2023-11-15 01:00:28', 0, 434190, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(38, 'Giang Tran', 'jnw61761@nezid.com', NULL, '$2y$10$bUi57Cm7gqMBFEEOyz0etu/qgsaGTF/Y4gW5DVSv05Fzybk5ak5WW', NULL, '2023-11-15 01:56:37', '2023-11-15 01:56:37', 0, 646743, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(39, 'Violon', 'trangiangzx111c@gmail.com', NULL, '$2y$10$7D44LR3UFh9uj4ahzXp42uV7uYU2NSjas4iHbTQLXRi4lnF2sLuaa', NULL, '2023-11-15 06:07:44', '2023-11-15 06:07:44', 0, 627760, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(40, 'Violon', '2509roblox@gmail.com', NULL, '$2y$10$FfA3eB13CLKl1WW6Hvx0POWYzt9r6jFGaOOHPIgJEhtTYLsRaNU0q', NULL, '2023-11-16 05:10:27', '2023-11-16 05:10:42', 0, 153603, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(41, 'Tester', 'tester@gmail.com', '2023-11-17 10:47:15', '$2y$10$c1jRxIxFEKFHswBuzSlQueYaRO8N/UpZ7zi1aOBsxf8CLK/3Nr7.C', NULL, '2023-11-17 02:41:02', '2023-11-17 10:47:15', 0, NULL, 'Test2', 'Test1', 'Electro', 'china', 'Jend', '70000', 93512425, NULL, NULL),
+(42, 'Tai Nguyen', 'nht4646@gmail.com', '2023-11-17 10:58:27', '$2y$10$HyVVGi3I1QDv0u62x05LBe7H05tRVTmT3Wna9hYReQ9Ac2OQADxXC', NULL, '2023-11-17 10:57:40', '2023-11-17 10:58:27', 1, NULL, 'Nguyễn', 'Tài', 'nht', 'vietnam', '34634rgrdsgs', '675567', 545235634, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -946,7 +963,7 @@ INSERT INTO `wallets` (`id`, `user_id`, `balance`, `created_at`, `updated_at`) V
 (18, 39, 0.00, '2023-11-15 06:07:49', '2023-11-15 06:07:49'),
 (19, 40, 0.00, '2023-11-16 05:10:31', '2023-11-16 05:10:31'),
 (20, 41, 12000.00, '2023-11-17 02:42:01', '2023-11-17 10:47:15'),
-(21, 42, -118.17, '2023-11-17 10:58:27', '2023-11-17 11:00:31');
+(21, 42, -1789.72, '2023-11-17 10:58:27', '2023-11-18 12:04:23');
 
 -- --------------------------------------------------------
 
@@ -1161,7 +1178,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT cho bảng `blog_comments`
 --
 ALTER TABLE `blog_comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `brands`
@@ -1173,7 +1190,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT cho bảng `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT cho bảng `categories`
@@ -1215,25 +1232,25 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT cho bảng `login_histories`
 --
 ALTER TABLE `login_histories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT cho bảng `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`
@@ -1275,7 +1292,7 @@ ALTER TABLE `sub_categories`
 -- AUTO_INCREMENT cho bảng `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
