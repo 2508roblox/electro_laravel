@@ -45200,7 +45200,7 @@ label.btn {
 
 .svg-preloader {
     z-index: -1;
-    background: transparent url(../svg/preloaders/circle-preloader.svg) center no-repeat !important;
+    /* background: transparent url(../svg/preloaders/circle-preloader.svg) center no-repeat !important; */
     overflow: hidden;
     transition: all 0.4s ease-in;
 }
@@ -47375,7 +47375,7 @@ screen and (-ms-high-contrast: none) {
 }
 
 .u-slick {
-    background: url(../svg/preloaders/circle-preloader.svg) no-repeat 50% 50%;
+    /* background: url(../svg/preloaders/circle-preloader.svg) no-repeat 50% 50%; */
 }
 
 .u-slick .js-next,

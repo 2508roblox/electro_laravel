@@ -138,24 +138,18 @@
                     <th scope="col">#</th>
                     <th scope="col">IP Address</th>
                     <th scope="col">Time</th>
+                    <th scope="col">Not me?</th>
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach($loginHistory as $history)
+                @foreach ($loginHistory as $attribute)
                 <tr>
-                    <th scope="row">{{ $loop->iteration }}</th>
-                <td>{{ $history->ip_address }}</td>
-                <td>{{ $history->login_time }}</td>
+                    <td>{{ $attribute['id'] }}</td>
+                    <td>{{ $attribute['ip_address'] }}</td>
+                    <td>{{ $attribute['created_at'] }}</td>
+                    <td><a href="{{ route('frontend.forgot.view') }}">Reset Password</a></td>
                 </tr>
-                @endforeach --}}
-
-                        @foreach ($loginHistory as $attribute)
-                        <tr>
-                            <td>{{ $attribute['id'] }}</td>
-                            <td>{{ $attribute['ip_address'] }}</td>
-                            <td>{{ $attribute['created_at'] }}</td>
-                        </tr>
-                        @endforeach
+                @endforeach
 
             </tbody>
         </table>

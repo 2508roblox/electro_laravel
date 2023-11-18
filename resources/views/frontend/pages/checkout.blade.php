@@ -5,10 +5,9 @@
 
     <main id="content" role="main" class="checkout-page">
 
-        <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+        {{-- <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
 
         <script>
-            // Kết nối tới máy chủ Socket.IO
             const socket = io('http://localhost:7000');
 
             socket.on('connect', () => {
@@ -23,11 +22,7 @@
             socket.on('disconnect', () => {
                 console.log('Disconnected from server');
             });
-
-            // Gửi một sự kiện từ máy khách tới máy chủ
-
-            // Lắng nghe sự kiện từ máy chủ
-        </script>
+        </script> --}}
 
         <!-- breadcrumb -->
         <div class="bg-gray-13 bg-md-transparent">

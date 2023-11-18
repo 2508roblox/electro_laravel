@@ -10,32 +10,27 @@
     <!-- End Slider Section -->
 
     <div class="container">
-        <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+        {{-- <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                // Kết nối tới máy chủ Socket.IO
                 const socket = io('http://localhost:7000', {
                     transports: ['websocket']
                 });
 
                 socket.on('connect', () => {
-                    console.log('Đã kết nối đến máy chủ');
+                    // console.log('Đã kết nối đến máy chủ');
                     socket.emit('chat-message', 'Có người đang truy cập');
                 });
 
                 socket.on('disconnect', () => {
-                    console.log('Mất kết nối từ máy chủ');
+                    // console.log('Mất kết nối từ máy chủ');
                 });
-
-                // Gửi một sự kiện từ máy khách tới máy chủ
-
-                // Lắng nghe sự kiện từ máy chủ
                 socket.on('chat-message', (message) => {
-                    console.log('Nhận tin nhắn từ máy chủ:', message);
+                    // console.log('Nhận tin nhắn từ máy chủ:', message);
                 });
             });
 
-        </script>
+        </script> --}}
         <!-- Banner -->
         <div class="mb-5">
             <div class="row">

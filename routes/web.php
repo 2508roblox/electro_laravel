@@ -67,6 +67,7 @@ use App\Http\Controllers\Admin\BlogAdminController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 */
+Route::get('/', [FrontendController::class, 'index'])->middleware(['localization'])->name('home');
 
 Route::get('change-language/{language}', function (string $language) {
     if (!in_array($language, ['en', 'es', 'vi'])) {
@@ -76,7 +77,6 @@ Route::get('change-language/{language}', function (string $language) {
     return redirect()->back();
 })->name('change-language');
 
-Route::get('/', [FrontendController::class, 'index'])->middleware(['localization'])->name('home');
 
 // access for guest
 Route::group(['prefix' => 'auth'], function () {
