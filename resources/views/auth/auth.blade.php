@@ -236,12 +236,12 @@
 
                             <!-- Login Buttons -->
                             <div class="d-flex  " style="margin-bottom: 2rem">
-                                <a class="btn btn-block btn-sm btn-soft-facebook transition-3d-hover mr-1" href="#">
+                                <a class="btn btn-block btn-sm btn-soft-facebook transition-3d-hover mr-1" href="{{ route('facebook.login') }}">
                                     <span class="fab fa-facebook-square mr-1"></span>
                                     Facebook
                                 </a>
                                 <a class="btn btn-block btn-sm btn-soft-google transition-3d-hover ml-1 mt-0"
-                                    href="#">
+                                    href="{{route('google.login')}}">
                                     <span class="fab fa-google mr-1"></span>
                                     Google
                                 </a>

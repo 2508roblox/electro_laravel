@@ -21,6 +21,8 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'facebook_id',
+        'google_id',
         'password',
         'otp',
         'role_as',
@@ -53,11 +55,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    public function getWishlistByUserId () 
+    public function getWishlistByUserId ()
     {
         return $this->hasMany(Wishlist::class, 'user_id', 'id');
     }
-    
+
     public function wallet()
     {
         return $this->hasOne(Wallet::class, 'user_id', 'id');

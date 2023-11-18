@@ -9,7 +9,9 @@
         "barryvdh/laravel-dompdf": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
+        "laravel/jetstream": "^4.1",
         "laravel/sanctum": "^3.2",
+        "laravel/socialite": "^5.10",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
         "mews/captcha": "^3.3"
