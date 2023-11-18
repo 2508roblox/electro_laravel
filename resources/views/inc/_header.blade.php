@@ -7,9 +7,9 @@
                 <div class="flex-content-center">
                     <div class="font-size-13">
                         <ul class="list-inline mb-0">
-                            <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border"><a class="text-gray-90" title="30 days free return" href="#">30 DAYS FREE RETURN</a></li>
-                            <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border"><a class="text-gray-90" title="FREE SHIPPING  FOR OVER $40" href="#">FREE SHIPPING FOR OVER $40</a></li>
-                            <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border"><a class="text-gray-90" title="BEST WORLDWIDE DELIVERY" href="#">BEST WORLDWIDE DELIVERY</a></li>
+                            <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border"><a class="text-gray-90" title="30 days free return" href="#">{{ __('free_return') }} </a></li>
+                            <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border"><a class="text-gray-90" title="FREE SHIPPING  FOR OVER $40" href="#">{{ __('free_shipping') }} </a></li>
+                            <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border"><a class="text-gray-90" title="BEST WORLDWIDE DELIVERY" href="#">{{ __('best_delivery') }} </a></li>
                         </ul>
                     </div>
                 </div>
@@ -154,65 +154,65 @@
                                                 <ul id="headerSidebarList" class="u-header-collapse__nav">
                                                     <li class="u-has-submenu">
                                                         <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{ route("home") }}" aria-expanded="false" aria-controls="headerSidebarHomeCollapse" data-target="">
-                                                            Home
+                                                             {{__('home')}}
                                                         </a>
 
                                                     </li>
 
                                                     <li class="u-has-submenu">
                                                         <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{ route("fe.shop") }}" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                            Shop
+                                                             {{__('shop')}}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
                                                         <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{ route("fe.blog") }}" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                            Blog
+                                                             {{__('blog')}}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
                                                         <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="#" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                            Cart
+                                                             {{__('cart')}}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
                                                         <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{route('frontend.wishlist.list')}}" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                            Wishlist
+                                                             {{__('wishlist')}}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
                                                         <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="#" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                            Order
+                                                             {{__('order')}}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
                                                         <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{ route("frontend.myaccount.dashboard") }}" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                            Profile
+                                                             {{__('profile')}}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
                                                         <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="#" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                            Features
+                                                             {{__('features')}}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
                                                         <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="#" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                            About Us
+                                                             {{__('about_us')}}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
                                                         <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{route('frontend.contact.view')}}" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                            Contact Us
+                                                            {{__('contact_us')}}
                                                         </a>
                                                     </li>
-                                                   
+
                                                     <!-- End Blog Pages -->
                                                 </ul>
                                                 <!-- End List -->
@@ -232,7 +232,7 @@
                             @csrf
                             <label class="sr-only" for="searchproduct">Search</label>
                             <div class="input-group border-bottom shadow-none placeholder-1 border-bottom-gray-18">
-                                <input type="text" class="form-control p-1 height-35 text-gray-90 shadow-none font-size-14 border-0 rounded-0 bg-transparent" name="text" id="searchproduct-item" placeholder="Search for products" aria-label="Search for products" aria-describedby="searchProduct1" required>
+                                <input type="text" class="form-control p-1 height-35 text-gray-90 shadow-none font-size-14 border-0 rounded-0 bg-transparent" name="text" id="searchproduct-item" placeholder="{{__('search_products')}}" aria-label="Search for products" aria-describedby="searchProduct1" required>
                                 <div class="input-group-append">
                                     <button class="btn btn-primary height-35 p-1 rounded-right-pill" type="button" id="searchProduct1">
                                         <span class="ec ec-search font-size-20"></span>
@@ -306,46 +306,46 @@
                         <ul class="navbar-nav u-header__navbar-nav justify-content-center">
                             <!-- Home -->
                             <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="HomeMegaMenu" class="nav-link u-header__nav-link  " href="{{route('home')}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="HomeSubMenu">Home</a>
+                                <a id="HomeMegaMenu" class="nav-link u-header__nav-link  " href="{{route('home')}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="HomeSubMenu">{{__('home')}}</a>
                             </li>
                             <!-- End Home -->
                             <!-- Pages -->
                             <li class="nav-item hs-has-mega-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut" data-position="left">
-                                <a id="homeMegaMenu" class="nav-link u-header__nav-link  " href="{{route('fe.shop')}}" aria-haspopup="true" aria-expanded="false">Shop</a>
+                                <a id="homeMegaMenu" class="nav-link u-header__nav-link  " href="{{route('fe.shop')}}" aria-haspopup="true" aria-expanded="false">{{__('shop')}}</a>
                             </li>
                             <!-- End Pages -->
 
                             <!-- Blog -->
                             <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{route('fe.blog')}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Blog</a>
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{route('fe.blog')}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">{{__('blog')}}</a>
 
                                 <!-- Blog - Submenu -->
 
                                 <!-- End Submenu -->
                             </li>
                             <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Cart</a>
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">{{__('cart')}}</a>
 
                                 <!-- Blog - Submenu -->
 
                                 <!-- End Submenu -->
                             </li>
                             <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{route('frontend.wishlist.list')}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Wishlist</a>
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{route('frontend.wishlist.list')}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">{{__('wishlist')}}</a>
 
                                 <!-- Blog - Submenu -->
 
                                 <!-- End Submenu -->
                             </li>
                             <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Order</a>
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">{{__('order')}}</a>
 
                                 <!-- Blog - Submenu -->
 
                                 <!-- End Submenu -->
                             </li>
                             <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{ route("frontend.myaccount.dashboard") }}" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Profile</a>
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{ route("frontend.myaccount.dashboard") }}" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">{{__('profile')}}</a>
 
                                 <!-- Blog - Submenu -->
 
@@ -355,19 +355,19 @@
 
                             <!-- Features -->
                             <li class="nav-item u-header__nav-item">
-                                <a class="nav-link u-header__nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-labelledby="featuresSubMenu">Features</a>
+                                <a class="nav-link u-header__nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-labelledby="featuresSubMenu">{{__('features')}}</a>
                             </li>
                             <!-- End Features -->
 
                             <!-- About Us -->
                             <li class="nav-item u-header__nav-item">
-                                <a class="nav-link u-header__nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-labelledby="AboutUsSubMenu">About Us</a>
+                                <a class="nav-link u-header__nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-labelledby="AboutUsSubMenu">{{__('about_us')}}</a>
                             </li>
                             <!-- End About Us -->
 
                             <!-- Contact Us -->
                             <li class="nav-item u-header__nav-item">
-                                <a class="nav-link u-header__nav-link" href="{{route('frontend.contact.view')}}" aria-haspopup="true" aria-expanded="false">Contact Us</a>
+                                <a class="nav-link u-header__nav-link" href="{{route('frontend.contact.view')}}" aria-haspopup="true" aria-expanded="false">{{__('contact_us')}}</a>
                             </li>
                             <!-- End Contact Us -->
                         </ul>

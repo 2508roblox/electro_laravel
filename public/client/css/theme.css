@@ -21510,7 +21510,7 @@ button:focus {
     right: 0;
     left: 0;
     width: 100%;
-    z-index: 1001;
+    z-index: 1;
 }
 
 .u-header__section {

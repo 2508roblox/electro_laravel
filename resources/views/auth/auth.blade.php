@@ -45,26 +45,26 @@
 
         <div class="container">
             <div class="mb-4">
-                <h1 class="text-center">My Account</h1>
+                <h1 class="text-center">{{ __('welcome') }}</h1>
             </div>
             <div class="my-4 my-xl-8">
                 <div class="row">
                     <div class="col-md-5 ml-xl-auto mr-md-auto mr-xl-0 mb-8 mb-md-0">
                         <!-- Title -->
                         <div class="border-bottom border-color-1 mb-6">
-                            <h3 class="d-inline-block section-title mb-0 pb-2 font-size-26">Login</h3>
+                            <h3 class="d-inline-block section-title mb-0 pb-2 font-size-26">{{ __('login') }}</h3>
                         </div>
-                        <p class="text-gray-90 mb-4">Welcome back! Sign in to your account.</p>
+                        <p class="text-gray-90 mb-4">{{ __('welcome_back') }}</p>
                         <!-- End Title -->
                         <form class="js-validate" method="POST" action="{{ route('login.post') }}" novalidate="novalidate">
                             @csrf
                             <!-- Form Group -->
                             <div class="js-form-message form-group">
-                                <label class="form-label" for="signinSrEmailExample3">Username or Email address
+                                <label class="form-label" for="signinSrEmailExample3">{{ __('username_or_email') }}
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input type="email" class="form-control" name="email" id="signinSrEmailExample3"
-                                    placeholder="Username or Email address" aria-label="Username or Email address" required
+                                    placeholder="{{ __('username_or_email') }}" aria-label="Username or Email address" required
                                     data-msg="Please enter a valid email address." data-error-class="u-has-error"
                                     data-success-class="u-has-success">
                             </div>
@@ -72,10 +72,10 @@
 
                             <!-- Form Group -->
                             <div class="js-form-message form-group">
-                                <label class="form-label" for="signinSrPasswordExample2">Password <span
+                                <label class="form-label" for="signinSrPasswordExample2">{{ __('password') }} <span
                                         class="text-danger">*</span></label>
                                 <input type="password" class="form-control" name="password" id="signinSrPasswordExample2"
-                                    placeholder="Password" aria-label="Password" required
+                                    placeholder="{{ __('password') }}" aria-label="Password" required
                                     data-msg="Your password is invalid. Please try again." data-error-class="u-has-error"
                                     data-success-class="u-has-success">
                             </div>
@@ -119,10 +119,10 @@
                     <div class="col-md-5 ml-md-auto ml-xl-0 mr-xl-auto">
                         <!-- Title -->
                         <div class="border-bottom border-color-1 mb-6">
-                            <h3 class="d-inline-block section-title mb-0 pb-2 font-size-26">Register</h3>
+                            <h3 class="d-inline-block section-title mb-0 pb-2 font-size-26">{{ __('register') }}</h3>
                         </div>
                         <header class="text-center mb-7">
-                            <h2 class="h4 mb-0">Welcome to Electro.</h2>
+                            <h2 class="h4 mb-0">{{ __('welcome_electro') }}</h2>
                             <p>Fill out the form to get started.</p>
                         </header>
                         <!-- End Title -->

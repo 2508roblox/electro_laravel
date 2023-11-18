@@ -4,15 +4,18 @@ use App\Models\Product;
 use App\Models\ProductColor;
 use App\Rules\TelegramHelper;
 use App\Livewire\Admin\Brand\Index;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OtpController;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FaceBookController;
@@ -47,7 +50,6 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\TaskManagerController;
 use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\ProductColorController;
-use App\Http\Controllers\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,12 +61,19 @@ use App\Http\Controllers\GoogleController;
 | be assigned to the "web" middleware group. Make something great!
 */
 
+Route::get('change-language/{language}', function (string $language) {
+    if (!in_array($language, ['en', 'es', 'vi'])) {
+        abort(400);
+    }
+    Session::put('my_locale', $language);
+    return redirect()->back();
+})->name('change-language');
 
-Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('/', [FrontendController::class, 'index'])->middleware(['localization'])->name('home');
 
 // access for guest
 Route::group(['prefix' => 'auth'], function () {
-    Route::middleware(['guest'])->group(function () {
+    Route::middleware(['guest', 'localization'])->group(function () {
         Route::get('/login', [LoginController::class, 'index'])->name('login');
         Route::post('/login', [LoginController::class, 'login'])->name('login.post');
         Route::get('/register', [RegisterController::class, 'index'])->name('register');
@@ -245,12 +254,12 @@ Route::prefix('facebook')->name('facebook.')->group( function(){
 
 Route::prefix('shop')->group(function () {
     Route::controller(ShopController::class)->group(function () {
-        Route::get('/', 'index')->name('fe.shop');
+        Route::get('/', 'index')->middleware(['localization'])->name('fe.shop');
     });
 });
 Route::prefix('search')->group(function () {
     Route::controller(ShopController::class)->group(function () {
-        Route::get('/', 'search')->name('fe.search');
+        Route::get('/', 'search')->middleware(['localization'])->name('fe.search');
     });
 });
 
@@ -277,31 +286,31 @@ Route::delete('/delete-pcolor', function () {
 });
 
 Route::controller(OtpController::class)->group(function () {
-    Route::get('/verify-email', 'index')->name('frontend.otp.view');
-    Route::post('/verify-email', 'store')->name('frontend.otp.store');
+    Route::get('/verify-email', 'index')->middleware(['localization'])->name('frontend.otp.view');
+    Route::post('/verify-email', 'store')->middleware(['localization'])->name('frontend.otp.store');
 });
 // product rating routes
 Route::controller(ProductRatingController::class)->group(function () {
     Route::post('/product-rating', 'rating')->middleware(['auth', 'verifiedMail'])->name('frontend.product.rating');
 });
 Route::controller(ContactController::class)->group(function () {
-    Route::get('/contact', 'index')->name('frontend.contact.view');
-    Route::post('/contact', 'store')->name('frontend.contact.store');
+    Route::get('/contact', 'index')->middleware(['localization'])->name('frontend.contact.view');
+    Route::post('/contact', 'store')->middleware(['localization'])->name('frontend.contact.store');
 });
 Route::controller(OrderController::class)->group(function () {
-    Route::get('/order', 'index')->middleware(['auth', 'verifiedMail'])->name('frontend.order.list');
+    Route::get('/order', 'index')->middleware(['auth', 'verifiedMail','localization'])->name('frontend.order.list');
     Route::get('/order/{id}/detail', 'show')->name('frontend.order.show');
-    Route::post('/order/add', 'store')->middleware(['auth', 'verifiedMail'])->name('frontend.order.store');
-    Route::put('/order/edit', 'update')->middleware(['auth', 'verifiedMail'])->name('frontend.order.update');
-    Route::get('/order/{id}', 'destroy')->middleware(['auth', 'verifiedMail'])->name('frontend.order.delete');
+    Route::post('/order/add', 'store')->middleware(['auth', 'verifiedMail','localization'])->name('frontend.order.store');
+    Route::put('/order/edit', 'update')->middleware(['auth', 'verifiedMail','localization'])->name('frontend.order.update');
+    Route::get('/order/{id}', 'destroy')->middleware(['auth', 'verifiedMail','localization'])->name('frontend.order.delete');
 });
 Route::controller(CheckoutController::class)->group(function () {
-    Route::get('/checkout', 'index')->name('admin.checkout');
+    Route::get('/checkout', 'index')->middleware(['localization'])->name('admin.checkout');
 
-    Route::post('/checkout/create', 'store')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.store');
-    Route::get('/checkout/{id}/edit', 'edit')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.edit');
-    Route::post('/checkout/{id}/edit', 'update')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.update');
-    Route::delete('/checkout/{id}', 'destroy')->middleware(['auth', 'verifiedMail'])->name('admin.checkout.delete');
+    Route::post('/checkout/create', 'store')->middleware(['auth', 'verifiedMail','localization'])->name('admin.checkout.store');
+    Route::get('/checkout/{id}/edit', 'edit')->middleware(['auth', 'verifiedMail','localization'])->name('admin.checkout.edit');
+    Route::post('/checkout/{id}/edit', 'update')->middleware(['auth', 'verifiedMail','localization'])->name('admin.checkout.update');
+    Route::delete('/checkout/{id}', 'destroy')->middleware(['auth', 'verifiedMail','localization'])->name('admin.checkout.delete');
 });
 // reset password by link generation
 Route::controller(ForgotPasswordController::class)->group(function () {
@@ -320,10 +329,10 @@ Route::controller(WishlistController::class)->group(function () {
     Route::delete('/wishlist/{id}', 'destroy')->middleware(['auth'])->name('frontend.wishlist.delete');
 });
 Route::controller(CartController::class)->group(function () {
-    Route::get('/cart', 'index')->middleware(['auth', 'verifiedMail'])->name('admin.cart.list');
-    Route::post('/cart/add', 'store')->middleware(['auth', 'verifiedMail'])->name('admin.wishlist.store');
-    Route::put('/cart/edit', 'update')->middleware(['auth', 'verifiedMail'])->name('admin.cart.update');
-    Route::get('/cart/{id}', 'destroy')->middleware(['auth', 'verifiedMail'])->name('admin.cart.delete');
+    Route::get('/cart', 'index')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.cart.list');
+    Route::post('/cart/add', 'store')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.wishlist.store');
+    Route::put('/cart/edit', 'update')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.cart.update');
+    Route::get('/cart/{id}', 'destroy')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.cart.delete');
 });
 // Route::controller(CartController::class)->group(function () {
 //     Route::get('/cart', 'index')->name('admin.cart.list');
@@ -349,7 +358,7 @@ Route::post('/transaction/create', [FrontendController::class, 'createTransactio
 Route::get('/checkdeposit', [FrontendController::class, 'checkdeposit'])->middleware(['auth'])->name('frontend.transaction.checkdeposit');
 // wallet
 // show all categories and category's sub categories
-Route::get('/category/{category_slug}', [FrontendController::class, 'showCategories'])->name('frontend.category.list');
-Route::get('/checkpayment', [FrontendController::class, 'checkpayment'])->name('frontend.category.checkpayment');
-Route::get('/category/{category_slug}/{sub_slug}', [FrontendController::class, 'showCategoryProducts'])->name('frontend.category.products');
-Route::get('/{product_slug}', [FrontendController::class, 'showSingleProduct'])->name('frontend.category.show');
+Route::get('/category/{category_slug}', [FrontendController::class, 'showCategories'])->middleware(['localization'])->name('frontend.category.list');
+Route::get('/checkpayment', [FrontendController::class, 'checkpayment'])->middleware(['localization'])->name('frontend.category.checkpayment');
+Route::get('/category/{category_slug}/{sub_slug}', [FrontendController::class, 'showCategoryProducts'])->middleware(['localization'])->name('frontend.category.products');
+Route::get('/{product_slug}', [FrontendController::class, 'showSingleProduct'])->middleware(['localization'])->name('frontend.category.show');
