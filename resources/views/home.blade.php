@@ -4,37 +4,6 @@
 @include('inc/_header')
 <!-- ========== MAIN CONTENT ========== -->
 
-{{-- @php
-$telegramBotToken = env('TELEGRAM_BOT_TOKEN');
-
-$chatId = env('TELEGRAM_CHAT_ID');
-
-$ipAddress = $_SERVER['REMOTE_ADDR'];
-
-$authName = Auth::check() ? Auth::user()->name : "Guest";
-
-$message = "Có người truy cập web: $ipAddress | $authName";
-
-$telegramApiUrl = "https://api.telegram.org/bot$telegramBotToken/sendMessage";
-
-// Dữ liệu gửi đến API
-$data = [
-    'chat_id' => $chatId,
-    'text' => $message,
-];
-
-// cURL để gửi request
-$ch = curl_init($telegramApiUrl);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$result = curl_exec($ch);
-curl_close($ch);
-
-// echo $result;
-@endphp --}}
-
-
 <main id="content" role="main">
     <!-- Slider Section -->
     @include('inc._slider')
@@ -7321,59 +7290,7 @@ curl_close($ch);
             </div>
         </div>
         <!-- End Banner -->
-        <!-- Brand Carousel -->
-        <div class="mb-8">
-            <div class="py-2 border-top border-bottom">
-                <div class="js-slick-carousel u-slick my-1" data-slides-show="5" data-slides-scroll="1" data-arrows-classes="d-none d-lg-inline-block u-slick__arrow-normal u-slick__arrow-centered--y" data-arrow-left-classes="fa fa-angle-left u-slick__arrow-classic-inner--left z-index-9" data-arrow-right-classes="fa fa-angle-right u-slick__arrow-classic-inner--right" data-responsive='[{
-                                "breakpoint": 992,
-                                "settings": {
-                                    "slidesToShow": 2
-                                }
-                            }, {
-                                "breakpoint": 768,
-                                "settings": {
-                                    "slidesToShow": 1
-                                }
-                            }, {
-                                "breakpoint": 554,
-                                "settings": {
-                                    "slidesToShow": 1
-                                }
-                            }]'>
-                    <div class="js-slide">
-                        <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="{{asset('client/img/200X60/img1.png')}}" alt="Image Description">
-                        </a>
-                    </div>
-                    <div class="js-slide">
-                        <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="{{asset('client/img/200X60/img2.png')}}" alt="Image Description">
-                        </a>
-                    </div>
-                    <div class="js-slide">
-                        <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="{{asset('client/img/200X60/img3.png')}}" alt="Image Description">
-                        </a>
-                    </div>
-                    <div class="js-slide">
-                        <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="{{asset('client/img/200X60/img4.png')}}" alt="Image Description">
-                        </a>
-                    </div>
-                    <div class="js-slide">
-                        <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="{{asset('client/img/200X60/img5.png')}}" alt="Image Description">
-                        </a>
-                    </div>
-                    <div class="js-slide">
-                        <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="{{asset('client/img/200X60/img6.png')}}" alt="Image Description">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Brand Carousel -->
+
     </div>
 </main>
 
