@@ -105,7 +105,7 @@
 </style>
 
 <h1>Hello <u>{{ Auth::user()->name }}</u>
-    
+
 </h1>
 
 <main>
@@ -130,6 +130,32 @@
         </form>
 
         <p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
+
+        <h2 class="text-center">Recent Activities</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">IP Address</th>
+                    <th scope="col">Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{-- @foreach($loginHistory as $history)
+                <tr>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                <td>{{ $history->ip_address }}</td>
+                <td>{{ $history->login_time }}</td>
+                </tr>
+                @endforeach --}}
+                @if(isset($loginHistory))
+                {{ dd($loginHistory) }}
+                @else
+                {{ "Biến loginHistory không tồn tại." }}
+                @endif
+            </tbody>
+        </table>
+
     </section>
 
     <section id="content2">

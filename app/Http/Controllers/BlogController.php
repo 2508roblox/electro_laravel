@@ -18,18 +18,6 @@ class BlogController extends Controller
         return view('blog.index', compact('blogs'));
     }
 
-    // public function post($id)
-    // {
-    //     // Truy vấn blog dựa trên ID
-    //     $blog = Blog::find($id);
-
-    //     // if (!$blog) {
-    //     //     abort(404);
-    //     // }
-
-    //     return view('blog.post', compact('blog'));
-    // }
-
     public function post($id)
     {
         $blog = Blog::with('comments.user')->find($id);
@@ -96,4 +84,5 @@ class BlogController extends Controller
 
         return redirect()->back();
     }
+    
 }

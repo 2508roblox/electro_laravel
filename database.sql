@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 18, 2023 lúc 03:12 PM
+-- Thời gian đã tạo: Th10 18, 2023 lúc 05:23 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -38,16 +38,17 @@ CREATE TABLE `blogs` (
   `slug` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `status` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `blogs`
 --
 
-INSERT INTO `blogs` (`id`, `title`, `tag`, `date_time`, `short_description`, `long_description`, `image`, `slug`, `created_at`, `updated_at`, `user_id`) VALUES
-(2, 'Robot Wars', 'Design', '2023-11-02 13:54:53', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.', 'https://transvelo.github.io/electro-html/2.0/assets/img/1500X730/img1.jpg', 'robot-wars', NULL, NULL, 1),
-(3, 'Robot Wars 1', 'Games', '2023-11-02 13:54:53', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.', 'https://transvelo.github.io/electro-html/2.0/assets/img/1500X730/img7.jpg', 'robot-wars-1', NULL, NULL, 1);
+INSERT INTO `blogs` (`id`, `title`, `tag`, `date_time`, `short_description`, `long_description`, `image`, `slug`, `created_at`, `updated_at`, `user_id`, `status`) VALUES
+(2, 'Robot Wars', 'Design', '2023-11-02 13:54:53', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.', 'https://transvelo.github.io/electro-html/2.0/assets/img/1500X730/img1.jpg', 'robot-wars', NULL, NULL, 1, 'published'),
+(3, 'Robot Wars 1', 'Games', '2023-11-02 13:54:53', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.', 'https://transvelo.github.io/electro-html/2.0/assets/img/1500X730/img7.jpg', 'robot-wars-1', NULL, NULL, 1, 'published');
 
 -- --------------------------------------------------------
 
@@ -74,8 +75,8 @@ CREATE TABLE `blog_comments` (
 --
 
 INSERT INTO `blog_comments` (`id`, `blog_id`, `user_id`, `user_role`, `content`, `status`, `ip_address`, `ip_spam`, `report_count`, `created_at`, `updated_at`) VALUES
-(1, 2, 42, '1', 'dhtdrth', 'published', '127.0.0.1', '', '4', '2023-11-18 02:08:53', '2023-11-18 07:04:34'),
-(2, 2, 42, '1', 'dsnbdtn', 'published', '127.0.0.1', '', '10', '2023-11-18 02:08:58', '2023-11-18 07:04:26'),
+(1, 2, 42, '1', 'dhtdrth', 'published', '127.0.0.1', '', '5', '2023-11-18 02:08:53', '2023-11-18 07:53:03'),
+(2, 2, 42, '1', 'dsnbdtn', 'published', '127.0.0.1', '', '11', '2023-11-18 02:08:58', '2023-11-18 07:52:58'),
 (3, 3, 42, '1', 'abcxyz', 'published', '127.0.0.1', '', '0', '2023-11-18 02:29:43', '2023-11-18 02:29:43'),
 (4, 2, 41, '0', 'lksajbvslkvnbosldjkbvrs', 'published', '127.0.0.1', '', '2', '2023-11-18 02:37:25', '2023-11-18 07:04:00'),
 (5, 2, 41, '0', 'fhntyntthmturrc', 'draft', '127.0.0.1', '', '0', '2023-11-18 02:42:17', '2023-11-18 02:42:17'),
@@ -363,7 +364,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (36, '2023_11_13_023505_add_otp_to_users_table', 22),
 (37, '2023_11_16_093119_create_login_histories_table', 23),
 (38, '2023_11_16_122339_create_product_comments_table', 23),
-(39, '2023_11_16_164426_add_info_account_to_users_table', 24);
+(39, '2023_11_16_164426_add_info_account_to_users_table', 24),
+(40, '2023_11_18_041644_create_blog_comments_table', 16),
+(41, '2023_11_18_145638_add_status_to_blogs_table', 16);
 
 -- --------------------------------------------------------
 
@@ -1218,7 +1221,7 @@ ALTER TABLE `login_histories`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`

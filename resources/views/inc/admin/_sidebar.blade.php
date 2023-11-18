@@ -94,10 +94,10 @@
                                               </path>
                                           </svg></span></a>
                                   <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
-                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.product.list') }}" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title">Post Create</span></a></li>
-                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.product.create') }}" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title">Post List</span></a></li>
-                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.category.list') }}" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title">Comment List</span></a></li>
-                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.subcategory.list') }}" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title">Comment Draft</span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.blog') }}" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title">Blog Create</span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.blog') }}" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title">Blog List</span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.blog') }}" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title">Comment List</span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.blog') }}" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title">Comment Draft</span></a></li>
                                   </ul>
                               </li>
                               <li class="sa-nav__menu-item sa-nav__menu-item--has-icon" data-sa-collapse-item="sa-nav__menu-item--open"><a href="" class="sa-nav__link" data-sa-collapse-trigger=""><span class="sa-nav__icon">

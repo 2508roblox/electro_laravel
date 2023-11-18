@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\LoginHistory;
 use App\Mail\VerifyMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -38,6 +39,10 @@ class LoginController extends Controller
             # code...
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
+
+                // Thêm dòng sau đoạn code đăng nhập thành công
+                $this->recordLoginHistory(Auth::user()->id, $request->ip());
+
                 if (Auth::user()->role_as == '1') {
                     return redirect('/admin/dashboard');
                 } else {
@@ -52,9 +57,22 @@ class LoginController extends Controller
             return redirect('/verify-email');
         }
 
+
+
         return back()->withErrors([
             'message' => 'Email or password is incorrect',
         ])->onlyInput('email');
+    }
+
+    private function recordLoginHistory($userId, $ipAddress)
+    {
+        // Sử dụng model để lưu lịch sử đăng nhập
+        \App\Models\LoginHistory::create([
+            'user_id' => $userId,
+            'login_time' => now(),
+            'ip_address' => $ipAddress,
+            'status' => 'success',
+        ]);
     }
 
     /**
