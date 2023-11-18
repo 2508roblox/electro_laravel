@@ -15,20 +15,11 @@
     <link rel="shortcut icon" href="/cropped-electro-fav-icon-2-32x32.png">
 
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="{{ asset('client/vendor/font-awesome/css/fontawesome-all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('client/css/font-electro.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('client/vendor/animate.css/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('client/vendor/hs-megamenu/src/hs.megamenu.css') }}">
-    <link rel="stylesheet" href="{{ asset('client/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('client/vendor/fancybox/jquery.fancybox.css') }}">
-    <link rel="stylesheet" href="{{ asset('client/vendor/slick-carousel/slick/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('client/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('client/vendor/ion-rangeslider/css/ion.rangeSlider.css') }}">
-    <link rel="stylesheet" href="{{ asset('client/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
     <!-- CSS Electro Template -->
-    <link rel="stylesheet" href="{{ asset('client/css/theme.css') }}">
 
     <!-- CSS W3SChool -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -150,55 +141,8 @@
 
     </style>
     <!-- JS Global Compulsory -->
-    <script src="{{ asset('client/vendor/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('client/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}"></script>
-    <script src="{{ asset('client/vendor/popper.js/dist/umd/popper.min.js') }}"></script>
-    <script src="{{ asset('client/vendor/bootstrap/bootstrap.min.js') }}"></script>
 
-    <!-- JS Implementing Plugins -->
-    <script src="{{ asset('client/vendor/appear.js') }}"></script>
-    <script src="{{ asset('client/vendor/jquery.countdown.min.js') }}"></script>
-    <script src="{{ asset('client/vendor/hs-megamenu/src/hs.megamenu.js') }}"></script>
-    <script src="{{ asset('client/vendor/svg-injector/dist/svg-injector.min.js') }}"></script>
-    <script src="{{ asset('client/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}">
-    </script>
-    <script src="{{ asset('client/vendor/jquery-validation/dist/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('client/vendor/fancybox/jquery.fancybox.min.js') }}"></script>
-    <script src="{{ asset('client/vendor/typed.js/lib/typed.min.js') }}"></script>
-    <script src="{{ asset('client/vendor/slick-carousel/slick/slick.js') }}"></script>
-    <script src="{{ asset('client/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-
-    <!-- JS Electro -->
-    <script src="{{ asset('client/js/hs.core.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.countdown.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.header.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.hamburgers.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.unfold.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.focus-state.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.malihu-scrollbar.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.validation.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.range-slider.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.fancybox.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.onscroll-animation.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.slick-carousel.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.show-animation.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.svg-injector.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.go-to.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.selectpicker.js') }}"></script>
-
-
-
-
-
-
-
-    <!-- JS Implementing Plugins -->
-    <script src="{{ asset('client/vendor/ion-rangeslider/js/ion.rangeSlider.min.js') }}"></script>
-
-    <!-- JS Electro -->
-    <script src="{{ asset('client/js/components/hs.quantity-counter.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.scroll-nav.js') }}"></script>
-    <script src="{{ asset('client/js/components/hs.selectpicker.js') }}"></script>
+    <script src="{{ asset('js/all.js') }}"></script>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
@@ -332,6 +276,8 @@
         });
 
     </script>
+    {{-- font --}}
+   
 </body>
 
 </html>
