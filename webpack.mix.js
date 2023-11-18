@@ -33,6 +33,38 @@ mix.scripts([
     'public/client/js/components/hs.go-to.js',
     'public/client/js/components/hs.selectpicker.js',
 ], 'public/js/all.js')
+mix.scripts([
+    'public/admin/vendor/feather-icons/feather.min.js',
+    'public/admin/vendor/simplebar/simplebar.min.js',
+    'public/admin/vendor/bootstrap/js/bootstrap.bundle.min.js',
+    'public/admin/vendor/highlight.js/highlight.pack.js',
+    'public/admin/vendor/quill/quill.min.js',
+    'public/admin/vendor/air-datepicker/js/datepicker.min.js',
+    'public/admin/vendor/air-datepicker/js/i18n/datepicker.en.js',
+    'public/admin/vendor/select2/js/select2.min.js',
+    'public/admin/vendor/chart.js/chart.min.js',
+    'public/admin/vendor/datatables/js/jquery.dataTables.min.js',
+    'public/admin/vendor/datatables/js/dataTables.bootstrap5.min.js',
+    'public/admin/vendor/nouislider/nouislider.min.js',
+    'public/admin/vendor/fullcalendar/main.min.js',
+    'public/admin/js/stroyka.js',
+    'public/admin/js/custom.js',
+    'public/admin/js/calendar.js',
+    'public/admin/js/demo.js',
+    'public/admin/js/demo-chart-js.js',
+], 'public/js/all-admin.js')
+.styles([
+    'public/admin/vendor/bootstrap/css/bootstrap.ltr.css',
+    'public/admin/vendor/highlight.js/styles/github.css',
+    'public/admin/vendor/simplebar/simplebar.min.css',
+    'public/admin/vendor/quill/quill.snow.css',
+    'public/admin/vendor/air-datepicker/css/datepicker.min.css',
+    'public/admin/vendor/select2/css/select2.min.css',
+    'public/admin/vendor/datatables/css/dataTables.bootstrap5.min.css',
+    'public/admin/vendor/nouislider/nouislider.min.css',
+    'public/admin/vendor/fullcalendar/main.min.css',
+    'public/admin/css/style.css',
+], 'public/css/all-admin.css')
 .styles([
     'public/client/vendor/font-awesome/css/fontawesome-all.min.css',
     'public/client/vendor/animate.css/animate.min.css',
