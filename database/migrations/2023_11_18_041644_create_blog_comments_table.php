@@ -17,9 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('user_role'); // role Admin, Customer, ...
             $table->text('content');
-            $table->string('status'); // trang thái được public hoặc hàng chờ xét duyệt
-            $table->string('is_submit');  // user public comment
-            $table->string('is_deleted'); // user đã xóa
+            $table->string('status')->default('draft'); // trang thái được public hoặc hàng chờ xét duyệt
             $table->string('ip_address');
             $table->string('ip_spam');
             $table->string('report_count'); // sl tick report
