@@ -39657,3 +39657,8 @@ blockquote:not(.blockquote) p {
 /*------------------------------------
   File for your custom SCSS style
 ------------------------------------*/
+.br5left-pd10{
+    border-radius: 5px;
+    border-left: 3px solid var(--yellow);
+    padding-left: 10px;
+}

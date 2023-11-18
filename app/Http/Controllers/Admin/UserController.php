@@ -13,7 +13,7 @@ class UserController extends Controller
     {
         // $users = User::all();
         // return view('admin.user.index', compact('users'));
-        $users = User::with('wallet')->get();
+        $users = User::with('wallet')->orderBy('id', 'DESC')->get();
         return view('admin.user.index', compact('users'));
     }
     
