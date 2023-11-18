@@ -12,10 +12,15 @@ class ProductRatingController extends Controller
     public function rating(Request $request)
     {
         // Lấy dữ liệu từ request
-        $productId = $request->input('product_id');
-        $rating = $request->input('rating');
-        $content = $request->input('content');
+        $validatedData = $request->validate([
+            'product_id' => 'required',
+            'rating' => 'required',
+            'content' => 'required'
+        ]);
 
+        $productId = $validatedData['product_id'];
+        $rating = $validatedData['rating'];
+        $content = $validatedData['content'];
         // Lấy user_id của người dùng hiện tại
         $userId = Auth::id();
 
