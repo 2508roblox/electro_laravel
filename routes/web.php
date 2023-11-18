@@ -2,38 +2,51 @@
 
 use App\Models\Product;
 use App\Models\ProductColor;
+
 use App\Livewire\Admin\Brand\Index;
+
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+
+use Laravel\Socialite\Facades\Socialite;
+
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
-use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\OtpController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\MyAccountController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\FaceBookController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\ProductRatingController;
+use App\Http\Controllers\LoginHistoryController;
+use App\Http\Controllers\ProductImageController;
+
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\RegisterController;
+
 use App\Http\Controllers\Admin\ChatController;
+use App\Http\Controllers\Admin\GitActivityController;
+use App\Http\Controllers\Admin\InfomationController;
 use App\Http\Controllers\Admin\DesignDatabase;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\LoginHistoryController;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ColorController;
-use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\DocumentDatabase;
 use App\Http\Controllers\Admin\GithubController;
 use App\Http\Controllers\Admin\SliderController;
-use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\Admin\ChatGptController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DatabaseController;
 use App\Http\Controllers\Admin\DashboardController;
