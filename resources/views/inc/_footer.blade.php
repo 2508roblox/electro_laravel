@@ -1,10 +1,5 @@
 <footer>
-    <script>
-        var script_font = document.createElement('link');
-        script_font.href = 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap';
-        script_font.setAttribute('rel', 'stylesheet');
-        document.body.appendChild(script_font);
-    </script>
+    
     <!-- Footer-top-widget -->
     <div class="container d-none d-lg-block mb-3 footer-product">
         <div class="row">
@@ -199,9 +194,9 @@
                 <div class="col-lg-5">
                     <div class="mb-6">
                         <a href="#" class="d-inline-block">
-                                <svg version="1.1" x="0px" y="0px" width="156px" height="37px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52">
-                                    <ellipse fill-rule="evenodd" clip-rule="evenodd" fill="#FDD700" cx="170.05" cy="36.341" rx="5.32" ry="5.367"></ellipse>
-                                    <path fill-rule="evenodd" clip-rule="evenodd" fill="#333E48" d="M30.514,0.71c-0.034,0.003-0.066,0.008-0.056,0.056
+                            <svg version="1.1" x="0px" y="0px" width="156px" height="37px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52">
+                                <ellipse fill-rule="evenodd" clip-rule="evenodd" fill="#FDD700" cx="170.05" cy="36.341" rx="5.32" ry="5.367"></ellipse>
+                                <path fill-rule="evenodd" clip-rule="evenodd" fill="#333E48" d="M30.514,0.71c-0.034,0.003-0.066,0.008-0.056,0.056
                                         C30.263,0.995,29.876,1.181,29.79,1.5c-0.148,0.548,0,1.568,0,2.427v36.459c0.265,0.221,0.506,0.465,0.725,0.734h6.187
                                         c0.2-0.25,0.423-0.477,0.669-0.678V1.387C37.124,1.185,36.9,0.959,36.701,0.71H30.514z M117.517,12.731
                                         c-0.232-0.189-0.439-0.64-0.781-0.734c-0.754-0.209-2.039,0-3.121,0h-3.176V4.435c-0.232-0.189-0.439-0.639-0.781-0.733
@@ -236,9 +231,9 @@
                                         c0.404-1.031-0.365-1.502-0.891-2.088c-2.543-2.835-6.66-5.377-11.704-5.137c-6.02,0.288-10.218,3.697-12.484,7.846
                                         c-1.293,2.365-1.951,5.158-1.729,8.408c0.209,3.053,1.191,5.496,2.619,7.508c2.842,4.004,7.385,6.973,13.656,6.377
                                         c5.976-0.568,9.574-3.936,11.816-8.354c-0.141-0.271-0.221-0.604-0.336-0.902C92.929,31.364,90.843,30.485,88.812,29.55z">
-                                    </path>
-                                </svg>
-                            </a>
+                                </path>
+                            </svg>
+                        </a>
                     </div>
                     <div class="mb-4">
                         <div class="row no-gutters">
@@ -254,30 +249,30 @@
                     <div class="mb-4">
                         <h6 class="mb-1 font-weight-bold">Contact info</h6>
                         <address class="">
-                                17 Princess Road, London, Greater London NW1 8JR, UK
-                            </address>
+                            17 Princess Road, London, Greater London NW1 8JR, UK
+                        </address>
                     </div>
                     <div class="my-4 my-md-4">
                         <ul class="list-inline mb-0 opacity-7">
                             <li class="list-inline-item mr-0">
                                 <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#">
-                                        <span class="fab fa-facebook-f btn-icon__inner"></span>
-                                    </a>
+                                    <span class="fab fa-facebook-f btn-icon__inner"></span>
+                                </a>
                             </li>
                             <li class="list-inline-item mr-0">
                                 <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#">
-                                        <span class="fab fa-google btn-icon__inner"></span>
-                                    </a>
+                                    <span class="fab fa-google btn-icon__inner"></span>
+                                </a>
                             </li>
                             <li class="list-inline-item mr-0">
                                 <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#">
-                                        <span class="fab fa-twitter btn-icon__inner"></span>
-                                    </a>
+                                    <span class="fab fa-twitter btn-icon__inner"></span>
+                                </a>
                             </li>
                             <li class="list-inline-item mr-0">
                                 <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#">
-                                        <span class="fab fa-github btn-icon__inner"></span>
-                                    </a>
+                                    <span class="fab fa-github btn-icon__inner"></span>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -338,23 +333,57 @@
                 <div class="mb-3 mb-md-0">© <a href="#" class="font-weight-bold text-gray-90">Electro</a> - All rights Reserved</div>
                 <div class="text-md-right">
                     <span class="d-inline-block bg-white border rounded p-1">
-                            <img class="max-width-5" src="{{asset('client/img/100X60/img1.jpg')}}" alt="Image Description">
-                        </span>
+                        <img class="max-width-5" src="{{asset('client/img/100X60/img1.jpg')}}" alt="Image Description">
+                    </span>
                     <span class="d-inline-block bg-white border rounded p-1">
-                            <img class="max-width-5" src="{{asset('client/img/100X60/img2.jpg')}}" alt="Image Description">
-                        </span>
+                        <img class="max-width-5" src="{{asset('client/img/100X60/img2.jpg')}}" alt="Image Description">
+                    </span>
                     <span class="d-inline-block bg-white border rounded p-1">
-                            <img class="max-width-5" src="{{asset('client/img/100X60/img3.jpg')}}" alt="Image Description">
-                        </span>
+                        <img class="max-width-5" src="{{asset('client/img/100X60/img3.jpg')}}" alt="Image Description">
+                    </span>
                     <span class="d-inline-block bg-white border rounded p-1">
-                            <img class="max-width-5" src="{{asset('client/img/100X60/img4.jpg')}}" alt="Image Description">
-                        </span>
+                        <img class="max-width-5" src="{{asset('client/img/100X60/img4.jpg')}}" alt="Image Description">
+                    </span>
                     <span class="d-inline-block bg-white border rounded p-1">
-                            <img class="max-width-5" src="{{asset('client/img/100X60/img5.jpg')}}" alt="Image Description">
-                        </span>
+                        <img class="max-width-5" src="{{asset('client/img/100X60/img5.jpg')}}" alt="Image Description">
+                    </span>
                 </div>
             </div>
         </div>
     </div>
     <!-- End Footer-copy-right -->
 </footer>
+<script>
+    const autoLoadDuration = 10;
+    const eventList = ["keydown", "mousemove", "wheel", "touchmove", "touchstart", "touchend", "scroll"];
+
+    const autoLoadTimeout = setTimeout(runScripts, autoLoadDuration * 1000);
+
+    eventList.forEach(function(event) {
+        window.addEventListener(event, triggerScripts, {
+            passive: true
+        })
+    });
+
+    function triggerScripts() {
+        runScripts();
+        clearTimeout(autoLoadTimeout);
+        eventList.forEach(function(event) {
+            window.removeEventListener(event, triggerScripts, {
+                passive: true
+            });
+        });
+    }
+
+    function runScripts() {
+        document.querySelectorAll("script[delay]").forEach(function(scriptTag) {
+            scriptTag.setAttribute("src", scriptTag.getAttribute("delay"));
+        });
+    }
+</script>
+<script>
+    var script_font = document.createElement('link');
+    script_font.href = 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap';
+    script_font.setAttribute('rel', 'stylesheet');
+    document.body.appendChild(script_font);
+</script>
