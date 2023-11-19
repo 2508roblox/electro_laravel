@@ -29,6 +29,7 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\LoginHistoryController;
 use App\Http\Controllers\ProductImageController;
+use App\Http\Controllers\RssController;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -117,6 +118,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/order/{id}/mail', 'sendmail')->name('admin.invoice.mail');
         Route::get('/order/{id}/download', 'downloadinvoice')->name('admin.invoice.download');
     });
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/activity-user', 'index2')->name('admin.activity-user.login');
+        Route::get('/activity-user/create', 'create')->name('admin.activity-user.create');
+        Route::post('/activity-user/create', 'store')->name('admin.activity-user.store');
+        Route::get('/activity-user/{id}/edit', 'edit')->name('admin.activity-user.edit');
+        Route::put('/activity-user/{id}/update', 'update')->name('admin.activity-user.update');
+        Route::delete('/activity-user/{id}', 'destroy')->name('admin.activity-user.delete');
+    });
     Route::controller(CouponController::class)->group(function () {
         Route::get('/coupon', 'index')->name('admin.coupon.list');
         Route::get('/coupon/checkdiscount', 'checkdiscount')->name('admin.coupon.checkdiscount');
@@ -196,6 +205,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/slider/{id}', 'destroy')->name('admin.slider.delete');
     });
     // User
+    
     Route::controller(UserController::class)->group(function () {
         Route::get('/user', 'index')->name('admin.user.list');
         Route::get('/user/create', 'create')->name('admin.user.create');
@@ -364,6 +374,7 @@ Route::prefix('blog')->group(function () {
         Route::get('/post/{id}', 'post')->name('fe.post');
         Route::get('/report-comment/{commentId}', 'reportComment')->name('reportComment');
         Route::post('/store-comment/{blogId}', 'storeComment')->name('storeComment');
+        Route::get('/import-rss', [RssController::class, 'importRss'])->name('importRss');
     });
 });
 ///// Frontend Routing

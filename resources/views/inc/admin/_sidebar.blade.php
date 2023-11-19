@@ -101,6 +101,20 @@
                                   </ul>
                               </li>
                               <li class="sa-nav__menu-item sa-nav__menu-item--has-icon" data-sa-collapse-item="sa-nav__menu-item--open"><a href="" class="sa-nav__link" data-sa-collapse-trigger=""><span class="sa-nav__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M8,10c-3.3,0-6,2.7-6,6H0c0-3.2,1.9-6,4.7-7.3C3.7,7.8,3,6.5,3,5c0-2.8,2.2-5,5-5s5,2.2,5,5c0,1.5-0.7,2.8-1.7,3.7c2.8,1.3,4.7,4,4.7,7.3h-2C14,12.7,11.3,10,8,10z M8,2C6.3,2,5,3.3,5,5s1.3,3,3,3s3-1.3,3-3S9.7,2,8,2z">
+                                    </path>
+                                </svg></span>
+                                      </span><span class="sa-nav__title">Activity User</span><span class="sa-nav__arrow"><svg xmlns="http://www.w3.org/2000/svg" width="6" height="9" viewBox="0 0 6 9" fill="currentColor">
+                                              <path d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
+                                              </path>
+                                          </svg></span></a>
+                                  <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
+                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.activity-user.login') }}" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title">Login History</span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.activity-user.login') }}" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title">User Registered</span></a></li>
+                                  </ul>
+                              </li>
+                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon" data-sa-collapse-item="sa-nav__menu-item--open"><a href="" class="sa-nav__link" data-sa-collapse-trigger=""><span class="sa-nav__icon">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="category">
                                               <g fill="white" transform="translate(2 2)">
                                                   <path d="M14.0755097,2.66453526e-15 L17.4614756,2.66453526e-15 C18.8637443,2.66453526e-15 20,1.1458518 20,2.55996321 L20,5.97452492 C20,7.38863633 18.8637443,8.53448813 17.4614756,8.53448813 L14.0755097,8.53448813 C12.673241,8.53448813 11.5369853,7.38863633 11.5369853,5.97452492 L11.5369853,2.55996321 C11.5369853,1.1458518 12.673241,2.66453526e-15 14.0755097,2.66453526e-15" opacity=".4" />

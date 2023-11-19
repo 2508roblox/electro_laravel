@@ -138,28 +138,66 @@
                     <th scope="col">#</th>
                     <th scope="col">IP Address</th>
                     <th scope="col">Time</th>
+                    <th scope="col">Browser</th>
                     <th scope="col">Not me?</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($loginHistory as $attribute)
+                @php
+                $counter = 1;
+                @endphp
+                @foreach ($loginHistory->sortByDesc('created_at') as $attribute)
                 <tr>
-                    <td>{{ $attribute['id'] }}</td>
+                    <td>{{ $counter }}</td>
                     <td>{{ $attribute['ip_address'] }}</td>
                     <td>{{ $attribute['created_at'] }}</td>
+                    <td>-</td>
                     <td><a href="{{ route('frontend.forgot.view') }}">Reset Password</a></td>
                 </tr>
+                @php
+                $counter++;
+                @endphp
                 @endforeach
-
             </tbody>
         </table>
 
     </section>
 
     <section id="content2">
+        @if($loginHistory)
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">IP Address</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Browser</th>
+                    <th scope="col">Not me?</th>
+                </tr>
+            </thead>
+            <tbody>
+                @php
+                $counter = 1;
+                @endphp
+                @foreach ($loginHistory->sortByDesc('created_at') as $attribute)
+                <tr>
+                    <td>{{ $counter }}</td>
+                    <td>{{ $attribute['ip_address'] }}</td>
+                    <td>{{ $attribute['created_at'] }}</td>
+                    <td>-</td>
+                    <td><a href="{{ route('frontend.forgot.view') }}">Reset Password</a></td>
+                </tr>
+                @php
+                $counter++;
+                @endphp
+                @endforeach
+            </tbody>
+        </table>
+        @elseif($condition)
         <p>
             No order has been made yet.
         </p>
+        @endif
     </section>
 
     <section id="content3">

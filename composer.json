@@ -14,7 +14,8 @@
         "laravel/socialite": "^5.10",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
-        "mews/captcha": "^3.3"
+        "mews/captcha": "^3.3",
+        "simplepie/simplepie": "^1.8"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
