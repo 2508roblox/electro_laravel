@@ -67,3 +67,4 @@ Functions
     *   Quản lí email đã gửi và xem chi tiết - Quản lí và xem lại thông tin chi tiết về các email đã gửi
     *   Quản lí source sự án - Quản lí và theo dõi các nguồn tài nguyên và thông tin liên quan đến dự án
     *   Quản lí database và xem chi tiết từng bảng - Quản lí cơ sở dữ liệu và xem thông tin chi tiết từng bảng
+    *   Nhận thông báo khi khách hàng truy cập trang web, bình luận, mua hàng qua Telegram
