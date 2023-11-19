@@ -96,6 +96,8 @@ Route::post('/variants/value/create', function (Request  $request) {
     $firstArray = $wrappedArray[0]; // Lấy mảng con đầu tiên
     $wrappedArrayNew = []; // Mảng để chứa các đối tượng mới
 
+    $wrappedArrayNew = []; // Initialize the new array
+
     foreach ($firstArray as $object) {
         $tempArr = [];
         $tempArr[] = $object;
@@ -111,27 +113,23 @@ Route::post('/variants/value/create', function (Request  $request) {
                         if (isset($wrappedArray[3])) {
                             foreach ($wrappedArray[3] as $lv4) {
                                 $tempArr[] = $lv4;
+                                $wrappedArrayNew[] = $tempArr; // Move this line inside the innermost loop
+                                array_pop($tempArr); // Remove the last element for the next iteration
                             }
                         } else {
                             $wrappedArrayNew[] = $tempArr;
-                            $tempArr = [];
-                            $tempArr[] = $object;
-                            $tempArr[] = $lv2;
-
-
+                            array_pop($tempArr); // Remove the last element for the next iteration
                         }
                     }
+                    array_pop($tempArr); // Remove the last element for the next iteration
                 } else {
                     $wrappedArrayNew[] = $tempArr;
-                    $tempArr = [];
-                    $tempArr[] = $object;
-
+                    array_pop($tempArr); // Remove the last element for the next iteration
                 }
             }
+            array_pop($tempArr); // Remove the last element for the next iteration
         } else {
             $wrappedArrayNew[] = $tempArr;
-            $tempArr = [];
-
         }
     }
 
