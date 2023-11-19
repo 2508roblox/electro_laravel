@@ -5,7 +5,7 @@
         <form action="{{ route('admin.product.store') }}" enctype="multipart/form-data" method="POST"
             class="sa-search sa-search--state--pending">
             @csrf
-
+            <input type="text" name="id" hidden value="{{ $latestProductId }}">
             <div id="top" class="sa-app__body">
                 <div class="mx-sm-2 px-2 px-sm-3 px-xxl-4 pb-6">
                     <div class="container">
@@ -127,6 +127,91 @@
 
                                         </div>
                                     </div>
+                                    <div class="card mt-5">
+                                        <div class="card-body p-5" id="parent-variant">
+                                            <div>
+                                                <label for="variants">Choose Variant:</label>
+                                                <select name="variants" id="variants">
+                                                    @foreach ($variants as $variant)
+                                                        <option value="{{ $variant->id }}">{{ $variant->value }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <button class="createVariantDiv">Create Variant Div</button>
+                                            </div>
+
+                                            <div id="variant-container">
+                                                <!-- Các div con đã tồn tại sẽ được hiển thị ở đây -->
+                                            </div>
+                                            <div id="create-container">
+                                                <!-- Các div con đã tồn tại sẽ được hiển thị ở đây -->
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#parent-variant').on('click', '.createVariantDiv', function(event) {
+                                                event.preventDefault();
+                                                var selectedVariant = $('#variants').val();
+                                                var variantName = $('#variants option:selected').text();
+                                                if ($('#variant-container').find('#' + selectedVariant).length === 0) {
+                                                    var variantDiv = $('<div>').attr('id', selectedVariant).attr('class', 'variant-div');
+                                                    var variantNameElement = $('<h3>').text(variantName);
+                                                    variantDiv.append(variantNameElement);
+                                                    var variantInput = $('<input>').attr('type', 'text').attr('class', 'variantValue').attr(
+                                                        'name', selectedVariant);
+                                                    variantDiv.append(variantInput);
+                                                    var createVariantValueButton = $('<button>').text('Create Variant Value').attr('class',
+                                                        'createVariantValueButton');
+                                                    createVariantValueButton.click(submitChildForm);
+                                                    variantDiv.append(createVariantValueButton);
+                                                    $('#variant-container').append(variantDiv);
+                                                }
+                                            });
+                                            $('#variant-container').on('click', '.createVariantValueButton', function(event) {
+                                                var variantDiv = $(this).closest(this).parent('.variant-div');
+                                                console.log(variantDiv)
+                                                var variantInput = variantDiv.find('.variantValue').last();
+                                                var variantValue = variantInput.val();
+                                                event.preventDefault();
+                                                $(this).prop('disabled', true);
+                                                $.ajax({
+                                                    url: '/variants/value/create',
+                                                    type: 'POST',
+                                                    dataType: 'json',
+                                                    data: {
+                                                        "_token": "{{ csrf_token() }}",
+                                                        "id": variantDiv.attr('id'),
+                                                        "name": variantInput.val(),
+                                                        "product_id": {{ $latestProductId }}
+                                                    },
+                                                    success: function(response) {
+                                                        console.log(response)
+                                                        // Thêm bảng vào phần tử 'create-container'
+                                                        variantInput.prop('disabled', false);
+                                                        variantDiv.find('.createVariantValueButton').prop('disabled', false);
+
+                                                        var newVariantInput = $('<input>').attr('type', 'text').attr('class',
+                                                            'variantValue').attr('name', variantDiv.attr('id'));
+                                                        variantDiv.find('.variantValue').last().after(newVariantInput);
+                                                        variantDiv.find('.variantValue').not(newVariantInput).prop('disabled',
+                                                            true);
+                                                    },
+                                                    error: function(xhr) {
+                                                        // Xử lý lỗi nếu có
+                                                        variantInput.prop('disabled', false);
+                                                        variantDiv.find('.createVariantValueButton').prop('disabled', false);
+                                                    }
+                                                });
+                                            });
+                                            function submitChildForm(event) {
+                                                event.preventDefault();
+                                                // Thực hiện các hành động khi nhấp vào nút "Create Variant Value"
+                                            }
+                                        });
+                                    </script>
                                     <div class="card mt-5">
                                         <div class="card-body p-5">
                                             <div class="mb-5">

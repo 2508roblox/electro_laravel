@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Brand;
 use App\Models\Color;
 use App\Models\Product;
+use App\Models\Variant;
 use App\Models\SubCategory;
 use App\Models\ProductColor;
 use Illuminate\Http\Request;
@@ -55,13 +56,16 @@ class ProductController extends Controller
      */
     public function create()
     {
-
         $categories = SubCategory::all();
         $sub_categories = SubCategory::all();
         $brands = Brand::all();
+        $variants = Variant::all();
         $colors = Color::all();
-        return view('admin.product.create', compact('sub_categories', 'colors', 'brands'));
 
+        $latestProduct = Product::latest('id')->first() ;
+        $latestProductId = $latestProduct->id ?? null;
+        $latestProductId +=  1;
+        return view('admin.product.create', compact('sub_categories', 'colors', 'brands', 'variants', 'latestProductId'));
     }
 
     /**
@@ -69,7 +73,9 @@ class ProductController extends Controller
      */
     public function store(Request $request , SubCategory $sub_category, Product $product)
     {
+        dd($request);
        $validateData  = $request->validate([
+        "id"=> 'required',
         "sub_category_id"=> 'required',
         "name"=> 'required|max:255',
         "slug"=> 'required',

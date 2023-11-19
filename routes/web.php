@@ -2,6 +2,7 @@
 
 use App\Models\Product;
 use App\Models\ProductColor;
+use App\Models\VariantValue;
 use App\Livewire\Admin\Brand\Index;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -18,10 +19,10 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FaceBookController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\WishlistController;
+use Symfony\Component\HttpFoundation\Request;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\DesignDatabase;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\LoginHistoryController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ColorController;
@@ -30,12 +31,15 @@ use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\DocumentDatabase;
 use App\Http\Controllers\Admin\GithubController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\LoginHistoryController;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\Admin\ChatGptController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\VariantController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DatabaseController;
+use App\Http\Controllers\Admin\BlogAdminController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\FileManagerController;
@@ -43,7 +47,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\TaskManagerController;
 use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\ProductColorController;
-use App\Http\Controllers\Admin\BlogAdminController;
+use App\Http\Controllers\Admin\VariantValueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +66,74 @@ Route::get('change-language/{language}', function (string $language) {
     Session::put('my_locale', $language);
     return redirect()->back();
 })->name('change-language');
+Route::post('/variants/value/create', function (Request  $request) {
+    $variantId = $request->input('id');
+    $name = $request->input('name');
+    $productId = $request->input('product_id');
+
+    $variantValue = new VariantValue();
+    $variantValue->variant_id = $variantId;
+    $variantValue->value = $name;
+    $variantValue->product_id = $productId;
+    $variantValue->save();
+    $variantValues = VariantValue::where('product_id', $productId)
+    ->orderBy('variant_id')
+    ->get();
+
+    $mergedArray = [];
+    foreach ($variantValues as $value) {
+        $variantId = $value->variant_id;
+        if (!isset($mergedArray[$variantId])) {
+            $mergedArray[$variantId] = [];
+        }
+        $mergedArray[$variantId][] = $value;
+    }
+    $wrappedArray = [];
+    foreach ($mergedArray as $variantId => $objects) {
+        $wrappedArray[] = $objects;
+    }
+    // handle after group
+    $firstArray = $wrappedArray[0]; // Lấy mảng con đầu tiên
+    $wrappedArrayNew = []; // Mảng để chứa các đối tượng mới
+
+    foreach ($firstArray as $object) {
+        $tempArr = [];
+        $tempArr[] = $object;
+
+        if (isset($wrappedArray[1])) {
+            foreach ($wrappedArray[1] as $lv2) {
+                $tempArr[] = $lv2;
+
+                if (isset($wrappedArray[2])) {
+                    foreach ($wrappedArray[2] as $lv3) {
+                        $tempArr[] = $lv3;
+
+                        if (isset($wrappedArray[3])) {
+                            foreach ($wrappedArray[3] as $lv4) {
+                                $tempArr[] = $lv4;
+                            }
+                        } else {
+                            $wrappedArrayNew[] = $tempArr;
+                            $tempArr = [];
+
+                            $tempArr[] = $object;
+                        }
+                    }
+                } else {
+                    $wrappedArrayNew[] = $tempArr;
+                    $tempArr = [];
+                    $tempArr[] = $object;
+                }
+            }
+        } else {
+            $wrappedArrayNew[] = $tempArr;
+            $tempArr = [];
+            $tempArr[] = $object;
+        }
+    }
+
+return response()->json($wrappedArrayNew, 200);
+});
 
 Route::get('/', [FrontendController::class, 'index'])->middleware(['localization'])->name('home');
 
@@ -120,6 +192,21 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/category/{id}/edit', 'edit')->name('admin.category.edit');
         Route::post('/category/{id}/edit', 'update')->name('admin.category.update');
         Route::delete('/category/{id}', 'destroy')->name('admin.category.delete');
+    });
+    Route::controller(VariantController::class)->group(function () {
+        Route::get('/variants', 'index')->name('admin.variants.list');
+        Route::get('/variants/create', 'create')->name('admin.variants.create');
+        Route::post('/variants/create', 'store')->name('admin.variants.store');
+        Route::get('/variants/{id}/edit', 'edit')->name('admin.variants.edit');
+        Route::post('/variants/{id}/edit', 'update')->name('admin.variants.update');
+        Route::delete('/variants/{id}', 'destroy')->name('admin.variants.delete');
+    });
+    //value
+    Route::controller(VariantValueController::class)->group(function () {
+        Route::get('/variants/value', 'index')->name('admin.value.list');
+        Route::get('/variants/value/create', 'create')->name('admin.value.create');
+        Route::post('/variants/value/create', 'store')->name('admin.value.store');
+
     });
 
     Route::controller(BrandController::class)->group(function () {
