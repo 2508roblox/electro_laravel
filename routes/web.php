@@ -115,20 +115,21 @@ Route::post('/variants/value/create', function (Request  $request) {
                         } else {
                             $wrappedArrayNew[] = $tempArr;
                             $tempArr = [];
-
                             $tempArr[] = $object;
+                            $tempArr[] = $lv2;
+
+
                         }
                     }
                 } else {
                     $wrappedArrayNew[] = $tempArr;
                     $tempArr = [];
-                    $tempArr[] = $object;
+
                 }
             }
         } else {
             $wrappedArrayNew[] = $tempArr;
             $tempArr = [];
-            $tempArr[] = $object;
         }
     }
 

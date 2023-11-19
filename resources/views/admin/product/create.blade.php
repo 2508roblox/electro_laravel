@@ -188,7 +188,93 @@
                                                         "product_id": {{ $latestProductId }}
                                                     },
                                                     success: function(response) {
-                                                        console.log(response)
+  console.log(response);
+
+  var createContainer = document.getElementById('create-container');
+
+  // Tạo bảng
+  var table = document.createElement('table');
+  table.className = 'table';
+
+  // Tạo tiêu đề cột
+  var thead = document.createElement('thead');
+  var headerRow = document.createElement('tr');
+
+  // Lặp qua các variant_id để tạo tiêu đề cột
+  response[0].forEach(function(item) {
+    var variantHeader = document.createElement('th');
+    variantHeader.scope = 'col';
+    variantHeader.innerHTML = 'Variant ' + item.variant_id;
+    headerRow.appendChild(variantHeader);
+  });
+
+  // Tạo tiêu đề cột cho các thông tin khác
+  var valueHeader = document.createElement('th');
+  valueHeader.scope = 'col';
+  valueHeader.innerHTML = 'SKU';
+  headerRow.appendChild(valueHeader);
+
+  var quantityHeader = document.createElement('th');
+  quantityHeader.scope = 'col';
+  quantityHeader.innerHTML = 'Quantity';
+  headerRow.appendChild(quantityHeader);
+
+  var priceHeader = document.createElement('th');
+  priceHeader.scope = 'col';
+  priceHeader.innerHTML = 'Price';
+  headerRow.appendChild(priceHeader);
+
+  var promotionPriceHeader = document.createElement('th');
+  promotionPriceHeader.scope = 'col';
+  promotionPriceHeader.innerHTML = 'Promotion Price';
+  headerRow.appendChild(promotionPriceHeader);
+
+  // Thêm tiêu đề cột vào thead
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Tạo tbody và lặp qua các hàng
+  var tbody = document.createElement('tbody');
+  response.forEach(function(combination) {
+    var row = document.createElement('tr');
+
+    // Lặp qua các mục trong kết hợp
+    combination.forEach(function(item) {
+      var variantCell = document.createElement('td');
+      variantCell.innerHTML = decodeURIComponent(item.value); // Sử dụng giá trị tương ứng trong item
+      row.appendChild(variantCell);
+    });
+
+    // Tạo các ô cho các thông tin khác
+    var valueCell = document.createElement('td');
+    valueCell.innerHTML = 'aaa'; // Thêm giá trị value tương ứng
+
+    var quantityCell = document.createElement('td');
+    quantityCell.innerHTML = ''; // Thêm giá trị quantity tương ứng
+
+    var priceCell = document.createElement('td');
+    priceCell.innerHTML = ''; // Thêm giá trị price tương ứng
+
+    var promotionPriceCell = document.createElement('td');
+    promotionPriceCell.innerHTML = ''; // Thêm giá trị promotion price tương ứng
+
+    // Thêm các ô vào hàng
+    row.appendChild(valueCell);
+    row.appendChild(quantityCell);
+    row.appendChild(priceCell);
+    row.appendChild(promotionPriceCell);
+
+    // Thêm hàng vào tbody
+    tbody.appendChild(row);
+  });
+
+  // Thêm tbody vào bảng
+  table.appendChild(tbody);
+
+  // Thêm bảng vào phần tử có id "create-container"
+  createContainer.innerHTML = '';
+  createContainer.appendChild(table);
+
                                                         // Thêm bảng vào phần tử 'create-container'
                                                         variantInput.prop('disabled', false);
                                                         variantDiv.find('.createVariantValueButton').prop('disabled', false);
