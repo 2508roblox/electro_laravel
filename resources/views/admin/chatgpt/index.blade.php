@@ -4,7 +4,7 @@
         <div class="py-5 py-md-6 my-2 px-5">
             <div class="sa-hero-header">
                 <div class="sa-hero-header__title">
-                    <h1>Chat Gpt</h1>
+                    <h1>Electro AI</h1>
                 </div>
                 <div class="sa-hero-header__controls">
                     <div class="col-auto d-flex " style="justify-content: center">

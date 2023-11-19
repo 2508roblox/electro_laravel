@@ -11,11 +11,8 @@ class InfomationController extends Controller
     {
         return view('admin.infomation.index');
     }
-    public function function()
-    {
-        return view('admin.infomation.function');
-    }
-    public function technology()
+
+    public function assignment()
     {
         $technologies = [
             [
@@ -202,11 +199,6 @@ class InfomationController extends Controller
 
 
         ];
-
-        return view('admin.infomation.technology', compact('technologies'));
-    }
-    public function assignment()
-    {
         return view('admin.infomation.assignment');
     }
 }
