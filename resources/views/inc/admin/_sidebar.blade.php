@@ -732,16 +732,7 @@
                                               </path>
                                           </svg></span></a>
                                   <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
-                                      <li class="sa-nav__menu-item"><a
-                                              href="{{ route('admin.infomation.function', ['id' => 1]) }}"
-                                              class="sa-nav__link"><span
-                                                  class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">function</span></a></li>
-                                      <li class="sa-nav__menu-item"><a
-                                              href="{{ route('admin.infomation.technology', ['id' => 1]) }}"
-                                              class="sa-nav__link"><span
-                                                  class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">technology</span></a></li>
+
                                       <li class="sa-nav__menu-item"><a
                                               href="{{ route('admin.infomation.assignment', ['id' => 1]) }}"
                                               class="sa-nav__link"><span

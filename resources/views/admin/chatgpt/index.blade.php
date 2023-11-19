@@ -4,7 +4,7 @@
         <div class="py-5 py-md-6 my-2 px-5">
             <div class="sa-hero-header">
                 <div class="sa-hero-header__title">
-                    <h1>Chat Gpt</h1>
+                    <h1>Electro AI</h1>
                 </div>
                 <div class="sa-hero-header__controls">
                     <div class="col-auto d-flex " style="justify-content: center">
@@ -45,7 +45,7 @@
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": "Bearer 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"
+                    "Authorization": "Bearer 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"
                 },
                 data: JSON.stringify({
                     "model": "gpt-3.5-turbo",
