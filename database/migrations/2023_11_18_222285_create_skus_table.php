@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('skus', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('sku_code')->unique();
             $table->unsignedBigInteger('product_id');
             $table->integer('original_price');
             $table->integer('promotion_price');
             $table->integer('quantity')->default(0);
             $table->timestamps();
 
-            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

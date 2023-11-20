@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="sa-app__content">
-        <form action="{{ route('admin.product.store') }}" enctype="multipart/form-data" method="POST"
+        <form action="{{ route('admin.product.store') }}" enctype="multipart/form-data" id="create-product-form" method="POST"
             class="sa-search sa-search--state--pending">
             @csrf
             <input type="text" name="id" hidden value="{{ $latestProductId }}">
@@ -22,8 +22,8 @@
                                     <h1 class="h3 m-0">Create Product</h1>
                                 </div>
                                 <div class="col-auto d-flex"><a href="#"
-                                        class="btn btn-secondary me-3">Duplicate</a><button type="submit" href="#"
-                                        class="btn btn-primary">Save</button></div>
+                                        class="btn btn-secondary me-3">Duplicate</a><button id="create-product-button"
+                                        type="submit" href="#" class="btn btn-primary">Save</button></div>
                             </div>
                         </div>
                         <div class="sa-entity-layout"
@@ -145,14 +145,83 @@
                                             <div id="create-container">
                                                 <!-- Các div con đã tồn tại sẽ được hiển thị ở đây -->
                                             </div>
-
                                         </div>
+                                        <button id="create-product-form1"></button>
                                     </div>
-
+                                    <input type="hidden" id="saved-data-input" name="savedData" value="">
                                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                                     <script>
                                         $(document).ready(function() {
-                                            $('#parent-variant').on('click', '.createVariantDiv', function(event) {
+
+                                            $('#create-product-form').on('submit', function(event) {
+  var data = saveData();
+  console.log(data);
+  $.ajax({
+                                                    url: '/skus/create',
+                                                    type: 'POST',
+                                                    dataType: 'json',
+                                                    data: {
+                                                        "_token": "{{ csrf_token() }}",
+                                                        "data":   data,
+                                                        "product_id": {{$latestProductId}}
+                                                    },
+                                                    success: function(response) {
+                                                        console.log(response);
+
+
+                                                    },
+                                                    error: function(xhr) {
+                                                        // Xử lý lỗi nếu có
+
+                                                    }
+                                                });
+});
+function saveData() {
+  var data = [];
+
+  var table = document.getElementById('variants-table');
+  var rows = table.getElementsByTagName('tr');
+  for (var i = 1; i < rows.length; i++) {
+    var row = rows[i];
+    var inputs = row.getElementsByTagName('input');
+    var cellId = row.getElementsByTagName('td');
+    // obj of each
+    var values = {};
+    console.log(cellId[0].id)
+
+    var index = 0;
+    let tempIdArr = []
+    while (index < inputs.length && cellId[index].id) {
+      var id = cellId[index].id;
+      tempIdArr.push(id);
+      index++;
+    }
+    values.variant_value_id = tempIdArr
+    for (var j = 0; j < inputs.length; j++) {
+       switch (j) {
+        case 0:
+        values.sku =inputs[j].value
+            break;
+        case 1:
+        values.quantity =inputs[j].value
+            break;
+        case 2:
+        values.price =inputs[j].value
+            break;
+
+        default:
+        values.promotion =inputs[j].value
+
+            break;
+       }
+    }
+
+
+    data.push(values);
+  }
+
+  return data;
+}                              $('#parent-variant').on('click', '.createVariantDiv', function(event) {
                                                 event.preventDefault();
                                                 var selectedVariant = $('#variants').val();
                                                 var variantName = $('#variants option:selected').text();
@@ -188,92 +257,110 @@
                                                         "product_id": {{ $latestProductId }}
                                                     },
                                                     success: function(response) {
-  console.log(response);
+                                                        console.log(response);
 
-  var createContainer = document.getElementById('create-container');
+                                                        var createContainer = document.getElementById('create-container');
 
-  // Tạo bảng
-  var table = document.createElement('table');
-  table.className = 'table';
+                                                        // Tạo bảng
+                                                        var table = document.createElement('table');
+                                                        table.className = 'table';
+                                                        table.setAttribute("id", "variants-table");
+                                                        // Tạo tiêu đề cột
+                                                        var thead = document.createElement('thead');
+                                                        var headerRow = document.createElement('tr');
 
-  // Tạo tiêu đề cột
-  var thead = document.createElement('thead');
-  var headerRow = document.createElement('tr');
+                                                        // Lặp qua các variant_id để tạo tiêu đề cột
+                                                        response[0].forEach(function(item) {
+                                                            var variantHeader = document.createElement('th');
+                                                            variantHeader.scope = 'col';
+                                                            variantHeader.innerHTML = 'Variant ' + item.variant_id;
+                                                            headerRow.appendChild(variantHeader);
+                                                        });
 
-  // Lặp qua các variant_id để tạo tiêu đề cột
-  response[0].forEach(function(item) {
-    var variantHeader = document.createElement('th');
-    variantHeader.scope = 'col';
-    variantHeader.innerHTML = 'Variant ' + item.variant_id;
-    headerRow.appendChild(variantHeader);
-  });
+                                                        // Tạo tiêu đề cột cho các thông tin khác
+                                                        var valueHeader = document.createElement('th');
+                                                        valueHeader.scope = 'col';
+                                                        valueHeader.innerHTML = 'SKU';
+                                                        headerRow.appendChild(valueHeader);
 
-  // Tạo tiêu đề cột cho các thông tin khác
-  var valueHeader = document.createElement('th');
-  valueHeader.scope = 'col';
-  valueHeader.innerHTML = 'SKU';
-  headerRow.appendChild(valueHeader);
+                                                        var quantityHeader = document.createElement('th');
+                                                        quantityHeader.scope = 'col';
+                                                        quantityHeader.innerHTML = 'Quantity';
+                                                        headerRow.appendChild(quantityHeader);
 
-  var quantityHeader = document.createElement('th');
-  quantityHeader.scope = 'col';
-  quantityHeader.innerHTML = 'Quantity';
-  headerRow.appendChild(quantityHeader);
+                                                        var priceHeader = document.createElement('th');
+                                                        priceHeader.scope = 'col';
+                                                        priceHeader.innerHTML = 'Price';
+                                                        headerRow.appendChild(priceHeader);
 
-  var priceHeader = document.createElement('th');
-  priceHeader.scope = 'col';
-  priceHeader.innerHTML = 'Price';
-  headerRow.appendChild(priceHeader);
+                                                        var promotionPriceHeader = document.createElement('th');
+                                                        promotionPriceHeader.scope = 'col';
+                                                        promotionPriceHeader.innerHTML = 'Promotion Price';
+                                                        headerRow.appendChild(promotionPriceHeader);
 
-  var promotionPriceHeader = document.createElement('th');
-  promotionPriceHeader.scope = 'col';
-  promotionPriceHeader.innerHTML = 'Promotion Price';
-  headerRow.appendChild(promotionPriceHeader);
+                                                        // Thêm tiêu đề cột vào thead
+                                                        thead.appendChild(headerRow);
+                                                        table.appendChild(thead);
 
-  // Thêm tiêu đề cột vào thead
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
+                                                        // Tạo tbody và lặp qua các hàng
+                                                        var tbody = document.createElement('tbody');
+                                                        response.forEach(function(combination) {
+                                                            var row = document.createElement('tr');
 
-  // Tạo tbody và lặp qua các hàng
-  var tbody = document.createElement('tbody');
-  response.forEach(function(combination) {
-    var row = document.createElement('tr');
+                                                            // Lặp qua các mục trong kết hợp
+                                                            combination.forEach(function(item) {
+                                                                var variantCell = document.createElement('td');
+                                                                variantCell.innerHTML = decodeURIComponent(item
+                                                                    .value
+                                                                ); // Sử dụng giá trị tương ứng trong item
+                                                                variantCell.setAttribute("id", item.id);
+                                                                row.appendChild(variantCell);
+                                                            });
 
-    // Lặp qua các mục trong kết hợp
-    combination.forEach(function(item) {
-      var variantCell = document.createElement('td');
-      variantCell.innerHTML = decodeURIComponent(item.value); // Sử dụng giá trị tương ứng trong item
-      row.appendChild(variantCell);
-    });
+                                                            // Tạo các ô cho các thông tin khác
+                                                            // ...
 
-    // Tạo các ô cho các thông tin khác
-    var valueCell = document.createElement('td');
-    valueCell.innerHTML = 'aaa'; // Thêm giá trị value tương ứng
+                                                            // Tạo các ô cho các thông tin khác
+                                                            var valueCell = document.createElement('td');
+                                                            var valueInput = document.createElement('input');
+                                                            valueInput.type = 'text';
+                                                            valueInput.name = 'sku';
+                                                            valueCell.appendChild(valueInput);
 
-    var quantityCell = document.createElement('td');
-    quantityCell.innerHTML = ''; // Thêm giá trị quantity tương ứng
+                                                            var quantityCell = document.createElement('td');
+                                                            var quantityInput = document.createElement('input');
+                                                            quantityInput.type = 'number';
+                                                            quantityInput.name = 'quantity';
+                                                            quantityCell.appendChild(quantityInput);
 
-    var priceCell = document.createElement('td');
-    priceCell.innerHTML = ''; // Thêm giá trị price tương ứng
+                                                            var priceCell = document.createElement('td');
+                                                            var priceInput = document.createElement('input');
+                                                            priceInput.type = 'text';
+                                                            priceInput.name = 'price';
+                                                            priceCell.appendChild(priceInput);
 
-    var promotionPriceCell = document.createElement('td');
-    promotionPriceCell.innerHTML = ''; // Thêm giá trị promotion price tương ứng
+                                                            var promotionPriceCell = document.createElement('td');
+                                                            var promotionPriceInput = document.createElement('input');
+                                                            promotionPriceInput.type = 'text';
+                                                            promotionPriceInput.name = 'promotion_price';
+                                                            promotionPriceCell.appendChild(promotionPriceInput);
 
-    // Thêm các ô vào hàng
-    row.appendChild(valueCell);
-    row.appendChild(quantityCell);
-    row.appendChild(priceCell);
-    row.appendChild(promotionPriceCell);
+                                                            // ...
+                                                            row.appendChild(valueCell);
+                                                            row.appendChild(quantityCell);
+                                                            row.appendChild(priceCell);
+                                                            row.appendChild(promotionPriceCell);
 
-    // Thêm hàng vào tbody
-    tbody.appendChild(row);
-  });
+                                                            // Thêm hàng vào tbody
+                                                            tbody.appendChild(row);
+                                                        });
 
-  // Thêm tbody vào bảng
-  table.appendChild(tbody);
+                                                        // Thêm tbody vào bảng
+                                                        table.appendChild(tbody);
 
-  // Thêm bảng vào phần tử có id "create-container"
-  createContainer.innerHTML = '';
-  createContainer.appendChild(table);
+                                                        // Thêm bảng vào phần tử có id "create-container"
+                                                        createContainer.innerHTML = '';
+                                                        createContainer.appendChild(table);
 
                                                         // Thêm bảng vào phần tử 'create-container'
                                                         variantInput.prop('disabled', false);
@@ -292,6 +379,7 @@
                                                     }
                                                 });
                                             });
+
                                             function submitChildForm(event) {
                                                 event.preventDefault();
                                                 // Thực hiện các hành động khi nhấp vào nút "Create Variant Value"

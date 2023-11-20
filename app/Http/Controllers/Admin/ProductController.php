@@ -73,7 +73,6 @@ class ProductController extends Controller
      */
     public function store(Request $request , SubCategory $sub_category, Product $product)
     {
-        dd($request);
        $validateData  = $request->validate([
         "id"=> 'required',
         "sub_category_id"=> 'required',
@@ -84,7 +83,7 @@ class ProductController extends Controller
         "description"=> 'required',
         "price"=> 'required',
         "promotion_price"=> 'required',
-        "quantity"=> 'nullalbe',
+        "quantity"=> 'nullable',
         "hot"=> 'nullable',
         "status"=> 'required',
         'images.*' => 'required|mimes:pdf,jpg,xlx,csv,png|max:4048',
