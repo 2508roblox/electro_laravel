@@ -18,16 +18,8 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i" />
     <!-- css -->
-    <link rel="stylesheet" href="{{ asset('admin/vendor/bootstrap/css/bootstrap.ltr.css') }}" />
-    <link rel="stylesheet" href="{{ asset('admin/vendor/highlight.js/styles/github.css') }}" />
-    <link rel="stylesheet" href="{{ asset('admin/vendor/simplebar/simplebar.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('admin/vendor/quill/quill.snow.css') }}" />
-    <link rel="stylesheet" href="{{ asset('admin/vendor/air-datepicker/css/datepicker.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('admin/vendor/select2/css/select2.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('admin/vendor/datatables/css/dataTables.bootstrap5.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('admin/vendor/nouislider/nouislider.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('admin/vendor/fullcalendar/main.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('css/all-admin.css') }}" />
     {{-- slider --}}
     {{--  ckeditor --}}
     <script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
@@ -89,25 +81,8 @@
     <!-- sa-app / end -->
     <!-- scripts -->
 
-    <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('admin/vendor/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('admin/vendor/simplebar/simplebar.min.js') }}"></script>
-    <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('admin/vendor/highlight.js/highlight.pack.js') }}"></script>
-    <script src="{{ asset('admin/vendor/quill/quill.min.js') }}"></script>
-    <script src="{{ asset('admin/vendor/air-datepicker/js/datepicker.min.js') }}"></script>
-    <script src="{{ asset('admin/vendor/air-datepicker/js/i18n/datepicker.en.js') }}"></script>
-    <script src="{{ asset('admin/vendor/select2/js/select2.min.js') }}"></script>
-    <script src="{{ asset('admin/vendor/chart.js/chart.min.js') }}"></script>
-    <script src="{{ asset('admin/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('admin/vendor/datatables/js/dataTables.bootstrap5.min.js') }}"></script>
-    <script src="{{ asset('admin/vendor/nouislider/nouislider.min.js') }}"></script>
-    <script src="{{ asset('admin/vendor/fullcalendar/main.min.js') }}"></script>
-    <script src="{{ asset('admin/js/stroyka.js') }}"></script>
-    <script src="{{ asset('admin/js/custom.js') }}"></script>
-    <script src="{{ asset('admin/js/calendar.js') }}"></script>
-    <script src="{{ asset('admin/js/demo.js') }}"></script>
-    <script src="{{ asset('admin/js/demo-chart-js.js') }}"></script>
+
+    <script src="{{ asset('js/all-admin.js') }}"></script>
 </body>
 
 </html>

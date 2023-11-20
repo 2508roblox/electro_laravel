@@ -7,8 +7,12 @@ use Illuminate\Http\Request;
 
 class DocumentDatabase extends Controller
 {
-    public function index()
+    public function sheet()
     {
-        return view('admin.doc.index');
+        return view('admin.doc.sheet');
+    }
+    public function word()
+    {
+        return view('admin.doc.word');
     }
 }

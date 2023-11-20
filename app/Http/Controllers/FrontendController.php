@@ -210,12 +210,12 @@ class FrontendController extends Controller
 
         // Lấy số lượng đánh giá cho mỗi mức độ rating
         $ratingCounts = $productComments->groupBy('rating')->map->count();
-//         dd(
-// $productComments,
-// $averageStars,
-// $ratingCounts
+        //         dd(
+        // $productComments,
+        // $averageStars,
+        // $ratingCounts
 
-//         );
+        //         );
         return view(
             'frontend.pages.singleProduct',
             compact(
@@ -344,26 +344,26 @@ class FrontendController extends Controller
             $userId = Auth::id();
             // protect
 
-        $wallet = Wallet::where('user_id', $userId)->first();
+            $wallet = Wallet::where('user_id', $userId)->first();
 
-        $transactions = Transaction::where('wallet_id', $wallet->id)
-            ->where('status', 'complete')
-            ->get();
+            $transactions = Transaction::where('wallet_id', $wallet->id)
+                ->where('status', 'complete')
+                ->get();
 
-        $totalAmount = $transactions->sum('amount');
+            $totalAmount = $transactions->sum('amount');
 
-        $wallet->balance = $totalAmount;
-        $wallet->save();
+            $wallet->balance = $totalAmount;
+            $wallet->save();
 
-        Session::put('wallet', $totalAmount);
+            Session::put('wallet', $totalAmount);
         } else {
             // withdraw
-           return;
+            return;
         }
         if ($method == 'vn_pay') {
 
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-            $vnp_Returnurl = "http://127.0.0.1:8000/checkdeposit";
+            $vnp_Returnurl = "http://localhost:8000/checkdeposit";
             $vnp_TmnCode = "R3E63P5P"; //Mã website tại VNPAY
             $vnp_HashSecret = "GXDEHIEBSREFTEALNKYBXMKDKVVBEJPC"; //Chuỗi bí mật
 
@@ -373,7 +373,7 @@ class FrontendController extends Controller
             $vnp_Amount = ($amount) * 100 * 24305;
             $vnp_Locale = 'vn';
             $vnp_BankCode = 'NCB';
-            $vnp_IpAddr = 'http://127.0.0.1:8000/checkpayment';
+            $vnp_IpAddr = 'http://localhost:8000/checkpayment';
 
             $inputData = array(
                 "vnp_Version" => "2.1.0",
@@ -451,4 +451,17 @@ class FrontendController extends Controller
             return redirect('/wallet');
         }
     }
+    // public function changeLanguage(Request $request)
+    // {
+    //     $lang = $request->language;
+    //     $language = config('app.locale');
+    //     if ($lang == 'en') {
+    //         $language = 'en';
+    //     }
+    //     if ($lang == 'vi') {
+    //         $language = 'vi';
+    //     }
+    //     Session::put('language', $language);
+    //     return redirect()->back();
+    // }
 }

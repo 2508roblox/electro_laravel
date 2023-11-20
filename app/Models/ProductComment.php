@@ -12,6 +12,9 @@ class ProductComment extends Model
     protected $table = 'product_comments';
     protected $fillable = [
       "product_id",
+      "user_id",
+      "rating",
+      "content",
       "color_id",
       "quantity"
 

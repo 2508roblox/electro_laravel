@@ -163,7 +163,7 @@
                                 </ul>
                             </div>
                             <p>{{ $product->small_description }}.</p>
-                            <p><strong>SKU</strong>: FW511948218</p>
+                            <p><strong>{{ __('sku') }}</strong>: FW511948218</p>
 
 
                             <div class="mb-4">
@@ -177,7 +177,7 @@
                             </div>
                             <div class="border-top border-bottom py-3 mb-4">
                                 <div class="d-flex align-items-center">
-                                    <h6 class="font-size-14 mb-0">Color</h6>
+                                    <h6 class="font-size-17 mb-2">{{ __('color') }}</h6>
                                     <!-- Select -->
                                     <div id="colorPreview" class="rounded-circle"
                                         style="height: 19px; width: 19px;  margin-left: 1rem; background: #{{$colors_quantity[0]->code ?? ''}} "> </div>
@@ -210,7 +210,7 @@
                             </div>
                             <div class="d-md-flex align-items-end mb-3">
                                 <div class="max-width-150 mb-4 mb-md-0">
-                                    <h6 class="font-size-14">Quantity</h6>
+                                    <h6 class="font-size-14"> {{ __('quantity') }}</h6>
                                     <!-- Quantity -->
                                     <div class="border rounded-pill py-2 px-3 border-color-1">
                                         <div class="js-quantity row align-items-center">
@@ -281,7 +281,7 @@
                                 </div>
                                 <div class="ml-md-3">
                                     <a id="addToCartBtn" href="#" class="btn px-5 btn-primary-dark transition-3d-hover"><i
-                                            class="ec ec-add-to-cart mr-2 font-size-20"></i> Add to Cart</a>
+                                            class="ec ec-add-to-cart mr-2 font-size-20"></i>{{ __('add_to_cart') }}</a>
                                 </div>
 
                                 <script>
@@ -333,22 +333,22 @@
                         <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
                             <a class="nav-link active" id="Jpills-one-example1-tab" data-toggle="pill"
                                 href="#Jpills-one-example1" role="tab" aria-controls="Jpills-one-example1"
-                                aria-selected="true">Accessories</a>
+                                aria-selected="true">{{ __('accessories') }}</a>
                         </li>
                         <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
                             <a class="nav-link" id="Jpills-two-example1-tab" data-toggle="pill"
                                 href="#Jpills-two-example1" role="tab" aria-controls="Jpills-two-example1"
-                                aria-selected="false">Description</a>
+                                aria-selected="false">{{ __('description') }}</a>
                         </li>
                         <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
                             <a class="nav-link" id="Jpills-three-example1-tab" data-toggle="pill"
                                 href="#Jpills-three-example1" role="tab" aria-controls="Jpills-three-example1"
-                                aria-selected="false">Specification</a>
+                                aria-selected="false">{{ __('specification') }}</a>
                         </li>
                         <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
                             <a class="nav-link" id="Jpills-four-example1-tab" data-toggle="pill"
                                 href="#Jpills-four-example1" role="tab" aria-controls="Jpills-four-example1"
-                                aria-selected="false">Reviews</a>
+                                aria-selected="false">{{ __('reviews') }}</a>
                         </li>
                     </ul>
                 </div>
@@ -543,7 +543,7 @@
                                 </li>
                                 <li class="nav-item text-gray-111 mx-3 flex-shrink-0 flex-xl-shrink-1">/</li>
                                 <li class="nav-item text-gray-111 flex-shrink-0 flex-xl-shrink-1">
-                                    <strong>Category:</strong> <a href="#" class="text-blue">Headphones</a>
+                                    <strong>{{ __('category') }}:</strong> <a href="#" class="text-blue">Headphones</a>
                                 </li>
                                 <li class="nav-item text-gray-111 mx-3 flex-shrink-0 flex-xl-shrink-1">/</li>
                                 <li class="nav-item text-gray-111 flex-shrink-0 flex-xl-shrink-1"><strong>Tags:</strong> <a
@@ -1227,69 +1227,7 @@ ratingInputs.forEach(input => {
                 </ul>
             </div>
             <!-- End Related products -->
-            <!-- Brand Carousel -->
-            <div class="mb-8">
-                <div class="py-2 border-top border-bottom">
-                    <div class="js-slick-carousel u-slick my-1" data-slides-show="5" data-slides-scroll="1"
-                        data-arrows-classes="d-none d-lg-inline-block u-slick__arrow-normal u-slick__arrow-centered--y"
-                        data-arrow-left-classes="fa fa-angle-left u-slick__arrow-classic-inner--left z-index-9"
-                        data-arrow-right-classes="fa fa-angle-right u-slick__arrow-classic-inner--right"
-                        data-responsive='[{
-                            "breakpoint": 992,
-                            "settings": {
-                                "slidesToShow": 2
-                            }
-                        }, {
-                            "breakpoint": 768,
-                            "settings": {
-                                "slidesToShow": 1
-                            }
-                        }, {
-                            "breakpoint": 554,
-                            "settings": {
-                                "slidesToShow": 1
-                            }
-                        }]'>
-                        <div class="js-slide">
-                            <a href="#" class="link-hover__brand">
-                                <img class="img-fluid m-auto max-height-50"
-                                    src="{{ asset('client/img/200X60/img1.png') }}" alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="js-slide">
-                            <a href="#" class="link-hover__brand">
-                                <img class="img-fluid m-auto max-height-50"
-                                    src="{{ asset('client/img/200X60/img2.png') }}" alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="js-slide">
-                            <a href="#" class="link-hover__brand">
-                                <img class="img-fluid m-auto max-height-50"
-                                    src="{{ asset('client/img/200X60/img3.png') }}" alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="js-slide">
-                            <a href="#" class="link-hover__brand">
-                                <img class="img-fluid m-auto max-height-50"
-                                    src="{{ asset('client/img/200X60/img4.png') }}" alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="js-slide">
-                            <a href="#" class="link-hover__brand">
-                                <img class="img-fluid m-auto max-height-50"
-                                    src="{{ asset('client/img/200X60/img5.png') }}" alt="Image Description">
-                            </a>
-                        </div>
-                        <div class="js-slide">
-                            <a href="#" class="link-hover__brand">
-                                <img class="img-fluid m-auto max-height-50"
-                                    src="{{ asset('client/img/200X60/img6.png') }}" alt="Image Description">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Brand Carousel -->
+
         </div>
     </main>
 @endsection

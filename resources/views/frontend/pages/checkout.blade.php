@@ -38,7 +38,7 @@
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../home/index.html">Home</a>
                             </li>
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Checkout
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">{{ __('checkout') }}
                             </li>
                         </ol>
                     </nav>
@@ -50,7 +50,7 @@
 
         <div class="container">
             <div class="mb-5">
-                <h1 class="text-center">Checkout</h1>
+                <h1 class="text-center">{{ __('checkout') }}</h1>
             </div>
             <!-- Accordion -->
             <div id="shopCartAccordion" class="accordion rounded mb-5">

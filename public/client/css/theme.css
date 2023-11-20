@@ -21510,7 +21510,7 @@ button:focus {
     right: 0;
     left: 0;
     width: 100%;
-    z-index: 1001;
+    z-index: 1;
 }
 
 .u-header__section {
@@ -39657,3 +39657,12 @@ blockquote:not(.blockquote) p {
 /*------------------------------------
   File for your custom SCSS style
 ------------------------------------*/
+.br5left-pd10{
+    border-radius: 5px;
+    border-left: 3px solid var(--yellow);
+    padding-left: 10px;
+}
+
+.text-center{
+    text-align: center;
+}

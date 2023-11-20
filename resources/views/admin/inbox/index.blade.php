@@ -211,7 +211,7 @@
                     <div class="modal-body p-5">
                         <div class="mb-4"><label for="form-compose/email" class="visually-hidden">Email
                                 address</label><input type="email" class="form-control" id="form-compose/email"
-                                placeholder="stroyka@example.com" readonly=""></div>
+                                placeholder="{{ Auth::user()->email }}" readonly=""></div>
                         <div class="mb-4 d-flex align-items-center"><label for="form-compose/to"
                                 class="visually-hidden">To</label><input type="email" class="form-control"
                                 id="form-compose/to" placeholder="To">

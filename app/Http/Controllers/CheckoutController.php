@@ -227,7 +227,7 @@ class CheckoutController extends Controller
         } else if ($request->payment_mode == 'bank') {
 
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-            $vnp_Returnurl = "http://127.0.0.1:8000/checkpayment";
+            $vnp_Returnurl = "http://localhost:8000/checkpayment";
             $vnp_TmnCode = "R3E63P5P"; //Mã website tại VNPAY
             $vnp_HashSecret = "GXDEHIEBSREFTEALNKYBXMKDKVVBEJPC"; //Chuỗi bí mật
 
@@ -237,7 +237,7 @@ class CheckoutController extends Controller
             $vnp_Amount = ($order->shipping_price + $order->total_amount == 0.0 ? 0 : $order->shipping_price + $order->total_amount) * 100 * 24305;
             $vnp_Locale = 'vn';
             $vnp_BankCode = 'NCB';
-            $vnp_IpAddr = 'http://127.0.0.1:8000/checkpayment';
+            $vnp_IpAddr = 'http://localhost:8000/checkpayment';
             //Add Params of 2.0.1 Version
             // $vnp_ExpireDate = $_POST['txtexpire'];
             // //Billing

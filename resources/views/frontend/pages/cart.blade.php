@@ -13,7 +13,7 @@
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../home/index.html">Home</a>
                             </li>
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Cart</li>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">{{ __('cart') }}</li>
                         </ol>
                     </nav>
                 </div>
@@ -24,7 +24,7 @@
 
         <div class="container">
             <div class="mb-4">
-                <h1 class="text-center">Cart</h1>
+                <h1 class="text-center">{{ __('cart') }}</h1>
             </div>
             <div class="mb-10 cart-table">
                 <table class="table" cellspacing="0">
@@ -32,10 +32,10 @@
                         <tr>
                             <th class="product-remove">&nbsp;</th>
                             <th class="product-thumbnail">&nbsp;</th>
-                            <th class="product-name">Product</th>
-                            <th class="product-price">Price</th>
-                            <th class="product-quantity w-lg-15">Quantity</th>
-                            <th class="product-subtotal">Total</th>
+                            <th class="product-name">{{ __('cart') }}</th>
+                            <th class="product-price">{{ __('product') }}</th>
+                            <th class="product-quantity w-lg-15">{{ __('price') }}</th>
+                            <th class="product-subtotal">{{ __('total') }}</th>
                         </tr>
                     </thead>
                     <tbody>
