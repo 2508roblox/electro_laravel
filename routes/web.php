@@ -19,6 +19,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FaceBookController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\Admin\SkuController;
 use Symfony\Component\HttpFoundation\Request;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\DesignDatabase;
@@ -37,6 +38,7 @@ use App\Http\Controllers\Admin\ChatGptController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\VariantController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DatabaseController;
 use App\Http\Controllers\Admin\BlogAdminController;
@@ -48,7 +50,6 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\TaskManagerController;
 use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\ProductColorController;
-use App\Http\Controllers\Admin\SkuController;
 use App\Http\Controllers\Admin\VariantValueController;
 
 /*
