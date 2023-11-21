@@ -141,7 +141,7 @@
                                                     </thead>
                                                     <tbody>
                                                         @foreach ($skus as $sku)
-                                                            <tr>
+                                                            <tr id="sku-row-{{$sku->id}}">
                                                                 <td>{{$sku->id}}</td>
                                                                 <td>{{$sku->sku_code}}</td>
                                                                 <td><input type="number" name="original_price_{{$sku->id}}" value="{{$sku->original_price}}"></td>
@@ -156,58 +156,61 @@
                                                     </tbody>
                                                 </table>
 
-                                        </div>
+                                                <script>
+                                                    function updateSku(event, skuId) {
+                                                        event.preventDefault();
+                                                        var originalPrice = document.getElementsByName("original_price_" + skuId)[0].value;
+                                                        var promotionPrice = document.getElementsByName("promotion_price_" + skuId)[0].value;
+                                                        var quantity = document.getElementsByName("quantity_" + skuId)[0].value;
 
-<script>
-    function updateSku(event, skuId) {
-        event.preventDefault()
-        var originalPrice = document.getElementsByName("original_price_" + skuId)[0].value;
-        var promotionPrice = document.getElementsByName("promotion_price_" + skuId)[0].value;
-        var quantity = document.getElementsByName("quantity_" + skuId)[0].value;
+                                                        // Gửi yêu cầu Ajax để cập nhật SKU
+                                                        $.ajax({
+                                                            url: '/skus/update',
+                                                            type: 'POST',
+                                                            data: {
+                                                                sku_id: skuId,
+                                                                original_price: originalPrice,
+                                                                promotion_price: promotionPrice,
+                                                                quantity: quantity,
+                                                                _token: '{{ csrf_token() }}'
+                                                            },
+                                                            success: function(response) {
+                                                                // Xử lý phản hồi thành công
+                                                                console.log(response);
+                                                            },
+                                                            error: function(xhr) {
+                                                                // Xử lý lỗi
+                                                                console.log(xhr.responseText);
+                                                            }
+                                                        });
+                                                    }
 
-        // Gửi yêu cầu Ajax để cập nhật SKU
-        $.ajax({
-            url: '/skus/update',
-            type: 'POST',
-            data: {
-                sku_id: skuId,
-                original_price: originalPrice,
-                promotion_price: promotionPrice,
-                quantity: quantity,
-                _token: '{{ csrf_token() }}'
-            },
-            success: function(response) {
-                // Xử lý phản hồi thành công
-                console.log(response);
-            },
-            error: function(xhr) {
-                // Xử lý lỗi
-                console.log(xhr.responseText);
-            }
-        });
-    }
+                                                    function deleteSku(event, skuId) {
+                                                        event.preventDefault();
 
-    function deleteSku(event, skuId) {
-        event.preventDefault()
-
-        // Gửi yêu cầu Ajax để xóa SKU
-        $.ajax({
-            url: '/skus/delete/' + skuId,
-            type: 'POST',
-            data: {
-                _token: '{{ csrf_token() }}'
-            },
-            success: function(response) {
-                // Xử lý phản hồi thành công
-                console.log(response);
-            },
-            error: function(xhr) {
-                // Xử lý lỗi
-                console.log(xhr.responseText);
-            }
-        });
-    }
-</script>
+                                                        // Gửi yêu cầu Ajax để xóa SKU
+                                                        $.ajax({
+                                                            url: '/skus/delete/' + skuId,
+                                                            type: 'POST',
+                                                            data: {
+                                                                _token: '{{ csrf_token() }}'
+                                                            },
+                                                            success: function(response) {
+                                                                // Xử lý phản hồi thành công
+                                                                console.log(response);
+                                                                // Xóa dòng (row) tương ứng trong bảng HTML
+                                                                var skuRow = document.getElementById('sku-row-' + skuId);
+                                                                if (skuRow) {
+                                                                    skuRow.remove();
+                                                                }
+                                                            },
+                                                            error: function(xhr) {
+                                                                // Xử lý lỗi
+                                                                console.log(xhr.responseText);
+                                                            }
+                                                        });
+                                                    }
+                                                </script>
                                         <div class="">
 
 
