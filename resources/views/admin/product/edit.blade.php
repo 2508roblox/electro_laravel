@@ -123,56 +123,95 @@
 
                                         </div>
                                         <div class="row g-4 mx-4 mb-5">
-                                            <label for="form-product/quantity" class="form-label">Stock
-                                                quantity</label>
+                                            <label for="form-product/quantity" class="form-label">SKU
+                                                Quantity</label>
 
 
-                                            <hr>
-                                            @forelse ($colors as $color)
-                                                <div class="mt-3">
-                                                    <label class="d-flex gap-2" class="form-label">{{ $color->name }}
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="colors[{{ $color->id }}]">
-                                                    </label>
+                                                <hr>
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Sku Code</th>
+                                                            <th>Original Price</th>
+                                                            <th>Promotion Price</th>
+                                                            <th>Quantity</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($skus as $sku)
+                                                            <tr id="sku-row-{{$sku->id}}">
+                                                                <td>{{$sku->id}}</td>
+                                                                <td>{{$sku->sku_code}}</td>
+                                                                <td><input type="number" name="original_price_{{$sku->id}}" value="{{$sku->original_price}}"></td>
+                                                                <td><input type="number" name="promotion_price_{{$sku->id}}" value="{{$sku->promotion_price}}"></td>
+                                                                <td><input type="number" name="quantity_{{$sku->id}}" value="{{$sku->quantity}}"></td>
+                                                                <td>
+                                                                    <button onclick="updateSku(event, {{$sku->id}})">Update</button>
+                                                                    <button onclick="deleteSku(event, {{$sku->id}})">Delete</button>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
 
+                                                <script>
+                                                    function updateSku(event, skuId) {
+                                                        event.preventDefault();
+                                                        var originalPrice = document.getElementsByName("original_price_" + skuId)[0].value;
+                                                        var promotionPrice = document.getElementsByName("promotion_price_" + skuId)[0].value;
+                                                        var quantity = document.getElementsByName("quantity_" + skuId)[0].value;
 
-                                                    <input name="quantities[{{ $color->id }}]" type="number"
-                                                        class="form-control" id="form-product/quantity" value="0" />
-                                                </div>
+                                                        // Gửi yêu cầu Ajax để cập nhật SKU
+                                                        $.ajax({
+                                                            url: '/skus/update',
+                                                            type: 'POST',
+                                                            data: {
+                                                                sku_id: skuId,
+                                                                original_price: originalPrice,
+                                                                promotion_price: promotionPrice,
+                                                                quantity: quantity,
+                                                                _token: '{{ csrf_token() }}'
+                                                            },
+                                                            success: function(response) {
+                                                                // Xử lý phản hồi thành công
+                                                                console.log(response);
+                                                            },
+                                                            error: function(xhr) {
+                                                                // Xử lý lỗi
+                                                                console.log(xhr.responseText);
+                                                            }
+                                                        });
+                                                    }
 
-                                            @empty
-                                            @endforelse
+                                                    function deleteSku(event, skuId) {
+                                                        event.preventDefault();
 
-
-                                        </div>
+                                                        // Gửi yêu cầu Ajax để xóa SKU
+                                                        $.ajax({
+                                                            url: '/skus/delete/' + skuId,
+                                                            type: 'POST',
+                                                            data: {
+                                                                _token: '{{ csrf_token() }}'
+                                                            },
+                                                            success: function(response) {
+                                                                // Xử lý phản hồi thành công
+                                                                console.log(response);
+                                                                // Xóa dòng (row) tương ứng trong bảng HTML
+                                                                var skuRow = document.getElementById('sku-row-' + skuId);
+                                                                if (skuRow) {
+                                                                    skuRow.remove();
+                                                                }
+                                                            },
+                                                            error: function(xhr) {
+                                                                // Xử lý lỗi
+                                                                console.log(xhr.responseText);
+                                                            }
+                                                        });
+                                                    }
+                                                </script>
                                         <div class="">
-                                            @forelse ($colors_quantity as $color)
-
-
-                                                    <div class="flex-row d-flex gap-3 p-5"   id="product_color_{{$color->product_colors_id}}">
-                                                        <div class="rounded"
-                                                            style="background-color: #{{ $color->code }}; width: 100px; height: 50px">
-                                                        </div>
-                                                        <input id="p_c_q" name="e_quantity" type="number"
-                                                            class="form-control" id="form-product/quantity"
-                                                            value="{{ $color->quantity }}" />
-                                                        <div class="d-flex flex-row gap-3">
-                                                            <button value="{{ $color->product_colors_id }}"
-                                                                type="submit" class="update_color_qty btn btn-primary"
-                                                                onclick="submitChildForm(event)">Update</button>
-                                                            <button value="{{ $color->product_colors_id }}" type="submit" onclick="deleteChildForm(event)" class="btn btn-danger">Delete</button>
-                                                        </div>
-                                                    </div>
-
-
-
-
-
-
-
-
-                                            @empty
-                                            @endforelse
 
 
 

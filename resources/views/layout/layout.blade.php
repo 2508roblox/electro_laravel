@@ -17,7 +17,14 @@
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="{{ asset('client/css/font-electro.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
-
+    <style>
+        img {
+filter: grayscale(1);
+}
+img:hover, img:focus {
+filter: grayscale(0);
+}
+    </style>
 
     <!-- CSS Electro Template -->
 
@@ -73,7 +80,7 @@
     @endphp
 
 </head>
- 
+
 
 
 <body>

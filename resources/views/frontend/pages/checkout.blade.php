@@ -203,8 +203,8 @@
                                             @foreach ($checkoutData as $item)
                                                 <tr class="cart_item">
                                                     <td style="padding-right: .5rem">{{ $item['product_name'] }}
-                                                        <span style="color:#{{ $item['color_code'] }}"> - (
-                                                            {{ $item['color_name'] }} )</span>
+                                                        <span  > - (
+                                                            {{ $item['sku_code'] }} )</span>
                                                         <strong class="product-quantity">× {{ $item['quantity'] }}</strong>
                                                     </td>
                                                     <td>${{ number_format($item['product_price'] * $item['quantity']) }}.00

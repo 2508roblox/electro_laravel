@@ -2,6 +2,7 @@
 
 use App\Models\Product;
 use App\Models\ProductColor;
+use App\Models\VariantValue;
 use App\Livewire\Admin\Brand\Index;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FaceBookController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\WishlistController;
+use Symfony\Component\HttpFoundation\Request;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\DesignDatabase;
 use App\Http\Controllers\Admin\UserController;
@@ -33,6 +35,7 @@ use App\Http\Controllers\LoginHistoryController;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\Admin\ChatGptController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\VariantController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DatabaseController;
@@ -45,6 +48,8 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\TaskManagerController;
 use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\ProductColorController;
+use App\Http\Controllers\Admin\SkuController;
+use App\Http\Controllers\Admin\VariantValueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +68,26 @@ Route::get('change-language/{language}', function (string $language) {
     Session::put('my_locale', $language);
     return redirect()->back();
 })->name('change-language');
+
+
+
+Route::post('/variants/value/create', [VariantValueController::class, 'create' ] );
+
+Route::controller(VariantController::class)->group(function () {
+    Route::get('/variants', 'index')->name('admin.variants.list');
+    Route::get('/variants/create', 'create')->name('admin.variants.create');
+    Route::post('/variants/create', 'store')->name('admin.variants.store');
+    Route::get('/variants/{id}/edit', 'edit')->name('admin.variants.edit');
+    Route::post('/variants/{id}/edit', 'update')->name('admin.variants.update');
+    Route::delete('/variants/{id}', 'destroy')->name('admin.variants.delete');
+});
+Route::controller(SkuController::class)->group(function () {
+    Route::get('/skus', 'index')->name('admin.sku.list');
+    Route::post('/skus/create', 'store')->name('admin.sku.store');
+    Route::post('/skus/update', 'update')->name('admin.sku.update');
+    Route::post('/skus/delete/{id}', 'delete')->name('admin.sku.delete');
+});
+
 
 Route::get('/', [FrontendController::class, 'index'])->middleware(['localization'])->name('home');
 
@@ -122,6 +147,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/category/{id}/edit', 'update')->name('admin.category.update');
         Route::delete('/category/{id}', 'destroy')->name('admin.category.delete');
     });
+
+    //value
 
     Route::controller(BrandController::class)->group(function () {
         Route::get('/brand', 'index')->name('admin.brand.list');
