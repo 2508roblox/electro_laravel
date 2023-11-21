@@ -171,37 +171,14 @@
                                 <thead>
                                     <tr>
                                         <th>Active pages</th>
-                                        <th class="text-end">Users</th>
+                                        {{-- <th class="text-end">Users</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><a href="#" class="text-reset">/products/brandix-z4</a></td>
-                                        <td class="text-end">15</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#" class="text-reset">/categories/drivetrain</a></td>
-                                        <td class="text-end">11</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#" class="text-reset">/categories/monitors</a></td>
-                                        <td class="text-end">7</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#" class="text-reset">/account/orders</a></td>
-                                        <td class="text-end">4</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#" class="text-reset">/cart</a></td>
-                                        <td class="text-end">3</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#" class="text-reset">/checkout</a></td>
-                                        <td class="text-end">3</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#" class="text-reset">/pages/about-us</a></td>
-                                        <td class="text-end">1</td>
+                                        <td><a class="text-reset">Maintenance Mode</a></td>
+                                        <td class="text-end"><button class="btn btn-primary">On</button></td>
+                                        <td class="text-end"><button class="btn btn-primary" disabled>Off</button></td>
                                     </tr>
                                 </tbody>
                             </table>
