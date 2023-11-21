@@ -459,6 +459,41 @@
                                       <li class="sa-nav__menu-item"><a href="#" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title"></span></a></li>
                                       <li class="sa-nav__menu-item"><a href="#" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title"></span></a></li>
                                       <li class="sa-nav__menu-item"><a href="#" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title"></span></a></li>
+
+                                      <li class="sa-nav__menu-item"><a
+                                              href="{{ route('admin.infomation.assignment', ['id' => 1]) }}"
+                                              class="sa-nav__link"><span
+                                                  class="sa-nav__menu-item-padding"></span><span
+                                                  class="sa-nav__title">assignment</span></a></li>
+                                      <li class="sa-nav__menu-item"><a
+                                              href="{{ route('admin.infomation.soucer', ['id' => 1]) }}"
+                                              class="sa-nav__link"><span
+                                                  class="sa-nav__menu-item-padding"></span><span
+                                                  class="sa-nav__title">View Source</span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="#" class="sa-nav__link"><span
+                                                  class="sa-nav__menu-item-padding"></span><span
+                                                  class="sa-nav__title"></span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="#" class="sa-nav__link"><span
+                                                  class="sa-nav__menu-item-padding"></span><span
+                                                  class="sa-nav__title"></span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="#" class="sa-nav__link"><span
+                                                  class="sa-nav__menu-item-padding"></span><span
+                                                  class="sa-nav__title"></span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="#" class="sa-nav__link"><span
+                                                  class="sa-nav__menu-item-padding"></span><span
+                                                  class="sa-nav__title"></span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="#" class="sa-nav__link"><span
+                                                  class="sa-nav__menu-item-padding"></span><span
+                                                  class="sa-nav__title"></span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="#" class="sa-nav__link"><span
+                                                  class="sa-nav__menu-item-padding"></span><span
+                                                  class="sa-nav__title"></span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="#" class="sa-nav__link"><span
+                                                  class="sa-nav__menu-item-padding"></span><span
+                                                  class="sa-nav__title"></span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="#" class="sa-nav__link"><span
+                                                  class="sa-nav__menu-item-padding"></span><span
+                                                  class="sa-nav__title"></span></a></li>
                                   </ul>
                               </li>
                           </ul>

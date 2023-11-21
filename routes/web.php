@@ -30,6 +30,7 @@ use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\LoginHistoryController;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\RssController;
+use App\Http\Controllers\MaintenanceController;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -68,6 +69,11 @@ use App\Http\Controllers\Admin\BlogAdminController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 */
+Route::group(['middleware' => 'maintenance'], function () {
+    Route::get('/maintenance', [MaintenanceController::class, 'index'])->name('maintenance');
+});
+
+
 Route::get('/', [FrontendController::class, 'index'])->middleware(['localization'])->name('home');
 
 Route::get('change-language/{language}', function (string $language) {
