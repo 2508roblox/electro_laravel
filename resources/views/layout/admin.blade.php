@@ -83,6 +83,11 @@
 
 
     <script src="{{ asset('js/all-admin.js') }}"></script>
+    <script src="{{ asset('admin/js/variant.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    {{-- edit --}}
+
 </body>
 
 </html>

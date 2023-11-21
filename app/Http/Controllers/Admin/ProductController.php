@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Brand;
 use App\Models\Color;
 use App\Models\Product;
+use App\Models\Variant;
 use App\Models\SubCategory;
 use App\Models\ProductColor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use App\Models\Sku;
 
 class ProductController extends Controller
 {
@@ -55,13 +57,16 @@ class ProductController extends Controller
      */
     public function create()
     {
-
         $categories = SubCategory::all();
         $sub_categories = SubCategory::all();
         $brands = Brand::all();
+        $variants = Variant::all();
         $colors = Color::all();
-        return view('admin.product.create', compact('sub_categories', 'colors', 'brands'));
 
+        $latestProduct = Product::latest('id')->first() ;
+        $latestProductId = $latestProduct->id ?? null;
+        $latestProductId +=  1;
+        return view('admin.product.create', compact('sub_categories', 'colors', 'brands', 'variants', 'latestProductId'));
     }
 
     /**
@@ -70,6 +75,7 @@ class ProductController extends Controller
     public function store(Request $request , SubCategory $sub_category, Product $product)
     {
        $validateData  = $request->validate([
+        "id"=> 'required',
         "sub_category_id"=> 'required',
         "name"=> 'required|max:255',
         "slug"=> 'required',
@@ -78,7 +84,7 @@ class ProductController extends Controller
         "description"=> 'required',
         "price"=> 'required',
         "promotion_price"=> 'required',
-        "quantity"=> 'nullalbe',
+        "quantity"=> 'nullable',
         "hot"=> 'nullable',
         "status"=> 'required',
         'images.*' => 'required|mimes:pdf,jpg,xlx,csv,png|max:4048',
@@ -149,10 +155,10 @@ if ($request->colors ?? false) {
         ->get();
         //whereDoesntHave return all This Model which is not existing in relationsip table
         //default => all in relationsip table
-        $colors = Color::whereDoesntHave('products', function ($query) use ($product) {
-            $query->where('product_id', $product->id);
-        })->get();
-        return view('admin.product.edit', compact('product', 'sub_categories', 'images', 'colors_quantity', 'colors', 'brands'));
+
+
+        $skus =  DB::table('skus')->where('skus.product_id', '=', $id)->get();
+        return view('admin.product.edit', compact('product', 'sub_categories', 'images',   'brands', 'skus'));
     }
 
     /**

@@ -2,7 +2,6 @@
 
 use App\Models\Product;
 use App\Models\ProductColor;
-
 use App\Livewire\Admin\Brand\Index;
 
 use Illuminate\Support\Facades\App;
@@ -19,28 +18,24 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\OtpController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GoogleController;
-use App\Http\Controllers\MyAccountController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\FaceBookController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\WishlistController;
-use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\LoginHistoryController;
 use App\Http\Controllers\ProductImageController;
-use App\Http\Controllers\RssController;
+use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\MaintenanceController;
 
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\Auth\RegisterController;
 
+use App\Http\Controllers\Admin\VariantController;
 use App\Http\Controllers\Admin\ChatController;
-use App\Http\Controllers\Admin\GitActivityController;
-use App\Http\Controllers\Admin\InfomationController;
 use App\Http\Controllers\Admin\DesignDatabase;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\CouponController;
@@ -49,16 +44,21 @@ use App\Http\Controllers\Admin\GithubController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ChatGptController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DatabaseController;
+use App\Http\Controllers\Admin\BlogAdminController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminOrderController;
+use App\Http\Controllers\Admin\InfomationController;
 use App\Http\Controllers\Admin\FileManagerController;
+use App\Http\Controllers\Admin\GitActivityController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\TaskManagerController;
 use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\ProductColorController;
-use App\Http\Controllers\Admin\BlogAdminController;
+use App\Http\Controllers\Admin\VariantValueController;
+use App\Http\Controllers\Admin\SkuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,6 +83,26 @@ Route::get('change-language/{language}', function (string $language) {
     Session::put('my_locale', $language);
     return redirect()->back();
 })->name('change-language');
+
+
+
+Route::post('/variants/value/create', [VariantValueController::class, 'create' ] );
+
+Route::controller(VariantController::class)->group(function () {
+    Route::get('/variants', 'index')->name('admin.variants.list');
+    Route::get('/variants/create', 'create')->name('admin.variants.create');
+    Route::post('/variants/create', 'store')->name('admin.variants.store');
+    Route::get('/variants/{id}/edit', 'edit')->name('admin.variants.edit');
+    Route::post('/variants/{id}/edit', 'update')->name('admin.variants.update');
+    Route::delete('/variants/{id}', 'destroy')->name('admin.variants.delete');
+});
+Route::controller(SkuController::class)->group(function () {
+    Route::get('/skus', 'index')->name('admin.sku.list');
+    Route::post('/skus/create', 'store')->name('admin.sku.store');
+    Route::post('/skus/update', 'update')->name('admin.sku.update');
+    Route::post('/skus/delete/{id}', 'delete')->name('admin.sku.delete');
+});
+
 
 
 // access for guest
@@ -149,6 +169,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/category/{id}/edit', 'update')->name('admin.category.update');
         Route::delete('/category/{id}', 'destroy')->name('admin.category.delete');
     });
+
+    //value
 
     Route::controller(BrandController::class)->group(function () {
         Route::get('/brand', 'index')->name('admin.brand.list');
@@ -275,11 +297,11 @@ Route::group(['prefix' => 'admin'], function () {
 // 2.0 auth
 
 
-Route::prefix('google')->name('google.')->group( function(){
+Route::prefix('google')->name('google.')->group(function () {
     Route::get('auth', [GoogleController::class, 'loginUsingGoogle'])->name('login');
     Route::get('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
 });
-Route::prefix('facebook')->name('facebook.')->group( function(){
+Route::prefix('facebook')->name('facebook.')->group(function () {
     Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
     Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
 });
@@ -330,19 +352,19 @@ Route::controller(ContactController::class)->group(function () {
     Route::post('/contact', 'store')->middleware(['localization'])->name('frontend.contact.store');
 });
 Route::controller(OrderController::class)->group(function () {
-    Route::get('/order', 'index')->middleware(['auth', 'verifiedMail','localization'])->name('frontend.order.list');
+    Route::get('/order', 'index')->middleware(['auth', 'verifiedMail', 'localization'])->name('frontend.order.list');
     Route::get('/order/{id}/detail', 'show')->name('frontend.order.show');
-    Route::post('/order/add', 'store')->middleware(['auth', 'verifiedMail','localization'])->name('frontend.order.store');
-    Route::put('/order/edit', 'update')->middleware(['auth', 'verifiedMail','localization'])->name('frontend.order.update');
-    Route::get('/order/{id}', 'destroy')->middleware(['auth', 'verifiedMail','localization'])->name('frontend.order.delete');
+    Route::post('/order/add', 'store')->middleware(['auth', 'verifiedMail', 'localization'])->name('frontend.order.store');
+    Route::put('/order/edit', 'update')->middleware(['auth', 'verifiedMail', 'localization'])->name('frontend.order.update');
+    Route::get('/order/{id}', 'destroy')->middleware(['auth', 'verifiedMail', 'localization'])->name('frontend.order.delete');
 });
 Route::controller(CheckoutController::class)->group(function () {
     Route::get('/checkout', 'index')->middleware(['localization'])->name('admin.checkout');
 
-    Route::post('/checkout/create', 'store')->middleware(['auth', 'verifiedMail','localization'])->name('admin.checkout.store');
-    Route::get('/checkout/{id}/edit', 'edit')->middleware(['auth', 'verifiedMail','localization'])->name('admin.checkout.edit');
-    Route::post('/checkout/{id}/edit', 'update')->middleware(['auth', 'verifiedMail','localization'])->name('admin.checkout.update');
-    Route::delete('/checkout/{id}', 'destroy')->middleware(['auth', 'verifiedMail','localization'])->name('admin.checkout.delete');
+    Route::post('/checkout/create', 'store')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.checkout.store');
+    Route::get('/checkout/{id}/edit', 'edit')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.checkout.edit');
+    Route::post('/checkout/{id}/edit', 'update')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.checkout.update');
+    Route::delete('/checkout/{id}', 'destroy')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.checkout.delete');
 });
 // reset password by link generation
 Route::controller(ForgotPasswordController::class)->group(function () {
@@ -380,7 +402,7 @@ Route::prefix('blog')->group(function () {
         Route::get('/post/{id}', 'post')->name('fe.post');
         Route::get('/report-comment/{commentId}', 'reportComment')->name('reportComment');
         Route::post('/store-comment/{blogId}', 'storeComment')->name('storeComment');
-        Route::get('/import-rss', [RssController::class, 'importRss'])->name('importRss');
+        // Route::get('/import-rss', [RssController::class, 'importRss'])->name('importRss');
     });
 });
 ///// Frontend Routing

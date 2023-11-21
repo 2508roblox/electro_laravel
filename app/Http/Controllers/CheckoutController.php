@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sku;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Wallet;
@@ -27,25 +28,24 @@ class CheckoutController extends Controller
         // Lấy danh sách các carts của user hiện tại
         $carts = Cart::where('user_id', $userId)
             ->join('products', 'carts.product_id', '=', 'products.id')
-            ->leftJoin('product_colors', 'carts.product_color_id', '=', 'product_colors.id')
-            ->leftJoin('colors', 'product_colors.color_id', '=', 'colors.id') // Thêm join với bảng colors
+            ->leftJoin('skus', 'carts.sku_id', '=', 'skus.id')
+            // ->leftJoin('colors', 'product_colors.color_id', '=', 'colors.id') // Thêm join với bảng colors
             ->select(
                 'carts.id',
                 'carts.user_id',
                 'carts.product_id',
-                'carts.product_color_id',
+                'carts.sku_id as sku_id',
                 'carts.quantity',
                 'carts.created_at',
                 'carts.updated_at',
                 'products.name AS product_name',
-                'products.price AS product_price',
-                'products.promotion_price AS product_promotion_price',
-                'product_colors.color_id',
-                'colors.name AS color_name', // Lấy ra trường name từ bảng colors
-                'colors.code AS color_code' // Lấy ra trường code từ bảng colors
+                'skus.original_price AS product_price',
+                'skus.promotion_price AS product_promotion_price',
+
+                'skus.sku_code AS sku_code', // Lấy ra trường name từ bảng colors
+                // 'colors.code AS color_code' // Lấy ra trường code từ bảng colors
             )
             ->get();
-
         // Tạo một mảng để lưu thông tin checkout
         $checkoutData = [];
 
@@ -60,12 +60,11 @@ class CheckoutController extends Controller
             // Thêm thông tin vào mảng checkoutData
             $checkoutData[] = [
                 'product_id' => $cart->product_id,
-                'product_color_id' => $cart->product_color_id,
                 'product_name' => $cart->product_name,
                 'product_price' => $productPrice,
                 'quantity' => $cart->quantity,
-                'color_name' => $cart->color_name,
-                'color_code' => $cart->color_code,
+                'sku_id' => $cart->sku_id,
+                'sku_code' => $cart->sku_code,
                 'shipping_cost' => $shippingCost,
             ];
         }
@@ -104,7 +103,6 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-
 
         // logic
         $validator = Validator::make($request->all(), [
@@ -153,24 +151,24 @@ class CheckoutController extends Controller
 
             //descre number of product
             $descQty  = $cart->quantity;
-            $descProductColorId  = $cart->product_color_id;
-            $ProductColor = ProductColor::find($descProductColorId);
-            $ProductColor->quantity = $ProductColor->quantity - $descQty;
-            $ProductColor->save();
+            $descProductSkuId  = $cart->sku_id;
+            $ProductSku = Sku::find($descProductSkuId);
+            $ProductSku->quantity = $ProductSku->quantity - $descQty;
+            $ProductSku->save();
             //end descre number of product
 
             $orderItem = new OrderItem;
             $orderItem->order_id = $order->id;
             $orderItem->product_id = $cart->product_id;
-            $orderItem->product_color_id = $cart->product_color_id;
+            $orderItem->sku_id = $cart->sku_id;
             $orderItem->quantity = $cart->quantity;
 
             // Kiểm tra nếu bảng products có promotion_price cho sản phẩm trong cart
-            $product = Product::find($cart->product_id);
+            $product = Sku::find($cart->sku_id);
             if ($product->promotion_price) {
                 $orderItem->price = $product->promotion_price;
             } else {
-                $orderItem->price = $product->price;
+                $orderItem->price = $product->original_price;
             }
 
             // Tính tổng tiền đơn hàng
@@ -227,7 +225,7 @@ class CheckoutController extends Controller
         } else if ($request->payment_mode == 'bank') {
 
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-            $vnp_Returnurl = "http://127.0.0.1:8000/checkpayment";
+            $vnp_Returnurl = "http://localhost:8000/checkpayment";
             $vnp_TmnCode = "R3E63P5P"; //Mã website tại VNPAY
             $vnp_HashSecret = "GXDEHIEBSREFTEALNKYBXMKDKVVBEJPC"; //Chuỗi bí mật
 
@@ -237,7 +235,7 @@ class CheckoutController extends Controller
             $vnp_Amount = ($order->shipping_price + $order->total_amount == 0.0 ? 0 : $order->shipping_price + $order->total_amount) * 100 * 24305;
             $vnp_Locale = 'vn';
             $vnp_BankCode = 'NCB';
-            $vnp_IpAddr = 'http://127.0.0.1:8000/checkpayment';
+            $vnp_IpAddr = 'http://localhost:8000/checkpayment';
             //Add Params of 2.0.1 Version
             // $vnp_ExpireDate = $_POST['txtexpire'];
             // //Billing

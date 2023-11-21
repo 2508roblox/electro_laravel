@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderItem extends Model
+class VariantValue extends Model
 {
     use HasFactory;
-    protected $table = 'order_items';
-    protected $fillable = [
-        'order_id',
-        'product_id',
-        'quantity',
-        'price',
+    protected $table = 'variant_values';
 
-  ];
+    protected $fillable = [
+        'variant_id',
+        'product_id',
+        'sku_id',
+
+    ];
 }
