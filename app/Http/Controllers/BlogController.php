@@ -54,7 +54,7 @@ class BlogController extends Controller
         // $routeName = \Route::currentRouteName();
 
         // Tạo nội dung thông báo
-        $message = "📢 User đã bình luận\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime\n📝 Bài viết: $id";
+        $message = "📢 User đã bình luận\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime\n📝 ID Bài viết: $id\n🗒️ Status: Draft";
 
         $telegramApiUrl = "https://api.telegram.org/bot$telegramBotToken/sendMessage";
 

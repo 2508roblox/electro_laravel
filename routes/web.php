@@ -2,61 +2,64 @@
 
 use App\Models\Product;
 use App\Models\ProductColor;
-use App\Models\VariantValue;
 use App\Livewire\Admin\Brand\Index;
+
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OtpController;
 use Illuminate\Support\Facades\Session;
+
+use Laravel\Socialite\Facades\Socialite;
+
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
-use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\OtpController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GoogleController;
-use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\FaceBookController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\WishlistController;
-use App\Http\Controllers\Admin\SkuController;
+use App\Http\Controllers\LoginHistoryController;
+use App\Http\Controllers\ProductImageController;
+use App\Http\Controllers\ProductRatingController;
+use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\MyAccountController;
-use Symfony\Component\HttpFoundation\Request;
+
+use App\Http\Controllers\Auth\LogoutController;
+
+use App\Http\Controllers\Admin\VariantController;
 use App\Http\Controllers\Admin\ChatController;
 use App\Http\Controllers\Admin\DesignDatabase;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\ColorController;
-use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\DocumentDatabase;
 use App\Http\Controllers\Admin\GithubController;
 use App\Http\Controllers\Admin\SliderController;
-use App\Http\Controllers\LoginHistoryController;
-use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\Admin\ChatGptController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\VariantController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DatabaseController;
+use App\Http\Controllers\Admin\BlogAdminController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminOrderController;
+use App\Http\Controllers\Admin\InfomationController;
 use App\Http\Controllers\Admin\FileManagerController;
 use App\Http\Controllers\Admin\GitActivityController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\TaskManagerController;
 use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\ProductColorController;
-
-use App\Http\Controllers\Admin\InfomationController;
-use App\Http\Controllers\ForgotPasswordController;
-
 use App\Http\Controllers\Admin\VariantValueController;
+use App\Http\Controllers\Admin\SkuController;
 
 
 /*
@@ -68,6 +71,12 @@ use App\Http\Controllers\Admin\VariantValueController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 */
+Route::group(['middleware' => 'maintenance'], function () {
+    Route::get('/maintenance', [MaintenanceController::class, 'index'])->name('maintenance');
+});
+
+
+Route::get('/', [FrontendController::class, 'index'])->middleware(['localization'])->name('home');
 
 Route::get('change-language/{language}', function (string $language) {
     if (!in_array($language, ['en', 'es', 'vi'])) {
@@ -97,7 +106,6 @@ Route::controller(SkuController::class)->group(function () {
 });
 
 
-Route::get('/', [FrontendController::class, 'index'])->middleware(['localization'])->name('home');
 
 // access for guest
 Route::group(['prefix' => 'auth'], function () {
@@ -137,6 +145,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/order/{id}/generate', 'viewinvoice')->name('admin.invoice.view');
         Route::get('/order/{id}/mail', 'sendmail')->name('admin.invoice.mail');
         Route::get('/order/{id}/download', 'downloadinvoice')->name('admin.invoice.download');
+    });
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/activity-user', 'index2')->name('admin.activity-user.login');
+        Route::get('/activity-user/create', 'create')->name('admin.activity-user.create');
+        Route::post('/activity-user/create', 'store')->name('admin.activity-user.store');
+        Route::get('/activity-user/{id}/edit', 'edit')->name('admin.activity-user.edit');
+        Route::put('/activity-user/{id}/update', 'update')->name('admin.activity-user.update');
+        Route::delete('/activity-user/{id}', 'destroy')->name('admin.activity-user.delete');
     });
     Route::controller(CouponController::class)->group(function () {
         Route::get('/coupon', 'index')->name('admin.coupon.list');
@@ -219,6 +235,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/slider/{id}', 'destroy')->name('admin.slider.delete');
     });
     // User
+    
     Route::controller(UserController::class)->group(function () {
         Route::get('/user', 'index')->name('admin.user.list');
         Route::get('/user/create', 'create')->name('admin.user.create');
@@ -387,6 +404,7 @@ Route::prefix('blog')->group(function () {
         Route::get('/post/{id}', 'post')->name('fe.post');
         Route::get('/report-comment/{commentId}', 'reportComment')->name('reportComment');
         Route::post('/store-comment/{blogId}', 'storeComment')->name('storeComment');
+        // Route::get('/import-rss', [RssController::class, 'importRss'])->name('importRss');
     });
 });
 ///// Frontend Routing

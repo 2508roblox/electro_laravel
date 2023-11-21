@@ -4,26 +4,19 @@
     @include('inc/_header')
     <!-- ========== MAIN CONTENT ========== -->
     <main id="content" role="main">
-        <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+        {{-- <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
 
 
         <script>
-            // Kết nối tới máy chủ Socket.IO
             const socket = io('http://localhost:7000');
-
             socket.on('connect', () => {
-                console.log('Connected to server');
                 socket.emit('chat-message', 'Có người đang login');
             });
 
             socket.on('disconnect', () => {
-                console.log('Disconnected from server');
+                // console.log('Disconnected from server');
             });
-
-            // Gửi một sự kiện từ máy khách tới máy chủ
-
-            // Lắng nghe sự kiện từ máy chủ
-        </script>
+        </script> --}}
         <!-- breadcrumb -->
         <div class="bg-gray-13 bg-md-transparent">
             <div class="container">

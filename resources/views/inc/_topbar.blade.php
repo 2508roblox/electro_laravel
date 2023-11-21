@@ -1,5 +1,4 @@
-
-<div class="u-header-topbar py-2 d-none d-xl-block">
+<div class="u-header-topbar py-2 d-none d-xl-block topbar-electro">
     <div class="container">
         <div class="d-flex align-items-center">
             <div class="topbar-left">
