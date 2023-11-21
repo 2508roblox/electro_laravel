@@ -90,14 +90,7 @@ Route::get('change-language/{language}', function (string $language) {
 
 Route::post('/variants/value/create', [VariantValueController::class, 'create']);
 
-Route::controller(VariantController::class)->group(function () {
-    Route::get('/variants', 'index')->name('admin.variants.list');
-    Route::get('/variants/create', 'create')->name('admin.variants.create');
-    Route::post('/variants/create', 'store')->name('admin.variants.store');
-    Route::get('/variants/{id}/edit', 'edit')->name('admin.variants.edit');
-    Route::post('/variants/{id}/edit', 'update')->name('admin.variants.update');
-    Route::delete('/variants/{id}', 'destroy')->name('admin.variants.delete');
-});
+
 Route::controller(SkuController::class)->group(function () {
     Route::get('/skus', 'index')->name('admin.sku.list');
     Route::post('/skus/create', 'store')->name('admin.sku.store');
@@ -136,6 +129,14 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard')
         ->middleware(['auth', 'isAdmin']);
+        Route::controller(VariantController::class)->group(function () {
+            Route::get('/variants', 'index')->name('admin.variants.list');
+            Route::get('/variants/create', 'create')->name('admin.variants.create');
+            Route::post('/variants/create', 'store')->name('admin.variants.store');
+            Route::get('/variants/{id}/edit', 'edit')->name('admin.variants.edit');
+            Route::post('/variants/{id}/edit', 'update')->name('admin.variants.update');
+            Route::delete('/variants/{id}', 'destroy')->name('admin.variants.delete');
+        });
     Route::controller(AdminOrderController::class)->group(function () {
         Route::get('/order', 'index')->name('admin.order.list');
         Route::get('/order/{id}/detail', 'show')->name('admin.order.show');
@@ -235,7 +236,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/slider/{id}', 'destroy')->name('admin.slider.delete');
     });
     // User
-    
+
     Route::controller(UserController::class)->group(function () {
         Route::get('/user', 'index')->name('admin.user.list');
         Route::get('/user/create', 'create')->name('admin.user.create');

@@ -160,13 +160,14 @@
                             <!-- Hiển thị danh sách variants -->
 
                             @foreach ($variants as $variant)
-                                <div class="d-flex mb-5" style="flex-direction: row ">
+                                <div class="d-flex" style="flex-direction: row ">
 
 
-                                    <div style="width : 100px; font-size: 1rem" class="variant-name">{{ $variant->value }}:
+                                    <div style="max-widtg : 180px; font-size: 1rem ;" class="variant-name">{{ $variant->value }}:
                                     </div>
+
                                     <div class="variant-values"
-                                        style="display: flex; gap: 1rem; width: 100%; align-items: center; ">
+                                        style="display: flex;   align-items: start; ">
                                         <!-- Hiển thị danh sách variantValues của mỗi variant -->
                                         @foreach ($variantValues as $variantValue)
                                             @if ($variantValue->variant_id == $variant->id)
@@ -174,15 +175,18 @@
                                                     <input class="variant-input" id="{{ $variantValue->id }}"
                                                         name="variant{{ $variant->id }}" value="{{ $variantValue->id }}"
                                                         type="radio" style="display: none  ;" />
-                                                    <label for="{{ $variantValue->id }}"
-                                                        class="variant-label">{{ $variantValue->value }}</label>
+                                                    <label for="{{ $variantValue->id }}" style="border-radius: 5px; position: relative;"
+                                                        class="variant-label">{{ $variantValue->value }}
+                                                        <svg width="10px" style="position: absolute; background: #fe7f00; border-radius: 100%; padding: 2px; fill: white; bottom: 0; right: 0;"  enable-background="new 0 0 12 12" viewBox="0 0 12 12" x="0" y="0" class="shopee-svg-icon icon-tick-bold"><g><path d="m5.2 10.9c-.2 0-.5-.1-.7-.2l-4.2-3.7c-.4-.4-.5-1-.1-1.4s1-.5 1.4-.1l3.4 3 5.1-7c .3-.4 1-.5 1.4-.2s.5 1 .2 1.4l-5.7 7.9c-.2.2-.4.4-.7.4 0-.1 0-.1-.1-.1z"></path></g></svg>
+                                                    </label>
                                                 </ul>
+                                                <hr>
                                             @endif
                                         @endforeach
                                     </div>
                                     <style>
                                         .variant-label {
-                                            border: 1px solid black;
+                                            border: 1px solid rgba(0, 0, 0, 0.207);
                                             padding: .2rem .7rem;
                                             cursor: pointer;
                                         }
@@ -194,8 +198,8 @@
 
                                         .variant-value input:checked+.variant-label {
                                             /* Kiểu dáng cho label khi input radio được chọn */
-                                            color: #fed700;
-                                            border-color: #fed700;
+                                            color: #fe7f00;
+                                            border-color: #fe8c00;
                                         }
                                     </style>
                                     {{-- change variants --}}
@@ -250,7 +254,9 @@
                                                                     "$" + data.promotion_price + ".00" : "";
                                                                 var variantQuantityElement = document.getElementById(
                                                                     "variantQuantity");
-                                                                variantQuantityElement.value = data.quantity;
+                                                                var variantQuantity_text = document.getElementById(
+                                                                    "variantQuantity_text");
+                                                                    variantQuantity_text.innerText =data.quantity;
                                                                 //sku text
                                                                 var skuElement = document.getElementById(
                                                                     "sku_id");
@@ -279,15 +285,21 @@
                                 <input type="hidden" value="0" id="sku_id_input">
                             <span id="sku_id"></span>
                             </p>
+                            <div class="md-3 text-gray-9 font-size-14">Availability:
 
+                               <span class="text-green font-weight-bold" id="variantQuantity_text" >0 </span>
+                               <span class="text-green font-weight-bold"  >  in stock</span>
+
+
+                            </div>
 
                             <div class="mb-4">
                                 <div class="d-flex align-items-baseline">
-                                    <ins id="originalPrice"
-                                        class="font-size-36 text-decoration-none text-warning">${{ $product->price }}.00</ins>
+                                    <ins id="promotionPrice"
+                                        class="font-size-36 text-decoration-none text-warning">${{ $product->promotion_price }}.00</ins>
 
-                                    <del class="font-size-20 ml-2 text-gray-6  " id="promotionPrice">
-                                        {{ $product->promotion_price ? '$' . $product->promotion_price . '.00' : '' }}</del>
+                                    <del class="font-size-20 ml-2 text-gray-6  " id="originalPrice">
+                                        {{ $product->promotion_price ? '$' . $product->price . '.00' : '' }}</del>
                                 </div>
                             </div>
                             {{-- quantity --}}
