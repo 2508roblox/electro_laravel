@@ -94,50 +94,34 @@
                                     </div>
                                     <div class="card mt-5">
                                         <div class="card-body p-5">
-                                            <div class="mb-5">
-                                                <h2 class="mb-0 fs-exact-18">Inventory</h2>
-                                            </div>
-                                            <div class="mb-4"><label for="form-product/sku"
-                                                    class="form-label">SKU</label><input type="text"
-                                                    class="form-control" id="form-product/sku" value="SCREW150" /></div>
-                                            <div class="mb-4 pt-2"><label class="form-check"><input type="checkbox"
-                                                        class="form-check-input" name="hot" />
-                                                    <span class="form-check-label">Trending</span></label></div>
-                                            <div>
-                                                <label for="form-product/quantity" class="form-label">Stock
-                                                    quantity</label>
+                                            <div class="mb-4 pt-2">
+
+                                                <label class="form-check"><input type="checkbox"
+                                                class="form-check-input" name="hot" />
+                                            <span class="form-check-label">Trending</span></label>
+
+
+
                                             </div>
 
                                             <hr>
-                                            @forelse ($colors as $color)
-                                                <div class="mt-3">
-                                                    <label class="d-flex gap-2" class="form-label">{{ $color->name }}
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="colors[{{ $color->id }}]">
-                                                    </label>
-
-
-                                                    <input name="quantities[{{ $color->id }}]" type="number"
-                                                        class="form-control" id="form-product/quantity" value="0" />
-                                                </div>
-
-                                            @empty
-                                            @endforelse
+                                          
 
 
                                         </div>
                                     </div>
                                     <div class="card mt-5">
                                         <div class="card-body p-5" id="parent-variant">
-                                            <div>
-                                                <label for="variants">Choose Variant:</label>
-                                                <select name="variants" id="variants">
-                                                    @foreach ($variants as $variant)
-                                                        <option value="{{ $variant->id }}">{{ $variant->value }}</option>
-                                                    @endforeach
-                                                </select>
-                                                <button class="createVariantDiv">Create Variant Div</button>
-                                            </div>
+
+                                                <div class="form-group">
+                                                    <label for="variants">Choose Variant:</label>
+                                                    <select class="form-control" name="variants" id="variants">
+                                                        @foreach ($variants as $variant)
+                                                            <option value="{{ $variant->id }}">{{ $variant->value }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <button class="btn btn-primary createVariantDiv">Create Variant Div</button>
+                                                </div>
 
                                             <div id="variant-container">
                                                 <!-- Các div con đã tồn tại sẽ được hiển thị ở đây -->
@@ -146,7 +130,7 @@
                                                 <!-- Các div con đã tồn tại sẽ được hiển thị ở đây -->
                                             </div>
                                         </div>
-                                        <button id="create-product-form1"></button>
+
                                     </div>
                                     <input type="hidden" id="saved-data-input" name="savedData" value="">
                                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -397,126 +381,13 @@
                                         <div class="mt-n5">
                                             <div class="sa-divider"></div>
                                             <div class="table-responsive">
-                                                <input name="images[]" type="file" multiple>
-                                                <table class="sa-table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="w-min">Image</th>
-                                                            <th class="min-w-10x">Alt text</th>
-                                                            <th class="w-min">Order</th>
-                                                            <th class="w-min"></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <div
-                                                                    class="sa-symbol sa-symbol--shape--rounded sa-symbol--size--lg">
-                                                                    <img src="images/products/product-16-1-40x40.jpg"
-                                                                        width="40" height="40" alt="" />
-                                                                </div>
-                                                            </td>
-                                                            <td><input type="text"
-                                                                    class="form-control form-control-sm" />
-                                                            </td>
-                                                            <td><input type="number"
-                                                                    class="form-control form-control-sm w-4x"
-                                                                    value="0" /></td>
-                                                            <td><button class="btn btn-sa-muted btn-sm mx-n3"
-                                                                    type="button" aria-label="Delete image"
-                                                                    data-bs-toggle="tooltip" data-bs-placement="right"
-                                                                    title="Delete image"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="12"
-                                                                        height="12" viewBox="0 0 12 12"
-                                                                        fill="currentColor">
-                                                                        <path
-                                                                            d="M10.8,10.8L10.8,10.8c-0.4,0.4-1,0.4-1.4,0L6,7.4l-3.4,3.4c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L4.6,6L1.2,2.6 c-0.4-0.4-0.4-1,0-1.4l0,0c0.4-0.4,1-0.4,1.4,0L6,4.6l3.4-3.4c0.4-0.4,1-0.4,1.4,0l0,0c0.4,0.4,0.4,1,0,1.4L7.4,6l3.4,3.4 C11.2,9.8,11.2,10.4,10.8,10.8z">
-                                                                        </path>
-                                                                    </svg></button></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <div
-                                                                    class="sa-symbol sa-symbol--shape--rounded sa-symbol--size--lg">
-                                                                    <img src="images/products/product-16-2-40x40.jpg"
-                                                                        width="40" height="40" alt="" />
-                                                                </div>
-                                                            </td>
-                                                            <td><input type="text"
-                                                                    class="form-control form-control-sm" />
-                                                            </td>
-                                                            <td><input type="number"
-                                                                    class="form-control form-control-sm w-4x"
-                                                                    value="1" /></td>
-                                                            <td><button class="btn btn-sa-muted btn-sm mx-n3"
-                                                                    type="button" aria-label="Delete image"
-                                                                    data-bs-toggle="tooltip" data-bs-placement="right"
-                                                                    title="Delete image"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="12"
-                                                                        height="12" viewBox="0 0 12 12"
-                                                                        fill="currentColor">
-                                                                        <path
-                                                                            d="M10.8,10.8L10.8,10.8c-0.4,0.4-1,0.4-1.4,0L6,7.4l-3.4,3.4c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L4.6,6L1.2,2.6 c-0.4-0.4-0.4-1,0-1.4l0,0c0.4-0.4,1-0.4,1.4,0L6,4.6l3.4-3.4c0.4-0.4,1-0.4,1.4,0l0,0c0.4,0.4,0.4,1,0,1.4L7.4,6l3.4,3.4 C11.2,9.8,11.2,10.4,10.8,10.8z">
-                                                                        </path>
-                                                                    </svg></button></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <div
-                                                                    class="sa-symbol sa-symbol--shape--rounded sa-symbol--size--lg">
-                                                                    <img src="images/products/product-16-3-40x40.jpg"
-                                                                        width="40" height="40" alt="" />
-                                                                </div>
-                                                            </td>
-                                                            <td><input type="text"
-                                                                    class="form-control form-control-sm" />
-                                                            </td>
-                                                            <td><input type="number"
-                                                                    class="form-control form-control-sm w-4x"
-                                                                    value="2" /></td>
-                                                            <td><button class="btn btn-sa-muted btn-sm mx-n3"
-                                                                    type="button" aria-label="Delete image"
-                                                                    data-bs-toggle="tooltip" data-bs-placement="right"
-                                                                    title="Delete image"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="12"
-                                                                        height="12" viewBox="0 0 12 12"
-                                                                        fill="currentColor">
-                                                                        <path
-                                                                            d="M10.8,10.8L10.8,10.8c-0.4,0.4-1,0.4-1.4,0L6,7.4l-3.4,3.4c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L4.6,6L1.2,2.6 c-0.4-0.4-0.4-1,0-1.4l0,0c0.4-0.4,1-0.4,1.4,0L6,4.6l3.4-3.4c0.4-0.4,1-0.4,1.4,0l0,0c0.4,0.4,0.4,1,0,1.4L7.4,6l3.4,3.4 C11.2,9.8,11.2,10.4,10.8,10.8z">
-                                                                        </path>
-                                                                    </svg></button></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <div
-                                                                    class="sa-symbol sa-symbol--shape--rounded sa-symbol--size--lg">
-                                                                    <img src="images/products/product-16-4-40x40.jpg"
-                                                                        width="40" height="40" alt="" />
-                                                                </div>
-                                                            </td>
-                                                            <td><input type="text"
-                                                                    class="form-control form-control-sm" />
-                                                            </td>
-                                                            <td><input type="number"
-                                                                    class="form-control form-control-sm w-4x"
-                                                                    value="3" /></td>
-                                                            <td><button class="btn btn-sa-muted btn-sm mx-n3"
-                                                                    type="button" aria-label="Delete image"
-                                                                    data-bs-toggle="tooltip" data-bs-placement="right"
-                                                                    title="Delete image"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="12"
-                                                                        height="12" viewBox="0 0 12 12"
-                                                                        fill="currentColor">
-                                                                        <path
-                                                                            d="M10.8,10.8L10.8,10.8c-0.4,0.4-1,0.4-1.4,0L6,7.4l-3.4,3.4c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L4.6,6L1.2,2.6 c-0.4-0.4-0.4-1,0-1.4l0,0c0.4-0.4,1-0.4,1.4,0L6,4.6l3.4-3.4c0.4-0.4,1-0.4,1.4,0l0,0c0.4,0.4,0.4,1,0,1.4L7.4,6l3.4,3.4 C11.2,9.8,11.2,10.4,10.8,10.8z">
-                                                                        </path>
-                                                                    </svg></button></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                <input name="images[]" hidden type="file" id="upload_media" multiple>
+
                                             </div>
                                             <div class="sa-divider"></div>
-                                            <div class="px-5 py-4 my-2"><a href="#">Upload new image</a></div>
+                                            <div class="px-5 py-4 my-2"><a href="#">
+                                                <label for="upload_media">Upload new image</label>
+                                                </a></div>
                                         </div>
                                     </div>
                                     <div class="card mt-5">
