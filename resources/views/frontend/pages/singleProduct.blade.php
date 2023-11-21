@@ -100,29 +100,22 @@
                                             <small class="far fa-star text-muted"></small>
                                         </div>
                                         <span class="text-secondary font-size-13">(
-                                            {{
-                                             isset($productComments) ? count($productComments) : '0'
-                                            }} customer reviews)</span>
+                                            {{ isset($productComments) ? count($productComments) : '0' }} customer
+                                            reviews)</span>
                                     </a>
                                 </div>
                                 <div class="d-md-flex align-items-center">
-                                    <a href="#" class="max-width-150 ml-n2 mb-2 mb-md-0 d-block"><img
-                                            class="img-fluid" src="{{ asset('client/img/200X60/img1.png') }}"
-                                            alt="Image Description"></a>
+
                                     <div class="ml-md-3 text-gray-9 font-size-14">Availability:
 
                                         @if ($colors_quantity)
-                                        <span
-                                        class="text-green font-weight-bold">{{ $totalQuantity }} in stock</span>
-
-                                    @else
-                                    <span
-                                    class="text-red font-weight-bold">Out of Stock</span>
-
-                                    @endif
+                                            <span class="text-green font-weight-bold">{{ $totalQuantity }} in stock</span>
+                                        @else
+                                            <span class="text-red font-weight-bold">Out of Stock</span>
+                                        @endif
 
 
-                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="flex-horizontal-center flex-wrap mb-4">
@@ -180,14 +173,16 @@
                                     <h6 class="font-size-17 mb-2">{{ __('color') }}</h6>
                                     <!-- Select -->
                                     <div id="colorPreview" class="rounded-circle"
-                                        style="height: 19px; width: 19px;  margin-left: 1rem; background: #{{$colors_quantity[0]->code ?? ''}} "> </div>
+                                        style="height: 19px; width: 19px;  margin-left: 1rem; background: #{{ $colors_quantity[0]->code ?? '' }} ">
+                                    </div>
 
 
                                     <select name="colorSelector" id="colorSelector"
                                         class="js-select selectpicker dropdown-select ml-3"
                                         data-style="btn-sm bg-white font-weight-normal py-2 border">
                                         @foreach ($colors_quantity as $color)
-                                            <option style="color: #{{$color->code}}" value="{{ $color->product_colors_id }}:{{ $color->product_color_quantity }}:{{ $color->color_id }}">
+                                            <option style="color: #{{ $color->code }}"
+                                                value="{{ $color->product_colors_id }}:{{ $color->product_color_quantity }}:{{ $color->color_id }}">
                                                 {{ $color->name }} ({{ $color->product_color_quantity }})
 
                                             </option>
@@ -198,7 +193,7 @@
                                         var colorsArr = @json($colorsArr); // Convert PHP array to JavaScript object
                                         $(document).ready(function() {
                                             $('#colorSelector').on('change', function() {
-                                                var splitValues =  $('#colorSelector').val().split(":");
+                                                var splitValues = $('#colorSelector').val().split(":");
                                                 console.log(splitValues)
                                                 $('#colorPreview').css('background-color', '#' + colorsArr[splitValues[2]])
                                             });
@@ -280,7 +275,8 @@
                                     <!-- End Quantity -->
                                 </div>
                                 <div class="ml-md-3">
-                                    <a id="addToCartBtn" href="#" class="btn px-5 btn-primary-dark transition-3d-hover"><i
+                                    <a id="addToCartBtn" href="#"
+                                        class="btn px-5 btn-primary-dark transition-3d-hover"><i
                                             class="ec ec-add-to-cart mr-2 font-size-20"></i>{{ __('add_to_cart') }}</a>
                                 </div>
 
@@ -294,27 +290,27 @@
                                             var quantity = $('#quantityInput').val();
                                             var user = {!! json_encode(auth()->user() ? auth()->user()->id : null) !!};
                                             var product_id = {!! json_encode($product->id) !!};
-                                                if (user != null) {
-                                                    $.ajax({
-                                                url: '/cart/add',
-                                                type: 'POST',
-                                                dataType: 'json',
-                                                data: {
-                                                    "_token": "{{ csrf_token() }}",
-                                                    "user_id":user ,
-                                                    "product_id": product_id,
-                                                    "color_id": color_id,
-                                                    "quantity": quantity
-                                                },
-                                                success: function(response) {
-                                                    location.reload();
-                                                },
-                                                error: function(xhr) {
-                                                    location.href = "/cart";
+                                            if (user != null) {
+                                                $.ajax({
+                                                    url: '/cart/add',
+                                                    type: 'POST',
+                                                    dataType: 'json',
+                                                    data: {
+                                                        "_token": "{{ csrf_token() }}",
+                                                        "user_id": user,
+                                                        "product_id": product_id,
+                                                        "color_id": color_id,
+                                                        "quantity": quantity
+                                                    },
+                                                    success: function(response) {
+                                                        location.reload();
+                                                    },
+                                                    error: function(xhr) {
+                                                        location.href = "/cart";
 
-                                                }
-                                            });
-                                                }
+                                                    }
+                                                });
+                                            }
 
                                         });
                                     });
@@ -543,7 +539,8 @@
                                 </li>
                                 <li class="nav-item text-gray-111 mx-3 flex-shrink-0 flex-xl-shrink-1">/</li>
                                 <li class="nav-item text-gray-111 flex-shrink-0 flex-xl-shrink-1">
-                                    <strong>{{ __('category') }}:</strong> <a href="#" class="text-blue">Headphones</a>
+                                    <strong>{{ __('category') }}:</strong> <a href="#"
+                                        class="text-blue">Headphones</a>
                                 </li>
                                 <li class="nav-item text-gray-111 mx-3 flex-shrink-0 flex-xl-shrink-1">/</li>
                                 <li class="nav-item text-gray-111 flex-shrink-0 flex-xl-shrink-1"><strong>Tags:</strong> <a
@@ -667,7 +664,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <h3 class="font-size-18 mb-6">Based on {{ $reviewCount }} reviews</h3>
-                                        <h2 class="font-size-30 font-weight-bold text-lh-1 mb-0">{{$averageStars}}</h2>
+                                        <h2 class="font-size-30 font-weight-bold text-lh-1 mb-0">{{ $averageStars }}</h2>
                                         <div class="text-lh-1">overall</div>
                                     </div>
 
@@ -687,18 +684,19 @@
                                                     </div>
                                                 </div>
                                                 @if ($ratingCounts->has(5))
-                                                @php
-                                                    $rating = ($ratingCounts[5] / $reviewCount) * 100;
-                                                @endphp
-                                            @else
-                                                @php
-                                                    $rating = 0;
-                                                @endphp
-                                            @endif
+                                                    @php
+                                                        $rating = ($ratingCounts[5] / $reviewCount) * 100;
+                                                    @endphp
+                                                @else
+                                                    @php
+                                                        $rating = 0;
+                                                    @endphp
+                                                @endif
                                                 <div class="col-auto mb-2 mb-md-0">
                                                     <div class="progress ml-xl-5" style="height: 10px; width: 200px;">
-                                                        <div class="progress-bar" role="progressbar" style="width:  {{$rating}}%;"
-                                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                        <div class="progress-bar" role="progressbar"
+                                                            style="width:  {{ $rating }}%;" aria-valuenow="100"
+                                                            aria-valuemin="0" aria-valuemax="100">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -706,10 +704,10 @@
                                                     <span class="text-gray-90">
 
                                                         @if ($ratingCounts->has(5))
-   {{ $ratingCounts[5] }}
-   @else
-   0
-@endif
+                                                            {{ $ratingCounts[5] }}
+                                                        @else
+                                                            0
+                                                        @endif
                                                     </span>
                                                 </div>
                                             </a>
@@ -727,29 +725,30 @@
                                                         <small class="far fa-star text-muted"></small>
                                                     </div>
                                                 </div>
-                                                   @if ($ratingCounts->has(4))
-                                                @php
-                                                    $rating = ($ratingCounts[4] / $reviewCount) * 100;
-                                                @endphp
-                                            @else
-                                                @php
-                                                    $rating = 0;
-                                                @endphp
-                                            @endif
+                                                @if ($ratingCounts->has(4))
+                                                    @php
+                                                        $rating = ($ratingCounts[4] / $reviewCount) * 100;
+                                                    @endphp
+                                                @else
+                                                    @php
+                                                        $rating = 0;
+                                                    @endphp
+                                                @endif
                                                 <div class="col-auto mb-2 mb-md-0">
                                                     <div class="progress ml-xl-5" style="height: 10px; width: 200px;">
-                                                        <div class="progress-bar" role="progressbar" style="width: {{$rating}}%;"
-                                                            aria-valuenow="53" aria-valuemin="0" aria-valuemax="100">
+                                                        <div class="progress-bar" role="progressbar"
+                                                            style="width: {{ $rating }}%;" aria-valuenow="53"
+                                                            aria-valuemin="0" aria-valuemax="100">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-auto text-right">
                                                     <span class="text-gray-90">
                                                         @if ($ratingCounts->has(4))
- {{ $ratingCounts[4] }}
- @else
- 0
-@endif
+                                                            {{ $ratingCounts[4] }}
+                                                        @else
+                                                            0
+                                                        @endif
                                                     </span>
                                                 </div>
                                             </a>
@@ -766,29 +765,31 @@
                                                         <small class="far fa-star text-muted"></small>
                                                         <small class="far fa-star text-muted"></small>
                                                     </div>
-                                                </div>     @if ($ratingCounts->has(3))
-                                                @php
-                                                    $rating = ($ratingCounts[3] / $reviewCount) * 100;
-                                                @endphp
-                                            @else
-                                                @php
-                                                    $rating = 0;
-                                                @endphp
-                                            @endif
+                                                </div>
+                                                @if ($ratingCounts->has(3))
+                                                    @php
+                                                        $rating = ($ratingCounts[3] / $reviewCount) * 100;
+                                                    @endphp
+                                                @else
+                                                    @php
+                                                        $rating = 0;
+                                                    @endphp
+                                                @endif
                                                 <div class="col-auto mb-2 mb-md-0">
                                                     <div class="progress ml-xl-5" style="height: 10px; width: 200px;">
-                                                        <div class="progress-bar" role="progressbar" style="width: {{$rating}}%;"
-                                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                        <div class="progress-bar" role="progressbar"
+                                                            style="width: {{ $rating }}%;" aria-valuenow="20"
+                                                            aria-valuemin="0" aria-valuemax="100">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-auto text-right">
                                                     <span class="text-gray-90">
                                                         @if ($ratingCounts->has(3))
- {{ $ratingCounts[3] }}
- @else
- 0
-@endif
+                                                            {{ $ratingCounts[3] }}
+                                                        @else
+                                                            0
+                                                        @endif
                                                     </span>
                                                 </div>
                                             </a>
@@ -805,29 +806,31 @@
                                                         <small class="far fa-star text-muted"></small>
                                                         <small class="far fa-star text-muted"></small>
                                                     </div>
-                                                </div>     @if ($ratingCounts->has(2))
-                                                @php
-                                                    $rating = ($ratingCounts[2] / $reviewCount) * 100;
-                                                @endphp
-                                            @else
-                                                @php
-                                                    $rating = 0;
-                                                @endphp
-                                            @endif
+                                                </div>
+                                                @if ($ratingCounts->has(2))
+                                                    @php
+                                                        $rating = ($ratingCounts[2] / $reviewCount) * 100;
+                                                    @endphp
+                                                @else
+                                                    @php
+                                                        $rating = 0;
+                                                    @endphp
+                                                @endif
                                                 <div class="col-auto mb-2 mb-md-0">
                                                     <div class="progress ml-xl-5" style="height: 10px; width: 200px;">
-                                                        <div class="progress-bar" role="progressbar" style="width:{{$rating}}%;"
-                                                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                                        <div class="progress-bar" role="progressbar"
+                                                            style="width:{{ $rating }}%;" aria-valuenow="0"
+                                                            aria-valuemin="0" aria-valuemax="100">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-auto text-right">
                                                     <span class="text-muted">
                                                         @if ($ratingCounts->has(2))
-                                                       {{ $ratingCounts[2] }}
-                                                       @else
-                                                       0
-                                                    @endif
+                                                            {{ $ratingCounts[2] }}
+                                                        @else
+                                                            0
+                                                        @endif
                                                     </span>
                                                 </div>
                                             </a>
@@ -844,29 +847,31 @@
                                                         <small class="far fa-star text-muted"></small>
                                                         <small class="far fa-star text-muted"></small>
                                                     </div>
-                                                </div>     @if ($ratingCounts->has(1))
-                                                @php
-                                                    $rating = ($ratingCounts[1] / $reviewCount) * 100;
-                                                @endphp
-                                            @else
-                                                @php
-                                                    $rating = 0;
-                                                @endphp
-                                            @endif
+                                                </div>
+                                                @if ($ratingCounts->has(1))
+                                                    @php
+                                                        $rating = ($ratingCounts[1] / $reviewCount) * 100;
+                                                    @endphp
+                                                @else
+                                                    @php
+                                                        $rating = 0;
+                                                    @endphp
+                                                @endif
                                                 <div class="col-auto mb-2 mb-md-0">
                                                     <div class="progress ml-xl-5" style="height: 10px; width: 200px;">
-                                                        <div class="progress-bar" role="progressbar" style="width: {{$rating}}%;"
-                                                            aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+                                                        <div class="progress-bar" role="progressbar"
+                                                            style="width: {{ $rating }}%;" aria-valuenow="1"
+                                                            aria-valuemin="0" aria-valuemax="100">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-auto text-right">
                                                     <span class="text-gray-90">
                                                         @if ($ratingCounts->has(1))
-                                                      {{ $ratingCounts[1] }}
-                                                      @else
-                                                      0
-                                                    @endif
+                                                            {{ $ratingCounts[1] }}
+                                                        @else
+                                                            0
+                                                        @endif
                                                     </span>
                                                 </div>
                                             </a>
@@ -877,10 +882,11 @@
                                 <div class="col-md-6">
                                     <h3 class="font-size-18 mb-5">Add a review</h3>
                                     <!-- Form -->
-                                    <form class="js-validate" action="{{route('frontend.product.rating')}}" method="POST">
+                                    <form class="js-validate" action="{{ route('frontend.product.rating') }}"
+                                        method="POST">
                                         @csrf
                                         <div class="row align-items-center mb-4">
-                                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
                                             <div class="col-md-4 col-lg-3">
                                                 <label for="rating" class="form-label mb-0">Your Review</label>
                                             </div>
@@ -900,47 +906,47 @@
                                             </div>
                                             <style>
                                                 .rating {
-    direction: rtl;
-    unicode-bidi: bidi-override;
-}
+                                                    direction: rtl;
+                                                    unicode-bidi: bidi-override;
+                                                }
 
-.rating > input {
-    display: none;
-}
+                                                .rating>input {
+                                                    display: none;
+                                                }
 
-.rating > label:before {
-    content: "\2605";
-    margin: 5px;
-    font-size: 24px;
-    cursor: pointer;
-}
+                                                .rating>label:before {
+                                                    content: "\2605";
+                                                    margin: 5px;
+                                                    font-size: 24px;
+                                                    cursor: pointer;
+                                                }
 
-.rating > input:checked ~ label:before {
-    color: gold;
-}
+                                                .rating>input:checked~label:before {
+                                                    color: gold;
+                                                }
 
-.text-muted {
-    color: #6c757d !important;
-}
+                                                .text-muted {
+                                                    color: #6c757d !important;
+                                                }
                                             </style>
                                             <script>
-                                            const ratingInputs = document.querySelectorAll('.rating input');
+                                                const ratingInputs = document.querySelectorAll('.rating input');
 
-ratingInputs.forEach(input => {
-    input.addEventListener('change', function() {
-        const selectedRating = parseInt(this.value);
+                                                ratingInputs.forEach(input => {
+                                                    input.addEventListener('change', function() {
+                                                        const selectedRating = parseInt(this.value);
 
-        ratingInputs.forEach(input => {
-            const label = input.nextElementSibling;
+                                                        ratingInputs.forEach(input => {
+                                                            const label = input.nextElementSibling;
 
-            if (parseInt(input.value) > selectedRating) {
-                label.classList.add('text-muted');
-            } else {
-                label.classList.remove('text-muted');
-            }
-        });
-    });
-});
+                                                            if (parseInt(input.value) > selectedRating) {
+                                                                label.classList.add('text-muted');
+                                                            } else {
+                                                                label.classList.remove('text-muted');
+                                                            }
+                                                        });
+                                                    });
+                                                });
                                             </script>
                                         </div>
                                         <div class="js-form-message form-group mb-3 row">
@@ -948,8 +954,8 @@ ratingInputs.forEach(input => {
                                                 <label for="descriptionTextarea" class="form-label">Your Review</label>
                                             </div>
                                             <div class="col-md-8 col-lg-9">
-                                                <textarea class="form-control" name="content" rows="3" id="descriptionTextarea" data-msg="Please enter your message."
-                                                    data-error-class="u-has-error" data-success-class="u-has-success"></textarea>
+                                                <textarea class="form-control" name="content" rows="3" id="descriptionTextarea"
+                                                    data-msg="Please enter your message." data-error-class="u-has-error" data-success-class="u-has-success"></textarea>
                                             </div>
                                         </div>
 
@@ -967,31 +973,33 @@ ratingInputs.forEach(input => {
                             </div>
                             <!-- Review -->
                             @foreach ($productComments as $comment)
-                            <div class="border-bottom border-color-1 pb-4 mb-4">
-                                <!-- Review Rating -->
-                                <div class="d-flex justify-content-between align-items-center text-secondary font-size-1 mb-2">
-                                    <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            @if ($i <= $comment->rating)
-                                                <small class="fas fa-star"></small>
-                                            @else
-                                                <small class="far fa-star text-muted"></small>
-                                            @endif
-                                        @endfor
+                                <div class="border-bottom border-color-1 pb-4 mb-4">
+                                    <!-- Review Rating -->
+                                    <div
+                                        class="d-flex justify-content-between align-items-center text-secondary font-size-1 mb-2">
+                                        <div class="text-warning text-ls-n2 font-size-16" style="width: 80px;">
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                @if ($i <= $comment->rating)
+                                                    <small class="fas fa-star"></small>
+                                                @else
+                                                    <small class="far fa-star text-muted"></small>
+                                                @endif
+                                            @endfor
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- End Review Rating -->
+                                    <!-- End Review Rating -->
 
-                                <p class="text-gray-90">{{ $comment->content }}</p>
+                                    <p class="text-gray-90">{{ $comment->content }}</p>
 
-                                <!-- Reviewer -->
-                                <div class="mb-2">
-                                    <strong>{{ $comment->user->name }}</strong>
-                                    <span class="font-size-13 text-gray-23">- {{ $comment->created_at->format('F j, Y') }}</span>
+                                    <!-- Reviewer -->
+                                    <div class="mb-2">
+                                        <strong>{{ $comment->user->name }}</strong>
+                                        <span class="font-size-13 text-gray-23">-
+                                            {{ $comment->created_at->format('F j, Y') }}</span>
+                                    </div>
+                                    <!-- End Reviewer -->
                                 </div>
-                                <!-- End Reviewer -->
-                            </div>
-                        @endforeach
+                            @endforeach
                             <!-- End Review -->
                         </div>
                     </div>

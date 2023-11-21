@@ -45,7 +45,10 @@ use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\ProductColorController;
 use App\Http\Controllers\Admin\BlogAdminController;
 use App\Http\Controllers\Admin\InfomationController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\MyAccountController;
+use App\Http\Controllers\OtpController;
 
 /*
 |--------------------------------------------------------------------------

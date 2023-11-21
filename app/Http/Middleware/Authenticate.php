@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Middleware;
+
+use App\Models\User;
 use Closure;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Contracts\Session\Session;
 
 class Authenticate extends Middleware
 {
@@ -16,7 +19,9 @@ class Authenticate extends Middleware
 
     protected function redirectTo(Request $request): ?string
     {
+
+
+
         return $request->expectsJson() ? null : route('login');
     }
- 
 }
