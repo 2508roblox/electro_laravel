@@ -105,9 +105,7 @@
                                     </a>
                                 </div>
                                 <div class="d-md-flex align-items-center">
-                                    <a href="#" class="max-width-150 ml-n2 mb-2 mb-md-0 d-block"><img
-                                            class="img-fluid" src="{{ asset('client/img/200X60/img1.png') }}"
-                                            alt="Image Description"></a>
+
                                     <div class="ml-md-3 text-gray-9 font-size-14">Availability:
 
                                         @if ($colors_quantity)
@@ -292,11 +290,49 @@
                                         {{ $product->promotion_price ? '$' . $product->promotion_price . '.00' : '' }}</del>
                                 </div>
                             </div>
+<<<<<<< HEAD
+                            <div class="border-top border-bottom py-3 mb-4">
+                                <div class="d-flex align-items-center">
+                                    <h6 class="font-size-17 mb-2">{{ __('color') }}</h6>
+                                    <!-- Select -->
+                                    <div id="colorPreview" class="rounded-circle"
+                                        style="height: 19px; width: 19px;  margin-left: 1rem; background: #{{ $colors_quantity[0]->code ?? '' }} ">
+                                    </div>
+
+
+                                    <select name="colorSelector" id="colorSelector"
+                                        class="js-select selectpicker dropdown-select ml-3"
+                                        data-style="btn-sm bg-white font-weight-normal py-2 border">
+                                        @foreach ($colors_quantity as $color)
+                                            <option style="color: #{{ $color->code }}"
+                                                value="{{ $color->product_colors_id }}:{{ $color->product_color_quantity }}:{{ $color->color_id }}">
+                                                {{ $color->name }} ({{ $color->product_color_quantity }})
+
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <script src="{{ asset('client/vendor/jquery/dist/jquery.min.js') }}"></script>
+                                    <script>
+                                        var colorsArr = @json($colorsArr); // Convert PHP array to JavaScript object
+                                        $(document).ready(function() {
+                                            $('#colorSelector').on('change', function() {
+                                                var splitValues = $('#colorSelector').val().split(":");
+                                                console.log(splitValues)
+                                                $('#colorPreview').css('background-color', '#' + colorsArr[splitValues[2]])
+                                            });
+                                        });
+                                    </script>
+
+                                    <!-- End Select -->
+                                </div>
+                            </div>
+=======
                             {{-- quantity --}}
                             <input type="number" value="0" hidden id="variantQuantity" name="variant_quantity">
                             {{-- quantity --}}
 
 
+>>>>>>> 7506d18992d6917a5750332b2a0f8eb098d580bb
                             <div class="d-md-flex align-items-end mb-3">
                                 <div class="max-width-150 mb-4 mb-md-0">
                                     <h6 class="font-size-14"> {{ __('quantity') }}</h6>
@@ -398,6 +434,17 @@
                                                         "_token": "{{ csrf_token() }}",
                                                         "user_id": user,
                                                         "product_id": product_id,
+<<<<<<< HEAD
+                                                        "color_id": color_id,
+                                                        "quantity": quantity
+                                                    },
+                                                    success: function(response) {
+                                                        location.reload();
+                                                    },
+                                                    error: function(xhr) {
+                                                        location.href = "/cart";
+
+=======
                                                         // "color_id": color_id,
                                                         "sku_id": sku_id,
                                                         "quantity": quantity
@@ -409,6 +456,7 @@
 
                                                         $('#add_status').text('Please choose a variant of this product!')
 
+>>>>>>> 7506d18992d6917a5750332b2a0f8eb098d580bb
                                                     }
                                                 });
                                             }

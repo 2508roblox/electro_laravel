@@ -44,18 +44,20 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DatabaseController;
-use App\Http\Controllers\ForgotPasswordController;
-use App\Http\Controllers\Admin\BlogAdminController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminOrderController;
-use App\Http\Controllers\Admin\InfomationController;
 use App\Http\Controllers\Admin\FileManagerController;
 use App\Http\Controllers\Admin\GitActivityController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\TaskManagerController;
 use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\ProductColorController;
+
+use App\Http\Controllers\Admin\InfomationController;
+use App\Http\Controllers\ForgotPasswordController;
+
 use App\Http\Controllers\Admin\VariantValueController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -77,7 +79,7 @@ Route::get('change-language/{language}', function (string $language) {
 
 
 
-Route::post('/variants/value/create', [VariantValueController::class, 'create' ] );
+Route::post('/variants/value/create', [VariantValueController::class, 'create']);
 
 Route::controller(VariantController::class)->group(function () {
     Route::get('/variants', 'index')->name('admin.variants.list');
