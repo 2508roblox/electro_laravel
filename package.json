@@ -7,7 +7,7 @@
         "development": "mix",
         "mix": "mix",
         "build": "vite build",
-        "start": "concurrently  \"php artisan serve\" \"nodemon ./serve_node/serve.js\"  "
+        "start": "concurrently   \"php artisan serve\"  \"nodemon ./serve_node/serve.js\"  "
     },
     "devDependencies": {
         "axios": "^1.1.2",
