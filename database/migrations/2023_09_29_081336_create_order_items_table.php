@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->tinyInteger('role_as')->default('0')->comment('0 as user, 1 as admin');
+        Schema::create('order_items', function (Blueprint $table) {
+            $table->id();
+            $table->integer('order_id');
+            $table->integer('product_id');
+           
+            $table->integer('quantity');
+            $table->integer('price');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role_as');
-        });
+        Schema::dropIfExists('order_items');
     }
 };

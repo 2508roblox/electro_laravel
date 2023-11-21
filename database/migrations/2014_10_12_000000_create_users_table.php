@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->string('role_as')->default('0');
-            $table->string('otp')->nullable();
+            // $table->string('role_as')->default('0');
+            // $table->string('otp')->nullable();
         });
     }
 

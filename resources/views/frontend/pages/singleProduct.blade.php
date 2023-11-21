@@ -155,19 +155,142 @@
 
                                 </ul>
                             </div>
-                            <p>{{ $product->small_description }}.</p>
-                            <p><strong>{{ __('sku') }}</strong>: FW511948218</p>
+                            <p>Description: {{ $product->small_description }}.</p>
+                            {{--  --}}
+                            <!-- Hiển thị danh sách variants -->
+
+                            @foreach ($variants as $variant)
+                                <div class="d-flex mb-5" style="flex-direction: row ">
+
+
+                                    <div style="width : 100px; font-size: 1rem" class="variant-name">{{ $variant->value }}:
+                                    </div>
+                                    <div class="variant-values"
+                                        style="display: flex; gap: 1rem; width: 100%; align-items: center; ">
+                                        <!-- Hiển thị danh sách variantValues của mỗi variant -->
+                                        @foreach ($variantValues as $variantValue)
+                                            @if ($variantValue->variant_id == $variant->id)
+                                                <ul class="variant-value">
+                                                    <input class="variant-input" id="{{ $variantValue->id }}"
+                                                        name="variant{{ $variant->id }}" value="{{ $variantValue->id }}"
+                                                        type="radio" style="display: none  ;" />
+                                                    <label for="{{ $variantValue->id }}"
+                                                        class="variant-label">{{ $variantValue->value }}</label>
+                                                </ul>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                    <style>
+                                        .variant-label {
+                                            border: 1px solid black;
+                                            padding: .2rem .7rem;
+                                            cursor: pointer;
+                                        }
+
+                                        .variant-label:hover {
+                                            color: #fed700;
+                                            border-color: #fed700;
+                                        }
+
+                                        .variant-value input:checked+.variant-label {
+                                            /* Kiểu dáng cho label khi input radio được chọn */
+                                            color: #fed700;
+                                            border-color: #fed700;
+                                        }
+                                    </style>
+                                    {{-- change variants --}}
+
+                                    <script>
+                                        if (!window.scriptExecuted) {
+                                            window.scriptExecuted = true;
+
+                                            document.addEventListener('DOMContentLoaded', function() {
+                                                const variantInputs = document.querySelectorAll('.variant-value input');
+                                                let selectedValues = [];
+
+                                                variantInputs.forEach(input => {
+                                                    input.addEventListener('change', function() {
+                                                        const selectedValue = this.value;
+
+                                                        if (this.checked && !selectedValues.includes(selectedValue)) {
+                                                            selectedValues.push(
+                                                                selectedValue
+                                                                ); // Thêm giá trị vào mảng nếu input được chọn và chưa tồn tại trong mảng
+                                                        }
+
+                                                        // Loại bỏ các giá trị không được chọn khỏi mảng selectedValues
+                                                        selectedValues = selectedValues.filter(value => {
+                                                            return Array.from(variantInputs).some(input => input.value ===
+                                                                value && input.checked);
+                                                        });
+
+                                                        console.log('Các giá trị đã chọn:', selectedValues);
+                                                        $.ajax({
+                                                            url: '/skus',
+                                                            type: 'GET',
+                                                            dataType: 'json',
+                                                            data: {
+                                                                "_token": "{{ csrf_token() }}",
+                                                                "data": selectedValues
+                                                            },
+                                                            success: function(response) {
+                                                                console.log(response);
+                                                                var data = response;
+
+                                                                // Đặt giá trị giá gốc
+                                                                var originalPriceElement = document.getElementById(
+                                                                    "originalPrice");
+                                                                originalPriceElement.innerText = "$" + data
+                                                                    .original_price + ".00";
+
+                                                                // Đặt giá trị giá khuyến mãi (nếu có)
+                                                                var promotionPriceElement = document.getElementById(
+                                                                    "promotionPrice");
+                                                                promotionPriceElement.innerText = data.promotion_price ?
+                                                                    "$" + data.promotion_price + ".00" : "";
+                                                                var variantQuantityElement = document.getElementById(
+                                                                    "variantQuantity");
+                                                                variantQuantityElement.value = data.quantity;
+                                                                //sku text
+                                                                var skuElement = document.getElementById(
+                                                                    "sku_id");
+                                                                    skuElement.innerText = data.sku_code;
+                                                                //sku id
+
+                                                                var skuIdElement = document.getElementById(
+                                                                    "sku_id_input");
+                                                                    skuIdElement.value = data.id;
+
+
+                                                            },
+                                                            error: function(xhr) {
+                                                                // Xử lý lỗi nếu có
+
+                                                            }
+                                                        });
+                                                    });
+                                                });
+                                            });
+                                        }
+                                    </script>
+                                </div>
+                            @endforeach
+                            <p><strong>{{ __('sku') }}</strong>:
+                                <input type="hidden" value="0" id="sku_id_input">
+                            <span id="sku_id"></span>
+                            </p>
 
 
                             <div class="mb-4">
                                 <div class="d-flex align-items-baseline">
-                                    <ins
+                                    <ins id="originalPrice"
                                         class="font-size-36 text-decoration-none text-warning">${{ $product->price }}.00</ins>
 
-                                    <del class="font-size-20 ml-2 text-gray-6  ">
+                                    <del class="font-size-20 ml-2 text-gray-6  " id="promotionPrice">
                                         {{ $product->promotion_price ? '$' . $product->promotion_price . '.00' : '' }}</del>
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div class="border-top border-bottom py-3 mb-4">
                                 <div class="d-flex align-items-center">
                                     <h6 class="font-size-17 mb-2">{{ __('color') }}</h6>
@@ -203,6 +326,13 @@
                                     <!-- End Select -->
                                 </div>
                             </div>
+=======
+                            {{-- quantity --}}
+                            <input type="number" value="0" hidden id="variantQuantity" name="variant_quantity">
+                            {{-- quantity --}}
+
+
+>>>>>>> 7506d18992d6917a5750332b2a0f8eb098d580bb
                             <div class="d-md-flex align-items-end mb-3">
                                 <div class="max-width-150 mb-4 mb-md-0">
                                     <h6 class="font-size-14"> {{ __('quantity') }}</h6>
@@ -242,10 +372,13 @@
                                             });
 
                                             $('.js-plus').on('click', function() {
-                                                var id_quantity = $('#colorSelector').val();
-                                                var splitValues = id_quantity.split(":");
-                                                var color_id = splitValues[0];
-                                                var quantity = splitValues[1];
+                                                // var id_quantity = $('#colorSelector').val();
+
+                                                // var splitValues = id_quantity.split(":");
+                                                // var color_id = splitValues[0];
+                                                // var quantity = splitValues[1];
+                                                // var quantity = splitValues[1];
+                                                var quantity = $('#variantQuantity').val();
 
                                                 if ($('#quantityInput').val() == quantity) {
                                                     return false;
@@ -262,10 +395,10 @@
                                                 var quantityInput = $(this);
                                                 var currentValue = parseInt(quantityInput.val());
 
-                                                var id_quantity = $('#colorSelector').val();
-                                                var splitValues = id_quantity.split(":");
-                                                var quantity = parseInt(splitValues[1]);
-
+                                                // var id_quantity = $('#colorSelector').val();
+                                                // var splitValues = id_quantity.split(":");
+                                                var quantity = $('#variantQuantity').val();
+                                                // set to max quantity if not valid
                                                 if (currentValue >= quantity || currentValue < 1) {
                                                     quantityInput.val(quantity);
                                                 }
@@ -284,11 +417,13 @@
                                     $(document).ready(function() {
                                         $('#addToCartBtn').on('click', function(e) {
                                             e.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
-                                            var id_quantity = $('#colorSelector').val();
-                                            var splitValues = id_quantity.split(":");
-                                            var color_id = splitValues[0]; // id của bảng productColor
+                                            // var id_quantity = $('#colorSelector').val();
+                                            // var splitValues = id_quantity.split(":");
+                                            // var color_id = splitValues[0]; // id của bảng productColor
+                                            var sku_id = $('#sku_id_input').val()    // id của bảng productColor
                                             var quantity = $('#quantityInput').val();
                                             var user = {!! json_encode(auth()->user() ? auth()->user()->id : null) !!};
+                                            console.log(user)
                                             var product_id = {!! json_encode($product->id) !!};
                                             if (user != null) {
                                                 $.ajax({
@@ -299,6 +434,7 @@
                                                         "_token": "{{ csrf_token() }}",
                                                         "user_id": user,
                                                         "product_id": product_id,
+<<<<<<< HEAD
                                                         "color_id": color_id,
                                                         "quantity": quantity
                                                     },
@@ -308,6 +444,19 @@
                                                     error: function(xhr) {
                                                         location.href = "/cart";
 
+=======
+                                                        // "color_id": color_id,
+                                                        "sku_id": sku_id,
+                                                        "quantity": quantity
+                                                    },
+                                                    success: function(response) {
+                                                        location.href = '/cart';
+                                                    },
+                                                    error: function(xhr) {
+
+                                                        $('#add_status').text('Please choose a variant of this product!')
+
+>>>>>>> 7506d18992d6917a5750332b2a0f8eb098d580bb
                                                     }
                                                 });
                                             }
@@ -316,6 +465,8 @@
                                     });
                                 </script>
                             </div>
+                            {{-- add message --}}
+                            <span id="add_status" style="color: red; "></span>
                         </div>
                     </div>
                 </div>
@@ -534,6 +685,9 @@
                                 </div>
                             </div>
                             <ul class="nav flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
+
+
+
                                 <li class="nav-item text-gray-111 flex-shrink-0 flex-xl-shrink-1"><strong>SKU:</strong>
                                     <span class="sku">FW511948218</span>
                                 </li>

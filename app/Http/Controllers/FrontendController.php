@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sku;
 use App\Models\Brand;
 use App\Models\Color;
 use App\Models\Order;
 use App\Models\Slider;
 use App\Models\Wallet;
 use App\Models\Product;
+use App\Models\Variant;
 use App\Models\Category;
+use App\Models\SkuVariant;
 use App\Models\SubCategory;
 use App\Models\Transaction;
+use App\Models\VariantValue;
 use Illuminate\Http\Request;
 use App\Models\ProductComment;
 use Illuminate\Support\Facades\DB;
@@ -210,12 +214,30 @@ class FrontendController extends Controller
 
         // Lấy số lượng đánh giá cho mỗi mức độ rating
         $ratingCounts = $productComments->groupBy('rating')->map->count();
-        //         dd(
-        // $productComments,
-        // $averageStars,
-        // $ratingCounts
 
-        //         );
+
+// $variantValues = VariantValue::where('product_id', $product->id)->get();
+
+// $variantIds = $variantValues->pluck('variant_id')->unique();
+
+// $variants = Variant::whereIn('id', $variantIds)->get();
+$skuCodes = Sku::where('product_id', $product->id)->pluck('sku_code');
+
+
+
+$variantValueIds = SkuVariant::whereIn('sku', $skuCodes)->pluck('variant_value_id');
+$variantValues = VariantValue::whereIn('id', $variantValueIds)->get();
+
+$variantIds = $variantValues->pluck('variant_id')->unique();
+$variants = Variant::whereIn('id', $variantIds)->get();
+
+
+
+
+
+
+
+
         return view(
             'frontend.pages.singleProduct',
             compact(
@@ -228,7 +250,9 @@ class FrontendController extends Controller
                 'totalQuantity',
                 'productComments',
                 'averageStars',
-                'ratingCounts'
+                'ratingCounts',
+                'variantValues',
+                'variants'
             )
         )->with('reviewCount', $productComments->count());;
     }

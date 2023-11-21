@@ -274,11 +274,23 @@
                                                   class="sa-nav__title">Images</span></a></li>
                                   </ul>
                               </li>
-                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
-                                  data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
-                                      class="sa-nav__link" data-sa-collapse-trigger=""><span class="sa-nav__icon">
-                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"
-                                              id="brand-engagement">
+                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon" data-sa-collapse-item="sa-nav__menu-item--open"><a href="" class="sa-nav__link" data-sa-collapse-trigger=""><span class="sa-nav__icon">
+                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="picture">
+                                              <path d="M61.68 54.91H2.32C1.04 54.91 0 53.87 0 52.59V11.41c0-1.28 1.04-2.32 2.32-2.32h59.36c1.28 0 2.32 1.04 2.32 2.32v41.18c0 1.28-1.04 2.32-2.32 2.32zM4.64 50.27h54.72V13.73H4.64v36.54z" />
+                                              <path d="M61.68 54.91c-.69 0-1.38-.31-1.84-.9l-10.7-13.84-6.59 6.59c-.87.87-2.41.87-3.28 0l-15.8-15.81L4.1 54.08c-.82.98-2.28 1.11-3.27.29a2.326 2.326 0 0 1-.29-3.27l21-25.07c.42-.5 1.03-.8 1.68-.83.65-.02 1.28.22 1.74.68l15.96 15.96 6.81-6.81a2.29 2.29 0 0 1 1.79-.67c.66.04 1.28.37 1.69.9l12.32 15.92c.78 1.01.6 2.47-.42 3.25-.43.32-.93.48-1.43.48z" />
+                                              <path d="M32 37.98c-.27 0-.55-.01-.81-.04a2.33 2.33 0 0 1-2.08-2.54 2.323 2.323 0 0 1 2.54-2.08c.11.01.23.02.34.02 2.05 0 3.71-1.66 3.71-3.71s-1.66-3.71-3.71-3.71-3.71 1.66-3.71 3.71c0 .12.01.24.02.36a2.321 2.321 0 0 1-4.62.44c-.03-.27-.04-.53-.04-.8 0-4.6 3.75-8.35 8.35-8.35s8.35 3.75 8.35 8.35-3.74 8.35-8.34 8.35z" />
+                                          </svg>
+                                      </span><span class="sa-nav__title">Variants</span><span class="sa-nav__arrow"><svg xmlns="http://www.w3.org/2000/svg" width="6" height="9" viewBox="0 0 6 9" fill="currentColor">
+                                              <path d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
+                                              </path>
+                                          </svg></span></a>
+                                  <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
+                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.category.list') }}" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title">Variants List</span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.category.create') }}" class="sa-nav__link"><span class="sa-nav__menu-item-padding"></span><span class="sa-nav__title">Variants</span></a></li>
+                                  </ul>
+                              </li>
+                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon" data-sa-collapse-item="sa-nav__menu-item--open"><a href="" class="sa-nav__link" data-sa-collapse-trigger=""><span class="sa-nav__icon">
+                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="brand-engagement">
                                               <g data-name="Glyph">
                                                   <path
                                                       d="M8 62h48a1 1 0 0 0 .993-1.116l-5-43A1 1 0 0 0 51 17h-9v-5a10 10 0 0 0-20 0v5h-9a1 1 0 0 0-.993.884l-5 43A1 1 0 0 0 8 62Zm15-4a1 1 0 1 1 1-1 1 1 0 0 1-1 1Zm20-33a2 2 0 1 1-2-2 2 2 0 0 1 2 2ZM24 12a8 8 0 0 1 16 0v5H24Zm-1 11a2 2 0 1 1-2 2 2 2 0 0 1 2-2Zm-4.13 11.132a6.4 6.4 0 0 1 9.026 0L32 38.227l4.1-4.095a6.4 6.4 0 0 1 9.026 0 6.394 6.394 0 0 1 0 9.012l-12.325 12.3a1 1 0 0 1-1.407.006l-12.522-12.3a6.391 6.391 0 0 1-.002-9.018ZM12 56h7a1 1 0 0 1 0 2h-7a1 1 0 0 1 0-2Z" />

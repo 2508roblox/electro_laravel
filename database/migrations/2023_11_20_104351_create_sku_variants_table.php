@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('carts', function (Blueprint $table) {
+
+        Schema::create('sku_variants', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('product_id');
-            $table->unsignedBigInteger('product_color_id');
-            $table->integer('quantity');
+            $table->string('sku');
+            $table->unsignedBigInteger('variant_value_id');
             $table->timestamps();
-            $table->foreign('product_color_id')->references('id')->on('product_colors')->onDelete('cascade');
+
+            // Tạo foreign key cho variant_value_id
 
         });
+
     }
 
     /**
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('carts');
+        Schema::dropIfExists('sku_variants');
     }
 };

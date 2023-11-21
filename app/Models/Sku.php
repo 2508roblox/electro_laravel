@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderItem extends Model
+class Sku extends Model
 {
     use HasFactory;
-    protected $table = 'order_items';
     protected $fillable = [
-        'order_id',
         'product_id',
+        'original_price',
+        'promotion_price',
         'quantity',
-        'price',
-
-  ];
+    ];
 }
