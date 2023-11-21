@@ -1,11 +1,13 @@
 {
     "private": true,
+    "type": "module",
+    "main": "./serve_node/serve.js",
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
         "mix": "mix",
-
-        "build": "vite build"
+        "build": "vite build",
+        "start": "concurrently  \"php artisan serve\" \"nodemon ./serve_node/serve.js\"  "
     },
     "devDependencies": {
         "axios": "^1.1.2",

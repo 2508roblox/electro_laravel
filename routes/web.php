@@ -280,11 +280,11 @@ Route::group(['prefix' => 'admin'], function () {
 // 2.0 auth
 
 
-Route::prefix('google')->name('google.')->group( function(){
+Route::prefix('google')->name('google.')->group(function () {
     Route::get('auth', [GoogleController::class, 'loginUsingGoogle'])->name('login');
     Route::get('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
 });
-Route::prefix('facebook')->name('facebook.')->group( function(){
+Route::prefix('facebook')->name('facebook.')->group(function () {
     Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
     Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
 });
@@ -335,19 +335,19 @@ Route::controller(ContactController::class)->group(function () {
     Route::post('/contact', 'store')->middleware(['localization'])->name('frontend.contact.store');
 });
 Route::controller(OrderController::class)->group(function () {
-    Route::get('/order', 'index')->middleware(['auth', 'verifiedMail','localization'])->name('frontend.order.list');
+    Route::get('/order', 'index')->middleware(['auth', 'verifiedMail', 'localization'])->name('frontend.order.list');
     Route::get('/order/{id}/detail', 'show')->name('frontend.order.show');
-    Route::post('/order/add', 'store')->middleware(['auth', 'verifiedMail','localization'])->name('frontend.order.store');
-    Route::put('/order/edit', 'update')->middleware(['auth', 'verifiedMail','localization'])->name('frontend.order.update');
-    Route::get('/order/{id}', 'destroy')->middleware(['auth', 'verifiedMail','localization'])->name('frontend.order.delete');
+    Route::post('/order/add', 'store')->middleware(['auth', 'verifiedMail', 'localization'])->name('frontend.order.store');
+    Route::put('/order/edit', 'update')->middleware(['auth', 'verifiedMail', 'localization'])->name('frontend.order.update');
+    Route::get('/order/{id}', 'destroy')->middleware(['auth', 'verifiedMail', 'localization'])->name('frontend.order.delete');
 });
 Route::controller(CheckoutController::class)->group(function () {
     Route::get('/checkout', 'index')->middleware(['localization'])->name('admin.checkout');
 
-    Route::post('/checkout/create', 'store')->middleware(['auth', 'verifiedMail','localization'])->name('admin.checkout.store');
-    Route::get('/checkout/{id}/edit', 'edit')->middleware(['auth', 'verifiedMail','localization'])->name('admin.checkout.edit');
-    Route::post('/checkout/{id}/edit', 'update')->middleware(['auth', 'verifiedMail','localization'])->name('admin.checkout.update');
-    Route::delete('/checkout/{id}', 'destroy')->middleware(['auth', 'verifiedMail','localization'])->name('admin.checkout.delete');
+    Route::post('/checkout/create', 'store')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.checkout.store');
+    Route::get('/checkout/{id}/edit', 'edit')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.checkout.edit');
+    Route::post('/checkout/{id}/edit', 'update')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.checkout.update');
+    Route::delete('/checkout/{id}', 'destroy')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.checkout.delete');
 });
 // reset password by link generation
 Route::controller(ForgotPasswordController::class)->group(function () {
