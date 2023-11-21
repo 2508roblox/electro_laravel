@@ -216,7 +216,8 @@
 
                                                         if (this.checked && !selectedValues.includes(selectedValue)) {
                                                             selectedValues.push(
-                                                            selectedValue); // Thêm giá trị vào mảng nếu input được chọn và chưa tồn tại trong mảng
+                                                                selectedValue
+                                                                ); // Thêm giá trị vào mảng nếu input được chọn và chưa tồn tại trong mảng
                                                         }
 
                                                         // Loại bỏ các giá trị không được chọn khỏi mảng selectedValues
@@ -249,6 +250,19 @@
                                                                     "promotionPrice");
                                                                 promotionPriceElement.innerText = data.promotion_price ?
                                                                     "$" + data.promotion_price + ".00" : "";
+                                                                var variantQuantityElement = document.getElementById(
+                                                                    "variantQuantity");
+                                                                variantQuantityElement.value = data.quantity;
+                                                                //sku text
+                                                                var skuElement = document.getElementById(
+                                                                    "sku_id");
+                                                                    skuElement.innerText = data.sku_code;
+                                                                //sku id
+
+                                                                var skuIdElement = document.getElementById(
+                                                                    "sku_id_input");
+                                                                    skuIdElement.value = data.id;
+
 
                                                             },
                                                             error: function(xhr) {
@@ -263,54 +277,26 @@
                                     </script>
                                 </div>
                             @endforeach
-                            <p><strong>{{ __('sku') }}</strong>: FW511948218</p>
+                            <p><strong>{{ __('sku') }}</strong>:
+                                <input type="hidden" value="0" id="sku_id_input">
+                            <span id="sku_id"></span>
+                            </p>
 
 
                             <div class="mb-4">
                                 <div class="d-flex align-items-baseline">
-                                    <ins
-                                    id="originalPrice"
+                                    <ins id="originalPrice"
                                         class="font-size-36 text-decoration-none text-warning">${{ $product->price }}.00</ins>
 
-                                    <del class="font-size-20 ml-2 text-gray-6  "  id="promotionPrice">
+                                    <del class="font-size-20 ml-2 text-gray-6  " id="promotionPrice">
                                         {{ $product->promotion_price ? '$' . $product->promotion_price . '.00' : '' }}</del>
                                 </div>
                             </div>
-                            <div class="border-top border-bottom py-3 mb-4">
-                                <div class="d-flex align-items-center">
-                                    <h6 class="font-size-17 mb-2">{{ __('color') }}</h6>
-                                    <!-- Select -->
-                                    <div id="colorPreview" class="rounded-circle"
-                                        style="height: 19px; width: 19px;  margin-left: 1rem; background: #{{ $colors_quantity[0]->code ?? '' }} ">
-                                    </div>
+                            {{-- quantity --}}
+                            <input type="number" value="0" hidden id="variantQuantity" name="variant_quantity">
+                            {{-- quantity --}}
 
-
-                                    <select name="colorSelector" id="colorSelector"
-                                        class="js-select selectpicker dropdown-select ml-3"
-                                        data-style="btn-sm bg-white font-weight-normal py-2 border">
-                                        @foreach ($colors_quantity as $color)
-                                            <option style="color: #{{ $color->code }}"
-                                                value="{{ $color->product_colors_id }}:{{ $color->product_color_quantity }}:{{ $color->color_id }}">
-                                                {{ $color->name }} ({{ $color->product_color_quantity }})
-
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    <script src="{{ asset('client/vendor/jquery/dist/jquery.min.js') }}"></script>
-                                    <script>
-                                        var colorsArr = @json($colorsArr); // Convert PHP array to JavaScript object
-                                        $(document).ready(function() {
-                                            $('#colorSelector').on('change', function() {
-                                                var splitValues = $('#colorSelector').val().split(":");
-                                                console.log(splitValues)
-                                                $('#colorPreview').css('background-color', '#' + colorsArr[splitValues[2]])
-                                            });
-                                        });
-                                    </script>
-
-                                    <!-- End Select -->
-                                </div>
-                            </div>
+                            
                             <div class="d-md-flex align-items-end mb-3">
                                 <div class="max-width-150 mb-4 mb-md-0">
                                     <h6 class="font-size-14"> {{ __('quantity') }}</h6>
@@ -350,10 +336,13 @@
                                             });
 
                                             $('.js-plus').on('click', function() {
-                                                var id_quantity = $('#colorSelector').val();
-                                                var splitValues = id_quantity.split(":");
-                                                var color_id = splitValues[0];
-                                                var quantity = splitValues[1];
+                                                // var id_quantity = $('#colorSelector').val();
+
+                                                // var splitValues = id_quantity.split(":");
+                                                // var color_id = splitValues[0];
+                                                // var quantity = splitValues[1];
+                                                // var quantity = splitValues[1];
+                                                var quantity = $('#variantQuantity').val();
 
                                                 if ($('#quantityInput').val() == quantity) {
                                                     return false;
@@ -370,10 +359,10 @@
                                                 var quantityInput = $(this);
                                                 var currentValue = parseInt(quantityInput.val());
 
-                                                var id_quantity = $('#colorSelector').val();
-                                                var splitValues = id_quantity.split(":");
-                                                var quantity = parseInt(splitValues[1]);
-
+                                                // var id_quantity = $('#colorSelector').val();
+                                                // var splitValues = id_quantity.split(":");
+                                                var quantity = $('#variantQuantity').val();
+                                                // set to max quantity if not valid
                                                 if (currentValue >= quantity || currentValue < 1) {
                                                     quantityInput.val(quantity);
                                                 }
@@ -392,11 +381,13 @@
                                     $(document).ready(function() {
                                         $('#addToCartBtn').on('click', function(e) {
                                             e.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
-                                            var id_quantity = $('#colorSelector').val();
-                                            var splitValues = id_quantity.split(":");
-                                            var color_id = splitValues[0]; // id của bảng productColor
+                                            // var id_quantity = $('#colorSelector').val();
+                                            // var splitValues = id_quantity.split(":");
+                                            // var color_id = splitValues[0]; // id của bảng productColor
+                                            var sku_id = $('#sku_id_input').val()    // id của bảng productColor
                                             var quantity = $('#quantityInput').val();
                                             var user = {!! json_encode(auth()->user() ? auth()->user()->id : null) !!};
+                                            console.log(user)
                                             var product_id = {!! json_encode($product->id) !!};
                                             if (user != null) {
                                                 $.ajax({
@@ -407,7 +398,8 @@
                                                         "_token": "{{ csrf_token() }}",
                                                         "user_id": user,
                                                         "product_id": product_id,
-                                                        "color_id": color_id,
+                                                        // "color_id": color_id,
+                                                        "sku_id": sku_id,
                                                         "quantity": quantity
                                                     },
                                                     success: function(response) {

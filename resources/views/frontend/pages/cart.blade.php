@@ -58,20 +58,20 @@
                                     <a href="#" class="text-gray-90">@php
                                         echo ucwords($cart->product_name);
                                     @endphp </a>
-                                    <span style="color:#{{$cart->code}}"> - (  {{$cart->color_name}}   )</span>
+                                    <span style=" "> - (  {{$cart->sku}}   )</span>
                                 </td>
 
                                 <td data-title="Price">
                                     @if (isset($cart->promotion_price))
                                         <span class="">${{ number_format($cart->promotion_price) }}.00</span>
                                         <del class="font-size-1 ml-2 text-gray-6  ">
-                                            ${{ number_format($cart->price) }}.00</del>
+                                            ${{ number_format($cart->original_price) }}.00</del>
                                         <input hidden id="current_price_{{ $cart->cart_id }}" type="number"
                                             value="{{ $cart->promotion_price }}">
                                     @else
-                                        <span class="">${{ number_format($cart->price) }}.00</span>
+                                        <span class="">${{ number_format($cart->original_price) }}.00</span>
                                         <input hidden id="current_price_{{ $cart->cart_id }}" type="number"
-                                            value="{{ $cart->price }}">
+                                            value="{{ $cart->original_price }}">
                                     @endif
                                 </td>
 
@@ -83,7 +83,7 @@
                                             <div class="col p-0">
                                                 <input id="quantityInput{{ $cart->cart_id }}" name="quantity"
                                                     class="ml-5 js-result form-control h-auto border-0 rounded p-0 shadow-none"
-                                                    type="number" min="1" max="{{ $cart->max_color_quantity }}"
+                                                    type="number" min="1" max="{{ $cart->max_variant_quantity }}"
                                                     value="{{ $cart->quantity }}">
                                             </div>
 
@@ -101,17 +101,17 @@
 
                                             <div class="col-auto pr-1">
                                                 <button style="z-index: 100" value="{{ $cart->cart_id }}"
-                                                    onclick="desc_qty({{ $cart->cart_id }}, {{ $cart->max_color_quantity }})"
+                                                    onclick="desc_qty({{ $cart->cart_id }}, {{ $cart->max_variant_quantity }})"
                                                     class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0">
                                                     <i value="{{ $cart->cart_id }}"
-                                                        onclick="handleSmallClickDesc(event, {{ $cart->cart_id }}, {{ $cart->max_color_quantity }})"
+                                                        onclick="handleSmallClickDesc(event, {{ $cart->cart_id }}, {{ $cart->max_variant_quantity }})"
                                                         class="fas fa-minus btn-icon__inner"></i>
                                                 </button>
                                                 <button style="z-index: 100" value="{{ $cart->cart_id }}"
-                                                    onclick="inc_qty({{ $cart->cart_id }}, {{ $cart->max_color_quantity }})"
+                                                    onclick="inc_qty({{ $cart->cart_id }}, {{ $cart->max_variant_quantity }})"
                                                     class="js-plus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0">
                                                     <i value="{{ $cart->cart_id }}"
-                                                        onclick="handleSmallClickInc(event, {{ $cart->cart_id }}, {{ $cart->max_color_quantity }})"
+                                                        onclick="handleSmallClickInc(event, {{ $cart->cart_id }}, {{ $cart->max_variant_quantity }})"
                                                         class="fas fa-plus btn-icon__inner"></i>
                                                 </button>
                                             </div>
@@ -210,7 +210,7 @@
                                         if (isset($cart->promotion_price)) {
                                             echo '$' . number_format($cart->promotion_price * $cart->quantity) . '.00';
                                         }else {
-                                            echo '$' . number_format($cart->price * $cart->quantity) . '.00';
+                                            echo '$' . number_format($cart->original_price * $cart->quantity) . '.00';
 
                                         }
                                     @endphp</span>
