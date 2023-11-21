@@ -6,6 +6,7 @@ use App\Models\Sku;
 use App\Models\SkuVariant;
 use App\Models\VariantValue;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class SkuController extends Controller
@@ -42,12 +43,35 @@ class SkuController extends Controller
     }
     public function index(Request $request,  Sku $sku)
     {
-        // $formField = $request->validate([
-        //     "variant_id" => 'required|exists:variants,id',
-        //     "sku_id" => 'nullable|string|max:255',
-        //     "parent_variant_id" => 'nullable|exists:variants,id',
-        // ]);
-        // $variantValue->create($formField);
-        return true;
+
+        $variantValueIds = $request->data;
+        $skus = DB::table('sku_variants')
+        ->select('sku')
+        ->whereIn('variant_value_id', $variantValueIds)
+        ->groupBy('sku')
+        ->having(DB::raw('COUNT(DISTINCT variant_value_id)'), '=', count($variantValueIds))
+        ->get();
+
+        $skusCount  = DB::table('sku_variants')
+        ->where('sku',$skus[0]->sku)
+        ->get()
+        ->count();
+
+        $validSkus = [];
+
+        foreach ($skus as $sku) {
+            if ($skusCount ==  count($variantValueIds)) {
+                # code...
+                $validSkus[] = $sku->sku;
+            }
+        }
+        if (  count($validSkus) == 0)  return false;
+        $sku_data = DB::table('skus')
+        ->select('*')
+        ->where('sku_code',$validSkus[0])
+        ->get();
+
+
+        return $sku_data[0];
     }
 }

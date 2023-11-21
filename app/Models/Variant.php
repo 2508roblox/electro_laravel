@@ -11,4 +11,5 @@ class Variant extends Model
     protected $fillable = [
         'value',
     ];
+
 }
