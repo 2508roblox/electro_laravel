@@ -22,6 +22,11 @@ class SkuController extends Controller
                 continue;
             }
 
+            // Kiểm tra xem SKU đã tồn tại trong bảng skus hay chưa
+            if ($sku->where('sku_code', $data['sku'])->exists()) {
+                continue; // Đã tồn tại, bỏ qua phần tử này
+            }
+
             // Tạo các hàng mới trong bảng sku_variants
             foreach ($data['variant_value_id'] as $variantValueId) {
                 SkuVariant::create([
@@ -33,7 +38,7 @@ class SkuController extends Controller
             // Tạo một SKU mới
             $newSku = new Sku();
             $newSku->sku_code = $data['sku'];
-            $newSku->product_id =$request->input('product_id') ;
+            $newSku->product_id = $request->input('product_id');
             $newSku->original_price = $data['price'];
             $newSku->promotion_price = $data['promotion'];
             $newSku->quantity = $data['quantity'];
