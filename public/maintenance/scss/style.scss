@@ -1,0 +1,122 @@
+/*
+	Theme Name: Danio
+	Theme URI: //template.danio.itembridge.com/
+	Author: InfoStyle
+	Author URI: https://themeforest.net/user/itembridgethemes
+	Description: Danio responsive theme
+	Version: 1.0.2
+	License: ThemeForest Regular & Extended License
+	License URI: http://themeforest.net/licenses/regular_extended
+
+	[Table of contents]
+	1. Typography ---------------- #line 30
+		1.1. Title ----------------- #line 145
+		1.2. Text ------------------ #line 210
+		1.3. Lists ----------------- #line 225
+		1.4. Table ----------------- #line 258
+		1.5. Blockquote ------------ #line 295
+		1.6. Forms ----------------- #line 325
+	3. Main ---------------------- #line 633
+	4. Background ---------------- #line 652
+	5. Pages --------------------- #line 752
+	6. Header -------------------- #line 800
+	7. Footer -------------------- #line 872
+	8. Content ------------------- #line 1144
+	9. Navigation ---------------- #line 1824
+	10. Social Icons ------------- #line 2135
+	10. Bootstrap align -----------#line 2321
+*/
+
+
+// CORE
+// @import "variables";
+// @import "color";
+
+@import "typography";
+@import "main";
+
+/*---------------------------------------------------------------------------------------*/
+/*-----------------------------------Text align for Botstrap-----------------------------*/
+/*---------------------------------------------------------------------------------------*/
+
+.text-left-not-xs, .text-left-not-sm, .text-left-not-md, .text-left-not-lg {
+	text-align: left;
+}
+.text-center-not-xs, .text-center-not-sm, .text-center-not-md, .text-center-not-lg {
+	text-align: center;
+}
+.text-right-not-xs, .text-right-not-sm, .text-right-not-md, .text-right-not-lg {
+	text-align: right;
+}
+.text-justify-not-xs, .text-justify-not-sm, .text-justify-not-md, .text-justify-not-lg {
+	text-align: justify;
+}
+
+@media (max-width: 767px) {
+	.text-left-not-xs, .text-center-not-xs, .text-right-not-xs, .text-justify-not-xs {
+		text-align: inherit;
+	}
+	.text-left-xs {
+		text-align: left;
+	}
+	.text-center-xs {
+		text-align: center;
+	}
+	.text-right-xs {
+		text-align: right;
+	}
+	.text-justify-xs {
+		text-align: justify;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	.text-left-not-sm, .text-center-not-sm, .text-right-not-sm, .text-justify-not-sm {
+		text-align: inherit;
+	}
+	.text-left-sm {
+		text-align: left;
+	}
+	.text-center-sm {
+		text-align: center;
+	}
+	.text-right-sm {
+		text-align: right;
+	}
+	.text-justify-sm {
+		text-align: justify;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	.text-left-not-md, .text-center-not-md, .text-right-not-md, .text-justify-not-md {
+		text-align: inherit;
+	}
+	.text-left-md {
+		text-align: left;
+	}
+	.text-center-md {
+		text-align: center;
+	}
+	.text-right-md {
+		text-align: right;
+	}
+	.text-justify-md {
+		text-align: justify;
+	}
+}
+@media (min-width: 1200px) {
+	.text-left-not-lg, .text-center-not-lg, .text-right-not-lg, .text-justify-not-lg {
+		text-align: inherit;
+	}
+	.text-left-lg {
+		text-align: left;
+	}
+	.text-center-lg {
+		text-align: center;
+	}
+	.text-right-lg {
+		text-align: right;
+	}
+	.text-justify-lg {
+		text-align: justify;
+	}
+}

@@ -123,7 +123,11 @@
     <label for="tab4">Account details</label>
 
     <section id="content1">
-        <p>Hello <b>{{ Auth::user()->name }}</b></p>
+        <p>Hello <b>{{ Auth::user()->name }}</b>
+            @if(Auth::user()->role_as == 1)
+            <p><a href="{{ route('dashboard') }}" target="_blank" class="gotoAdmin">Admin Dashboard</a></p>
+            @endif
+        </p>
         <form action="{{ route('logout') }}" method="post">
             @csrf
             <input class="btn btn-primary" id="submit" type="submit" value="Logout" placeholder="Logout" style="display: block; font-size: 15px">
@@ -407,7 +411,7 @@
 
     </section>
 
-</main> 
+</main>
 
 
 <style>

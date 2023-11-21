@@ -16,7 +16,7 @@ class MaintenanceMode
     public function handle($request, Closure $next)
 {
     // Kiểm tra nếu trang web đang ở chế độ bảo trì và không phải là trang admin
-    if (config('app.maintenance_mode') && strpos($request->url(), '/admin/dashboard') === false) {
+    if (config('app.maintenance_mode') && strpos($request->url(), '/admin/dashboard') && strpos($request->url(), '/auth/register') && strpos($request->url(), '/auth/login') === false) {
         return response(view('maintenance'));
     }
 

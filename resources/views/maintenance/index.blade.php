@@ -467,24 +467,24 @@
 	</div>
 	<!-- /WRAPPER -->
 
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.fullPage.min.js"></script>
-	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="js/jquery.touchSwipe.min.js"></script>
-	<script src="js/jquery.swiper.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.inview.min.js"></script>
-	<script src="js/jquery.placeholder.min.js"></script>
-	<script src="js/jquery.ajaxchimp.min.js"></script>
-	<script src="js/jquery.countdown.js"></script>
+	<script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.fullPage.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.touchSwipe.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.swiper.js') }}"></script>
+	<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.inview.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.placeholder.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.countdown.js') }}"></script>
 
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-	<script src="js/googlemap.js"></script>
-	<script src="js/validator.min.js"></script>
-	<script src='js/bootstrap-select.min.js'></script>
+	<script src="{{ asset('js/googlemap.js') }}"></script>
+	<script src="{{ asset('js/validator.min.js') }}"></script>
+	<script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
 
-	<script src="js/main.js"></script>
+	<script src="{{ asset('js/main.js') }}"></script>
 	
 	<div id="todown">
 		<a href="#"><div class="gos"></div><span></span></a>
