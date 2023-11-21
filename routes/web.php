@@ -28,6 +28,7 @@ use App\Http\Controllers\LoginHistoryController;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\MaintenanceController;
+use App\Http\Controllers\MyAccountController;
 
 use App\Http\Controllers\Auth\LogoutController;
 
@@ -60,6 +61,7 @@ use App\Http\Controllers\Admin\ProductColorController;
 use App\Http\Controllers\Admin\VariantValueController;
 use App\Http\Controllers\Admin\SkuController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -86,7 +88,7 @@ Route::get('change-language/{language}', function (string $language) {
 
 
 
-Route::post('/variants/value/create', [VariantValueController::class, 'create' ] );
+Route::post('/variants/value/create', [VariantValueController::class, 'create']);
 
 Route::controller(VariantController::class)->group(function () {
     Route::get('/variants', 'index')->name('admin.variants.list');
