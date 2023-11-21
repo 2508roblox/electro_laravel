@@ -396,15 +396,6 @@
                                                         "_token": "{{ csrf_token() }}",
                                                         "user_id": user,
                                                         "product_id": product_id,
-                                                        "color_id": color_id,
-                                                        "quantity": quantity
-                                                    },
-                                                    success: function(response) {
-                                                        location.reload();
-                                                    },
-                                                    error: function(xhr) {
-                                                        location.href = "/cart";
-
                                                         // "color_id": color_id,
                                                         "sku_id": sku_id,
                                                         "quantity": quantity
@@ -415,7 +406,6 @@
                                                     error: function(xhr) {
 
                                                         $('#add_status').text('Please choose a variant of this product!')
-
 
                                                     }
                                                 });
