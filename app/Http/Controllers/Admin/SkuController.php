@@ -8,6 +8,7 @@ use App\Models\VariantValue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class SkuController extends Controller
 {
@@ -73,5 +74,59 @@ class SkuController extends Controller
 
 
         return $sku_data[0];
+    }
+    public function update(Request $request)
+    {
+        // Xác thực dữ liệu
+        $validator = Validator::make($request->all(), [
+            'sku_id' => 'required',
+            'original_price' => 'required|numeric',
+            'promotion_price' => 'required|numeric',
+            'quantity' => 'required|integer',
+        ]);
+
+        // Kiểm tra xác thực
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        }
+
+        // Lấy dữ liệu từ request
+        $skuId = $request->input('sku_id');
+        $originalPrice = $request->input('original_price');
+        $promotionPrice = $request->input('promotion_price');
+        $quantity = $request->input('quantity');
+
+        // Tìm SKU dựa trên ID
+        $sku = Sku::findOrFail($skuId);
+
+        // Cập nhật các trường dữ liệu của SKU
+        $sku->original_price = $originalPrice;
+        $sku->promotion_price = $promotionPrice;
+        $sku->quantity = $quantity;
+
+        // Lưu SKU đã cập nhật
+        $sku->save();
+
+        // Trả về phản hồi thành công
+        return response()->json(['message' => 'Update successful'], 200);
+    }
+    public function delete(Request $request, string $id)
+    {
+        // Tìm SKU dựa trên ID
+        $sku = Sku::find($id);
+
+        // Kiểm tra xem SKU có tồn tại hay không
+        if (!$sku) {
+            return response()->json(['message' => 'SKU not found'], 404);
+        }
+
+        // Xóa các SKU variant có sku_code tương ứng
+        SkuVariant::where('sku', $sku->sku_code)->delete();
+
+        // Xóa SKU
+        $sku->delete();
+
+        // Trả về phản hồi thành công
+        return response()->json(['message' => 'SKU and associated SKU variants deleted'], 200);
     }
 }

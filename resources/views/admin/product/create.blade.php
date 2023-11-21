@@ -154,16 +154,16 @@
                                         $(document).ready(function() {
 
                                             $('#create-product-form').on('submit', function(event) {
-  var data = saveData();
-  console.log(data);
-  $.ajax({
+                                                var data = saveData();
+                                                console.log(data);
+                                                $.ajax({
                                                     url: '/skus/create',
                                                     type: 'POST',
                                                     dataType: 'json',
                                                     data: {
                                                         "_token": "{{ csrf_token() }}",
-                                                        "data":   data,
-                                                        "product_id": {{$latestProductId}}
+                                                        "data": data,
+                                                        "product_id": {{ $latestProductId }}
                                                     },
                                                     success: function(response) {
                                                         console.log(response);
@@ -175,53 +175,55 @@
 
                                                     }
                                                 });
-});
-function saveData() {
-  var data = [];
+                                            });
 
-  var table = document.getElementById('variants-table');
-  var rows = table.getElementsByTagName('tr');
-  for (var i = 1; i < rows.length; i++) {
-    var row = rows[i];
-    var inputs = row.getElementsByTagName('input');
-    var cellId = row.getElementsByTagName('td');
-    // obj of each
-    var values = {};
-    console.log(cellId[0].id)
+                                            function saveData() {
+                                                var data = [];
 
-    var index = 0;
-    let tempIdArr = []
-    while (index < inputs.length && cellId[index].id) {
-      var id = cellId[index].id;
-      tempIdArr.push(id);
-      index++;
-    }
-    values.variant_value_id = tempIdArr
-    for (var j = 0; j < inputs.length; j++) {
-       switch (j) {
-        case 0:
-        values.sku =inputs[j].value
-            break;
-        case 1:
-        values.quantity =inputs[j].value
-            break;
-        case 2:
-        values.price =inputs[j].value
-            break;
+                                                var table = document.getElementById('variants-table');
+                                                var rows = table.getElementsByTagName('tr');
+                                                for (var i = 1; i < rows.length; i++) {
+                                                    var row = rows[i];
+                                                    var inputs = row.getElementsByTagName('input');
+                                                    var cellId = row.getElementsByTagName('td');
+                                                    // obj of each
+                                                    var values = {};
+                                                    console.log(cellId[0].id)
 
-        default:
-        values.promotion =inputs[j].value
+                                                    var index = 0;
+                                                    let tempIdArr = []
+                                                    while (index < inputs.length && cellId[index].id) {
+                                                        var id = cellId[index].id;
+                                                        tempIdArr.push(id);
+                                                        index++;
+                                                    }
+                                                    values.variant_value_id = tempIdArr
+                                                    for (var j = 0; j < inputs.length; j++) {
+                                                        switch (j) {
+                                                            case 0:
+                                                                values.sku = inputs[j].value
+                                                                break;
+                                                            case 1:
+                                                                values.quantity = inputs[j].value
+                                                                break;
+                                                            case 2:
+                                                                values.price = inputs[j].value
+                                                                break;
 
-            break;
-       }
-    }
+                                                            default:
+                                                                values.promotion = inputs[j].value
+
+                                                                break;
+                                                        }
+                                                    }
 
 
-    data.push(values);
-  }
+                                                    data.push(values);
+                                                }
 
-  return data;
-}                              $('#parent-variant').on('click', '.createVariantDiv', function(event) {
+                                                return data;
+                                            }
+                                            $('#parent-variant').on('click', '.createVariantDiv', function(event) {
                                                 event.preventDefault();
                                                 var selectedVariant = $('#variants').val();
                                                 var variantName = $('#variants option:selected').text();

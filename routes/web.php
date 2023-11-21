@@ -83,6 +83,8 @@ Route::controller(VariantController::class)->group(function () {
 Route::controller(SkuController::class)->group(function () {
     Route::get('/skus', 'index')->name('admin.sku.list');
     Route::post('/skus/create', 'store')->name('admin.sku.store');
+    Route::post('/skus/update', 'update')->name('admin.sku.update');
+    Route::post('/skus/delete/{id}', 'delete')->name('admin.sku.delete');
 });
 
 

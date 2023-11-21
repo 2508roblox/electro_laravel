@@ -30,7 +30,7 @@ class CartController extends Controller
         ->select('carts.id as cart_id','products.name as product_name', 'product_images.image as product_image',   'carts.quantity', 'carts.sku_id', 'skus.original_price', 'skus.promotion_price', 'skus.sku_code as sku','skus.quantity as max_variant_quantity')
         ->where('carts.user_id', Auth::user()->id)
         ->get();
-        
+
         return view('frontend.pages.cart', compact('carts') );
 
     }
@@ -68,7 +68,7 @@ class CartController extends Controller
                 $existCartQty->update([
                     'quantity' => $existCartQty->quantity + $request->input('quantity')
                 ]);
-                return response('Add success: Product added to cart successfully', 200);
+                return true;
             }
         } else {
             $validateData = $request->validate([
@@ -85,7 +85,7 @@ class CartController extends Controller
                 'sku_id' => $validateData['sku_id'],
             ]);
 
-            return response('Add success: Product added to cart successfully', 200);
+            return true;
 
         }
     }

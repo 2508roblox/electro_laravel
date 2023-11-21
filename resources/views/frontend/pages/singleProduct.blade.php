@@ -296,7 +296,7 @@
                             <input type="number" value="0" hidden id="variantQuantity" name="variant_quantity">
                             {{-- quantity --}}
 
-                            
+
                             <div class="d-md-flex align-items-end mb-3">
                                 <div class="max-width-150 mb-4 mb-md-0">
                                     <h6 class="font-size-14"> {{ __('quantity') }}</h6>
@@ -403,10 +403,11 @@
                                                         "quantity": quantity
                                                     },
                                                     success: function(response) {
-                                                        location.reload();
+                                                        location.href = '/cart';
                                                     },
                                                     error: function(xhr) {
-                                                        location.href = "/cart";
+
+                                                        $('#add_status').text('Please choose a variant of this product!')
 
                                                     }
                                                 });
@@ -416,6 +417,8 @@
                                     });
                                 </script>
                             </div>
+                            {{-- add message --}}
+                            <span id="add_status" style="color: red; "></span>
                         </div>
                     </div>
                 </div>

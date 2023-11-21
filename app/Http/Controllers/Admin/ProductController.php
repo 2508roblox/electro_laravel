@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use App\Models\Sku;
 
 class ProductController extends Controller
 {
@@ -154,10 +155,10 @@ if ($request->colors ?? false) {
         ->get();
         //whereDoesntHave return all This Model which is not existing in relationsip table
         //default => all in relationsip table
-        $colors = Color::whereDoesntHave('products', function ($query) use ($product) {
-            $query->where('product_id', $product->id);
-        })->get();
-        return view('admin.product.edit', compact('product', 'sub_categories', 'images', 'colors_quantity', 'colors', 'brands'));
+
+
+        $skus =  DB::table('skus')->where('skus.product_id', '=', $id)->get();
+        return view('admin.product.edit', compact('product', 'sub_categories', 'images',   'brands', 'skus'));
     }
 
     /**

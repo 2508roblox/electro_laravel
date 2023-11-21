@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sku;
 use App\Models\Brand;
 use App\Models\Color;
 use App\Models\Order;
@@ -10,6 +11,7 @@ use App\Models\Wallet;
 use App\Models\Product;
 use App\Models\Variant;
 use App\Models\Category;
+use App\Models\SkuVariant;
 use App\Models\SubCategory;
 use App\Models\Transaction;
 use App\Models\VariantValue;
@@ -214,20 +216,20 @@ class FrontendController extends Controller
         $ratingCounts = $productComments->groupBy('rating')->map->count();
 //*********** */     get variant
 
-$variantValues = VariantValue::where('product_id', $product->id)->get();
+// $variantValues = VariantValue::where('product_id', $product->id)->get();
+
+// $variantIds = $variantValues->pluck('variant_id')->unique();
+
+// $variants = Variant::whereIn('id', $variantIds)->get();
+$skuCodes = Sku::where('product_id', $product->id)->pluck('sku_code');
+
+
+
+$variantValueIds = SkuVariant::whereIn('sku', $skuCodes)->pluck('variant_value_id');
+$variantValues = VariantValue::whereIn('id', $variantValueIds)->get();
 
 $variantIds = $variantValues->pluck('variant_id')->unique();
-
 $variants = Variant::whereIn('id', $variantIds)->get();
-
-
-
-
-
-
-
-
-
 
 
 
