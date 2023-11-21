@@ -104,7 +104,6 @@ class CheckoutController extends Controller
     public function store(Request $request)
     {
 
-
         // logic
         $validator = Validator::make($request->all(), [
             'firstname' => 'required|max:255',

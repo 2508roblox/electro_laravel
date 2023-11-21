@@ -263,12 +263,20 @@
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" class="custom-control-input"
                                                             name="payment_mode" value="bank" id="stylishRadio1"
-                                                            name="stylishRadio" checked>
-                                                        <label class="custom-control-label form-label" for="stylishRadio1"
+                                                            name="stylishRadio" checked >
+                                                        <label class="custom-control-label form-label" id="bank_payment" for="stylishRadio1"
                                                             data-toggle="collapse" data-target="#basicsCollapseOnee"
                                                             aria-expanded="true" aria-controls="basicsCollapseOnee">
                                                             Direct bank transfer
                                                         </label>
+                                                        <script>
+                                                            $(document).ready(function() {
+                                                                $('#bank_payment').on('click', function() {
+                                                                    var isChecked = $('#stylishRadio1').prop('checked');
+                                                                    console.log('Bank is checked:', isChecked);
+                                                                });
+                                                            });
+                                                        </script>
                                                     </div>
                                                 </div>
                                                 <div id="basicsCollapseOnee"
@@ -291,7 +299,7 @@
                                                 <div class="p-3" id="basicsHeadingThree">
                                                     <div class="custom-control custom-radio">
                                                         <input
-                                                            {{ $balance < $totalRequiredAmount ? 'disabled' : '' }}type="radio"
+                                                            {{ $balance < $totalRequiredAmount ? 'disabled' : '' }} type="radio"
                                                             class="custom-control-input" id="wallet"
                                                             name="payment_mode" value="wallet">
                                                         <label class="custom-control-label   form-label" for="wallet"
