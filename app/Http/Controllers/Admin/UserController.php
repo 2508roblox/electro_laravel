@@ -16,6 +16,13 @@ class UserController extends Controller
         $users = User::with('wallet')->orderBy('id', 'DESC')->get();
         return view('admin.user.index', compact('users'));
     }
+    public function index2()
+    {
+        // $users = User::all();
+        // return view('admin.user.index', compact('users'));
+        $users = User::with('wallet')->orderBy('id', 'DESC')->get();
+        return view('admin.activity-user.login', compact('users'));
+    }
     
     public function create()
     {

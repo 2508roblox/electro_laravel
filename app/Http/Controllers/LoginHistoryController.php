@@ -11,7 +11,7 @@ class LoginHistoryController extends Controller
     {
         // Lấy lịch sử đăng nhập cho user hiện tại
         $loginHistory = \App\Models\LoginHistory::where('user_id', auth()->id())->get();
-        dd($loginHistory);
+        // dd($loginHistory);
         return view('frontend.myaccount.dashboard', compact('loginHistory'));
     }
 }

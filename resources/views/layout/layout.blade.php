@@ -33,9 +33,9 @@ filter: grayscale(0);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+
     </style>
-    {{-- captcha --}}
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+
 
     @php
     $telegramBotToken = env('TELEGRAM_BOT_TOKEN');
@@ -79,6 +79,36 @@ filter: grayscale(0);
     // echo $result;
     @endphp
 
+
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const socket = io('http://localhost:7000', {
+                transports: ['websocket']
+            });
+
+            socket.on('connect', () => {
+                @if(Route::currentRouteName() == 'home')
+                socket.emit('chat-message', 'Có người đang truy cập trang Home');
+                @elseif(Route::currentRouteName() == 'login' || Route::currentRouteName() == 'register')
+                socket.emit('chat-message', 'Có người đang truy cập trang Login/Register');
+                @elseif(Route::currentRouteName() == 'admin.checkout')
+                socket.emit('chat-message', 'Có người đang thanh toán sản phẩm');
+                @endif
+            });
+
+            socket.on('disconnect', () => {
+                // console.log('Mất kết nối từ máy chủ');
+            });
+
+            socket.on('chat-message', (message) => {
+                // console.log('Nhận tin nhắn từ máy chủ:', message);
+            });
+        });
+
+    </script>
+    {{-- captcha --}}
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 

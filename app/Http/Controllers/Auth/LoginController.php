@@ -67,6 +67,7 @@ class LoginController extends Controller
     private function recordLoginHistory($userId, $ipAddress)
     {
         // Sử dụng model để lưu lịch sử đăng nhập
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         \App\Models\LoginHistory::create([
             'user_id' => $userId,
             'login_time' => now(),
