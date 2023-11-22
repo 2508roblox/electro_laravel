@@ -19,11 +19,14 @@
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <style>
         img {
-filter: grayscale(1);
-}
-img:hover, img:focus {
-filter: grayscale(0);
-}
+            filter: grayscale(1);
+        }
+
+        img:hover,
+        img:focus {
+            filter: grayscale(0);
+        }
+
     </style>
 
     <!-- CSS Electro Template -->
