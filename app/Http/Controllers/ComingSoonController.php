@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class MaintenanceController extends Controller
+class ComingSoonController extends Controller
 {
     public function index(){
-        return view('maintenance');
+        return view('error.coming-soon');
     }
 }

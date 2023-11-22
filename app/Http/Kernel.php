@@ -38,7 +38,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \App\Http\Middleware\MaintenanceMode::class,
+            // \App\Http\Middleware\MaintenanceMode::class,
         ],
 
         'api' => [
@@ -70,7 +70,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'isAdmin' =>\App\Http\Middleware\AdminMiddleware::class,
         'localization' => Localization::class,
-        'maintenance' => \App\Http\Middleware\MaintenanceMode::class,
+        // 'maintenance' => \App\Http\Middleware\MaintenanceMode::class,
 
     ];
 }

@@ -171,14 +171,14 @@
                                 <thead>
                                     <tr>
                                         <th>Active pages</th>
-                                        {{-- <th class="text-end">Users</th> --}}
+                                        <th class="text-end">Users</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td><a class="text-reset">Maintenance Mode</a></td>
-                                        <td class="text-end"><button class="btn btn-primary">On</button></td>
-                                        <td class="text-end"><button class="btn btn-primary" disabled>Off</button></td>
+                                        <td class="text-end"><button class="btn btn-success">On</button></td>
+                                        <td class="text-end"><button class="btn btn-danger">Off</button></td>
                                     </tr>
                                 </tbody>
                             </table>

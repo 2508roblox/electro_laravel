@@ -219,7 +219,7 @@
 	letter-spacing: -6px;
 }
 .glitch-clock .glitch-time i {
-	color: #f33;
+	color: #ffcc14;
 	font-size: 30px;
 	font-style: normal;
 	font-weight: 300;
@@ -311,7 +311,7 @@
 }
 .glitch .glitch-clock .glitch-time .glitch-after {
 	left: 3px;
-	text-shadow: -2px 0 red;
+	text-shadow: -2px 0 #ffcc14;
 	-webkit-animation: c1 2s infinite linear alternate-reverse;
 	animation: c1 2s infinite linear alternate-reverse
 }
