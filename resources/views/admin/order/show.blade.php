@@ -81,19 +81,26 @@ $totalShippingCost = 0; // Khởi tạo biến totalShippingCost để tính t�
 @endphp
 @forelse ($order_items as $item)
 <tr>
-    <td class="min-w-20x">
+    <td class="min-w-20x d-flex" style="flex-direction: row">
         <div class="d-flex align-items-center"><img
             src="{{ $item->image ? asset('storage/' . $item->image) : asset('client/img/300X300/img6.jpg' )}}"
         class="me-4" width="40" height="40" alt="" /><a href="app-product.html" class="text-reset">@php
-            echo ucwords($item->product_name);
-        @endphp</a>
+            echo ucwords($item->product_name) . '|' .$item->sku_code ;
+
+
+        @endphp
+
+
+    </a>
+
+
         <div class="" style="background: #{{$item->color_code}}; margin-left: 1rem; border-radius:100% ; height: 10px; width:10px;"></div>
     </div>
     </td>
     <td class="text-end">
         <div class="sa-price"><span class="sa-price__symbol">$</span><span class="sa-price__integer">{{ number_format($item['product_price']    ) }}</span><span class="sa-price__decimal">.00</span></div>
     </td>
-    <td class="text-end">× {{ $item['quantity'] }}</td>
+    <td class="text-end" style="width: 100px">× {{ $item['quantity'] }}</td>
     <td class="text-end">
         <div class="sa-price"><span class="sa-price__symbol">$</span><span class="sa-price__integer">
             ${{ number_format($item['product_price'] * $item['quantity']) }}

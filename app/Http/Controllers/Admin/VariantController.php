@@ -49,7 +49,7 @@ class VariantController extends Controller
 
 
 
-           return redirect('admin/variants')->with('message', 'Category created successfully');
+           return redirect('admin/variants')->with('message', 'Variants created successfully');
     }
 
     /**
@@ -58,7 +58,7 @@ class VariantController extends Controller
     public function destroy($id)
     {
 
-       Category::destroy($id);
-       return redirect('admin/category')->with('message', 'Category deleted successfully');
+        Variant::destroy($id);
+       return redirect('admin/variants')->with('message', 'Variants deleted successfully');
     }
 }

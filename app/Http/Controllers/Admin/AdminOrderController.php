@@ -119,14 +119,15 @@ class AdminOrderController extends Controller
             //order items
             $order_items = OrderItem::where('order_id', $orderId)
             ->join('products', 'order_items.product_id', '=', 'products.id')
-            ->leftJoin('product_colors', 'order_items.product_color_id', '=', 'product_colors.id')
+            ->leftJoin('skus', 'order_items.sku_id', '=', 'skus.id')
             ->leftJoin('product_images', function ($join) {
                 $join->on('products.id', '=', 'product_images.product_id')
                     ->whereRaw('product_images.id = (SELECT MIN(id) FROM product_images WHERE product_id = products.id)');
             })
-            ->leftJoin('colors', 'product_colors.color_id', '=', 'colors.id') // Thêm join với bảng colors
+
             ->select(
                 'order_items.id',
+                'skus.sku_code',
 
                 'order_items.quantity',
                 'order_items.created_at',
@@ -134,12 +135,11 @@ class AdminOrderController extends Controller
                 'product_images.image',
                 'products.name AS product_name',
                 'order_items.price AS product_price',
-                'product_colors.color_id',
-                'colors.name AS color_name', // Lấy ra trường name từ bảng colors
-                'colors.code AS color_code' // Lấy ra trường code từ bảng colors
+
+                 // Lấy ra trường name từ bảng colors
+                  // Lấy ra trường code từ bảng colors
             )
             ->get();
-
         return view('admin.order.show' , ['order' => $orderData[0], 'order_data' => $order, 'order_items' => $order_items]);
 
     }
@@ -364,7 +364,7 @@ class AdminOrderController extends Controller
             ->get();
             $order_data = $order ;
             $order = $orderData[0];
-           
+
 
             Mail::to($order_data->email)->send(new InvoiceOrderMailable($order, $order_data, $order_items));
             return redirect()->back();
