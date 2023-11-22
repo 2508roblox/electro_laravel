@@ -1,6 +1,5 @@
 {
     "private": true,
-    "type": "module",
     "main": "./serve_node/serve.js",
     "scripts": {
         "dev": "npm run development",

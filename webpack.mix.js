@@ -1,4 +1,4 @@
-import mix  from 'laravel-mix';
+const mix =   require('laravel-mix');
 
 
 mix.scripts([
