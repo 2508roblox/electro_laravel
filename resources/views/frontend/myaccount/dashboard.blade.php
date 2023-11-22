@@ -125,7 +125,7 @@
     <section id="content1">
         <p>Hello <b>{{ Auth::user()->name }}</b>
             @if(Auth::user()->role_as == 1)
-            <p><a href="{{ route('dashboard') }}" target="_blank" class="gotoAdmin">Admin Dashboard</a></p>
+            <p><a href="{{ route('dashboard') }}" target="_blank" class="gotoAdmin"><button class="btn btn-secondary">Admin Dashboard</button></a></p>
             @endif
         </p>
         <form action="{{ route('logout') }}" method="post">
