@@ -35,12 +35,12 @@
         <div class="mb-5">
             <div class="row">
                 <div class="col-md-6 mb-4 mb-xl-0">
-                    <a href="../shop/shop.html" class="d-block">
+                    <a href="{{ url('category/smartwatch') }}" class="d-block">
                         <img class="img-fluid" src="{{asset('client/img/47.png')}}" style="" alt="Image Description">
                     </a>
                 </div>
                 <div class="col-md-6 mb-4 mb-xl-0">
-                    <a href="../shop/shop.html" class="d-block">
+                    <a href="{{ url('category/speaker') }}" class="d-block">
                         <img class="img-fluid" src="{{asset('client/img/49.png')}}" style="" alt="Image Description">
                     </a>
                 </div>
@@ -119,7 +119,7 @@
                         </li>
                     </ul>
 
-                    <a class="d-block text-gray-16" href="../shop/product-categories-7-column-full-width.html">Go to Daily Deals Section <i class="ec ec-arrow-right-categproes"></i></a>
+                    {{-- <a class="d-block text-gray-16" href="../shop/product-categories-7-column-full-width.html">Go to Daily Deals Section <i class="ec ec-arrow-right-categproes"></i></a> --}}
                 </div>
                 <div class="row">
                     <div class="col-md-auto col-md-5 col-xl-4 col-wd-3gdot3 mb-6 mb-md-0">

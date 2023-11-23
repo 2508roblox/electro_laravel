@@ -1,16 +1,21 @@
- .fa,
- .fab,
- .fal,
- .far,
- .fas {
-     -moz-osx-font-smoothing: grayscale;
-     -webkit-font-smoothing : antialiased;
-     display                : inline-block;
-     font-style             : normal;
-     font-variant           : normal;
-     text-rendering         : auto;
-     line-height            : 1
- }
+/*!
+ * Font Awesome Free 5.8.1 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
+.fa,
+.fab,
+.fal,
+.far,
+.fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1
+}
 
  .fa-lg {
      font-size     : 1.33333em;
@@ -53919,6 +53924,6 @@
      padding-left : 10px;
  }
 
- .text-center {
-     text-align: center;
- }
+.text-center{
+    text-align: center;
+}

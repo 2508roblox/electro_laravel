@@ -44,7 +44,7 @@ class LoginController extends Controller
                 $this->recordLoginHistory(Auth::user()->id, $ip );
 
                 if (Auth::user()->role_as == '1') {
-                    return redirect('/admin/dashboard');
+                    return redirect('/my-account');
                 } else {
                     return redirect('/');
                 }
