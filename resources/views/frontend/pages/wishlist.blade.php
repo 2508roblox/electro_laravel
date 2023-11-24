@@ -10,9 +10,9 @@
                 <div class="my-md-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{ route('home') }}">Home</a>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{ route('home') }}">Trang chủ</a>
                             </li>
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Wishlist
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Yêu thích
                             </li>
                         </ol>
                     </nav>
@@ -24,7 +24,7 @@
 
         <div class="container">
             <div class="my-6">
-                <h1 class="text-center">My wishlist on Electro</h1>
+                <h1 class="text-center">Danh sách yêu thích</h1>
             </div>
             <div class="mb-16 wishlist-table">
                 <form class="mb-4" action="#" method="post">
@@ -41,9 +41,9 @@
                                 <tr>
                                     <th class="product-remove">&nbsp;</th>
                                     <th class="product-thumbnail">&nbsp;</th>
-                                    <th class="product-name">Product</th>
-                                    <th class="product-price">Unit Price</th>
-                                    <th class="product-Stock w-lg-15">Stock Status</th>
+                                    <th class="product-name">Sản phẩm</th>
+                                    <th class="product-price">Giá </th>
+                                    <th class="product-Stock w-lg-15">Tình trạng tồn kho</th>
                                     <th class="product-subtotal min-width-200-md-lg">&nbsp;</th>
                                 </tr>
                             </thead>
@@ -73,7 +73,7 @@
                                             </td>
 
                                             <td data-title="Unit Price">
-                                               
+
                                                 @if ($wishlist->promotion_price)
                                                     <span class="">${{ $wishlist->promotion_price }}.00</span>
                                                 @else
@@ -84,7 +84,7 @@
 
                                             <td data-title="Stock Status">
                                                 <!-- Stock Status -->
-                                                <span>{{ $wishlist->total_quantity ? 'In stock' : 'Out of Stock' }}</span>
+                                                <span>{{ $wishlist->total_quantity ? 'Còn hàng' : 'Hết hàng' }}</span>
                                                 <!-- End Stock Status -->
                                             </td>
 

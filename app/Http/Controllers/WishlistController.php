@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sku;
 use App\Models\User;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
@@ -36,6 +37,8 @@ class WishlistController extends Controller
             )
             ->where('wishlists.user_id', '=', Auth::user()->id)
             ->get();
+
+
         return view('frontend.pages.wishlist', compact('wishlists'));
     }
 

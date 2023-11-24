@@ -10,8 +10,8 @@
                 <div class="my-md-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../home/index.html">Home</a></li>
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Wishlist</li>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('home')}}">Trang chủ</a></li>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Chi tiết</li>
                         </ol>
                     </nav>
                 </div>
@@ -22,7 +22,7 @@
 
         <div class="container">
             <div class="my-6">
-                <h1 class="text-center">My Orders</h1>
+                <h1 class="text-center">Chi tiết hóa đơn</h1>
             </div>
             <div class="mb-16 wishlist-table">
                 <form class="mb-4" action="#" method="post">
@@ -31,10 +31,10 @@
                             <thead>
                                 <tr>
                                     <th class="product-thumbnail">&nbsp;</th>
-                                    <th class="product-name">Product</th>
-                                    <th class="product-price">Price</th>
-                                    <th class="product-quantity w-lg-15">Quantity</th>
-                                    <th class="product-subtotal">Total</th>
+                                    <th class="product-name">Sản phẩm</th>
+                                    <th class="product-price">Giá</th>
+                                    <th class="product-quantity w-lg-15">Số lượng</th>
+                                    <th class="product-subtotal">Tổng tiền</th>
                                 </tr>
                             </thead>
                             <tbody>

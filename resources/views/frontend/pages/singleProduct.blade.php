@@ -10,7 +10,7 @@
                 <div class="my-md-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{ route('home') }}">Home</a>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{ route('home') }}">Trang chủ</a>
                             </li>
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a
                                     href="{{ route('frontend.category.list', ['category_slug' => $cate_name->slug]) }}">@php
@@ -107,12 +107,15 @@
                                 <div class="d-md-flex align-items-center">
 
                                     <div class="ml-md-3 text-gray-9 font-size-14">Availability:
+                                        @isset($product_quantity)
 
-                                        @if ($colors_quantity)
-                                            <span class="text-green font-weight-bold">{{ $totalQuantity }} in stock</span>
+
+                                        @if ($product_quantity)
+                                            <span class="text-green font-weight-bold">{{ $product_quantity[0]->total_quantity }} in stock</span>
                                         @else
                                             <span class="text-red font-weight-bold">Out of Stock</span>
                                         @endif
+                                        @endisset
 
 
                                     </div>
@@ -293,7 +296,7 @@
                             @endforeach
                             <p><strong>{{ __('sku') }}</strong>:
                                 <input type="hidden" value="0" id="sku_id_input">
-                                <span id="sku_id"></span>
+                            <span id="sku_id">Chọn 1 biến thể</span>
                             </p>
                             <div class="md-3 text-gray-9 font-size-14">Availability:
 
