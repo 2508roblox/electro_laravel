@@ -163,11 +163,11 @@
                                 <div class="d-flex" style="flex-direction: row ">
 
 
-                                    <div style="max-widtg : 180px; font-size: 1rem ;" class="variant-name">{{ $variant->value }}:
+                                    <div style="max-widtg : 180px; font-size: 1rem ;" class="variant-name">
+                                        {{ $variant->value }}:
                                     </div>
 
-                                    <div class="variant-values"
-                                        style="display: flex;   align-items: start; ">
+                                    <div class="variant-values" style="display: flex;   align-items: start; ">
                                         <!-- Hiển thị danh sách variantValues của mỗi variant -->
                                         @foreach ($variantValues as $variantValue)
                                             @if ($variantValue->variant_id == $variant->id)
@@ -175,9 +175,19 @@
                                                     <input class="variant-input" id="{{ $variantValue->id }}"
                                                         name="variant{{ $variant->id }}" value="{{ $variantValue->id }}"
                                                         type="radio" style="display: none  ;" />
-                                                    <label for="{{ $variantValue->id }}" style="border-radius: 5px; position: relative;"
+                                                    <label for="{{ $variantValue->id }}"
+                                                        style="border-radius: 5px; position: relative;"
                                                         class="variant-label">{{ $variantValue->value }}
-                                                        <svg width="10px" style="position: absolute; background: #fe7f00; border-radius: 100%; padding: 2px; fill: white; bottom: 0; right: 0;"  enable-background="new 0 0 12 12" viewBox="0 0 12 12" x="0" y="0" class="shopee-svg-icon icon-tick-bold"><g><path d="m5.2 10.9c-.2 0-.5-.1-.7-.2l-4.2-3.7c-.4-.4-.5-1-.1-1.4s1-.5 1.4-.1l3.4 3 5.1-7c .3-.4 1-.5 1.4-.2s.5 1 .2 1.4l-5.7 7.9c-.2.2-.4.4-.7.4 0-.1 0-.1-.1-.1z"></path></g></svg>
+                                                        <svg width="10px"
+                                                            style="position: absolute; background: #fe7f00; border-radius: 100%; padding: 2px; fill: white; bottom: 0; right: 0;"
+                                                            enable-background="new 0 0 12 12" viewBox="0 0 12 12" x="0"
+                                                            y="0" class="shopee-svg-icon icon-tick-bold">
+                                                            <g>
+                                                                <path
+                                                                    d="m5.2 10.9c-.2 0-.5-.1-.7-.2l-4.2-3.7c-.4-.4-.5-1-.1-1.4s1-.5 1.4-.1l3.4 3 5.1-7c .3-.4 1-.5 1.4-.2s.5 1 .2 1.4l-5.7 7.9c-.2.2-.4.4-.7.4 0-.1 0-.1-.1-.1z">
+                                                                </path>
+                                                            </g>
+                                                        </svg>
                                                     </label>
                                                 </ul>
                                                 <hr>
@@ -219,7 +229,7 @@
                                                         if (this.checked && !selectedValues.includes(selectedValue)) {
                                                             selectedValues.push(
                                                                 selectedValue
-                                                                ); // Thêm giá trị vào mảng nếu input được chọn và chưa tồn tại trong mảng
+                                                            ); // Thêm giá trị vào mảng nếu input được chọn và chưa tồn tại trong mảng
                                                         }
 
                                                         // Loại bỏ các giá trị không được chọn khỏi mảng selectedValues
@@ -256,16 +266,16 @@
                                                                     "variantQuantity");
                                                                 var variantQuantity_text = document.getElementById(
                                                                     "variantQuantity_text");
-                                                                    variantQuantity_text.innerText =data.quantity;
+                                                                variantQuantity_text.innerText = data.quantity;
                                                                 //sku text
                                                                 var skuElement = document.getElementById(
                                                                     "sku_id");
-                                                                    skuElement.innerText = data.sku_code;
+                                                                skuElement.innerText = data.sku_code;
                                                                 //sku id
 
                                                                 var skuIdElement = document.getElementById(
                                                                     "sku_id_input");
-                                                                    skuIdElement.value = data.id;
+                                                                skuIdElement.value = data.id;
 
 
                                                             },
@@ -283,12 +293,12 @@
                             @endforeach
                             <p><strong>{{ __('sku') }}</strong>:
                                 <input type="hidden" value="0" id="sku_id_input">
-                            <span id="sku_id"></span>
+                                <span id="sku_id"></span>
                             </p>
                             <div class="md-3 text-gray-9 font-size-14">Availability:
 
-                               <span class="text-green font-weight-bold" id="variantQuantity_text" >0 </span>
-                               <span class="text-green font-weight-bold"  >  in stock</span>
+                                <span class="text-green font-weight-bold" id="variantQuantity_text">0 </span>
+                                <span class="text-green font-weight-bold"> in stock</span>
 
 
                             </div>
@@ -394,7 +404,7 @@
                                             // var id_quantity = $('#colorSelector').val();
                                             // var splitValues = id_quantity.split(":");
                                             // var color_id = splitValues[0]; // id của bảng productColor
-                                            var sku_id = $('#sku_id_input').val()    // id của bảng productColor
+                                            var sku_id = $('#sku_id_input').val() // id của bảng productColor
                                             var quantity = $('#quantityInput').val();
                                             var user = {!! json_encode(auth()->user() ? auth()->user()->id : null) !!};
                                             console.log(user)
@@ -413,14 +423,46 @@
                                                         "quantity": quantity
                                                     },
                                                     success: function(response) {
+                                                        function showAlert() {
+
+                                                            Swal.fire({
+                                                                title: 'Thông báo',
+                                                                text: 'Thêm sản phẩm thành công!',
+                                                                icon: 'success',
+                                                                confirmButtonText: 'OK'
+                                                            });
+                                                        }
+                                                        showAlert()
                                                         location.href = '/cart';
                                                     },
                                                     error: function(xhr) {
 
-                                                        $('#add_status').text('Please choose a variant of this product!')
+
+                                                        function showAlert() {
+
+                                                            Swal.fire({
+                                                                title: 'Thông báo',
+                                                                text: 'Chọn loại sản phẩm cần thêm vào giỏ hàng',
+                                                                icon: 'error',
+                                                                confirmButtonText: 'OK'
+                                                            });
+                                                        }
+                                                        showAlert()
+                                                        $('#add_status').text('Chọn loại sản phẩm cần thêm vào giỏ hàng')
 
                                                     }
                                                 });
+                                            } else {
+                                                function showAlert() {
+
+                                                    Swal.fire({
+                                                        title: 'Thông báo',
+                                                        text: 'Vui lòng đăng nhập để mua sản phẩm',
+                                                        icon: 'error',
+                                                        confirmButtonText: 'OK'
+                                                    });
+                                                }
+                                                showAlert()
                                             }
 
                                         });

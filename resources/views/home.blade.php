@@ -3,8 +3,7 @@
 @section('content')
 @include('inc/_header')
 <!-- ========== MAIN CONTENT ========== -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
+
 
 <main id="content" role="main">
     @if(session('login') == 'true')

@@ -10,10 +10,15 @@
                 <div class="my-md-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
+<<<<<<< HEAD
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../home/index.html">Home</a>
                             </li>
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Wishlist
                             </li>
+=======
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('home')}}">Trang chủ</a></li>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Hóa đơn</li>
+>>>>>>> f38c5e2da41ee0fb9364d0397a5f781426e115a9
                         </ol>
                     </nav>
                 </div>
@@ -24,26 +29,26 @@
 
         <div class="container">
             <div class="my-6">
-                <h1 class="text-center">My Orders</h1>
+                <h1 class="text-center">Hóa đơn</h1>
             </div>
             <div class="mb-16 wishlist-table">
                 <form class="mb-4" action="#" method="post">
                     <div class="table-responsive">
-                        <table class="table" cellspacing="0">
+                        <table class="table table-striped">
                             <thead>
-                                <tr>
-
-                                    <th class="product-name">#ID</th>
-                                    <th class="product-price">Date</th>
-                                    <th class="product-Stock w-lg-15">Total Amount</th>
-                                    <th class="product-Stock w-lg-15">Items</th>
-                                    <th class="product-Stock w-lg-15">Method</th>
-                                    <th class="product-Stock w-lg-15">Status</th>
-                                    <th class="product-subtotal min-width-200-md-lg">&nbsp;</th>
-                                </tr>
+                              <tr>
+                                <th scope="col">#ID</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Total Amount</th>
+                                <th scope="col">Items</th>
+                                <th scope="col">Method</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                              </tr>
                             </thead>
 
                             <tbody>
+<<<<<<< HEAD
 
 
                                 @foreach ($orders as $item)
@@ -86,8 +91,42 @@
                                         </td>
                                     </tr>
                                 @endforeach
+=======
+                              @foreach ($orders as $item)
+                              <tr>
+                                <td data-title="ID">
+                                  <a href="#" class="text-gray-90">#{{ $item['ID'] }}</a>
+                                </td>
+                                <td data-title="Date">
+                                  <span class="">{{ $item['Date'] }}</span>
+                                </td>
+                                <td data-title="Total Amount">
+                                  <span>${{ $item['Total Price'] }}</span>
+                                </td>
+                                <td data-title="Items">
+                                  <span>{{ $item['Total Quantity'] }}</span>
+                                </td>
+                                <td data-title="Method">
+                                  <span>{{ $item['Date'] }}</span>
+                                </td>
+                                <td data-title="Status">
+                                  @if ($item['Status'] =='pending' )
+                                  <h1 class="p-2 badge badge-warning text-white">{{ $item['Status'] }}</h1>
+                                  @elseif ($item['Status'] =='confirm' || $item['Status'] =='paid' )
+                                  <h1 class="p-2 badge badge-success text-white">{{ $item['Status'] }}</h1>
+                                  @else
+                                  <h1 class="p-2 badge badge-danger text-white">{{ $item['Status'] }}</h1>
+                                  @endif
+                                </td>
+                                <td>
+                                  <a style="border-radius: 10px !important" href="{{route('frontend.order.show', ['id' => $item['ID']])}}" class="btn btn-primary rounded-0 mb-3 mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5 w-100 w-md-auto">
+                                    View</a>
+                                </td>
+                              </tr>
+                              @endforeach
+>>>>>>> f38c5e2da41ee0fb9364d0397a5f781426e115a9
                             </tbody>
-                        </table>
+                          </table>
                     </div>
                 </form>
             </div>

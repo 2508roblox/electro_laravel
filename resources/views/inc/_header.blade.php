@@ -172,7 +172,7 @@
                                                     </li>
 
                                                     <li class="u-has-submenu">
-                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="#" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
+                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{route('admin.cart.list')}}"  data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
                                                              {{__('cart')}}
                                                         </a>
                                                     </li>
@@ -184,7 +184,7 @@
                                                     </li>
 
                                                     <li class="u-has-submenu">
-                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="#" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
+                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{route('frontend.order.list')}}" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
                                                              {{__('order')}}
                                                         </a>
                                                     </li>
@@ -202,7 +202,7 @@
                                                     </li>
 
                                                     <li class="u-has-submenu">
-                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="#" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
+                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer"  href="{{route('frontend.about')}}" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
                                                              {{__('about_us')}}
                                                         </a>
                                                     </li>
@@ -264,18 +264,18 @@
                                     <!-- End Input -->
                                 </li>
                                 <!-- End Search -->
-                                <li class="col d-none d-xl-block"><a href="{{route('frontend.order.list')}}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Compare">
+                                <li class="col d-none d-xl-block"><a href="{{route('frontend.order.list')}}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Hóa đơn">
                                         <img style="height: 26px; width: 26px" src="{{asset('client/img/order-icon.png')}}" alt="">
                                     </a></li>
-                                <li class="col d-none d-xl-block"><a href="{{route('frontend.wishlist.list')}}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Favorites"><i class="font-size-22 ec ec-favorites"></i></a></li>
+                                <li class="col d-none d-xl-block"><a href="{{route('frontend.wishlist.list')}}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Yêu thích"><i class="font-size-22 ec ec-favorites"></i></a></li>
                                 <li class="col d-xl-none px-2 px-sm-3"><a href="{{ route("frontend.myaccount.dashboard") }}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="My Account"><i class="font-size-22 ec ec-user"></i></a></li>
                                 <li class="col pr-xl-0 px-2 px-sm-3">
-                                    <a href="{{route('admin.cart.list')}}" class="text-gray-90 position-relative d-flex " data-toggle="tooltip" data-placement="top" title="Cart">
+                                    <a href="{{route('admin.cart.list')}}" class="text-gray-90 position-relative d-flex " data-toggle="tooltip" data-placement="top" title="Giỏ hàng">
                                         <i class="font-size-22 ec ec-shopping-bag"></i>
                                     </a>
                                 </li>
                                 <li class="col pr-xl-0 px-2 px-sm-3">
-                                    <a href="{{route('frontend.wallet')}}" class="text-gray-90 position-relative d-flex " data-toggle="tooltip" data-placement="top" title="Cart">
+                                    <a href="{{route('frontend.wallet')}}" class="text-gray-90 position-relative d-flex " data-toggle="tooltip" data-placement="top" title="Ví ảo">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Capa_1" width="20px" height="20px" viewBox="0 0 969.486 969.486" xml:space="preserve">
                                             <g>
                                                 <g>
@@ -324,7 +324,7 @@
                                 <!-- End Submenu -->
                             </li>
                             <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">{{__('cart')}}</a>
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{route('admin.cart.list')}}"  aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">{{__('cart')}}</a>
 
                                 <!-- Blog - Submenu -->
 
@@ -338,7 +338,7 @@
                                 <!-- End Submenu -->
                             </li>
                             <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">{{__('order')}}</a>
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{route('frontend.order.list')}}"  aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">{{__('order')}}</a>
 
                                 <!-- Blog - Submenu -->
 
@@ -361,7 +361,7 @@
 
                             <!-- About Us -->
                             <li class="nav-item u-header__nav-item">
-                                <a class="nav-link u-header__nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-labelledby="AboutUsSubMenu">{{__('about_us')}}</a>
+                                <a class="nav-link u-header__nav-link" href="{{route('frontend.about')}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="AboutUsSubMenu">{{__('about_us')}}</a>
                             </li>
                             <!-- End About Us -->
 

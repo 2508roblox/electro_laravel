@@ -475,6 +475,11 @@ $variants = Variant::whereIn('id', $variantIds)->get();
             return redirect('/wallet');
         }
     }
+    public function about(Request $request)
+    {
+        return view('frontend.pages.about' );
+
+    }
     // public function changeLanguage(Request $request)
     // {
     //     $lang = $request->language;
