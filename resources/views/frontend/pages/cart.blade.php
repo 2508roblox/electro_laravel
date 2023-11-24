@@ -31,10 +31,10 @@
                     <thead>
                         <tr>
                             <th class="product-remove">&nbsp;</th>
-                            <th class="product-thumbnail">&nbsp;</th>
                             <th class="product-name">{{ __('cart') }}</th>
                             <th class="product-price">{{ __('product') }}</th>
                             <th class="product-quantity w-lg-15">{{ __('price') }}</th>
+                            <th class="product-quantity w-lg-15">Số lượng</th>
                             <th class="product-subtotal">{{ __('total') }}</th>
                         </tr>
                     </thead>

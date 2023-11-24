@@ -31,17 +31,18 @@
                             <thead>
                               <tr>
                                 <th scope="col">#ID</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Total Amount</th>
-                                <th scope="col">Items</th>
-                                <th scope="col">Method</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">Thời gian</th>
+                                <th scope="col">Tổng giá trị</th>
+                                <th scope="col">Số sản phẩm</th>
+                                <th scope="col">Phương thức</th>
+                                <th scope="col">Trạng thái</th>
+                                <th scope="col">Thao tác</th>
                               </tr>
                             </thead>
                             <tbody>
-                              @foreach ($orders as $item)
+                              @forelse ($orders as $item)
                               <tr>
+
                                 <td data-title="ID">
                                   <a href="#" class="text-gray-90">#{{ $item['ID'] }}</a>
                                 </td>
@@ -55,7 +56,7 @@
                                   <span>{{ $item['Total Quantity'] }}</span>
                                 </td>
                                 <td data-title="Method">
-                                  <span>{{ $item['Date'] }}</span>
+                                  <span>{{ $item['Method'] }}</span>
                                 </td>
                                 <td data-title="Status">
                                   @if ($item['Status'] =='pending' )
@@ -67,11 +68,15 @@
                                   @endif
                                 </td>
                                 <td>
-                                  <a style="border-radius: 10px !important" href="{{route('frontend.order.show', ['id' => $item['ID']])}}" class="btn btn-primary rounded-0 mb-3 mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5 w-100 w-md-auto">
-                                    View</a>
+                                  <a style="border-radius: 10px !important" href="{{route('frontend.order.show', ['id' => $item['ID']])}}" class="btn btn-primary rounded-0   font-weight-normal px-5 px-md-2 px-lg-5 w-100 w-md-auto">
+                                    Chi tiết</a>
                                 </td>
                               </tr>
-                              @endforeach
+                              @empty
+                              <div class="alert alert-danger">
+                                *Không có sản phẩm nào trong giỏ hàng
+                            </div>
+                              @endforelse
                             </tbody>
                           </table>
                     </div>
