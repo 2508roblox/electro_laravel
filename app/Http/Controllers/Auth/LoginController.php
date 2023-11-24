@@ -41,12 +41,12 @@ class LoginController extends Controller
                 $request->session()->regenerate();
                 $ip = $request->header('X-Forwarded-For') ?? $request->ip() ?? $_SERVER['HTTP_CLIENT_IP'];
                 // Thêm dòng sau đoạn code đăng nhập thành công
-                $this->recordLoginHistory(Auth::user()->id, $ip );
+                $this->recordLoginHistory(Auth::user()->id, $ip);
 
                 if (Auth::user()->role_as == '1') {
                     return redirect('/my-account');
                 } else {
-                    return redirect('/');
+                    return redirect('/')->with(['login' => 'true']);
                 }
             }
         } else {

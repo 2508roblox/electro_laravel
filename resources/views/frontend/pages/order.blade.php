@@ -10,8 +10,10 @@
                 <div class="my-md-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../home/index.html">Home</a></li>
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Wishlist</li>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../home/index.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Wishlist
+                            </li>
                         </ol>
                     </nav>
                 </div>
@@ -40,51 +42,49 @@
                                     <th class="product-subtotal min-width-200-md-lg">&nbsp;</th>
                                 </tr>
                             </thead>
+
                             <tbody>
 
+
                                 @foreach ($orders as $item)
+                                    <tr>
 
-                                <tr>
-
-                                    <td data-title="Product">
-                                        <a href="#" class="text-gray-90">#{{ $item['ID'] }}</a>
-                                    </td>
-                                    <td data-title="Unit Price">
-                                        <span class="">{{ $item['Date'] }}</span>
-                                    </td>
-                                    <td data-title="Stock Status">
-                                        <!-- Stock Status -->
-                                     <span>${{ $item['Total Price'] }}</span>
-                                    </td>
-                                    <td data-title="Stock Status">
-                                        <!-- Stock Status -->
-                                        <span>{{ $item['Total Quantity'] }}</span>
-                                        <!-- End Stock Status -->
-                                    </td>
-                                    <td data-title="Stock Method">
-                                        <!-- Stock Status -->
-                                        <span>{{ $item['Date'] }}</span>
-                                        <!-- End Stock Status -->
-                                    </td>
-                                    <td data-title="Stock">
-                                        <!-- Stock Status -->
-                                        @if ($item['Status'] =='pending' )
-                                        <h1 class=" p-2 badge badge-warning text-white">{{ $item['Status'] }}</h1>
-
-                                        @elseif ($item['Status'] =='confirm' || $item['Status'] =='paid' )
-
-                                        <h1 class=" p-2 badge badge-success text-white">{{ $item['Status'] }}</h1>
-
-                                        @else
-                                        <h1 class=" p-2 badge badge-danger text-white">{{ $item['Status'] }}</h1>
-
-                                        @endif
-                                        <!-- End Stock Status -->
-                                    </td>
-                                    <td>
-                                        <a  href="{{route('frontend.order.show', ['id' => $item['ID']])}}" class="btn btn-primary mb-3 mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5 w-100 w-md-auto">View</a>
-                                    </td>
-                                </tr>
+                                        <td data-title="Product">
+                                            <a href="#" class="text-gray-90">#{{ $item['ID'] }}</a>
+                                        </td>
+                                        <td data-title="Unit Price">
+                                            <span class="">{{ $item['Date'] }}</span>
+                                        </td>
+                                        <td data-title="Stock Status">
+                                            <!-- Stock Status -->
+                                            <span>${{ $item['Total Price'] }}</span>
+                                        </td>
+                                        <td data-title="Stock Status">
+                                            <!-- Stock Status -->
+                                            <span>{{ $item['Total Quantity'] }}</span>
+                                            <!-- End Stock Status -->
+                                        </td>
+                                        <td data-title="Stock Method">
+                                            <!-- Stock Status -->
+                                            <span>{{ $item['Date'] }}</span>
+                                            <!-- End Stock Status -->
+                                        </td>
+                                        <td data-title="Stock">
+                                            <!-- Stock Status -->
+                                            @if ($item['Status'] == 'pending')
+                                                <h1 class=" p-2 badge badge-warning text-white">{{ $item['Status'] }}</h1>
+                                            @elseif ($item['Status'] == 'confirm' || $item['Status'] == 'paid')
+                                                <h1 class=" p-2 badge badge-success text-white">{{ $item['Status'] }}</h1>
+                                            @else
+                                                <h1 class=" p-2 badge badge-danger text-white">{{ $item['Status'] }}</h1>
+                                            @endif
+                                            <!-- End Stock Status -->
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('frontend.order.show', ['id' => $item['ID']]) }}"
+                                                class="btn btn-primary mb-3 mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5 w-100 w-md-auto">View</a>
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -93,5 +93,4 @@
             </div>
         </div>
     </main>
-
 @endsection

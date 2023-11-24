@@ -126,14 +126,14 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard')
         ->middleware(['auth', 'isAdmin']);
-        Route::controller(VariantController::class)->group(function () {
-            Route::get('/variants', 'index')->name('admin.variants.list');
-            Route::get('/variants/create', 'create')->name('admin.variants.create');
-            Route::post('/variants/create', 'store')->name('admin.variants.store');
-            Route::get('/variants/{id}/edit', 'edit')->name('admin.variants.edit');
-            Route::post('/variants/{id}/edit', 'update')->name('admin.variants.update');
-            Route::delete('/variants/{id}', 'destroy')->name('admin.variants.delete');
-        });
+    Route::controller(VariantController::class)->group(function () {
+        Route::get('/variants', 'index')->name('admin.variants.list');
+        Route::get('/variants/create', 'create')->name('admin.variants.create');
+        Route::post('/variants/create', 'store')->name('admin.variants.store');
+        Route::get('/variants/{id}/edit', 'edit')->name('admin.variants.edit');
+        Route::post('/variants/{id}/edit', 'update')->name('admin.variants.update');
+        Route::delete('/variants/{id}', 'destroy')->name('admin.variants.delete');
+    });
     Route::controller(AdminOrderController::class)->group(function () {
         Route::get('/order', 'index')->name('admin.order.list');
         Route::get('/order/{id}/detail', 'show')->name('admin.order.show');
