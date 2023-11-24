@@ -40,9 +40,9 @@
                         <div class="sa-page-meta__item d-flex align-items-center fs-6"><span class="badge badge-sa-success me-2">{{$order['Method']}}</span><span class="badge
                             @php
 
-                                if ($order['Status'] =='pending') {
+                                if ($order['Status'] =='Chờ xác nhận') {
                                    echo 'badge-sa-warning';
-                                }elseif ($order['Status'] =='confirm' || $order['Status'] =='paid') {
+                                }elseif ($order['Status'] =='Đã xác nhận' || $order['Status'] =='Đã thanh toán') {
                                     echo 'badge-sa-success';
 
                                 }else {

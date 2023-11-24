@@ -139,7 +139,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/order/{id}/detail', 'show')->name('admin.order.show');
         Route::post('/order/add', 'store')->name('admin.order.store');
         Route::get('/order/{id}/edit', 'update')->name('admin.order.update');
+        Route::get('/order/{id}/delivery', 'delivery')->name('admin.order.delivery');
+        Route::get('/order/{id}/received', 'received')->name('admin.order.received');
         Route::put('/order/edit', 'cancel')->name('admin.order.cancel');
+        Route::get('/order/{id}/cancel', 'clientCancel')->name('admin.order.client.cancel');
         Route::get('/order/{id}/generate', 'viewinvoice')->name('admin.invoice.view');
         Route::get('/order/{id}/mail', 'sendmail')->name('admin.invoice.mail');
         Route::get('/order/{id}/download', 'downloadinvoice')->name('admin.invoice.download');
@@ -360,9 +363,10 @@ Route::controller(OrderController::class)->group(function () {
 });
 Route::controller(CheckoutController::class)->group(function () {
     Route::get('/checkout', 'index')->middleware(['localization'])->name('admin.checkout');
+    Route::get('/checkout/{id}/pay', 'index')->middleware(['localization'])->name('admin.checkout');
 
     Route::post('/checkout/create', 'store')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.checkout.store');
-    Route::get('/checkout/{id}/edit', 'edit')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.checkout.edit');
+    Route::get('/checkout/{id}/pay', 'pay')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.checkout.pay');
     Route::post('/checkout/{id}/edit', 'update')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.checkout.update');
     Route::delete('/checkout/{id}', 'destroy')->middleware(['auth', 'verifiedMail', 'localization'])->name('admin.checkout.delete');
 });

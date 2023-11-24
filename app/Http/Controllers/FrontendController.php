@@ -258,14 +258,14 @@ $product_quantity = Sku::select(  DB::raw('SUM(quantity) as total_quantity'))
         if ($request->vnp_ResponseCode == '24') {
             $order_id = $request->vnp_TxnRef;
             $order = Order::find($order_id);
-            $order->status = 'unpaid';
+            $order->status = 'Chưa thanh toán';
             $order->save();
             // chưa thanh toán
             return redirect('/order')->with('message', 'Paid Cancelled, Please pay now');
         } elseif ($request->vnp_ResponseCode == '00') {
             $order_id = $request->vnp_TxnRef;
             $order = Order::find($order_id);
-            $order->status = 'paid';
+            $order->status = 'Đã thanh toán';
             $order->save();
             return redirect('/order')->with('message', 'Paid Successfully, explore new our products');
         } else {
