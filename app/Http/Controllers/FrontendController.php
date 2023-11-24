@@ -191,19 +191,11 @@ class FrontendController extends Controller
             ->get()[0];
         $images = $product->productImages()->get();
 
-        $colors_quantity =  DB::table('product_colors')->join('colors', 'product_colors.color_id', '=', 'colors.id')
-            ->select('*',  'colors.name as colors_name', 'product_colors.id as product_colors_id', 'quantity as product_color_quantity')
-            ->where('product_colors.product_id', '=', $product->id)
-            ->get();
-        $colors = DB::table('colors')->select('*')->get();
-        $colorsArr = [];
-        foreach ($colors as $color) {
-            $colorsArr[$color->id] = $color->code;
-        }
+
+
+
         $totalQuantity = 0;
-        foreach ($colors_quantity as $color) {
-            $totalQuantity += $color->quantity;
-        }
+
 
         // Lấy tất cả bình luận sản phẩm
         $productComments = ProductComment::with('user')->where('product_id', $product->id)->get();
@@ -234,8 +226,10 @@ $variants = Variant::whereIn('id', $variantIds)->get();
 
 
 
+$product_quantity = Sku::select(  DB::raw('SUM(quantity) as total_quantity'))
+                        ->where('product_id',  $product->id)
 
-
+                        ->get();
 
 
         return view(
@@ -245,8 +239,7 @@ $variants = Variant::whereIn('id', $variantIds)->get();
                 'sub_cate_name',
                 'cate_name',
                 'images',
-                'colors_quantity',
-                'colorsArr',
+                 'product_quantity',
                 'totalQuantity',
                 'productComments',
                 'averageStars',
