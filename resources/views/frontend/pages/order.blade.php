@@ -10,8 +10,15 @@
                 <div class="my-md-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
+<<<<<<< HEAD
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../home/index.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Wishlist
+                            </li>
+=======
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('home')}}">Trang chủ</a></li>
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Hóa đơn</li>
+>>>>>>> f38c5e2da41ee0fb9364d0397a5f781426e115a9
                         </ol>
                     </nav>
                 </div>
@@ -39,6 +46,7 @@
                                 <th scope="col">Thao tác</th>
                               </tr>
                             </thead>
+
                             <tbody>
                               @forelse ($orders as $item)
                               <tr>
@@ -72,11 +80,7 @@
                                     Chi tiết</a>
                                 </td>
                               </tr>
-                              @empty
-                              <div class="alert alert-danger">
-                                *Không có sản phẩm nào trong giỏ hàng
-                            </div>
-                              @endforelse
+                              @endforeach
                             </tbody>
                           </table>
                     </div>
@@ -84,5 +88,4 @@
             </div>
         </div>
     </main>
-
 @endsection

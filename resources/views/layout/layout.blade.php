@@ -26,60 +26,63 @@
         img:focus {
             filter: grayscale(0);
         }
-
     </style>
 
     <!-- CSS Electro Template -->
 
     <!-- CSS W3SChool -->
     {{-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
     <style>
         @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
-
     </style>
 
 
     @php
-    $telegramBotToken = env('TELEGRAM_BOT_TOKEN');
-    $chatId = env('TELEGRAM_CHAT_ID');
-    $ipAddress = $_SERVER['REMOTE_ADDR'];
-    $authName = Auth::check() ? Auth::user()->name : "Guest";
-    date_default_timezone_set('Asia/Ho_Chi_Minh');
-    $currentDateTime = date('d-m-Y H:i:s');
+        $telegramBotToken = env('TELEGRAM_BOT_TOKEN');
+        $chatId = env('TELEGRAM_CHAT_ID');
+        $ipAddress = $_SERVER['REMOTE_ADDR'];
+        $authName = Auth::check() ? Auth::user()->name : 'Guest';
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $currentDateTime = date('d-m-Y H:i:s');
 
-    $routeName = \Route::currentRouteName();
+        $routeName = \Route::currentRouteName();
 
-    if ($routeName === 'home') {
-    $message = "💀 User truy cập trang chủ\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
-    } elseif ($routeName === 'login' || $routeName === 'register') {
-    $message = "💀 User đăng nhập/đăng ký\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
-    } elseif ($routeName === 'admin.checkout') {
-    $message = "💀 User thanh toán\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
-    } elseif ($routeName === 'frontend.order.list') {
-    $message = "💀 User đã thanh toán > Order\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
-    } else {
-    $message = NULL;
-    // $message = "User truy cập trang không xác định: $ipAddress | $authName";
-    }
+        if ($routeName === 'home') {
+            $message = "💀 User truy cập trang chủ\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
+        } elseif ($routeName === 'login' || $routeName === 'register') {
+            $message = "💀 User đăng nhập/đăng ký\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
+        } elseif ($routeName === 'admin.checkout') {
+            $message = "💀 User thanh toán\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
+        } elseif ($routeName === 'frontend.order.list') {
+            $message = "💀 User đã thanh toán > Order\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
+        } else {
+            $message = null;
+            // $message = "User truy cập trang không xác định: $ipAddress | $authName";
+        }
 
-    $telegramApiUrl = "https://api.telegram.org/bot$telegramBotToken/sendMessage";
+        $telegramApiUrl = "https://api.telegram.org/bot$telegramBotToken/sendMessage";
 
-    // Dữ liệu gửi đến API
-    $data = [
-    'chat_id' => $chatId,
-    'text' => $message,
-    ];
+        // Dữ liệu gửi đến API
+        $data = [
+            'chat_id' => $chatId,
+            'text' => $message,
+        ];
 
-    // cURL để gửi request
-    $ch = curl_init($telegramApiUrl);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $result = curl_exec($ch);
-    curl_close($ch);
+        // cURL để gửi request
+        $ch = curl_init($telegramApiUrl);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $result = curl_exec($ch);
+        curl_close($ch);
 
-    // echo $result;
+        // echo $result;
+
     @endphp
 
 
@@ -91,12 +94,12 @@
             });
 
             socket.on('connect', () => {
-                @if(Route::currentRouteName() == 'home')
-                socket.emit('chat-message', 'Có người đang truy cập trang Home');
-                @elseif(Route::currentRouteName() == 'login' || Route::currentRouteName() == 'register')
-                socket.emit('chat-message', 'Có người đang truy cập trang Login/Register');
-                @elseif(Route::currentRouteName() == 'admin.checkout')
-                socket.emit('chat-message', 'Có người đang thanh toán sản phẩm');
+                @if (Route::currentRouteName() == 'home')
+                    socket.emit('chat-message', 'Có người đang truy cập trang Home');
+                @elseif (Route::currentRouteName() == 'login' || Route::currentRouteName() == 'register')
+                    socket.emit('chat-message', 'Có người đang truy cập trang Login/Register');
+                @elseif (Route::currentRouteName() == 'admin.checkout')
+                    socket.emit('chat-message', 'Có người đang thanh toán sản phẩm');
                 @endif
             });
 
@@ -108,7 +111,6 @@
                 // console.log('Nhận tin nhắn từ máy chủ:', message);
             });
         });
-
     </script>
     {{-- captcha --}}
     <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -121,7 +123,9 @@
     @include('inc._topbar')
     @yield('content')
 
-    <a class="js-go-to u-go-to " style="margin-right: 5rem; margin-bottom: .5rem;" href="#" data-position='{"bottom": 15, "right": 15 }' data-type="fixed" data-offset-top="400" data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown">
+    <a class="js-go-to u-go-to " style="margin-right: 5rem; margin-bottom: .5rem;" href="#"
+        data-position='{"bottom": 15, "right": 15 }' data-type="fixed" data-offset-top="400" data-compensation="#header"
+        data-show-effect="slideInUp" data-hide-effect="slideOutDown">
         <span class="fas fa-arrow-up u-go-to__inner"></span>
     </a>
     @include('inc._sidebarNavigation')
@@ -129,7 +133,8 @@
     @include('inc._footer')
     <!-- End Go to Top -->
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger intent="WELCOME" chat-title="Electro Assistant" agent-id="0953d30d-3636-4204-996e-37cad8d999e7" language-code="en"></df-messenger>
+    <df-messenger intent="WELCOME" chat-title="Electro Assistant" agent-id="0953d30d-3636-4204-996e-37cad8d999e7"
+        language-code="en"></df-messenger>
     <style>
         df-messenger {
 
@@ -144,7 +149,6 @@
         .title-wrapper {
             background: red !important;
         }
-
     </style>
     <!-- JS Global Compulsory -->
 
@@ -187,11 +191,11 @@
         $(window).on('load', function() {
             // initialization of HSMegaMenu component
             $('.js-mega-menu').HSMegaMenu({
-                event: 'hover'
-                , direction: 'horizontal'
-                , pageContainer: $('.container')
-                , breakpoint: 767.98
-                , hideTimeOut: 0
+                event: 'hover',
+                direction: 'horizontal',
+                pageContainer: $('.container'),
+                breakpoint: 767.98,
+                hideTimeOut: 0
             });
         });
 
@@ -214,12 +218,12 @@
 
             // initialization of countdowns
             var countdowns = $.HSCore.components.HSCountdown.init('.js-countdown', {
-                yearsElSelector: '.js-cd-years'
-                , monthsElSelector: '.js-cd-months'
-                , daysElSelector: '.js-cd-days'
-                , hoursElSelector: '.js-cd-hours'
-                , minutesElSelector: '.js-cd-minutes'
-                , secondsElSelector: '.js-cd-seconds'
+                yearsElSelector: '.js-cd-years',
+                monthsElSelector: '.js-cd-months',
+                daysElSelector: '.js-cd-days',
+                hoursElSelector: '.js-cd-hours',
+                minutesElSelector: '.js-cd-minutes',
+                secondsElSelector: '.js-cd-seconds'
             });
 
             // initialization of malihu scrollbar
@@ -256,8 +260,8 @@
             $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
                 beforeClose: function() {
                     $('#hamburgerTrigger').removeClass('is-active');
-                }
-                , afterClose: function() {
+                },
+                afterClose: function() {
                     $('#headerSidebarList .collapse.show').collapse('hide');
                 }
             });
@@ -280,43 +284,50 @@
             // initialization of select picker
             $.HSCore.components.HSSelectPicker.init('.js-select');
         });
-
     </script>
     {{-- font --}}
     <script>
         // duyệt tất cả tấm ảnh cần lazy-load
-    const lazyImages = document.querySelectorAll('[lazy]');
+        const lazyImages = document.querySelectorAll('[lazy]');
 
-    // chờ các tấm ảnh này xuất hiện trên màn hình
-    const lazyImageObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        // tấm ảnh này đã xuất hiện trên màn hình
-        if (entry.isIntersecting) {
-          const lazyImage = entry.target;
-          const src = lazyImage.dataset.src;
+        // chờ các tấm ảnh này xuất hiện trên màn hình
+        const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                // tấm ảnh này đã xuất hiện trên màn hình
+                if (entry.isIntersecting) {
+                    const lazyImage = entry.target;
+                    const src = lazyImage.dataset.src;
 
-          lazyImage.tagName.toLowerCase() === 'img'
-          // <img>: copy data-src sang src
-            ? lazyImage.src = src
+                    lazyImage.tagName.toLowerCase() === 'img'
+                        // <img>: copy data-src sang src
+                        ?
+                        lazyImage.src = src
 
-          // <div>: copy data-src sang background-image
-          : lazyImage.style.backgroundImage = "url(\'" + src + "\')";
+                        // <div>: copy data-src sang background-image
+                        :
+                        lazyImage.style.backgroundImage = "url(\'" + src + "\')";
 
-          // copy xong rồi thì bỏ attribute lazy đi
-          lazyImage.removeAttribute('lazy');
+                    // copy xong rồi thì bỏ attribute lazy đi
+                    lazyImage.removeAttribute('lazy');
 
-          // job done, không cần observe nó nữa
-          observer.unobserve(lazyImage);
-        }
-      });
-    });
+                    // job done, không cần observe nó nữa
+                    observer.unobserve(lazyImage);
+                }
+            });
+        });
 
-    // Observe từng tấm ảnh và chờ nó xuất hiện trên màn hình
-    lazyImages.forEach((lazyImage) => {
-      lazyImageObserver.observe(lazyImage);
-    });
+        // Observe từng tấm ảnh và chờ nó xuất hiện trên màn hình
+        lazyImages.forEach((lazyImage) => {
+            lazyImageObserver.observe(lazyImage);
+        });
     </script>
 
 </body>
+<style>
+    .swal2-styled.swal2-confirm {
+
+        background-color: #fed700 !important;
+    }
+</style>
 
 </html>

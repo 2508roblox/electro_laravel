@@ -250,14 +250,14 @@
                             <li class="mb-4">
                                 <div class="row">
                                     <div class="col-auto">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block width-75">
+                                        <a href="{{ route("fe.shop") }}" class="d-block width-75">
                                             <img class="img-fluid" src="{{ asset('client/img/300X300/img1.jpg') }}"
                                                 alt="Image Description">
                                         </a>
                                     </div>
                                     <div class="col">
                                         <h3 class="text-lh-1dot2 font-size-14 mb-0"><a
-                                                href="../shop/single-product-fullwidth.html">Notebook Black Spire V Nitro
+                                                href="{{ route("fe.shop") }}">Notebook Black Spire V Nitro
                                                 VN7-591G</a></h3>
                                         <div class="text-warning text-ls-n2 font-size-16 mb-1" style="width: 80px;">
                                             <small class="fas fa-star"></small>
@@ -276,14 +276,14 @@
                             <li class="mb-4">
                                 <div class="row">
                                     <div class="col-auto">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block width-75">
+                                        <a href="{{ route("fe.shop") }}" class="d-block width-75">
                                             <img class="img-fluid" src="{{ asset('client/img/300X300/img3.jpg') }}"
                                                 alt="Image Description">
                                         </a>
                                     </div>
                                     <div class="col">
                                         <h3 class="text-lh-1dot2 font-size-14 mb-0"><a
-                                                href="../shop/single-product-fullwidth.html">Notebook Black Spire V Nitro
+                                                href="{{ route("fe.shop") }}">Notebook Black Spire V Nitro
                                                 VN7-591G</a></h3>
                                         <div class="text-warning text-ls-n2 font-size-16 mb-1" style="width: 80px;">
                                             <small class="fas fa-star"></small>
@@ -301,14 +301,14 @@
                             <li class="mb-4">
                                 <div class="row">
                                     <div class="col-auto">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block width-75">
+                                        <a href="{{ route("fe.shop") }}" class="d-block width-75">
                                             <img class="img-fluid" src="{{ asset('client/img/300X300/img5.jpg') }}"
                                                 alt="Image Description">
                                         </a>
                                     </div>
                                     <div class="col">
                                         <h3 class="text-lh-1dot2 font-size-14 mb-0"><a
-                                                href="../shop/single-product-fullwidth.html">Tablet Thin EliteBook Revolve
+                                                href="{{ route("fe.shop") }}">Tablet Thin EliteBook Revolve
                                                 810 G6</a></h3>
                                         <div class="text-warning text-ls-n2 font-size-16 mb-1" style="width: 80px;">
                                             <small class="fas fa-star"></small>
@@ -326,14 +326,14 @@
                             <li class="mb-4">
                                 <div class="row">
                                     <div class="col-auto">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block width-75">
+                                        <a href="{{ route("fe.shop") }}" class="d-block width-75">
                                             <img class="img-fluid" src="{{ asset('client/img/300X300/img6.jpg') }}"
                                                 alt="Image Description">
                                         </a>
                                     </div>
                                     <div class="col">
                                         <h3 class="text-lh-1dot2 font-size-14 mb-0"><a
-                                                href="../shop/single-product-fullwidth.html">Notebook Purple
+                                                href="{{ route("fe.shop") }}">Notebook Purple
                                                 G952VX-T7008T</a></h3>
                                         <div class="text-warning text-ls-n2 font-size-16 mb-1" style="width: 80px;">
                                             <small class="fas fa-star"></small>
@@ -352,14 +352,14 @@
                             <li class="mb-4">
                                 <div class="row">
                                     <div class="col-auto">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block width-75">
+                                        <a href="{{ route("fe.shop") }}" class="d-block width-75">
                                             <img class="img-fluid" src="{{ asset('client/img/300X300/img10.png') }}"
                                                 alt="Image Description">
                                         </a>
                                     </div>
                                     <div class="col">
                                         <h3 class="text-lh-1dot2 font-size-14 mb-0"><a
-                                                href="../shop/single-product-fullwidth.html">Laptop Yoga 21 80JH0035GE
+                                                href="{{ route("fe.shop") }}">Laptop Yoga 21 80JH0035GE
                                                 W8.1</a></h3>
                                         <div class="text-warning text-ls-n2 font-size-16 mb-1" style="width: 80px;">
                                             <small class="fas fa-star"></small>

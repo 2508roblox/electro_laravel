@@ -166,11 +166,11 @@
                                 <div class="d-flex" style="flex-direction: row ">
 
 
-                                    <div style="max-widtg : 180px; font-size: 1rem ;" class="variant-name">{{ $variant->value }}:
+                                    <div style="max-widtg : 180px; font-size: 1rem ;" class="variant-name">
+                                        {{ $variant->value }}:
                                     </div>
 
-                                    <div class="variant-values"
-                                        style="display: flex;   align-items: start; ">
+                                    <div class="variant-values" style="display: flex;   align-items: start; ">
                                         <!-- Hiển thị danh sách variantValues của mỗi variant -->
                                         @foreach ($variantValues as $variantValue)
                                             @if ($variantValue->variant_id == $variant->id)
@@ -178,9 +178,19 @@
                                                     <input class="variant-input" id="{{ $variantValue->id }}"
                                                         name="variant{{ $variant->id }}" value="{{ $variantValue->id }}"
                                                         type="radio" style="display: none  ;" />
-                                                    <label for="{{ $variantValue->id }}" style="border-radius: 5px; position: relative;"
+                                                    <label for="{{ $variantValue->id }}"
+                                                        style="border-radius: 5px; position: relative;"
                                                         class="variant-label">{{ $variantValue->value }}
-                                                        <svg width="10px" style="position: absolute; background: #fe7f00; border-radius: 100%; padding: 2px; fill: white; bottom: 0; right: 0;"  enable-background="new 0 0 12 12" viewBox="0 0 12 12" x="0" y="0" class="shopee-svg-icon icon-tick-bold"><g><path d="m5.2 10.9c-.2 0-.5-.1-.7-.2l-4.2-3.7c-.4-.4-.5-1-.1-1.4s1-.5 1.4-.1l3.4 3 5.1-7c .3-.4 1-.5 1.4-.2s.5 1 .2 1.4l-5.7 7.9c-.2.2-.4.4-.7.4 0-.1 0-.1-.1-.1z"></path></g></svg>
+                                                        <svg width="10px"
+                                                            style="position: absolute; background: #fe7f00; border-radius: 100%; padding: 2px; fill: white; bottom: 0; right: 0;"
+                                                            enable-background="new 0 0 12 12" viewBox="0 0 12 12" x="0"
+                                                            y="0" class="shopee-svg-icon icon-tick-bold">
+                                                            <g>
+                                                                <path
+                                                                    d="m5.2 10.9c-.2 0-.5-.1-.7-.2l-4.2-3.7c-.4-.4-.5-1-.1-1.4s1-.5 1.4-.1l3.4 3 5.1-7c .3-.4 1-.5 1.4-.2s.5 1 .2 1.4l-5.7 7.9c-.2.2-.4.4-.7.4 0-.1 0-.1-.1-.1z">
+                                                                </path>
+                                                            </g>
+                                                        </svg>
                                                     </label>
                                                 </ul>
                                                 <hr>
@@ -222,7 +232,7 @@
                                                         if (this.checked && !selectedValues.includes(selectedValue)) {
                                                             selectedValues.push(
                                                                 selectedValue
-                                                                ); // Thêm giá trị vào mảng nếu input được chọn và chưa tồn tại trong mảng
+                                                            ); // Thêm giá trị vào mảng nếu input được chọn và chưa tồn tại trong mảng
                                                         }
 
                                                         // Loại bỏ các giá trị không được chọn khỏi mảng selectedValues
@@ -259,16 +269,16 @@
                                                                     "variantQuantity");
                                                                 var variantQuantity_text = document.getElementById(
                                                                     "variantQuantity_text");
-                                                                    variantQuantity_text.innerText =data.quantity;
+                                                                variantQuantity_text.innerText = data.quantity;
                                                                 //sku text
                                                                 var skuElement = document.getElementById(
                                                                     "sku_id");
-                                                                    skuElement.innerText = data.sku_code;
+                                                                skuElement.innerText = data.sku_code;
                                                                 //sku id
 
                                                                 var skuIdElement = document.getElementById(
                                                                     "sku_id_input");
-                                                                    skuIdElement.value = data.id;
+                                                                skuIdElement.value = data.id;
 
 
                                                             },
@@ -290,8 +300,8 @@
                             </p>
                             <div class="md-3 text-gray-9 font-size-14">Availability:
 
-                               <span class="text-green font-weight-bold" id="variantQuantity_text" >0 </span>
-                               <span class="text-green font-weight-bold"  >  in stock</span>
+                                <span class="text-green font-weight-bold" id="variantQuantity_text">0 </span>
+                                <span class="text-green font-weight-bold"> in stock</span>
 
 
                             </div>
@@ -397,7 +407,7 @@
                                             // var id_quantity = $('#colorSelector').val();
                                             // var splitValues = id_quantity.split(":");
                                             // var color_id = splitValues[0]; // id của bảng productColor
-                                            var sku_id = $('#sku_id_input').val()    // id của bảng productColor
+                                            var sku_id = $('#sku_id_input').val() // id của bảng productColor
                                             var quantity = $('#quantityInput').val();
                                             var user = {!! json_encode(auth()->user() ? auth()->user()->id : null) !!};
                                             console.log(user)
@@ -416,14 +426,46 @@
                                                         "quantity": quantity
                                                     },
                                                     success: function(response) {
+                                                        function showAlert() {
+
+                                                            Swal.fire({
+                                                                title: 'Thông báo',
+                                                                text: 'Thêm sản phẩm thành công!',
+                                                                icon: 'success',
+                                                                confirmButtonText: 'OK'
+                                                            });
+                                                        }
+                                                        showAlert()
                                                         location.href = '/cart';
                                                     },
                                                     error: function(xhr) {
 
+
+                                                        function showAlert() {
+
+                                                            Swal.fire({
+                                                                title: 'Thông báo',
+                                                                text: 'Chọn loại sản phẩm cần thêm vào giỏ hàng',
+                                                                icon: 'error',
+                                                                confirmButtonText: 'OK'
+                                                            });
+                                                        }
+                                                        showAlert()
                                                         $('#add_status').text('Chọn loại sản phẩm cần thêm vào giỏ hàng')
 
                                                     }
                                                 });
+                                            } else {
+                                                function showAlert() {
+
+                                                    Swal.fire({
+                                                        title: 'Thông báo',
+                                                        text: 'Vui lòng đăng nhập để mua sản phẩm',
+                                                        icon: 'error',
+                                                        confirmButtonText: 'OK'
+                                                    });
+                                                }
+                                                showAlert()
                                             }
 
                                         });
@@ -485,7 +527,7 @@
                                                                 href="#" class="text-blue font-weight-bold">Wireless
                                                                 Audio System Multiroom 360 degree Full base audio</a></h5>
                                                         <div class="mb-2">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="d-block text-center"><img class="img-fluid"
                                                                     src="{{ asset('client/img/212X200/img1.jpg') }}"
                                                                     alt="Image Description"></a>
@@ -511,7 +553,7 @@
                                                                 href="#" class="text-blue font-weight-bold">Tablet
                                                                 White EliteBook Revolve 810 G2</a></h5>
                                                         <div class="mb-2">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="d-block text-center"><img class="img-fluid"
                                                                     src="{{ asset('client/img/212X200/img2.jpg') }}"
                                                                     alt="Image Description"></a>
@@ -543,7 +585,7 @@
                                                                 href="#" class="text-blue font-weight-bold">Purple
                                                                 Solo 2 Wireless</a></h5>
                                                         <div class="mb-2">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="d-block text-center"><img class="img-fluid"
                                                                     src="{{ asset('client/img/212X200/img3.jpg') }}"
                                                                     alt="Image Description"></a>
@@ -1139,11 +1181,11 @@
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
                                             class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}"
                                             class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree
                                             Full base audio</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img
                                                 class="img-fluid" src="{{ asset('client/img/212X200/img1.jpg') }}"
                                                 alt="Image Description"></a>
                                     </div>
@@ -1152,7 +1194,7 @@
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
+                                            <a href="{{ route("fe.shop") }}"
                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                     class="ec ec-add-to-cart"></i></a>
                                         </div>
@@ -1175,11 +1217,11 @@
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
                                             class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}"
                                             class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a>
                                     </h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img
                                                 class="img-fluid" src="{{ asset('client/img/212X200/img2.jpg') }}"
                                                 alt="Image Description"></a>
                                     </div>
@@ -1190,7 +1232,7 @@
                                                 299,00</del>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
+                                            <a href="{{ route("fe.shop") }}"
                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                     class="ec ec-add-to-cart"></i></a>
                                         </div>
@@ -1213,10 +1255,10 @@
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
                                             class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}"
                                             class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img
                                                 class="img-fluid" src="{{ asset('client/img/212X200/img3.jpg') }}"
                                                 alt="Image Description"></a>
                                     </div>
@@ -1225,7 +1267,7 @@
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
+                                            <a href="{{ route("fe.shop") }}"
                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                     class="ec ec-add-to-cart"></i></a>
                                         </div>
@@ -1248,10 +1290,10 @@
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
                                             class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}"
                                             class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img
                                                 class="img-fluid" src="{{ asset('client/img/212X200/img4.jpg') }}"
                                                 alt="Image Description"></a>
                                     </div>
@@ -1260,7 +1302,7 @@
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
+                                            <a href="{{ route("fe.shop") }}"
                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                     class="ec ec-add-to-cart"></i></a>
                                         </div>
@@ -1283,10 +1325,10 @@
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
                                             class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}"
                                             class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img
                                                 class="img-fluid" src="{{ asset('client/img/212X200/img5.jpg') }}"
                                                 alt="Image Description"></a>
                                     </div>
@@ -1295,7 +1337,7 @@
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
+                                            <a href="{{ route("fe.shop") }}"
                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                     class="ec ec-add-to-cart"></i></a>
                                         </div>
@@ -1319,11 +1361,11 @@
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
                                             class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html"
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}"
                                             class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a>
                                     </h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img
                                                 class="img-fluid" src="{{ asset('client/img/212X200/img2.jpg') }}"
                                                 alt="Image Description"></a>
                                     </div>
@@ -1334,7 +1376,7 @@
                                                 299,00</del>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html"
+                                            <a href="{{ route("fe.shop") }}"
                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                     class="ec ec-add-to-cart"></i></a>
                                         </div>
