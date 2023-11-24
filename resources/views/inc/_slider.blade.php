@@ -41,7 +41,9 @@
                                                   <a href="{{ url('/shop') }}"
                                                       class="btn btn-primary transition-3d-hover rounded-lg font-weight-normal py-2 px-md-7 px-3 font-size-16"
                                                       data-scs-animation-in="fadeInUp" data-scs-animation-delay="300">
-                                                      Start Buying
+                                                     Đến cửa hàng
+
+
                                                   </a>
                                               </div>
                                               <div class="col-lg-7" data-scs-animation-in="zoomIn"

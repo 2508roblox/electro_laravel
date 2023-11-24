@@ -19,7 +19,9 @@ class OrderController extends Controller
         $userId = Auth::id();
 
         // Lấy danh sách orders của user id hiện tại
-        $orders = Order::where('user_id', $userId)->get();
+        $orders = Order::where('user_id', $userId)
+        ->orderBy('id', 'desc')
+        ->get();
 
         // Tạo mảng để lưu thông tin các order
         $orderData = [];
