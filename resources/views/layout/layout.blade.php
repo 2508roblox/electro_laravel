@@ -28,6 +28,7 @@
         }
     </style>
 
+
     <!-- CSS Electro Template -->
 
     <!-- CSS W3SChool -->
@@ -40,7 +41,20 @@
     <style>
         @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
     </style>
+    <style>
+        .swal2-styled.swal2-confirm {
 
+            background-color: #fed700 !important;
+        }
+
+        .swal2-popup {}
+
+        .swal2-popup {
+            border: 10px solid red !important;
+            padding: 15px !important;
+            border-image: url(https://www.w3schools.com/cssref/border.png) 30 round !important;
+        }
+    </style>
 
     @php
         $telegramBotToken = env('TELEGRAM_BOT_TOKEN');
@@ -323,11 +337,6 @@
     </script>
 
 </body>
-<style>
-    .swal2-styled.swal2-confirm {
 
-        background-color: #fed700 !important;
-    }
-</style>
 
 </html>

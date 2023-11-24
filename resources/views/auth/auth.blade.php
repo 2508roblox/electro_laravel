@@ -4,6 +4,22 @@
     @include('inc/_header')
     <!-- ========== MAIN CONTENT ========== -->
     <main id="content" role="main">
+
+
+        @if (session('email'))
+            <script>
+                function showAlert() {
+
+                    Swal.fire({
+                        title: 'Thông báo',
+                        text: 'Email đã được sử dụng',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+                showAlert()
+            </script>
+        @endif
         {{-- <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
 
 
@@ -49,7 +65,8 @@
                         </div>
                         <p class="text-gray-90 mb-4">{{ __('welcome_back') }}</p>
                         <!-- End Title -->
-                        <form class="js-validate" method="POST" action="{{ route('login.post') }}" novalidate="novalidate">
+                        <form class="js-validate" method="POST" action="{{ route('login.post') }}" novalidate="novalidate"
+                            id="login-form">
                             @csrf
                             <!-- Form Group -->
                             <div class="js-form-message form-group">
@@ -57,8 +74,8 @@
                                     <span class="text-danger">*</span>
                                 </label>
                                 <input type="email" class="form-control" name="email" id="signinSrEmailExample3"
-                                    placeholder="{{ __('username_or_email') }}" aria-label="Username or Email address" required
-                                    data-msg="Please enter a valid email address." data-error-class="u-has-error"
+                                    placeholder="{{ __('username_or_email') }}" aria-label="Username or Email address"
+                                    required data-msg="Please enter a valid email address." data-error-class="u-has-error"
                                     data-success-class="u-has-success">
                             </div>
                             <!-- End Form Group -->
@@ -77,7 +94,7 @@
                             <!-- Checkbox -->
                             <div class="js-form-message mb-3">
                                 <div class="custom-control custom-checkbox d-flex align-items-center">
-                                    <input type="checkbox" class="custom-control-input" id="rememberCheckbox"
+                                    <input type="checkbox" checked class="custom-control-input" id="rememberCheckbox"
                                         name="rememberCheckbox" required data-error-class="u-has-error"
                                         data-success-class="u-has-success">
                                     <label class="custom-control-label form-label" for="rememberCheckbox">
@@ -87,19 +104,57 @@
                             </div>
                             <!-- End Checkbox -->
                             @error('message')
-                                <p style="color: red; margin-bottom: 0px"> {{ $message }}</p>
+                                <p style="color: red; margin-bottom: 0px">{{ $message }}</p>
                             @enderror
                             <!-- Button -->
                             <div class="mb-1">
                                 <div class="mb-3">
-                                    <button type="submit" class="btn btn-primary-dark-w px-5">Login</button>
+                                    <button type="submit" class="btn btn-primary-dark-w px-5" id="loginButton">Đăng
+                                        nhập</button>
                                 </div>
                                 <div class="mb-2">
-                                    <a class="text-blue" href="{{route('frontend.forgot.view')}}">Lost your password?</a>
+                                    <a class="text-blue" href="{{ route('frontend.forgot.view') }}">Quên mật khẩu?</a>
                                 </div>
                             </div>
                             <!-- End Button -->
                         </form>
+
+                        <script>
+                            document.querySelector('#login-form').addEventListener('submit', (e) => {
+                                e.preventDefault();
+                                console.log('login')
+
+                                // Disable the button and change its text
+                                const loginButton = document.querySelector('#loginButton');
+                                loginButton.disabled = true;
+                                loginButton.innerHTML = 'Loading...';
+                                loginButton.style.backgroundColor = '#333e48';
+                                loginButton.style.borderColor = '#333e48';
+                                loginButton.style.color = '#fff';
+                                var formData = new FormData(e.target);
+                                fetch("{{ route('login.post') }}", {
+                                    method: 'POST',
+                                    body: formData
+                                }).then(() => {
+                                    // Handle success response
+                                    console.log('Form submitted successfully');
+                                }).catch((error) => {
+                                    function showAlert() {
+
+                                        Swal.fire({
+                                            title: 'Thông báo',
+                                            text: 'Sai thông tin đăng nhập',
+                                            icon: 'error',
+                                            confirmButtonText: 'OK'
+                                        });
+                                    }
+                                    showAlert()
+                                    // Handle error response
+                                    console.error('Error submitting form:', error);
+                                });
+                            });
+                        </script>
+
                     </div>
                     <div class="col-md-1 d-none d-md-block">
                         <div class="flex-content-center h-100">
@@ -206,14 +261,16 @@
                                 </div>
                             </div>
                             <!-- End Input -->
-                            <div class="g-recaptcha mb-2" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
-                              <!-- End Login Buttons -->
-                              @error('g-recaptcha-response')
-                              <p style="color: red; margin-bottom: 0px"> {{ $message }}</p>
-                          @enderror
+                            <div style="width: 100%; display: flex; justify-content: center;">
+                                <div class="g-recaptcha mb-2" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
+                            </div>
+                            <!-- End Login Buttons -->
+                            @error('g-recaptcha-response')
+                                <p style="color: red; margin-bottom: 0px"> {{ $message }}</p>
+                            @enderror
                             <div class="mb-2">
-                                <button type="submit" class="btn btn-block btn-sm btn-primary transition-3d-hover">Get
-                                    Started</button>
+                                <button type="submit" id="register_button"
+                                    class="btn btn-block btn-sm btn-primary transition-3d-hover">Đăng ký</button>
                             </div>
 
                             <div class="text-center mb-4">
@@ -229,19 +286,38 @@
 
                             <!-- Login Buttons -->
                             <div class="d-flex  " style="margin-bottom: 2rem">
-                                <a class="btn btn-block btn-sm btn-soft-facebook transition-3d-hover mr-1" href="{{ route('facebook.login') }}">
+                                <a class="btn btn-block btn-sm btn-soft-facebook transition-3d-hover mr-1"
+                                    href="{{ route('facebook.login') }}">
                                     <span class="fab fa-facebook-square mr-1"></span>
                                     Facebook
                                 </a>
                                 <a class="btn btn-block btn-sm btn-soft-google transition-3d-hover ml-1 mt-0"
-                                    href="{{route('google.login')}}">
+                                    href="{{ route('google.login') }}">
                                     <span class="fab fa-google mr-1"></span>
                                     Google
                                 </a>
                             </div>
 
                         </form>
+                        {{-- <script>
+                            document.querySelector('#contactUSForm').addEventListener('submit', (e) => {
+                                e.preventDefault();
+                                console.log('contactUSForm')
 
+                                // Disable the button and change its text
+                                const loginButton = document.querySelector('#register_button');
+                                loginButton.disabled = true;
+                                loginButton.innerHTML = 'Loading...';
+                                loginButton.style.backgroundColor = '#333e48';
+                                loginButton.style.borderColor = '#333e48';
+                                loginButton.style.color = '#fff';
+                                var formData = new FormData(e.target);
+                                fetch("{{ route('register.post') }}", {
+                                    method: 'POST',
+                                    body: formData
+                                })
+                            });
+                        </script> --}}
                         <h3 class="font-size-18 mb-3">Sign up today and you will be able to :</h3>
                         <ul class="list-group list-group-borderless">
                             <li class="list-group-item px-0"><i class="fas fa-check mr-2 text-green font-size-16"></i>

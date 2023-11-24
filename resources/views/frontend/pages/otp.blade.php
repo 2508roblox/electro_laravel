@@ -3,6 +3,20 @@
 @section('content')
     @include('inc/_header')
     <main id="content" role="main" class="cart-page">
+
+        <script>
+            function showAlert() {
+
+                Swal.fire({
+                    title: 'Thông báo',
+                    text: 'Vui lòng nhập OTP để xác nhận email',
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+            }
+            showAlert()
+        </script>
+
         <!-- breadcrumb -->
         <div class="bg-gray-13 bg-md-transparent">
             <div class="container">
@@ -23,26 +37,34 @@
         <!-- End breadcrumb -->
         <div class="container height-100 d-flex justify-content-center align-items-center mb-10">
             <div class="position-relative">
-            <form action="{{route('frontend.otp.view')}}" method="POST">
-                @csrf
+                <form action="{{ route('frontend.otp.view') }}" method="POST">
+                    @csrf
 
-                <div class="card p-2 text-center">
-                    <h6>Please enter the one time password <br> to verify your account</h6>
-                    <div> <span>A code has been sent to</span> <small>{{ Session::get('registeredEmail')}}</small> </div>
-                    <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2"> <input
-                            class="m-2 text-center form-control rounded" type="text" id="first" name="otp[]" maxlength="1" />
-                        <input class="m-2 text-center form-control rounded" type="text" id="second" name="otp[]" maxlength="1" />
-                        <input class="m-2 text-center form-control rounded" type="text" id="third" name="otp[]" maxlength="1" />
-                        <input class="m-2 text-center form-control rounded" type="text" id="fourth" name="otp[]" maxlength="1" />
-                        <input class="m-2 text-center form-control rounded" type="text" id="fifth" name="otp[]" maxlength="1" />
-                        <input class="m-2 text-center form-control rounded" type="text" id="sixth" name="otp[]" maxlength="1" />
+                    <div class="card p-2 text-center">
+                        <h6>Please enter the one time password <br> to verify your account</h6>
+                        <div> <span>A code has been sent to</span> <small>{{ Session::get('registeredEmail') }}</small>
+                        </div>
+                        <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2"> <input
+                                class="m-2 text-center form-control rounded" type="text" id="first" name="otp[]"
+                                maxlength="1" />
+                            <input class="m-2 text-center form-control rounded" type="text" id="second" name="otp[]"
+                                maxlength="1" />
+                            <input class="m-2 text-center form-control rounded" type="text" id="third" name="otp[]"
+                                maxlength="1" />
+                            <input class="m-2 text-center form-control rounded" type="text" id="fourth" name="otp[]"
+                                maxlength="1" />
+                            <input class="m-2 text-center form-control rounded" type="text" id="fifth" name="otp[]"
+                                maxlength="1" />
+                            <input class="m-2 text-center form-control rounded" type="text" id="sixth" name="otp[]"
+                                maxlength="1" />
+                        </div>
+                        <div class="mt-4 mb-10"> <button class="btn btn-danger px-4 pointer ">Validate</button> </div>
                     </div>
-                    <div class="mt-4 mb-10"> <button class="btn btn-danger px-4 pointer ">Validate</button> </div>
-                </div>
-            </form>
+                </form>
                 <div class="card-2">
                     <div class="content d-flex justify-content-center align-items-center"> <span>Didn't get the code</span>
-                        <a href="#" class="text-decoration-none ms-3">Resend(1/3)</a> </div>
+                        <a href="#" class="text-decoration-none ms-3">Resend(1/3)</a>
+                    </div>
                 </div>
             </div>
         </div>

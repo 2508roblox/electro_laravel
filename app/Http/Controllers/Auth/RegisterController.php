@@ -19,32 +19,37 @@ class RegisterController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index( )
+    public function index()
     {
-       return view('auth.auth');
+        return view('auth.auth');
     }
     public function register(Request $request, User $user)
     {
-        $formFields = $request->validate([
-            'name' => 'required',
-            'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => 'required',
-            'g-recaptcha-response' => ['required', new ReCaptcha]
-        ]);
-        //genarate otp and create user
-        $formFields['otp'] = random_int(100000, 999999);
-        Session::put('registeredEmail', $formFields['email']);
-        Session::put('verifyStatus', null);
-        $user = User::create($formFields);
-        // send otp mail
-        Mail::to(($formFields['email'] ))->send(new VerifyMail($formFields['otp']));
-        // create wallet with userId
-        $wallet = new Wallet;
-        $wallet->user_id= $user->id;
-        $wallet->balance= 0;
-        $wallet->save();
-        //redirect
-        return redirect('/verify-email')->with('message', 'welcome');
+        $existingUser = User::where('email', $request->input('email'))->first();
+        if ($existingUser) {
+            return redirect('auth/register')->with(['email' => true]);
+        } else {
+
+            $formFields = $request->validate([
+                'name' => 'required',
+                'email' => ['required', 'email', Rule::unique('users', 'email')],
+                'password' => 'required',
+                'g-recaptcha-response' => ['required', new ReCaptcha]
+            ]);
+            $formFields['otp'] = random_int(100000, 999999);
+            Session::put('registeredEmail', $formFields['email']);
+            Session::put('verifyStatus', null);
+            $user = User::create($formFields);
+            // send otp mail
+            Mail::to(($formFields['email']))->send(new VerifyMail($formFields['otp']));
+            // create wallet with userId
+            $wallet = new Wallet;
+            $wallet->user_id = $user->id;
+            $wallet->balance = 0;
+            $wallet->save();
+            //redirect
+            return redirect('/verify-email')->with('message', 'welcome');
+        }
     }
     /**
      * Show the form for creating a new resource.
