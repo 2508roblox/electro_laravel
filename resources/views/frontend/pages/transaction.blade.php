@@ -10,8 +10,8 @@
                 <div class="my-md-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../home/index.html">Home</a></li>
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Wishlist</li>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('home')}}">Trang chủ</a></li>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Yêu thích</li>
                         </ol>
                     </nav>
                 </div>
@@ -22,7 +22,7 @@
 
         <div class="container">
             <div class="my-6">
-                <h1 class="text-center">My Transactions</h1>
+                <h1 class="text-center">Lịch sử giao dịch</h1>
             </div>
             <div class="mb-16 wishlist-table">
                         <form class="mb-4" action="#" method="post">
@@ -48,7 +48,7 @@
                                         <td>{{ $transaction->type }}</td>
                                         <td>{{ $transaction->method }}</td>
                                         <td>
-                                          @if ($transaction->status =='cancle' )
+                                          @if ($transaction->status =='cancel' )
                                           <h1 class="p-2 badge badge-danger text-white">{{ $transaction->status }}</h1>
                                           @else
                                           <h1 class="p-2 badge badge-success text-white">{{ $transaction->status }}</h1>

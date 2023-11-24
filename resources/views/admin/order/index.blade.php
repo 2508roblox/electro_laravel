@@ -93,18 +93,18 @@
 
 
                               </form>
-                              <form action="{{route('admin.order.cancle' )}} " method="POST" >
+                              <form action="{{route('admin.order.cancel' )}} " method="POST" >
 
                                 @csrf
                                 @method('PUT')
-                                <input type="text" hidden name="status" value="cancle">
+                                <input type="text" hidden name="status" value="cancel">
                                 <input type="text" hidden name="id" value="{{$item['ID']}}">
                                 @if ($item['Status'] == 'confirm')
-                                <input type="submit" disabled value="Cancle"  class="btn btn-muted opacity-25     btn-sm" type="button"
+                                <input type="submit" disabled value="Cancel"  class="btn btn-muted opacity-25     btn-sm" type="button"
 
                                 >
                                 @else
-                                <input type="submit" value="Cancle"  class="btn btn-danger btn   btn-sm" type="button"
+                                <input type="submit" value="Cancel"  class="btn btn-danger btn   btn-sm" type="button"
 
                                 >
 

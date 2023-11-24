@@ -9,7 +9,7 @@
             <div class="my-md-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../home/index.html">Home</a></li>
+                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('home')}}">Trang chủ</a></li>
                         <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Blog</li>
                     </ol>
                 </nav>
@@ -19,22 +19,22 @@
     </div>
     <!-- End breadcrumb -->
 
-    
+
 
 
     <div class="container">
         <div class="row">
             <div class="col-xl-12 col-wd">
                 <div class="mb-5">
-                
+
                     {{-- @php
                         $url = "https://vnexpress.net/rss/kinh-doanh.rss";
-                    
+
                         $feedArr = json_decode(json_encode(simplexml_load_file($url)), true);
                         if (isset($feedArr['channel'])) {
                             if (isset($feedArr['channel']['item'])) {
                                 foreach ($feedArr['channel']['item'] as $item) {
-                                    
+
                                     echo '<article class="card mb-13 border-0">';
                         echo '<div class="js-slick-carousel u-slick overflow-hidden" data-pagi-classes="js-pagination u-slick__pagination u-slick__pagination--long u-slick__pagination--hover mb-0">';
                             echo '<div class="js-slide">';
@@ -57,7 +57,7 @@
                             echo '</div>';
                         echo '</div>';
                     echo '</article>';
-                                
+
                                     // echo "<p>";
                                     // print_r($item);
                                     // echo "</p>";
@@ -69,12 +69,12 @@
                             echo "Error: Không có thông tin kênh (channel) trong feed";
                         }
                     @endphp --}}
-                
 
 
-                    
-                    
-                
+
+
+
+
                     @foreach($blogs as $blog)
                     <article class="card mb-13 border-0">
                         <div class="js-slick-carousel u-slick overflow-hidden" data-pagi-classes="js-pagination u-slick__pagination u-slick__pagination--long u-slick__pagination--hover mb-0">

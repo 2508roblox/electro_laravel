@@ -220,7 +220,7 @@
 
 
 
-                            <div class="alert alert-danger">
+                            <div class="alert alert-warning">
                                 *Không có sản phẩm nào trong giỏ hàng
                             </div>
 
