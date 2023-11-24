@@ -1,0 +1,3 @@
+Sitemap: https://electro.io.vn/sitemap.xml
+User-agent: *
+Disallow:

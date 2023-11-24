@@ -22,7 +22,7 @@ class AdminOrderController extends Controller
          $userId = Auth::id();
 
          // Lấy danh sách orders của user id hiện tại
-         $orders = Order::where('user_id', $userId)->get();
+         $orders = Order::all();
 
          // Tạo mảng để lưu thông tin các order
          $orderData = [];
