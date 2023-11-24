@@ -417,7 +417,7 @@
                                                     },
                                                     error: function(xhr) {
 
-                                                        $('#add_status').text('Please choose a variant of this product!')
+                                                        $('#add_status').text('Chọn loại sản phẩm cần thêm vào giỏ hàng')
 
                                                     }
                                                 });
