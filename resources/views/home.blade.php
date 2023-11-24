@@ -13,7 +13,7 @@
         
       Swal.fire({
         title: 'Thông báo',
-        text: 'Đăng nhập thành công !',
+        text: 'Đăng nhập thành công !!!',
         icon: 'success',
         confirmButtonText: 'OK'
       });
@@ -22,16 +22,7 @@
   </script>
 @else
 <script>
-      function showAlert() {
-        
-        Swal.fire({
-          title: 'Thông báo',
-          text: 'Đăng nhập thành công !',
-          icon: 'success',
-          confirmButtonText: 'OK'
-        });
-      }
-        showAlert()
+   
   </script>
 @endif
     <!-- Slider Section -->
@@ -162,9 +153,9 @@
                                 </div>
                             </div>
                             <div class="mb-2">
-                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/320X300/img1.jpg')}}" alt="Image Description"></a>
+                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/320X300/img1.jpg')}}" alt="Image Description"></a>
                             </div>
-                            <h5 class="mb-2 font-size-14 text-center mx-auto text-lh-18"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Game Console Controller + USB 3.0 Cable</a></h5>
+                            <h5 class="mb-2 font-size-14 text-center mx-auto text-lh-18"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Game Console Controller + USB 3.0 Cable</a></h5>
                             <div class="d-flex align-items-center justify-content-center mb-2">
                                 <del class="font-size-18 mr-2 text-gray-2">$99,00</del>
                                 <ins class="font-size-30 text-red text-decoration-none">$79,00</ins>
@@ -218,16 +209,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -245,16 +236,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Camera</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -272,16 +263,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -299,9 +290,9 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price d-flex align-items-center flex-wrap position-relative">
@@ -309,7 +300,7 @@
                                                                     <del class="font-size-12 tex-gray-6 position-absolute bottom-100">$2 299,00</del>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -327,16 +318,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -354,16 +345,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -381,16 +372,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -408,16 +399,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -435,16 +426,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -462,16 +453,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -493,16 +484,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -520,16 +511,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Camera</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -547,16 +538,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -574,9 +565,9 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price d-flex align-items-center flex-wrap position-relative">
@@ -584,7 +575,7 @@
                                                                     <del class="font-size-12 tex-gray-6 position-absolute bottom-100">$2 299,00</del>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -602,16 +593,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -629,16 +620,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -656,16 +647,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -683,16 +674,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -710,16 +701,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -737,16 +728,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -772,16 +763,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -799,16 +790,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Camera</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -826,16 +817,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -853,9 +844,9 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price d-flex align-items-center flex-wrap position-relative">
@@ -863,7 +854,7 @@
                                                                     <del class="font-size-12 tex-gray-6 position-absolute bottom-100">$2 299,00</del>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -881,16 +872,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -908,16 +899,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -935,16 +926,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -962,16 +953,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -989,16 +980,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1016,16 +1007,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1047,16 +1038,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1074,16 +1065,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Camera</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1101,16 +1092,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1128,9 +1119,9 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price d-flex align-items-center flex-wrap position-relative">
@@ -1138,7 +1129,7 @@
                                                                     <del class="font-size-12 tex-gray-6 position-absolute bottom-100">$2 299,00</del>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1156,16 +1147,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1183,16 +1174,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1210,16 +1201,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1237,16 +1228,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1264,16 +1255,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1291,16 +1282,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1326,16 +1317,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1353,16 +1344,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Camera</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1380,16 +1371,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1407,9 +1398,9 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price d-flex align-items-center flex-wrap position-relative">
@@ -1417,7 +1408,7 @@
                                                                     <del class="font-size-12 tex-gray-6 position-absolute bottom-100">$2 299,00</del>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1435,16 +1426,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1462,16 +1453,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1489,16 +1480,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1516,16 +1507,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1543,16 +1534,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1570,16 +1561,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1601,16 +1592,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1628,16 +1619,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Camera</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1655,16 +1646,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1682,9 +1673,9 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price d-flex align-items-center flex-wrap position-relative">
@@ -1692,7 +1683,7 @@
                                                                     <del class="font-size-12 tex-gray-6 position-absolute bottom-100">$2 299,00</del>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1710,16 +1701,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1737,16 +1728,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1764,16 +1755,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1791,16 +1782,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1818,16 +1809,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1845,16 +1836,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1880,16 +1871,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1907,16 +1898,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Camera</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1934,16 +1925,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1961,9 +1952,9 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price d-flex align-items-center flex-wrap position-relative">
@@ -1971,7 +1962,7 @@
                                                                     <del class="font-size-12 tex-gray-6 position-absolute bottom-100">$2 299,00</del>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1989,16 +1980,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2016,16 +2007,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2043,16 +2034,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2070,16 +2061,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2097,16 +2088,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2124,16 +2115,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2155,16 +2146,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2182,16 +2173,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Camera</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Video Camera 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2209,16 +2200,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Ultra Wireless S50 Headphones S50 with Bluetooth</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2236,9 +2227,9 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price d-flex align-items-center flex-wrap position-relative">
@@ -2246,7 +2237,7 @@
                                                                     <del class="font-size-12 tex-gray-6 position-absolute bottom-100">$2 299,00</del>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2264,16 +2255,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2291,16 +2282,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2318,16 +2309,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2345,16 +2336,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Full Color LaserJet Pro M452dn</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2372,16 +2363,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">GameConsole Destiny Special Edition</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2399,16 +2390,16 @@
                                                     <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                         <div class="product-item__body pb-xl-2">
                                                             <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
+                                                            <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Camera C430W 4k Waterproof</a></h5>
                                                             <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
+                                                                <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img8.jpg')}}" alt="Image Description"></a>
                                                             </div>
                                                             <div class="flex-center-between mb-1">
                                                                 <div class="prodcut-price">
                                                                     <div class="text-gray-100">$685,00</div>
                                                                 </div>
                                                                 <div class="d-none d-xl-block prodcut-add-cart">
-                                                                    <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                    <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2471,16 +2462,16 @@
                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                     </div>
                                     <div class="flex-center-between mb-1">
                                         <div class="prodcut-price">
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -2500,16 +2491,16 @@
                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                     </div>
                                     <div class="flex-center-between mb-1">
                                         <div class="prodcut-price">
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -2529,16 +2520,16 @@
                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                     </div>
                                     <div class="flex-center-between mb-1">
                                         <div class="prodcut-price">
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -2558,16 +2549,16 @@
                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                     </div>
                                     <div class="flex-center-between mb-1">
                                         <div class="prodcut-price">
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -2587,16 +2578,16 @@
                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                     </div>
                                     <div class="flex-center-between mb-1">
                                         <div class="prodcut-price">
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -2616,16 +2607,16 @@
                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                     </div>
                                     <div class="flex-center-between mb-1">
                                         <div class="prodcut-price">
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -2645,16 +2636,16 @@
                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                     </div>
                                     <div class="flex-center-between mb-1">
                                         <div class="prodcut-price">
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -2674,16 +2665,16 @@
                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                     </div>
                                     <div class="flex-center-between mb-1">
                                         <div class="prodcut-price">
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -2703,16 +2694,16 @@
                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                     </div>
                                     <div class="flex-center-between mb-1">
                                         <div class="prodcut-price">
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -2732,16 +2723,16 @@
                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                     </div>
                                     <div class="flex-center-between mb-1">
                                         <div class="prodcut-price">
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -2761,16 +2752,16 @@
                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                     <div class="mb-2">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                     </div>
                                     <div class="flex-center-between mb-1">
                                         <div class="prodcut-price">
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -2789,7 +2780,7 @@
         <!-- End Trending products -->
         <!-- Full banner -->
         <div class="mb-8">
-            <a href="../shop/shop.html" class="d-block text-gray-90">
+            <a href="{{ route("fe.shop") }}" class="d-block text-gray-90">
                 <div class="" style="background-image: url({{asset('client/img/1400X206/img1.jpg')}});">
                     <div class="space-top-2-md p-4 pt-6 pt-md-8 pt-lg-6 pt-xl-8 pb-lg-4 px-xl-8 px-lg-6">
                         <div class="flex-horizontal-center mt-lg-3 mt-xl-0 overflow-auto overflow-md-visble">
@@ -2840,7 +2831,7 @@
             <!-- End Nav Pills -->
             <div class="row">
                 <div class="col-md-6 col-lg">
-                    <a href="../shop/shop.html" class="d-block"><img class="img-fluid" lazy  data-src="{{asset('client/img/390X370/img1.jpg')}}" alt="Image Description"></a>
+                    <a href="{{ route("fe.shop") }}" class="d-block"><img class="img-fluid" lazy  data-src="{{asset('client/img/390X370/img1.jpg')}}" alt="Image Description"></a>
                 </div>
                 <div class="col-md-6 pl-md-0 col-lg-8gdot46">
                     <!-- Tab Content -->
@@ -2878,9 +2869,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -2903,7 +2894,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2923,9 +2914,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -2948,7 +2939,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2968,9 +2959,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -2993,7 +2984,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3013,9 +3004,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3038,7 +3029,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3058,9 +3049,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3083,7 +3074,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3103,9 +3094,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3128,7 +3119,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3148,9 +3139,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3173,7 +3164,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3193,9 +3184,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3218,7 +3209,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3238,9 +3229,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3263,7 +3254,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3312,9 +3303,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3337,7 +3328,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3357,9 +3348,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3382,7 +3373,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3402,9 +3393,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3427,7 +3418,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3447,9 +3438,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3472,7 +3463,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3492,9 +3483,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3517,7 +3508,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3537,9 +3528,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3562,7 +3553,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3582,9 +3573,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3607,7 +3598,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3627,9 +3618,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3652,7 +3643,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3672,9 +3663,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3697,7 +3688,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3746,9 +3737,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3771,7 +3762,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3791,9 +3782,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3816,7 +3807,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3836,9 +3827,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3861,7 +3852,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3881,9 +3872,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3906,7 +3897,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3926,9 +3917,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3951,7 +3942,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3971,9 +3962,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -3996,7 +3987,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4016,9 +4007,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4041,7 +4032,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4061,9 +4052,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4086,7 +4077,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4106,9 +4097,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4131,7 +4122,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4180,9 +4171,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4205,7 +4196,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4225,9 +4216,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4250,7 +4241,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4270,9 +4261,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4295,7 +4286,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4315,9 +4306,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4340,7 +4331,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4360,9 +4351,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4385,7 +4376,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4405,9 +4396,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4430,7 +4421,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4450,9 +4441,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4475,7 +4466,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4495,9 +4486,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4520,7 +4511,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4540,9 +4531,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4565,7 +4556,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4614,9 +4605,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4639,7 +4630,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4659,9 +4650,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4684,7 +4675,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4704,9 +4695,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4729,7 +4720,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4749,9 +4740,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4774,7 +4765,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4794,9 +4785,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4819,7 +4810,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4839,9 +4830,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4864,7 +4855,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4884,9 +4875,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4909,7 +4900,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4929,9 +4920,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4954,7 +4945,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4974,9 +4965,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -4999,7 +4990,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5048,9 +5039,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -5073,7 +5064,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5093,9 +5084,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -5118,7 +5109,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5138,9 +5129,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -5163,7 +5154,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5183,9 +5174,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -5208,7 +5199,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5228,9 +5219,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -5253,7 +5244,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5273,9 +5264,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -5298,7 +5289,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5318,9 +5309,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -5343,7 +5334,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5363,9 +5354,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -5388,7 +5379,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5408,9 +5399,9 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="mb-3">
                                                         <a class="d-inline-flex align-items-center small font-size-14" href="#">
@@ -5433,7 +5424,7 @@
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5486,7 +5477,7 @@
             <!-- End Nav Pills -->
             <div class="row">
                 <div class="col-md-6 col-lg">
-                    <a href="../shop/shop.html" class="d-block"><img class="img-fluid" lazy  data-src="{{asset('client/img/390X270/img1.jpg')}}" alt="Image Description"></a>
+                    <a href="{{ route("fe.shop") }}" class="d-block"><img class="img-fluid" lazy  data-src="{{asset('client/img/390X270/img1.jpg')}}" alt="Image Description"></a>
                 </div>
                 <div class="col-md-6 pl-md-0 col-lg-8gdot46">
                     <!-- Tab Content -->
@@ -5524,16 +5515,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5553,16 +5544,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5582,16 +5573,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5611,16 +5602,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5640,16 +5631,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5669,16 +5660,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5698,16 +5689,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5727,16 +5718,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5756,16 +5747,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5814,16 +5805,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5843,16 +5834,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5872,16 +5863,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5901,16 +5892,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5930,16 +5921,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5959,16 +5950,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -5988,16 +5979,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6017,16 +6008,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6046,16 +6037,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6104,16 +6095,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6133,16 +6124,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6162,16 +6153,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6191,16 +6182,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6220,16 +6211,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6249,16 +6240,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6278,16 +6269,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6307,16 +6298,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6336,16 +6327,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6394,16 +6385,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6423,16 +6414,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6452,16 +6443,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6481,16 +6472,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6510,16 +6501,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6539,16 +6530,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6568,16 +6559,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6597,16 +6588,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6626,16 +6617,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6684,16 +6675,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6713,16 +6704,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6742,16 +6733,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6771,16 +6762,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6800,16 +6791,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6829,16 +6820,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6858,16 +6849,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6887,16 +6878,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6916,16 +6907,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -6974,16 +6965,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -7003,16 +6994,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img2.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -7032,16 +7023,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img3.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -7061,16 +7052,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img4.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -7090,16 +7081,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img5.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -7119,16 +7110,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img6.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -7148,16 +7139,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img7.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -7177,16 +7168,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -7206,16 +7197,16 @@
                                             <div class="product-item__inner px-wd-4 p-2 p-md-3">
                                                 <div class="product-item__body pb-xl-2">
                                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                    <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
+                                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
+                                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img class="img-fluid" lazy  data-src="{{asset('client/img/212X200/img1.jpg')}}" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
                                                         <div class="prodcut-price">
                                                             <div class="text-gray-100">$685,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                            <a href="{{ route("fe.shop") }}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -7240,7 +7231,7 @@
         <div class="mb-11">
             <div class="row flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
                 <div class="col-md-6 mb-4 mb-xl-0 col-xl-4 col-wd-3 flex-shrink-0 flex-xl-shrink-1">
-                    <a href="../shop/shop.html" class="min-height-132 py-1 py-xl-2 py-wd-1 banner-bg d-flex align-items-center text-gray-90">
+                    <a href="{{ route("fe.shop") }}" class="min-height-132 py-1 py-xl-2 py-wd-1 banner-bg d-flex align-items-center text-gray-90">
                         <div class="col-6 col-xl-7 col-wd-6 pr-0">
                             <img class="img-fluid" lazy  data-src="{{asset('client/img/246X176/img1.jpg')}}" alt="Image Description">
                         </div>
@@ -7258,7 +7249,7 @@
                     </a>
                 </div>
                 <div class="col-md-6 mb-4 mb-xl-0 col-xl-4 col-wd-3 flex-shrink-0 flex-xl-shrink-1">
-                    <a href="../shop/shop.html" class="min-height-132 py-1 py-xl-2 py-wd-1 banner-bg d-flex align-items-center text-gray-90">
+                    <a href="{{ route("fe.shop") }}" class="min-height-132 py-1 py-xl-2 py-wd-1 banner-bg d-flex align-items-center text-gray-90">
                         <div class="col-6 col-xl-7 col-wd-6 pr-0">
                             <img class="img-fluid" lazy  data-src="{{asset('client/img/246X176/img2.jpg')}}" alt="Image Description">
                         </div>
@@ -7276,7 +7267,7 @@
                     </a>
                 </div>
                 <div class="col-md-6 mb-4 mb-xl-0 col-xl-4 col-wd-3 flex-shrink-0 flex-xl-shrink-1">
-                    <a href="../shop/shop.html" class="min-height-132 py-1 py-xl-2 py-wd-1 banner-bg d-flex align-items-center text-gray-90">
+                    <a href="{{ route("fe.shop") }}" class="min-height-132 py-1 py-xl-2 py-wd-1 banner-bg d-flex align-items-center text-gray-90">
                         <div class="col-6 col-xl-7 col-wd-6 pr-0">
                             <img class="img-fluid" lazy  data-src="{{asset('client/img/246X176/img3.jpg')}}" alt="Image Description">
                         </div>
@@ -7294,7 +7285,7 @@
                     </a>
                 </div>
                 <div class="col-md-6 mb-4 mb-xl-0 col-xl-4 col-wd-3 flex-shrink-0 flex-xl-shrink-1 d-xl-none d-wd-block">
-                    <a href="../shop/shop.html" class="min-height-132 py-1 py-xl-2 py-wd-1 banner-bg d-flex align-items-center text-gray-90">
+                    <a href="{{ route("fe.shop") }}" class="min-height-132 py-1 py-xl-2 py-wd-1 banner-bg d-flex align-items-center text-gray-90">
                         <div class="col-6 col-xl-5 col-wd-6 pr-0">
                             <img class="img-fluid" lazy  data-src="{{asset('client/img/190X150/img4.png')}}" alt="Image Description">
                         </div>

@@ -78,14 +78,14 @@
                             <li class="mb-4">
                                 <div class="row">
                                     <div class="col-auto">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block width-75">
+                                        <a href="{{ route("fe.shop") }}" class="d-block width-75">
                                             <img class="img-fluid" src="{{ asset('client/img/300X300/img1.jpg') }}"
                                                 alt="Image Description">
                                         </a>
                                     </div>
                                     <div class="col">
                                         <h3 class="text-lh-1dot2 font-size-14 mb-0"><a
-                                                href="../shop/single-product-fullwidth.html">Notebook Black Spire V Nitro
+                                                href="{{ route("fe.shop") }}">Notebook Black Spire V Nitro
                                                 VN7-591G</a></h3>
                                         <div class="text-warning text-ls-n2 font-size-16 mb-1" style="width: 80px;">
                                             <small class="fas fa-star"></small>
@@ -104,14 +104,14 @@
                             <li class="mb-4">
                                 <div class="row">
                                     <div class="col-auto">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block width-75">
+                                        <a href="{{ route("fe.shop") }}" class="d-block width-75">
                                             <img class="img-fluid" src="{{ asset('client/img/300X300/img3.jpg') }}"
                                                 alt="Image Description">
                                         </a>
                                     </div>
                                     <div class="col">
                                         <h3 class="text-lh-1dot2 font-size-14 mb-0"><a
-                                                href="../shop/single-product-fullwidth.html">Notebook Black Spire V Nitro
+                                                href="{{ route("fe.shop") }}">Notebook Black Spire V Nitro
                                                 VN7-591G</a></h3>
                                         <div class="text-warning text-ls-n2 font-size-16 mb-1" style="width: 80px;">
                                             <small class="fas fa-star"></small>
@@ -129,14 +129,14 @@
                             <li class="mb-4">
                                 <div class="row">
                                     <div class="col-auto">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block width-75">
+                                        <a href="{{ route("fe.shop") }}" class="d-block width-75">
                                             <img class="img-fluid" src="{{ asset('client/img/300X300/img5.jpg') }}"
                                                 alt="Image Description">
                                         </a>
                                     </div>
                                     <div class="col">
                                         <h3 class="text-lh-1dot2 font-size-14 mb-0"><a
-                                                href="../shop/single-product-fullwidth.html">Tablet Thin EliteBook Revolve
+                                                href="{{ route("fe.shop") }}">Tablet Thin EliteBook Revolve
                                                 810 G6</a></h3>
                                         <div class="text-warning text-ls-n2 font-size-16 mb-1" style="width: 80px;">
                                             <small class="fas fa-star"></small>
@@ -154,14 +154,14 @@
                             <li class="mb-4">
                                 <div class="row">
                                     <div class="col-auto">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block width-75">
+                                        <a href="{{ route("fe.shop") }}" class="d-block width-75">
                                             <img class="img-fluid" src="{{ asset('client/img/300X300/img6.jpg') }}"
                                                 alt="Image Description">
                                         </a>
                                     </div>
                                     <div class="col">
                                         <h3 class="text-lh-1dot2 font-size-14 mb-0"><a
-                                                href="../shop/single-product-fullwidth.html">Notebook Purple
+                                                href="{{ route("fe.shop") }}">Notebook Purple
                                                 G952VX-T7008T</a></h3>
                                         <div class="text-warning text-ls-n2 font-size-16 mb-1" style="width: 80px;">
                                             <small class="fas fa-star"></small>
@@ -180,14 +180,14 @@
                             <li class="mb-4">
                                 <div class="row">
                                     <div class="col-auto">
-                                        <a href="../shop/single-product-fullwidth.html" class="d-block width-75">
+                                        <a href="{{ route("fe.shop") }}" class="d-block width-75">
                                             <img class="img-fluid" src="{{ asset('client/img/300X300/img10.png') }}"
                                                 alt="Image Description">
                                         </a>
                                     </div>
                                     <div class="col">
                                         <h3 class="text-lh-1dot2 font-size-14 mb-0"><a
-                                                href="../shop/single-product-fullwidth.html">Laptop Yoga 21 80JH0035GE
+                                                href="{{ route("fe.shop") }}">Laptop Yoga 21 80JH0035GE
                                                 W8.1</a></h3>
                                         <div class="text-warning text-ls-n2 font-size-16 mb-1" style="width: 80px;">
                                             <small class="fas fa-star"></small>
@@ -227,7 +227,7 @@
                                                         alt="Image Description"></a>
                                             </div>
                                             <h5 class="text-center mb-1 product-item__title"><a
-                                                    href="../shop/single-product-fullwidth.html"
+                                                    href="{{ route("fe.shop") }}"
                                                     class="font-size-15 text-gray-90">@php
                                                         echo ucwords($item->name);
                                                     @endphp</a></h5>
@@ -259,7 +259,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img1.jpg') }}"
                                                             alt="Image Description"></a>
@@ -269,7 +269,7 @@
                                                         <div class="mb-2"><a href="#"
                                                                 class="font-size-12 text-gray-5">Tablets</a></div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">Tablet Air 3 WiFi 64GB
                                                                 Gold</a></h5>
                                                     </div>
@@ -278,7 +278,7 @@
                                                             <div class="text-gray-100">$629,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -304,7 +304,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img2.jpg') }}"
                                                             alt="Image Description"></a>
@@ -315,7 +315,7 @@
                                                                 class="font-size-12 text-gray-5">Laptops & Computers</a>
                                                         </div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">Tablet White EliteBook
                                                                 Revolve 810 G2</a></h5>
                                                     </div>
@@ -324,7 +324,7 @@
                                                             <div class="text-gray-100">$1 299,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -350,7 +350,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img7.jpg') }}"
                                                             alt="Image Description"></a>
@@ -360,7 +360,7 @@
                                                         <div class="mb-2"><a href="#"
                                                                 class="font-size-12 text-gray-5">Headphones</a></div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">White Solo 2
                                                                 Wireless</a></h5>
                                                     </div>
@@ -369,7 +369,7 @@
                                                             <div class="text-gray-100">$110,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -399,7 +399,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img1.jpg') }}"
                                                             alt="Image Description"></a>
@@ -409,7 +409,7 @@
                                                         <div class="mb-2"><a href="#"
                                                                 class="font-size-12 text-gray-5">Tablets</a></div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">Tablet Air 3 WiFi 64GB
                                                                 Gold</a></h5>
                                                     </div>
@@ -418,7 +418,7 @@
                                                             <div class="text-gray-100">$629,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -444,7 +444,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img2.jpg') }}"
                                                             alt="Image Description"></a>
@@ -455,7 +455,7 @@
                                                                 class="font-size-12 text-gray-5">Laptops & Computers</a>
                                                         </div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">Tablet White EliteBook
                                                                 Revolve 810 G2</a></h5>
                                                     </div>
@@ -464,7 +464,7 @@
                                                             <div class="text-gray-100">$1 299,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -490,7 +490,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img7.jpg') }}"
                                                             alt="Image Description"></a>
@@ -500,7 +500,7 @@
                                                         <div class="mb-2"><a href="#"
                                                                 class="font-size-12 text-gray-5">Headphones</a></div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">White Solo 2
                                                                 Wireless</a></h5>
                                                     </div>
@@ -509,7 +509,7 @@
                                                             <div class="text-gray-100">$110,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -539,7 +539,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img1.jpg') }}"
                                                             alt="Image Description"></a>
@@ -549,7 +549,7 @@
                                                         <div class="mb-2"><a href="#"
                                                                 class="font-size-12 text-gray-5">Tablets</a></div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">Tablet Air 3 WiFi 64GB
                                                                 Gold</a></h5>
                                                     </div>
@@ -558,7 +558,7 @@
                                                             <div class="text-gray-100">$629,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -584,7 +584,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img2.jpg') }}"
                                                             alt="Image Description"></a>
@@ -595,7 +595,7 @@
                                                                 class="font-size-12 text-gray-5">Laptops & Computers</a>
                                                         </div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">Tablet White EliteBook
                                                                 Revolve 810 G2</a></h5>
                                                     </div>
@@ -604,7 +604,7 @@
                                                             <div class="text-gray-100">$1 299,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -630,7 +630,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img7.jpg') }}"
                                                             alt="Image Description"></a>
@@ -640,7 +640,7 @@
                                                         <div class="mb-2"><a href="#"
                                                                 class="font-size-12 text-gray-5">Headphones</a></div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">White Solo 2
                                                                 Wireless</a></h5>
                                                     </div>
@@ -649,7 +649,7 @@
                                                             <div class="text-gray-100">$110,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -694,7 +694,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img8.jpg') }}"
                                                             alt="Image Description"></a>
@@ -704,7 +704,7 @@
                                                         <div class="mb-2"><a href="#"
                                                                 class="font-size-12 text-gray-5">Tablets</a></div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">Tablet Air 3 WiFi 64GB
                                                                 Gold</a></h5>
                                                     </div>
@@ -713,7 +713,7 @@
                                                             <div class="text-gray-100">$629,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -739,7 +739,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img5.jpg') }}"
                                                             alt="Image Description"></a>
@@ -750,7 +750,7 @@
                                                                 class="font-size-12 text-gray-5">Laptops & Computers</a>
                                                         </div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">Tablet White EliteBook
                                                                 Revolve 810 G2</a></h5>
                                                     </div>
@@ -759,7 +759,7 @@
                                                             <div class="text-gray-100">$1 299,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -785,7 +785,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img4.jpg') }}"
                                                             alt="Image Description"></a>
@@ -795,7 +795,7 @@
                                                         <div class="mb-2"><a href="#"
                                                                 class="font-size-12 text-gray-5">Headphones</a></div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">White Solo 2
                                                                 Wireless</a></h5>
                                                     </div>
@@ -804,7 +804,7 @@
                                                             <div class="text-gray-100">$110,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -834,7 +834,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img1.jpg') }}"
                                                             alt="Image Description"></a>
@@ -844,7 +844,7 @@
                                                         <div class="mb-2"><a href="#"
                                                                 class="font-size-12 text-gray-5">Tablets</a></div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">Tablet Air 3 WiFi 64GB
                                                                 Gold</a></h5>
                                                     </div>
@@ -853,7 +853,7 @@
                                                             <div class="text-gray-100">$629,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -879,7 +879,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img2.jpg') }}"
                                                             alt="Image Description"></a>
@@ -890,7 +890,7 @@
                                                                 class="font-size-12 text-gray-5">Laptops & Computers</a>
                                                         </div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">Tablet White EliteBook
                                                                 Revolve 810 G2</a></h5>
                                                     </div>
@@ -899,7 +899,7 @@
                                                             <div class="text-gray-100">$1 299,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -925,7 +925,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img7.jpg') }}"
                                                             alt="Image Description"></a>
@@ -935,7 +935,7 @@
                                                         <div class="mb-2"><a href="#"
                                                                 class="font-size-12 text-gray-5">Headphones</a></div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">White Solo 2
                                                                 Wireless</a></h5>
                                                     </div>
@@ -944,7 +944,7 @@
                                                             <div class="text-gray-100">$110,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -974,7 +974,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img1.jpg') }}"
                                                             alt="Image Description"></a>
@@ -984,7 +984,7 @@
                                                         <div class="mb-2"><a href="#"
                                                                 class="font-size-12 text-gray-5">Tablets</a></div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">Tablet Air 3 WiFi 64GB
                                                                 Gold</a></h5>
                                                     </div>
@@ -993,7 +993,7 @@
                                                             <div class="text-gray-100">$629,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -1019,7 +1019,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img2.jpg') }}"
                                                             alt="Image Description"></a>
@@ -1030,7 +1030,7 @@
                                                                 class="font-size-12 text-gray-5">Laptops & Computers</a>
                                                         </div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">Tablet White EliteBook
                                                                 Revolve 810 G2</a></h5>
                                                     </div>
@@ -1039,7 +1039,7 @@
                                                             <div class="text-gray-100">$1 299,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
@@ -1065,7 +1065,7 @@
                                         <div class="product-item__outer h-100">
                                             <div class="product-item__inner p-md-3 row no-gutters">
                                                 <div class="col col-lg-auto product-media-left">
-                                                    <a href="../shop/single-product-fullwidth.html"
+                                                    <a href="{{ route("fe.shop") }}"
                                                         class="max-width-150 d-block"><img class="img-fluid"
                                                             src="{{ asset('client/img/150X140/img7.jpg') }}"
                                                             alt="Image Description"></a>
@@ -1075,7 +1075,7 @@
                                                         <div class="mb-2"><a href="#"
                                                                 class="font-size-12 text-gray-5">Headphones</a></div>
                                                         <h5 class="product-item__title"><a
-                                                                href="../shop/single-product-fullwidth.html"
+                                                                href="{{ route("fe.shop") }}"
                                                                 class="text-blue font-weight-bold">White Solo 2
                                                                 Wireless</a></h5>
                                                     </div>
@@ -1084,7 +1084,7 @@
                                                             <div class="text-gray-100">$110,00</div>
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                                            <a href="../shop/single-product-fullwidth.html"
+                                                            <a href="{{ route("fe.shop") }}"
                                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                                     class="ec ec-add-to-cart"></i></a>
                                                         </div>
