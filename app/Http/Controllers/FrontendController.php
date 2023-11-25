@@ -40,10 +40,16 @@ class FrontendController extends Controller
             '6' => 'six',
         ];
         $products = Product::join('sub_categories', 'products.sub_category_id', '=', 'sub_categories.id')
-            ->select('products.*', 'sub_categories.name as sub_category_name')
-            ->limit(15)
-            ->orderBy('id', 'asc')
-            ->get();
+        ->select('products.*', 'sub_categories.name as sub_category_name')
+        ->limit(15)
+        ->orderBy('products.id', 'asc')
+        ->get();
+
+foreach ($products as $product) {
+$skus = SKU::where('product_id', $product->id)->get();
+$totalQuantity = $skus->sum('quantity');
+$product->total_quantity = $totalQuantity;
+}
 
         foreach ($products as $product) {
             $product->image_url = $product->productImages()

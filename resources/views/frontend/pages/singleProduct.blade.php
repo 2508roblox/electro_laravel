@@ -10,7 +10,8 @@
                 <div class="my-md-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{ route('home') }}">Trang chủ</a>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{ route('home') }}">Trang
+                                    chủ</a>
                             </li>
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a
                                     href="{{ route('frontend.category.list', ['category_slug' => $cate_name->slug]) }}">@php
@@ -39,12 +40,25 @@
             <!-- Single Product Body -->
             <div class="mb-xl-14 mb-6">
                 <div class="row">
-                    <div class="col-md-5 mb-4 mb-md-0">
+                    <div class="col-md-5 mb-4 mb-md-0" style="position: relative;">
+                        <div class=""
+                            style="
+
+                        padding-top: 1rem;
+                            font-weight: 700; ;clip-path: polygon(100% 0, 100% 100%, 50% 80%, 0% 100%, 0% 0%); position: absolute; top: 0; right: 5rem; z-index: 100; width: 40px ; height: 80px; background: #fed700">
+    <p id="discount_badge" style="transform: rotate(270deg);color: white ;  ">
+  - {{ round((($product->price - $product->promotion_price) / $product->price) * 100) }}%
+    </p>
+
+                        </div>
                         <div id="sliderSyncingNav" class="js-slick-carousel u-slick mb-2" data-infinite="true"
                             data-arrows-classes="d-none d-lg-inline-block u-slick__arrow-classic u-slick__arrow-centered--y rounded-circle"
                             data-arrow-left-classes="fas fa-arrow-left u-slick__arrow-classic-inner u-slick__arrow-classic-inner--left ml-lg-2 ml-xl-4"
                             data-arrow-right-classes="fas fa-arrow-right u-slick__arrow-classic-inner u-slick__arrow-classic-inner--right mr-lg-2 mr-xl-4"
                             data-nav-for="#sliderSyncingThumb">
+
+
+
                             @forelse ($images as $image)
                                 <div class="js-slide">
                                     <img style="height:500px; object-fit: contain " class="img-fluid"
@@ -106,15 +120,15 @@
                                 </div>
                                 <div class="d-md-flex align-items-center">
 
-                                    <div class="ml-md-3 text-gray-9 font-size-14">Availability:
+                                    <div class="  text-gray-9 font-size-14">Tình trạng:
                                         @isset($product_quantity)
-
-
-                                        @if ($product_quantity)
-                                            <span class="text-green font-weight-bold">{{ $product_quantity[0]->total_quantity }} in stock</span>
-                                        @else
-                                            <span class="text-red font-weight-bold">Out of Stock</span>
-                                        @endif
+                                            @if ($product_quantity)
+                                                <span
+                                                    class="text-green font-weight-bold">{{ $product_quantity[0]->total_quantity }}
+                                                    tồn kho</span>
+                                            @else
+                                                <span class="text-red font-weight-bold">Out of Stock</span>
+                                            @endif
                                         @endisset
 
 
@@ -128,7 +142,7 @@
                                     <input hidden type="text" name="wishlistProductId" value="{{ $product->id }}">
                                     <p style="cursor: pointer" id="addToWishlist"
                                         class="text-gray-6 font-size-13 mr-2 mb-0"><i
-                                            class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</p>
+                                            class="ec ec-favorites mr-1 font-size-15"></i> Yêu thích</p>
 
                                 </form>
                                 <form action="{{ route('admin.wishlist.store') }}" method="POST">
@@ -269,6 +283,11 @@
                                                                     "variantQuantity");
                                                                 var variantQuantity_text = document.getElementById(
                                                                     "variantQuantity_text");
+                                                                    // discount
+                                                                    var discount = Math.round(((data.original_price - data.promotion_price) / data.original_price) * 100);
+                                                                var discount_badge = document.getElementById(
+                                                                    "discount_badge");
+                                                                    discount_badge.innerText = '- '+discount + '%'
                                                                 variantQuantity_text.innerText = data.quantity;
                                                                 //sku text
                                                                 var skuElement = document.getElementById(
@@ -296,12 +315,12 @@
                             @endforeach
                             <p><strong>{{ __('sku') }}</strong>:
                                 <input type="hidden" value="0" id="sku_id_input">
-                            <span id="sku_id">Chọn 1 biến thể</span>
+                                <span id="sku_id">Chọn 1 biến thể</span>
                             </p>
-                            <div class="md-3 text-gray-9 font-size-14">Availability:
+                            <div class="md-3 text-gray-9 font-size-14">Tình trạng:
 
                                 <span class="text-green font-weight-bold" id="variantQuantity_text">0 </span>
-                                <span class="text-green font-weight-bold"> in stock</span>
+                                <span class="text-green font-weight-bold"> tồn kho</span>
 
 
                             </div>
@@ -527,7 +546,7 @@
                                                                 href="#" class="text-blue font-weight-bold">Wireless
                                                                 Audio System Multiroom 360 degree Full base audio</a></h5>
                                                         <div class="mb-2">
-                                                            <a href="{{ route("fe.shop") }}"
+                                                            <a href="{{ route('fe.shop') }}"
                                                                 class="d-block text-center"><img class="img-fluid"
                                                                     src="{{ asset('client/img/212X200/img1.jpg') }}"
                                                                     alt="Image Description"></a>
@@ -553,7 +572,7 @@
                                                                 href="#" class="text-blue font-weight-bold">Tablet
                                                                 White EliteBook Revolve 810 G2</a></h5>
                                                         <div class="mb-2">
-                                                            <a href="{{ route("fe.shop") }}"
+                                                            <a href="{{ route('fe.shop') }}"
                                                                 class="d-block text-center"><img class="img-fluid"
                                                                     src="{{ asset('client/img/212X200/img2.jpg') }}"
                                                                     alt="Image Description"></a>
@@ -585,7 +604,7 @@
                                                                 href="#" class="text-blue font-weight-bold">Purple
                                                                 Solo 2 Wireless</a></h5>
                                                         <div class="mb-2">
-                                                            <a href="{{ route("fe.shop") }}"
+                                                            <a href="{{ route('fe.shop') }}"
                                                                 class="d-block text-center"><img class="img-fluid"
                                                                     src="{{ asset('client/img/212X200/img3.jpg') }}"
                                                                     alt="Image Description"></a>
@@ -1181,11 +1200,11 @@
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
                                             class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}"
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route('fe.shop') }}"
                                             class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree
                                             Full base audio</a></h5>
                                     <div class="mb-2">
-                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img
+                                        <a href="{{ route('fe.shop') }}" class="d-block text-center"><img
                                                 class="img-fluid" src="{{ asset('client/img/212X200/img1.jpg') }}"
                                                 alt="Image Description"></a>
                                     </div>
@@ -1194,7 +1213,7 @@
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="{{ route("fe.shop") }}"
+                                            <a href="{{ route('fe.shop') }}"
                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                     class="ec ec-add-to-cart"></i></a>
                                         </div>
@@ -1205,7 +1224,7 @@
                                         <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
                                                 class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
                                         <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
+                                                class="ec ec-favorites mr-1 font-size-15"></i>Yêu thích</a>
                                     </div>
                                 </div>
                             </div>
@@ -1217,11 +1236,11 @@
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
                                             class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}"
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route('fe.shop') }}"
                                             class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a>
                                     </h5>
                                     <div class="mb-2">
-                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img
+                                        <a href="{{ route('fe.shop') }}" class="d-block text-center"><img
                                                 class="img-fluid" src="{{ asset('client/img/212X200/img2.jpg') }}"
                                                 alt="Image Description"></a>
                                     </div>
@@ -1232,7 +1251,7 @@
                                                 299,00</del>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="{{ route("fe.shop") }}"
+                                            <a href="{{ route('fe.shop') }}"
                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                     class="ec ec-add-to-cart"></i></a>
                                         </div>
@@ -1255,10 +1274,10 @@
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
                                             class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}"
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route('fe.shop') }}"
                                             class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
                                     <div class="mb-2">
-                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img
+                                        <a href="{{ route('fe.shop') }}" class="d-block text-center"><img
                                                 class="img-fluid" src="{{ asset('client/img/212X200/img3.jpg') }}"
                                                 alt="Image Description"></a>
                                     </div>
@@ -1267,7 +1286,7 @@
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="{{ route("fe.shop") }}"
+                                            <a href="{{ route('fe.shop') }}"
                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                     class="ec ec-add-to-cart"></i></a>
                                         </div>
@@ -1278,7 +1297,7 @@
                                         <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
                                                 class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
                                         <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
+                                                class="ec ec-favorites mr-1 font-size-15"></i> Yêu thích</a>
                                     </div>
                                 </div>
                             </div>
@@ -1290,10 +1309,10 @@
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
                                             class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}"
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route('fe.shop') }}"
                                             class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
                                     <div class="mb-2">
-                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img
+                                        <a href="{{ route('fe.shop') }}" class="d-block text-center"><img
                                                 class="img-fluid" src="{{ asset('client/img/212X200/img4.jpg') }}"
                                                 alt="Image Description"></a>
                                     </div>
@@ -1302,7 +1321,7 @@
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="{{ route("fe.shop") }}"
+                                            <a href="{{ route('fe.shop') }}"
                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                     class="ec ec-add-to-cart"></i></a>
                                         </div>
@@ -1325,10 +1344,10 @@
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
                                             class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}"
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route('fe.shop') }}"
                                             class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
                                     <div class="mb-2">
-                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img
+                                        <a href="{{ route('fe.shop') }}" class="d-block text-center"><img
                                                 class="img-fluid" src="{{ asset('client/img/212X200/img5.jpg') }}"
                                                 alt="Image Description"></a>
                                     </div>
@@ -1337,7 +1356,7 @@
                                             <div class="text-gray-100">$685,00</div>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="{{ route("fe.shop") }}"
+                                            <a href="{{ route('fe.shop') }}"
                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                     class="ec ec-add-to-cart"></i></a>
                                         </div>
@@ -1361,11 +1380,11 @@
                                 <div class="product-item__body pb-xl-2">
                                     <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html"
                                             class="font-size-12 text-gray-5">Speakers</a></div>
-                                    <h5 class="mb-1 product-item__title"><a href="{{ route("fe.shop") }}"
+                                    <h5 class="mb-1 product-item__title"><a href="{{ route('fe.shop') }}"
                                             class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a>
                                     </h5>
                                     <div class="mb-2">
-                                        <a href="{{ route("fe.shop") }}" class="d-block text-center"><img
+                                        <a href="{{ route('fe.shop') }}" class="d-block text-center"><img
                                                 class="img-fluid" src="{{ asset('client/img/212X200/img2.jpg') }}"
                                                 alt="Image Description"></a>
                                     </div>
@@ -1376,7 +1395,7 @@
                                                 299,00</del>
                                         </div>
                                         <div class="d-none d-xl-block prodcut-add-cart">
-                                            <a href="{{ route("fe.shop") }}"
+                                            <a href="{{ route('fe.shop') }}"
                                                 class="btn-add-cart btn-primary transition-3d-hover"><i
                                                     class="ec ec-add-to-cart"></i></a>
                                         </div>

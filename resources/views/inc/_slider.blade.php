@@ -131,7 +131,8 @@
                             }]'>
 
                             @foreach ($products as $product)
-                            <div class="js-slide products-group">
+                            <div class="js-slide products-group" style="position: relative;">
+
                                 <div class="product-item mx-1 remove-divider">
                                     <div class="product-item__outer  " >
                                         <div class="product-item__inner bg-white px-wd-3 p-2 p-md-3" style="height: 330px">
@@ -148,13 +149,21 @@
                                                         class="text-blue font-weight-bold">   @php
                                                         echo ucwords($product->name)
                                                     @endphp</a></h5>
-                                                <div class="mb-2">
+                                                <div class="mb-2" style="position: relative;">
                                                     <a href="{{ route('frontend.category.show', ['product_slug' => $product->slug]) }}" class="d-block text-center"><img
                                                             class="img-fluid" style="height: 150px; object-fit: contain" src="{{ $product->image_url ?
 
 
                                                             asset('storage/' . $product->image_url) : asset('client/img/212X200/img2.jpg') }}"
-                                                            alt="Image Description"></a>
+                                                            alt="Image Description">
+
+                                                           @if ($product->total_quantity >0)
+                                                           <div class="" style="color: black; font-weight: 700;clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%); position: absolute; bottom: 0; left: -1rem; z-index: 100; width: 70px ; height: 20px; background: #fed700">
+
+                                                            - {{ round((($product->price - $product->promotion_price) / $product->price) * 100) }}%
+                                                            </div>
+                                                           @endif
+                                                        </a>
                                                 </div>
                                                 <div class="flex-center-between mb-1">
                                                     <div class="prodcut-price">
