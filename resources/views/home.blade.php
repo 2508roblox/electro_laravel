@@ -2,6 +2,7 @@
 
 @section('content')
 @include('inc/_header')
+@include('inc/_advertisement')
 <!-- ========== MAIN CONTENT ========== -->
 <script>
     // Mendapatkan data produk dari blade template
@@ -2855,7 +2856,7 @@
 
         <!-- End Smartphones & Tablets -->
         <!-- Banner -->
-     
+
         <!-- End Banner -->
 
     </div>

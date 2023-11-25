@@ -90,10 +90,37 @@ class FrontendController extends Controller
             Session::put('wallet', $totalAmount);
         }
         Session::put('wallet', 0);
-        //
+        //advertisement
+        $product = Product::find(10);
+
+        if (!$product) {
+            // Xử lý khi không tìm thấy sản phẩm
+            abort(404);
+        }
+        //breadcrumb
 
 
-        return view('home', compact('sliders', 'number', 'categories', 'products', 'productss'));
+        $images = $product->productImages()->get();
+
+
+
+
+        $totalQuantity = 0;
+
+
+
+        // Tính tổng số sao trung bình
+
+
+
+
+ $product_quantity = Sku::select(DB::raw('SUM(quantity) as total_quantity'))
+            ->where('product_id',  $product->id)
+
+            ->get();
+
+
+        return view('home', compact('sliders', 'number', 'categories', 'products', 'productss', 'product', 'product_quantity', 'images'));
     }
 
 
