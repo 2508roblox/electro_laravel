@@ -50,6 +50,26 @@ class FrontendController extends Controller
                 ->orderBy('id', 'ASC')
                 ->first()->image ?? null;
         }
+        // Wallet balance
+        $userId = Auth::id();
+        if ( $userId) {
+            $wallet = Wallet::where('user_id', $userId)->first();
+
+            $transactions = Transaction::where('wallet_id', $wallet->id)
+                ->where('status', 'complete')
+                ->get();
+
+            $totalAmount = $transactions->sum('amount');
+
+            $wallet->balance = $totalAmount;
+            $wallet->save();
+
+            Session::put('wallet', $totalAmount);
+        }
+        Session::put('wallet', 0);
+        //
+
+
         return view('home', compact('sliders', 'number', 'categories', 'products'));
     }
 

@@ -284,7 +284,7 @@
                                                 </g>
                                             </g>
                                         </svg>
-                                        <span class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">${{Session::get('wallet')}}</span>
+                                        <span class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">${{Session::get('wallet') ?  Session::get('wallet')  : '0' }}</span>
                                     </a>
                                 </li>
                             </ul>
