@@ -11,9 +11,11 @@
                 <div class="my-md-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../home/index.html">Trang chủ</a>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../home/index.html">Trang
+                                    chủ</a>
                             </li>
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">{{ __('cart') }}</li>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">
+                                {{ __('cart') }}</li>
                         </ol>
                     </nav>
                 </div>
@@ -58,7 +60,7 @@
                                     <a href="#" class="text-gray-90">@php
                                         echo ucwords($cart->product_name);
                                     @endphp </a>
-                                    <span style=" "> - (  {{$cart->sku}}   )</span>
+                                    <span style=" "> - ( {{ $cart->sku }} )</span>
                                 </td>
 
                                 <td data-title="Price">
@@ -209,9 +211,8 @@
                                     <span class="cart_total_{{ $cart->cart_id }}">@php
                                         if (isset($cart->promotion_price)) {
                                             echo '$' . number_format($cart->promotion_price * $cart->quantity) . '.00';
-                                        }else {
+                                        } else {
                                             echo '$' . number_format($cart->original_price * $cart->quantity) . '.00';
-
                                         }
                                     @endphp</span>
                                 </td>
@@ -223,7 +224,6 @@
                             <div class="alert alert-warning">
                                 *Không có sản phẩm nào trong giỏ hàng
                             </div>
-
                         @endforelse
 
 
@@ -240,9 +240,42 @@
                                         </div>
                                         <div class="d-md-flex">
                                             <button type="button"
-                                                class="btn btn-soft-secondary mb-3 mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5 w-100 w-md-auto">Trang chủ</button>
-                                            <a href="{{route('admin.checkout')}}"
-                                                class="btn btn-primary-dark-w ml-md-2 px-5 px-md-4 px-lg-5 w-100 w-md-auto d-none d-md-inline-block">Thanh toán</a>
+                                                class="btn btn-soft-secondary mb-3 mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5 w-100 w-md-auto">Trang
+                                                chủ</button>
+                                            <style>
+                                                #checkout-button::hover {
+                                                    color: white !important
+                                                }
+
+                                                .btn-primary-dark-w:hover {
+                                                    background-color: #333e48;
+                                                    border-color: #333e48;
+                                                    color: #fff !important;
+                                                }
+                                            </style>
+                                            <a id="checkout-button"
+                                                class="btn btn-primary-dark-w ml-md-2 px-5 px-md-4 px-lg-5 w-100 w-md-auto d-none d-md-inline-block">Thanh
+                                                toán</a>
+                                            <script>
+                                                document.querySelector('#checkout-button').addEventListener('click', (e) => {
+                                                    e.preventDefault();
+
+                                                    // Disable the button and change its text
+                                                    const loginButton = document.querySelector('#checkout-button');
+                                                    loginButton.disabled = true;
+                                                    loginButton.innerHTML = 'Loading...';
+                                                    loginButton.style.backgroundColor = '#333e48';
+                                                    loginButton.style.borderColor = '#333e48';
+                                                    loginButton.style.color = '#fff';
+
+                                                    // Handle success response
+                                                    console.log('Form submitted successfully');
+
+                                                    // Chuyển trang sau khi hoàn thành xử lý
+                                                    window.location.href = "{{ route('admin.checkout') }}";
+
+                                                });
+                                            </script>
                                         </div>
                                     </div>
                                 </div>

@@ -24,6 +24,9 @@ class ProductRatingController extends Controller
         // Lấy user_id của người dùng hiện tại
         $userId = Auth::id();
 
+        if (count($validatedData) < 3) {
+            return Redirect::back()->withErrors(['errors' => true]);
+        }
         // Tạo ProductComment
         $productComment = new ProductComment();
         $productComment->product_id = $productId;
@@ -35,6 +38,7 @@ class ProductRatingController extends Controller
         // Các xử lý khác sau khi tạo ProductComment
 
         // Debug để kiểm tra
-        return Redirect::back()->with('message', 'Đánh giá đã được gửi thành công.');
+        return Redirect::back()->with(['review' => true]);
+        return Redirect::back()->with(['errors' => true]);
     }
 }
