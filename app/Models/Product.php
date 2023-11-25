@@ -33,8 +33,9 @@ class Product extends Model
   public function getSubCate () {
     return $this->belongsTo(SubCategory::class, 'sub_category_id');
   }
-  public function productImages () {
-    return $this->hasMany(ProductImage::class, 'product_id', 'id');
+  public function productImages()
+  {
+      return $this->hasMany(ProductImage::class, 'product_id', 'id')->orderBy('id', 'asc');
   }
   public function productColor () {
     return $this->hasMany(ProductColor::class, 'product_id', 'id');

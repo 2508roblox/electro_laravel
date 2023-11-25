@@ -104,7 +104,6 @@ class FrontendController extends Controller
 
 
 
-
         $totalQuantity = 0;
 
 
