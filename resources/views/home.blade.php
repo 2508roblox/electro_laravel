@@ -28,19 +28,19 @@
     }
 </style>
 
-<div style="background-color: grey" class="overlay " id="myDiv">
+<div style="background-color: grey" class="overlay" id="myDiv">
     <i style="color: #fed700" class="loader fas fa-spinner fa-spin"></i>
 </div>
 
 <script>
     // Xử lý sự kiện khi trang web bắt đầu tải
-    document.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('load', function() {
         // Ẩn thẻ div overlay
         document.getElementById('myDiv').classList.add('none_loading');
     });
 
     // Xử lý sự kiện khi trang web hoàn thành tải
-    window.addEventListener('load', function() {
+    document.addEventListener('DOMContentLoaded', function() {
         // Hiển thị thẻ div overlay
         document.getElementById('myDiv').classList.remove('none_loading');
     });
