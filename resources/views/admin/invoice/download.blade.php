@@ -177,8 +177,8 @@
                 @foreach ($order_items as $item)
                 <tr style="border-bottom: 1px solid rgb(220, 220, 220)">
                     <td colspan="2" class=" ">{{ $item->product_name }}
-                        <span style="color: #{{ $item->color_code }};"> -
-                            {{ $item->color_name }}</span>
+                        {{-- <span style="color: #{{ $item->color_code }};"> -
+                            {{ $item->color_name }}</span> --}}
 
                     </td>
                     <td style="text-align: end" class="sa-invoice__table-column--type--price">${{ $item->product_price }}.00

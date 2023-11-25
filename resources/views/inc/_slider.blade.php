@@ -158,7 +158,7 @@
                                                             alt="Image Description">
 
                                                            @if ($product->total_quantity >0)
-                                                           <div class="" style="color: black; font-weight: 700;clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%); position: absolute; bottom: 0; left: -1rem; z-index: 100; width: 70px ; height: 20px; background: #fed700">
+                                                           <div class="" style="color: black; font-weight: 700;clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%); position: absolute; bottom: 0; left: -1rem; z-index: 100;text-align: start;padding-left: 1rem ; width: 80px ; height: 20px; background: #fed700">
 
                                                             - {{ round((($product->price - $product->promotion_price) / $product->price) * 100) }}%
                                                             </div>

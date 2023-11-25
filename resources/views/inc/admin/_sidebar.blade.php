@@ -415,67 +415,8 @@
                                                   class="sa-nav__title">Sliders </span></a></li>
                                   </ul>
                               </li>
-                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
-                                  data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
-                                      class="sa-nav__link" data-sa-collapse-trigger=""><span class="sa-nav__icon">
-                                          <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1"
-                                              viewBox="0 0 512 512">
-                                              <title>Wishlist</title>
-                                              <polygon
-                                                  points="149.333 277.333 149.333 298.667 170.682 298.667 170.667 277.333 149.333 277.333" />
-                                              <path
-                                                  d="M405.333,53.333h-32V64a42.716,42.716,0,0,1-42.667,42.667H181.333A42.716,42.716,0,0,1,138.667,64V53.333h-32A42.716,42.716,0,0,0,64,96V448a42.716,42.716,0,0,0,42.667,42.667H405.333A42.716,42.716,0,0,0,448,448V96A42.716,42.716,0,0,0,405.333,53.333ZM192,394.667A21.356,21.356,0,0,1,170.667,416H149.333A21.356,21.356,0,0,1,128,394.667V373.333A21.356,21.356,0,0,1,149.333,352h21.333A21.356,21.356,0,0,1,192,373.333Zm0-96A21.356,21.356,0,0,1,170.667,320H149.333A21.356,21.356,0,0,1,128,298.667V277.333A21.356,21.356,0,0,1,149.333,256h21.333A21.356,21.356,0,0,1,192,277.333Zm0-96A21.356,21.356,0,0,1,170.667,224H149.333A21.356,21.356,0,0,1,128,202.667V181.333A21.356,21.356,0,0,1,149.333,160h21.333A21.356,21.356,0,0,1,192,181.333Zm181.333,192H224a10.667,10.667,0,1,1,0-21.333H373.333a10.667,10.667,0,0,1,0,21.333Zm0-96H224a10.667,10.667,0,1,1,0-21.333H373.333a10.667,10.667,0,1,1,0,21.333Zm0-96H224a10.667,10.667,0,1,1,0-21.333H373.333a10.667,10.667,0,1,1,0,21.333Z" />
-                                              <polygon
-                                                  points="149.333 181.333 149.333 202.667 170.682 202.667 170.667 181.333 149.333 181.333" />
-                                              <polygon
-                                                  points="149.333 373.333 149.333 394.667 170.682 394.667 170.667 373.333 149.333 373.333" />
-                                              <rect x="160" y="21.333" width="192" height="64" rx="21.333"
-                                                  ry="21.333" />
-                                          </svg>
-                                      </span><span class="sa-nav__title">Wishlists</span><span
-                                          class="sa-nav__arrow"><svg xmlns="http://www.w3.org/2000/svg"
-                                              width="6" height="9" viewBox="0 0 6 9" fill="currentColor">
-                                              <path
-                                                  d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
-                                              </path>
-                                          </svg></span></a>
-                                  <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
-                                      <li class="sa-nav__menu-item"><a href="app-customers-list.html"
-                                              class="sa-nav__link"><span
-                                                  class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Colors</span></a></li>
-                                      <li class="sa-nav__menu-item"><a href="app-customer.html"
-                                              class="sa-nav__link"><span
-                                                  class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Customer</span></a></li>
-                                  </ul>
-                              </li>
-                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
-                                  data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
-                                      class="sa-nav__link" data-sa-collapse-trigger=""><span class="sa-nav__icon">
 
-                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="cart">
-                                              <path
-                                                  d="M30,23H8a1,1,0,0,1,0-2H27a1,1,0,0,0,.36-.07l.11-.06.19-.13a.81.81,0,0,0,.09-.1l.13-.18.06-.14s0-.05,0-.08l3-12a1,1,0,0,0-.18-.86A1,1,0,0,0,30,7H7V6a1,1,0,0,0-.29-.71l-4-4A1,1,0,0,0,1.29,2.71L5,6.41V18a3,3,0,0,0,.78,2A3,3,0,0,0,7.55,25,4,4,0,1,0,15,27a3.91,3.91,0,0,0-.56-2h7.15A3.91,3.91,0,0,0,21,27a4,4,0,0,0,8,0,3.91,3.91,0,0,0-.56-2H30a1,1,0,0,0,0-2Z" />
-                                          </svg>
-                                      </span><span class="sa-nav__title">Carts</span><span class="sa-nav__arrow"><svg
-                                              xmlns="http://www.w3.org/2000/svg" width="6" height="9"
-                                              viewBox="0 0 6 9" fill="currentColor">
-                                              <path
-                                                  d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
-                                              </path>
-                                          </svg></span></a>
-                                  <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
-                                      <li class="sa-nav__menu-item"><a href="app-customers-list.html"
-                                              class="sa-nav__link"><span
-                                                  class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Colors</span></a></li>
-                                      <li class="sa-nav__menu-item"><a href="app-customer.html"
-                                              class="sa-nav__link"><span
-                                                  class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Customer</span></a></li>
-                                  </ul>
-                              </li>
+
                               <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
                                   data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
                                       class="sa-nav__link" data-sa-collapse-trigger=""><span
@@ -492,7 +433,7 @@
                                               </path>
                                           </svg></span></a>
                                   <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
-                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.user.list') }}"
+                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.user.create') }}"
                                               class="sa-nav__link"><span
                                                   class="sa-nav__menu-item-padding"></span><span
                                                   class="sa-nav__title">User Create</span></a></li>
@@ -523,10 +464,7 @@
                                               class="sa-nav__link"><span
                                                   class="sa-nav__menu-item-padding"></span><span
                                                   class="sa-nav__title">Orders List</span></a></li>
-                                      <li class="sa-nav__menu-item"><a href="app-order.html"
-                                              class="sa-nav__link"><span
-                                                  class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Order Details</span></a></li>
+
                                   </ul>
                               </li>
                               <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
@@ -578,59 +516,8 @@
                                                   class="sa-nav__title">Task Manager Admin</span></a></li>
                                   </ul>
                               </li>
-                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
-                                  data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
-                                      class="sa-nav__link" data-sa-collapse-trigger=""><span class="sa-nav__icon">
-                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"
-                                              id="brand-engagement">
-                                              <g data-name="Glyph">
-                                                  <path
-                                                      d="M8 62h48a1 1 0 0 0 .993-1.116l-5-43A1 1 0 0 0 51 17h-9v-5a10 10 0 0 0-20 0v5h-9a1 1 0 0 0-.993.884l-5 43A1 1 0 0 0 8 62Zm15-4a1 1 0 1 1 1-1 1 1 0 0 1-1 1Zm20-33a2 2 0 1 1-2-2 2 2 0 0 1 2 2ZM24 12a8 8 0 0 1 16 0v5H24Zm-1 11a2 2 0 1 1-2 2 2 2 0 0 1 2-2Zm-4.13 11.132a6.4 6.4 0 0 1 9.026 0L32 38.227l4.1-4.095a6.4 6.4 0 0 1 9.026 0 6.394 6.394 0 0 1 0 9.012l-12.325 12.3a1 1 0 0 1-1.407.006l-12.522-12.3a6.391 6.391 0 0 1-.002-9.018ZM12 56h7a1 1 0 0 1 0 2h-7a1 1 0 0 1 0-2Z" />
-                                                  <path
-                                                      d="M35.6 46.964a1 1 0 0 0 .707-.293l6.185-6.171a1 1 0 1 0-1.412-1.415l-6.18 6.171a1 1 0 0 0 .706 1.708Z" />
-                                                  <circle cx="33.321" cy="48.22" r="1" />
-                                              </g>
-                                          </svg>
-                                      </span><span class="sa-nav__title">Admin Private Chat</span><span
-                                          class="sa-nav__arrow"><svg xmlns="http://www.w3.org/2000/svg"
-                                              width="6" height="9" viewBox="0 0 6 9" fill="currentColor">
-                                              <path
-                                                  d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
-                                              </path>
-                                          </svg></span></a>
-                                  <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
-                                      <li class="sa-nav__menu-item"><a href="#" class="sa-nav__link"><span
-                                                  class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Coming soon</span></a></li>
 
-                                  </ul>
-                              </li>
-                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
-                                  data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
-                                      class="sa-nav__link" data-sa-collapse-trigger=""><span
-                                          class="sa-nav__icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
-                                              height="1em" viewBox="0 0 16 16" fill="currentColor">
-                                              <path
-                                                  d="M11.5,3C12.9,3,14,4.1,14,5.5c0,2.7-4.3,6.4-6,7.4c-1.7-1-6-4.7-6-7.4C2,4.1,3.1,3,4.5,3C5.3,3,6,3.3,6.4,3.9L8,5.3l1.6-1.4C10,3.3,10.7,3,11.5,3 M11.5,1C10.1,1,8.8,1.6,8,2.7C7.2,1.6,5.9,1,4.5,1C2,1,0,3,0,5.5C0,10,7,15,8,15s8-5,8-9.5C16,3,14,1,11.5,1L11.5,1z">
-                                              </path>
-                                          </svg></span><span class="sa-nav__title">Marketing</span><span
-                                          class="sa-nav__arrow"><svg xmlns="http://www.w3.org/2000/svg"
-                                              width="6" height="9" viewBox="0 0 6 9" fill="currentColor">
-                                              <path
-                                                  d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
-                                              </path>
-                                          </svg></span></a>
-                                  <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
-                                      <li class="sa-nav__menu-item"><a href="app-coupons-list.html"
-                                              class="sa-nav__link"><span
-                                                  class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Coupons List</span></a></li>
-                                      <li class="sa-nav__menu-item"><a href="app-coupon.html"
-                                              class="sa-nav__link"><span
-                                                  class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Coupon</span></a></li>
-                                  </ul>
-                              </li>
+
                               <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
                                   data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
                                       class="sa-nav__link" data-sa-collapse-trigger=""><span class="sa-nav__icon">
@@ -657,50 +544,21 @@
                                                   class="sa-nav__title">Conversation</span></a></li>
                                   </ul>
                               </li>
-                              <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"
-                                  data-sa-collapse-item="sa-nav__menu-item--open"><a href=""
-                                      class="sa-nav__link" data-sa-collapse-trigger=""><span class="sa-nav__icon">
-                                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                              viewBox="0 0 24 24" id="inbox">
-                                              <path fill="none" d="M0 0h24v24H0V0z" />
-                                              <path
-                                                  d="M19 3H4.99c-1.11 0-1.98.89-1.98 2L3 19c0 1.1.88 2 1.99 2H19c1.1 0 2-.9 2-2V5c0-1.11-.9-2-2-2zm0 12h-3.13c-.47 0-.85.34-.98.8-.35 1.27-1.52 2.2-2.89 2.2s-2.54-.93-2.89-2.2c-.13-.46-.51-.8-.98-.8H5V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v9z" />
-                                          </svg> </span><span class="sa-nav__title">Git Activity</span><span
-                                          class="sa-nav__arrow"><svg xmlns="http://www.w3.org/2000/svg"
-                                              width="6" height="9" viewBox="0 0 6 9" fill="currentColor">
-                                              <path
-                                                  d="M5.605,0.213 C6.007,0.613 6.107,1.212 5.706,1.612 L2.696,4.511 L5.706,7.409 C6.107,7.809 6.107,8.509 5.605,8.808 C5.204,9.108 4.702,9.108 4.301,8.709 L-0.013,4.511 L4.401,0.313 C4.702,-0.087 5.304,-0.087 5.605,0.213 Z">
-                                              </path>
-                                          </svg></span></a>
-                                  <ul class="sa-nav__menu sa-nav__menu--sub" data-sa-collapse-content="">
-                                      <li class="sa-nav__menu-item"><a
-                                              href="{{ route('admin.git-activity.master') }}"
-                                              class="sa-nav__link"><span
-                                                  class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Branch Master</span></a></li>
-                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.git-activity.giang') }}"
-                                              class="sa-nav__link"><span
-                                                  class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Branch Giang</span></a></li>
-                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.git-activity.hoang') }}"
-                                              class="sa-nav__link"><span
-                                                  class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Branch Hoang</span></a></li>
-                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.git-activity.tai') }}"
-                                              class="sa-nav__link"><span
-                                                  class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Branch Tai</span></a></li>
-                                  </ul>
-                              </li>
+
                               <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"><a
                                       href="{{ route('admin.chat') }}" class="sa-nav__link"><span
                                           class="sa-nav__icon">
-                                          <svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                              id="chat-bubble">
+                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"
+                                          id="brand-engagement">
+                                          <g data-name="Glyph">
                                               <path
-                                                  d="M17,7H7A1,1,0,0,0,7,9H17a1,1,0,0,0,0-2Zm0,4H7a1,1,0,0,0,0,2H17a1,1,0,0,0,0-2Zm2-9H5A3,3,0,0,0,2,5V15a3,3,0,0,0,3,3H16.59l3.7,3.71A1,1,0,0,0,21,22a.84.84,0,0,0,.38-.08A1,1,0,0,0,22,21V5A3,3,0,0,0,19,2Zm1,16.59-2.29-2.3A1,1,0,0,0,17,16H5a1,1,0,0,1-1-1V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1Z" />
-                                          </svg>
-                                      </span><span class="sa-nav__title">Chat</span><span
+                                                  d="M8 62h48a1 1 0 0 0 .993-1.116l-5-43A1 1 0 0 0 51 17h-9v-5a10 10 0 0 0-20 0v5h-9a1 1 0 0 0-.993.884l-5 43A1 1 0 0 0 8 62Zm15-4a1 1 0 1 1 1-1 1 1 0 0 1-1 1Zm20-33a2 2 0 1 1-2-2 2 2 0 0 1 2 2ZM24 12a8 8 0 0 1 16 0v5H24Zm-1 11a2 2 0 1 1-2 2 2 2 0 0 1 2-2Zm-4.13 11.132a6.4 6.4 0 0 1 9.026 0L32 38.227l4.1-4.095a6.4 6.4 0 0 1 9.026 0 6.394 6.394 0 0 1 0 9.012l-12.325 12.3a1 1 0 0 1-1.407.006l-12.522-12.3a6.391 6.391 0 0 1-.002-9.018ZM12 56h7a1 1 0 0 1 0 2h-7a1 1 0 0 1 0-2Z" />
+                                              <path
+                                                  d="M35.6 46.964a1 1 0 0 0 .707-.293l6.185-6.171a1 1 0 1 0-1.412-1.415l-6.18 6.171a1 1 0 0 0 .706 1.708Z" />
+                                              <circle cx="33.321" cy="48.22" r="1" />
+                                          </g>
+                                      </svg>
+                                  </span><span class="sa-nav__title">Admin Private Chat</span><span
                                           class="sa-nav__menu-item-badge badge badge-sa-pill badge-sa-theme">8</span></a>
                               </li>
                               <li class="sa-nav__menu-item sa-nav__menu-item--has-icon"><a

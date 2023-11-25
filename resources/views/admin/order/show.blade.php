@@ -10,20 +10,20 @@
                     <div class="col">
                         <nav class="mb-2" aria-label="breadcrumb">
                             <ol class="breadcrumb breadcrumb-sa-simple">
-                                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="app-orders-list.html">Orders</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Order #80294</li>
+                                <li class="breadcrumb-item"><a href="index.html">Thống kê</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.order.list', ['id'=>1]) }}">Danh sách hóa đơn</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Hóa đơn #80294</li>
                             </ol>
                         </nav>
 
 
-                        <h1 class="h3 m-0">Order #000{{$order['ID']}}</h1>
+                        <h1 class="h3 m-0">Hóa đơn #000{{$order['ID']}}</h1>
                     </div>
 
                     <div class="col-auto d-flex"><a href="{{route('admin.order.list')}}" class="btn btn-secondary me-3">Back</a><a  href="{{route('admin.invoice.view', ['id' => $order['ID']])}}" class="ml-2 btn btn-success">View Invoice</a>
                         <a style="margin-left: .7rem" href="{{route('admin.invoice.download', ['id' => $order['ID']])}}" class="btn btn-primary">Download Invoice</a>
                         <a style="  margin-left: 1rem" href="{{route('admin.invoice.mail', ['id' => $order['ID']])}}" class="btn btn-info ">
-                            Send mail
+                            Gửi mail
                         </a>
                     </div>
 
@@ -33,8 +33,8 @@
                 <div class="sa-page-meta__body">
                     <div class="sa-page-meta__list">
                         <div class="sa-page-meta__item">{{$order['Date']}} at 9:08 pm</div>
-                        <div class="sa-page-meta__item">{{$order['Total Quantity']}} items</div>
-                        <div class="sa-page-meta__item">Total $@php
+                        <div class="sa-page-meta__item">{{$order['Total Quantity']}} Sản phẩm</div>
+                        <div class="sa-page-meta__item">Tổng cộng $@php
                             echo number_format($order['Total Price'])
                         @endphp.00</div>
                         <div class="sa-page-meta__item d-flex align-items-center fs-6"><span class="badge badge-sa-success me-2">{{$order['Method']}}</span><span class="badge
@@ -67,8 +67,7 @@
                         </div>
                         <div class="card mt-5">
                             <div class="card-body px-5 py-4 d-flex align-items-center justify-content-between">
-                                <h2 class="mb-0 fs-exact-18 me-4">Items</h2>
-                                <div class="text-muted fs-exact-14"><a href="#">Edit items</a></div>
+                                <h2 class="mb-0 fs-exact-18 me-4">Sản phẩm</h2>
                             </div>
                             <div class="table-responsive">
                                 <table class="sa-table">
@@ -119,14 +118,14 @@ $totalShippingCost += 0.01 * ($item['product_price'] * $item['quantity']); // C�
                                     </tbody>
                                     <tbody class="sa-table__group">
                                         <tr>
-                                            <td colSpan="3">Subtotal</td>
+                                            <td colSpan="3">Tạm tính</td>
                                             <td class="text-end">
                                                 <div class="sa-price"><span class="sa-price__symbol">$</span><span class="sa-price__integer">{{number_format($subtotal)}}</span><span class="sa-price__decimal">.00</span></div>
                                             </td>
                                         </tr>
 
                                         <tr>
-                                            <td colSpan="3">Shipping
+                                            <td colSpan="3">Phí ship
                                                 <div class="text-muted fs-exact-13">via FedEx International</div>
                                             </td>
                                             <td class="text-end">
@@ -134,7 +133,7 @@ $totalShippingCost += 0.01 * ($item['product_price'] * $item['quantity']); // C�
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colSpan="3">Discount</td>
+                                            <td colSpan="3">Giảm giá</td>
                                             <td class="text-end">
                                                 <div class="sa-price"><span class="sa-price__symbol">- $</span><span class="sa-price__integer">0</span><span class="sa-price__decimal">.00</span></div>
                                             </td>
@@ -142,7 +141,7 @@ $totalShippingCost += 0.01 * ($item['product_price'] * $item['quantity']); // C�
                                     </tbody>
                                     <tbody>
                                         <tr>
-                                            <td colSpan="3">Total</td>
+                                            <td colSpan="3">Tổng cộng</td>
                                             <td class="text-end">
                                                 <div class="sa-price"><span class="sa-price__symbol">$</span><span class="sa-price__integer">{{number_format($subtotal + $totalShippingCost)}}</span><span class="sa-price__decimal">.00</span></div>
                                             </td>
@@ -151,88 +150,8 @@ $totalShippingCost += 0.01 * ($item['product_price'] * $item['quantity']); // C�
                                 </table>
                             </div>
                         </div>
-                        <div class="card mt-5">
-                            <div class="card-body px-5 py-4 d-flex align-items-center justify-content-between">
-                                <h2 class="mb-0 fs-exact-18 me-4">Transactions</h2>
-                                <div class="text-muted fs-exact-14"><a href="#">Add transaction</a></div>
-                            </div>
-                            <div class="table-responsive">
-                                <table class="sa-table text-nowrap">
-                                    <tbody>
-                                        <tr>
-                                            <td>Payment
-                                                <div class="text-muted fs-exact-13">via PayPal</div>
-                                            </td>
-                                            <td>October 7, 2020</td>
-                                            <td class="text-end">
-                                                <div class="sa-price"><span class="sa-price__symbol">$</span><span class="sa-price__integer">2,000</span><span class="sa-price__decimal">.00</span></div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Payment
-                                                <div class="text-muted fs-exact-13">from account balance</div>
-                                            </td>
-                                            <td>November 2, 2020</td>
-                                            <td class="text-end">
-                                                <div class="sa-price"><span class="sa-price__symbol">$</span><span class="sa-price__integer">50</span><span class="sa-price__decimal">.00</span></div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Refund
-                                                <div class="text-muted fs-exact-13">to PayPal</div>
-                                            </td>
-                                            <td>December 10, 2020</td>
-                                            <td class="text-end text-danger">
-                                                <div class="sa-price"><span class="sa-price__symbol">$</span><span class="sa-price__integer">-325</span><span class="sa-price__decimal">.00</span></div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="card mt-5">
-                            <div class="card-body px-5 py-4 d-flex align-items-center justify-content-between">
-                                <h2 class="mb-0 fs-exact-18 me-4">Balance</h2>
-                            </div>
-                            <table class="sa-table">
-                                <tbody class="sa-table__group">
-                                    <tr>
-                                        <td>Order Total</td>
-                                        <td class="text-end">
-                                            <div class="sa-price"><span class="sa-price__symbol">$</span><span class="sa-price__integer">5,882</span><span class="sa-price__decimal">.00</span></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Return Total</td>
-                                        <td class="text-end">
-                                            <div class="sa-price"><span class="sa-price__symbol">$</span><span class="sa-price__integer">0</span><span class="sa-price__decimal">.00</span></div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tbody class="sa-table__group">
-                                    <tr>
-                                        <td>Paid by customer</td>
-                                        <td class="text-end">
-                                            <div class="sa-price"><span class="sa-price__symbol">$</span><span class="sa-price__integer">-80</span><span class="sa-price__decimal">.00</span></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Refunded</td>
-                                        <td class="text-end">
-                                            <div class="sa-price"><span class="sa-price__symbol">$</span><span class="sa-price__integer">0</span><span class="sa-price__decimal">.00</span></div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tbody>
-                                    <tr>
-                                        <td>Balance <span class="text-muted">(customer owes you)</span></td>
-                                        <td class="text-end">
-                                            <div class="sa-price"><span class="sa-price__symbol">$</span><span class="sa-price__integer">5,802</span><span class="sa-price__decimal">.00</span></div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+
+
                     </div>
                     <div class="sa-entity-layout__sidebar">
                         <div class="card">
@@ -257,7 +176,7 @@ $totalShippingCost += 0.01 * ($item['product_price'] * $item['quantity']); // C�
                         </div>
                         <div class="card mt-5">
                             <div class="card-body d-flex align-items-center justify-content-between pb-0 pt-4">
-                                <h2 class="fs-exact-16 mb-0">Shipping Address</h2><a href="#" class="fs-exact-14">Edit</a></div>
+                                <h2 class="fs-exact-16 mb-0">Địa chỉ nhận hàng</h2><a href="#" class="fs-exact-14">Edit</a></div>
                             <div class="card-body pt-4 fs-exact-14">{{$order['Name']}}<br/>Random Federation<br/>115302, Moscow<br/>ul. Varshavskaya, 15-2-178</div>
                         </div>
                         <div class="card mt-5">
