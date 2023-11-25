@@ -348,12 +348,19 @@
                                 padding: 12px 16px;
                                 text-decoration: none;
                                 z-index: 999;
-                                display: block;
+                                display: flex;
+                                /* justify-content: center; */
+                                align-items: center;
+                                /* text-align: center */
                             }
 
                             /* Change color of dropdown links on hover */
                             .dropdown-content a:hover {
                                 background-color: #f1f1f1
+                            }
+
+                            .dropdown-content a>p {
+                                margin: 0px !important
                             }
 
                             /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
@@ -370,8 +377,8 @@
                                     class="form-control p-1 height-35 text-gray-90 shadow-none font-size-14 border-0 rounded-0 bg-transparent"
                                     name="text" id="myInput" onkeyup="filterFunction()"
                                     onclick="showDropdown()" placeholder="{{ __('search_products') }}"
-                                    value="a" aria-label="Search for products" aria-describedby="searchProduct1"
-                                    required autocomplete="off">
+                                    aria-label="Search for products" aria-describedby="searchProduct1" required
+                                    autocomplete="off">
                                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
                                 <script>
@@ -386,13 +393,19 @@
 
                                             // Lặp qua dữ liệu sản phẩm và tạo các thẻ <a>
                                             $.each(products, function(index, product) {
+                                                var truncatedName = product.name.substring(0,
+                                                    12); // Get the first 12 characters of the product name
+
                                                 var $a = $('<a>', {
-                                                    "data-product": product.name,
+                                                    "data-product": truncatedName,
                                                     "href": product.slug,
-                                                    "html": '<img  src="http://localhost:8000/storage/' + product.image_url +
+                                                    "html": '<img src="http://localhost:8000/storage/' + product.image_url +
                                                         '" lazy style="width: 30px; z-index: 999; height: 30px;" alt="" width="20px" srcset="">' +
-                                                        product.name
+                                                        truncatedName + '...' +
+                                                        '<p style="color: red;">' + 'kho:' + product.total_quantity + '</p>'
                                                 });
+
+                                                $a.css("display", "flex"); // Set display flex using CSS method
 
                                                 $('#myDropdown').append($a);
                                             });
@@ -482,41 +495,7 @@
                             </div>
                         </form>
 
-                        <script>
-                            // duyệt tất cả tấm ảnh cần lazy-load
-                            const lazyImages = document.querySelectorAll('[lazy]');
 
-                            // chờ các tấm ảnh này xuất hiện trên màn hình
-                            const lazyImageObserver = new IntersectionObserver((entries, observer) => {
-                                entries.forEach((entry) => {
-                                    // tấm ảnh này đã xuất hiện trên màn hình
-                                    if (entry.isIntersecting) {
-                                        const lazyImage = entry.target;
-                                        const src = lazyImage.dataset.src;
-
-                                        lazyImage.tagName.toLowerCase() === 'img'
-                                            // <img>: copy data-src sang src
-                                            ?
-                                            lazyImage.src = src
-
-                                            // <div>: copy data-src sang background-image
-                                            :
-                                            lazyImage.style.backgroundImage = "url(\'" + src + "\')";
-
-                                        // copy xong rồi thì bỏ attribute lazy đi
-                                        lazyImage.removeAttribute('lazy');
-
-                                        // job done, không cần observe nó nữa
-                                        observer.unobserve(lazyImage);
-                                    }
-                                });
-                            });
-
-                            // Observe từng tấm ảnh và chờ nó xuất hiện trên màn hình
-                            lazyImages.forEach((lazyImage) => {
-                                lazyImageObserver.observe(lazyImage);
-                            });
-                        </script>
 
                     </div>
 
