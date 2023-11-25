@@ -153,11 +153,7 @@
                                             @if ($product_quantity)
                                                 <span
                                                     class="text-green font-weight-bold">{{ $product_quantity[0]->total_quantity }}
-<<<<<<< HEAD
                                                     tồn kho</span>
-=======
-                                                    in stock</span>
->>>>>>> hoang_new
                                             @else
                                                 <span class="text-red font-weight-bold">Out of Stock</span>
                                             @endif
@@ -456,7 +452,7 @@
                                     $(document).ready(function() {
                                         $('#addToCartBtn').on('click', function(e) {
                                             e.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
-                                            var originalText = $(this).text(); // Lưu trữ nội dung 
+                                            var originalText = $(this).text(); // Lưu trữ nội dung
                                             $(this).attr('disabled', true).text('Loading...');
                                             $(this).css('backgroundColor', '#333e48');
                                             // var id_quantity = $('#colorSelector').val();
