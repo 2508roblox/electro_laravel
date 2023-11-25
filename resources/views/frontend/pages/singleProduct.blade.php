@@ -74,9 +74,9 @@
 
                         padding-top: 1rem;
                             font-weight: 700; ;clip-path: polygon(100% 0, 100% 100%, 50% 80%, 0% 100%, 0% 0%); position: absolute; top: 0; right: 5rem; z-index: 100; width: 40px ; height: 80px; background: #fed700">
-    <p id="discount_badge" style="transform: rotate(270deg);color: white ;  ">
-  - {{ round((($product->price - $product->promotion_price) / $product->price) * 100) }}%
-    </p>
+                            <p id="discount_badge" style="transform: rotate(270deg);color: white ;  ">
+                                - {{ round((($product->price - $product->promotion_price) / $product->price) * 100) }}%
+                            </p>
 
                         </div>
                         <div id="sliderSyncingNav" class="js-slick-carousel u-slick mb-2" data-infinite="true"
@@ -153,11 +153,7 @@
                                             @if ($product_quantity)
                                                 <span
                                                     class="text-green font-weight-bold">{{ $product_quantity[0]->total_quantity }}
-<<<<<<< HEAD
                                                     tồn kho</span>
-=======
-                                                    in stock</span>
->>>>>>> hoang_new
                                             @else
                                                 <span class="text-red font-weight-bold">Out of Stock</span>
                                             @endif
@@ -316,11 +312,13 @@
                                                                     "variantQuantity");
                                                                 var variantQuantity_text = document.getElementById(
                                                                     "variantQuantity_text");
-                                                                    // discount
-                                                                    var discount = Math.round(((data.original_price - data.promotion_price) / data.original_price) * 100);
+                                                                // discount
+                                                                var discount = Math.round(((data.original_price - data
+                                                                        .promotion_price) / data.original_price) *
+                                                                    100);
                                                                 var discount_badge = document.getElementById(
                                                                     "discount_badge");
-                                                                    discount_badge.innerText = '- '+discount + '%'
+                                                                discount_badge.innerText = '- ' + discount + '%'
                                                                 variantQuantity_text.innerText = data.quantity;
                                                                 //sku text
                                                                 var skuElement = document.getElementById(
