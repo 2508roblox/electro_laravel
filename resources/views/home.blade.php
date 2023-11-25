@@ -3,11 +3,52 @@
 @section('content')
 @include('inc/_header')
 <!-- ========== MAIN CONTENT ========== -->
+<style>
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1000;
+        opacity: 0.5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
+    .overlay .loader {
+        color: #000000;
+        font-size: 5rem;
+        font-weight: bold;
+    }
+
+    .none_loading {
+        display: none;
+    }
+</style>
+
+<div style="background-color: grey" class="overlay " id="myDiv">
+    <i style="color: #fed700" class="loader fas fa-spinner fa-spin"></i>
+</div>
+
+<script>
+    // Xử lý sự kiện khi trang web bắt đầu tải
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ẩn thẻ div overlay
+        document.getElementById('myDiv').classList.add('none_loading');
+    });
+
+    // Xử lý sự kiện khi trang web hoàn thành tải
+    window.addEventListener('load', function() {
+        // Hiển thị thẻ div overlay
+        document.getElementById('myDiv').classList.remove('none_loading');
+    });
+</script>
 
 <main id="content" role="main">
     @if(session('login') == 'true')
-<script>
+    <script>
     console.log('Thành công');
     function showAlert() {
 
@@ -19,6 +60,7 @@
       });
     }
     showAlert()
+    window.location.href = '{{ route("home") }}';
   </script>
 @else
 <script>

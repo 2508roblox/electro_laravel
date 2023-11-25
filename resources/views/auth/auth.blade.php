@@ -40,7 +40,8 @@
                 <div class="my-md-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{ route('home') }}">Trang chủ</a>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{ route('home') }}">Trang
+                                    chủ</a>
                             </li>
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">My Account
                             </li>
@@ -104,6 +105,18 @@
                             </div>
                             <!-- End Checkbox -->
                             @error('message')
+                                <script>
+                                    function showAlert() {
+
+                                        Swal.fire({
+                                            title: 'Thông báo',
+                                            text: 'Sai thông tin đăng nhập',
+                                            icon: 'error',
+                                            confirmButtonText: 'OK'
+                                        });
+                                    }
+                                    showAlert()
+                                </script>
                                 <p style="color: red; margin-bottom: 0px">{{ $message }}</p>
                             @enderror
                             <!-- Button -->
@@ -139,16 +152,7 @@
                                     // Handle success response
                                     console.log('Form submitted successfully');
                                 }).catch((error) => {
-                                    function showAlert() {
 
-                                        Swal.fire({
-                                            title: 'Thông báo',
-                                            text: 'Sai thông tin đăng nhập',
-                                            icon: 'error',
-                                            confirmButtonText: 'OK'
-                                        });
-                                    }
-                                    showAlert()
                                     // Handle error response
                                     console.error('Error submitting form:', error);
                                 });
