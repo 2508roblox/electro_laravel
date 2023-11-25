@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('company')->nullable()->default('individual');
             $table->string('email');
             $table->string('phone');
-            $table->string('status')->nullable()->default('pending');
+            $table->string('status')->nullable()->default('Chờ xác nhận');
             $table->string('payment_mode');
             $table->timestamps();
         });

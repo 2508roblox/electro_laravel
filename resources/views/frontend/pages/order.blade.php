@@ -160,9 +160,15 @@
                                   <span>{{ $item['Method'] }}</span>
                                 </td>
                                 <td data-title="Status">
-                                  @if ($item['Status'] =='pending' )
+                                  @if ($item['Status'] =='Chờ xác nhận' )
                                   <h1 class="p-2 badge badge-warning text-white">{{ $item['Status'] }}</h1>
-                                  @elseif ($item['Status'] =='confirm' || $item['Status'] =='paid' )
+                                  @elseif ($item['Status'] =='Đã xác nhận' || $item['Status'] =='Đã thanh toán' )
+                                  <h1 class="p-2 badge badge-success text-white">{{ $item['Status'] }}</h1>
+                                  @elseif ($item['Status'] =='Chưa thanh toán'   )
+                                  <h1 class="p-2 badge badge-warning text-primary text-white">{{ $item['Status'] }}</h1>
+                                  @elseif ($item['Status'] =='Đang giao hàng' || $item['Status'] =='Đã thanh toán' )
+                                  <h1 class="p-2 badge badge-info text-white">{{ $item['Status'] }}</h1>
+                                  @elseif ($item['Status'] =='Thành công')
                                   <h1 class="p-2 badge badge-success text-white">{{ $item['Status'] }}</h1>
                                   @else
                                   <h1 class="p-2 badge badge-danger text-white">{{ $item['Status'] }}</h1>
@@ -171,6 +177,24 @@
                                 <td>
                                   <a style="border-radius: 10px !important" href="{{route('frontend.order.show', ['id' => $item['ID']])}}" class="btn btn-primary rounded-0   font-weight-normal px-5 px-md-2 px-lg-5 w-100 w-md-auto">
                                     Chi tiết</a>
+                                    @if ($item['Status'] == 'Chờ xác nhận')
+                                     <a style="border-radius: 10px !important" href="{{route('admin.order.client.cancel', ['id' => $item['ID']])}}" class="btn btn-danger rounded-0   font-weight-normal px-5 px-md-2 px-lg-5 w-100 w-md-auto">
+                                    Hủy đơn</a>
+                                    @elseif ($item['Status'] == 'Đang giao hàng')
+                                     <a style="border-radius: 10px !important" href="{{route('admin.order.received', ['id' => $item['ID']])}}" class="btn btn-success rounded-0   font-weight-normal px-5 px-md-2 px-lg-5 w-100 w-md-auto">
+                                    Đã nhận</a>
+                                    @elseif ($item['Status'] == 'Chưa thanh toán')
+                                     <a style="border-radius: 10px !important" href="{{route('admin.checkout.pay', ['id' => $item['ID']])}}" class="btn btn-success rounded-0   font-weight-normal px-5 px-md-2 px-lg-5 w-100 w-md-auto">
+                                    Thanh toán</a>
+                                @elseif ($item['Status'] == 'Đã xác nhận' || $item['Status'] == 'Đã thanh toán')
+                                <a style="border-radius: 10px !important" href="{{route('admin.order.client.cancel', ['id' => $item['ID']])}}" class="btn btn-danger rounded-0   font-weight-normal px-5 px-md-2 px-lg-5 w-100 w-md-auto">
+                                    Hủy đơn</a>
+                                @elseif ($item['Status'] == 'Đang giao hàng' || $item['Status'] == 'Đã thanh toán')
+                                    <a style="border-radius: 10px !important" href="{{route('frontend.order.show', ['id' => $item['ID']])}}" class="btn btn-success rounded-0   font-weight-normal px-5 px-md-2 px-lg-5 w-100 w-md-auto">
+                                    Đã nhận</a>
+                                @else
+
+                                @endif
                                 </td>
                               </tr>
                               @endforeach

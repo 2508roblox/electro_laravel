@@ -10,7 +10,7 @@
 <script>
     console.log('Thành công');
     function showAlert() {
-        
+
       Swal.fire({
         title: 'Thông báo',
         text: 'Đăng nhập thành công !!!',
@@ -22,7 +22,7 @@
   </script>
 @else
 <script>
-   
+
   </script>
 @endif
     <!-- Slider Section -->
@@ -96,7 +96,7 @@
                                 "slidesToShow": 2
                               }
                             }]'>
-                    @forelse ($categories as $category)
+                        @forelse ($categories as $category)
                     <div class="js-slide">
                         <a href="{{route('frontend.category.list', ['category_slug' => $category->slug])}}" class="d-block text-center bg-on-hover width-122 mx-auto">
                             <div class="bg pt-4 rounded-circle-top width-122 height-75">

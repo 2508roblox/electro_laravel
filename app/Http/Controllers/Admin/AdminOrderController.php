@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Mail\InvoiceOrderMailable;
+use App\Models\Sku;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Mail\InvoiceOrderMailable;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Mail;
 
 class AdminOrderController extends Controller
@@ -158,7 +159,21 @@ class AdminOrderController extends Controller
     public function update(Request $request, $id)
     {
        Order::find($id)->update([
-        'status' => 'confirm',
+        'status' => 'Đã xác nhận',
+       ]);
+       return redirect()->back();
+    }
+    public function delivery(Request $request, $id)
+    {
+       Order::find($id)->update([
+        'status' => 'Đang giao hàng',
+       ]);
+       return redirect()->back();
+    }
+    public function received(Request $request, $id)
+    {
+       Order::find($id)->update([
+        'status' => 'Thành công',
        ]);
        return redirect()->back();
     }
@@ -166,11 +181,52 @@ class AdminOrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function cancle( )
+    public function cancel()
     {
-        Order::find(request()->id)->update([
-            'status' => 'cancle',
+        $orderId = request()->id;
+
+        // Cập nhật trạng thái đơn hàng thành 'Đã hủy'
+        Order::find($orderId)->update([
+            'status' => 'Đã hủy',
+        ]);
+
+        // Lấy danh sách order_items của đơn hàng
+        $orderItems = OrderItem::where('order_id', $orderId)->get();
+
+        // Cập nhật số lượng SKU
+        foreach ($orderItems as $orderItem) {
+            $skuId = $orderItem->sku_id;
+            $quantity = $orderItem->quantity;
+
+            // Tìm SKU và cập nhật số lượng
+            $sku = Sku::find($skuId);
+            $sku->quantity += $quantity;
+            $sku->save();
+        }
+
+        return redirect()->back();
+    }
+    public function clientCancel(string $id )
+    {
+        Order::find($id)->update([
+            'status' => 'Đã hủy',
            ]);
+
+
+        // Lấy danh sách order_items của đơn hàng
+        $orderItems = OrderItem::where('order_id', $id)->get();
+
+        // Cập nhật số lượng SKU
+        foreach ($orderItems as $orderItem) {
+            $skuId = $orderItem->sku_id;
+            $quantity = $orderItem->quantity;
+
+            // Tìm SKU và cập nhật số lượng
+            $sku = Sku::find($skuId);
+            $sku->quantity += $quantity;
+            $sku->save();
+        }
+
            return redirect()->back();
     }
     public function destroy(string $id)
