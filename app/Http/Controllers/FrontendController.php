@@ -197,6 +197,12 @@ $product->total_quantity = $totalQuantity;
                 ->first()->image ?? null;
         }
         $brands = Brand::with('products')->get();
+        foreach ($products as $product) {
+            $skus = SKU::where('product_id', $product->id)->get();
+            $totalQuantity = $skus->sum('quantity');
+            $product->total_quantity = $totalQuantity;
+            }
+
         $brands = $brand->countProducts($brands, $sub_category->id);
         return view('frontend.categoryProduct', compact('sub_category', 'products', 'brands', 'currentCategory', 'categories'));
     }

@@ -11,7 +11,7 @@
                 <div class="my-md-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('home')}}">Home</a>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('home')}}">Trang chủ</a>
                             </li>
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">
                                 {{ $sub_category->name }}</li>
@@ -33,7 +33,7 @@
                                 <a class="dropdown-toggle dropdown-toggle-collapse dropdown-title" href="javascript:;"
                                     role="button" data-toggle="collapse" aria-expanded="false"
                                     aria-controls="sidebarNav1Collapse" data-target="#sidebarNav1Collapse">
-                                    Show All Categories
+                                     Danh mục
                                 </a>
 
                                 <div id="sidebarNav1Collapse" class="collapse" data-parent="#sidebarNav">
@@ -82,10 +82,10 @@
                     <div class="mb-6">
                         <form action="">
                             <div class="border-bottom border-color-1 mb-5">
-                                <h3 class="section-title section-title__sm mb-0 pb-2 font-size-18">Filters</h3>
+                                <h3 class="section-title section-title__sm mb-0 pb-2 font-size-18">Bộ lọc</h3>
                             </div>
                             <div class="border-bottom pb-4 mb-4">
-                                <h4 class="font-size-14 mb-3 font-weight-bold">Brands</h4>
+                                <h4 class="font-size-14 mb-3 font-weight-bold">Thương hiệu</h4>
 
                                 <!-- Checkboxes -->
 
@@ -517,16 +517,40 @@
                                                         </h5>
                                                     </div>
 
-                                                    <div class="mb-2">
+                                                <div class="mb-2" style="position: relative">
+
                                                         <a href="{{ route('frontend.category.show', ['product_slug' => $product->slug]) }}"
                                                             class="d-block text-center"><img class="img-fluid"
                                                                 style="height: 160px; object-fit: contain"
                                                                 src="{{ $product->image_url ? asset('storage/' . $product->image_url) : asset('client/img/212X200/img2.jpg') }}"
-                                                                alt="Image Description"></a>
+                                                                alt="Image Description">  @if ($product->total_quantity > 0)
+                                                            <div class=""
+                                                                style="color: black; font-weight: 700;clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%); position: absolute; bottom: 0; left: -1rem; z-index: 100; width: 70px ; height: 20px; background: #fed700">
+
+                                                                -
+                                                                {{ round((($product->price - $product->promotion_price) / $product->price) * 100) }}%
+                                                            </div>
+                                                        @else
+                                                            <div class=""
+                                                                style="color: white; font-weight: 700;clip-path: polygon(0 0, 100% 0%, 85% 100%, 0% 100%); position: absolute; bottom: 0; left: -1rem; z-index: 100; width: 140px ; height: 20px; background: red">
+
+                                                                Hết hàng
+                                                            </div>
+                                                        @endif
+                                                    </a>
                                                     </div>
                                                     <div class="flex-center-between mb-1">
-                                                        <div class="prodcut-price">
-                                                            <div class="text-gray-100">${{ $product->price }}.00</div>
+                                                        <div class="product-price">
+                                                            @if ($product->promotion_price)
+                                                            <div class="prodcut-price d-flex align-items-center position-relative mt-3 ">
+                                                                <ins class="font-size-20 text-red text-decoration-none">${{ $product->promotion_price }},00</ins>
+                                                                <del class="font-size-12 tex-gray-6 position-absolute bottom-100">${{ $product->price }},00</del>
+                                                            </div>
+                                                        @else
+                                                            <div class="prodcut-price">
+                                                                <div class="text-gray-100">${{ $product->price }}.00</div>
+                                                            </div>
+                                                        @endif
                                                         </div>
                                                         <div class="d-none d-xl-block prodcut-add-cart">
                                                             <a href="{{ route('frontend.category.show', ['product_slug' => $product->slug]) }}"

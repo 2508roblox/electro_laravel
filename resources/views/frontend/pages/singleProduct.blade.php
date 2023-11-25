@@ -565,13 +565,9 @@ var quantityLoader = document.getElementById("quantity_loader");
                 <div class="position-relative position-md-static px-md-6">
                     <ul class="nav nav-classic nav-tab nav-tab-lg justify-content-xl-center flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble border-0 pb-1 pb-xl-0 mb-n1 mb-xl-0"
                         id="pills-tab-8" role="tablist">
+
                         <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
-                            <a class="nav-link active" id="Jpills-one-example1-tab" data-toggle="pill"
-                                href="#Jpills-one-example1" role="tab" aria-controls="Jpills-one-example1"
-                                aria-selected="true">{{ __('accessories') }}</a>
-                        </li>
-                        <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
-                            <a class="nav-link" id="Jpills-two-example1-tab" data-toggle="pill"
+                            <a class="nav-link active" id="Jpills-two-example1-tab" data-toggle="pill"
                                 href="#Jpills-two-example1" role="tab" aria-controls="Jpills-two-example1"
                                 aria-selected="false">{{ __('description') }}</a>
                         </li>
@@ -590,138 +586,7 @@ var quantityLoader = document.getElementById("quantity_loader");
                 <!-- Tab Content -->
                 <div class="borders-radius-17 border p-4 mt-4 mt-md-0 px-lg-10 py-lg-9">
                     <div class="tab-content" id="Jpills-tabContent">
-                        <div class="tab-pane fade active show" id="Jpills-one-example1" role="tabpanel"
-                            aria-labelledby="Jpills-one-example1-tab">
-                            <div class="row no-gutters">
-                                <div class="col mb-6 mb-md-0">
-                                    <ul
-                                        class="row list-unstyled products-group no-gutters border-bottom border-md-bottom-0">
-                                        <li
-                                            class="col-4 col-md-4 col-xl-2gdot5 product-item remove-divider-sm-down border-0">
-                                            <div class="product-item__outer h-100">
-                                                <div class="remove-prodcut-hover product-item__inner px-xl-4 p-3">
-                                                    <div class="product-item__body pb-xl-2">
-                                                        <div class="mb-2 d-none d-md-block"><a
-                                                                href="../shop/product-categories-7-column-full-width.html"
-                                                                class="font-size-12 text-gray-5">Speakers</a></div>
-                                                        <h5 class="mb-1 product-item__title d-none d-md-block"><a
-                                                                href="#" class="text-blue font-weight-bold">Wireless
-                                                                Audio System Multiroom 360 degree Full base audio</a></h5>
-                                                        <div class="mb-2">
-                                                            <a href="{{ route('fe.shop') }}"
-                                                                class="d-block text-center"><img class="img-fluid"
-                                                                    src="{{ asset('client/img/212X200/img1.jpg') }}"
-                                                                    alt="Image Description"></a>
-                                                        </div>
-                                                        <div class="flex-center-between mb-1 d-none d-md-block">
-                                                            <div class="prodcut-price">
-                                                                <div class="text-gray-100">$685,00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="col-4 col-md-4 col-xl-2gdot5 product-item remove-divider-sm-down">
-                                            <div class="product-item__outer h-100">
-                                                <div
-                                                    class="remove-prodcut-hover add-accessories product-item__inner px-xl-4 p-3">
-                                                    <div class="product-item__body pb-xl-2">
-                                                        <div class="mb-2 d-none d-md-block"><a
-                                                                href="../shop/product-categories-7-column-full-width.html"
-                                                                class="font-size-12 text-gray-5">Speakers</a></div>
-                                                        <h5 class="mb-1 product-item__title d-none d-md-block"><a
-                                                                href="#" class="text-blue font-weight-bold">Tablet
-                                                                White EliteBook Revolve 810 G2</a></h5>
-                                                        <div class="mb-2">
-                                                            <a href="{{ route('fe.shop') }}"
-                                                                class="d-block text-center"><img class="img-fluid"
-                                                                    src="{{ asset('client/img/212X200/img2.jpg') }}"
-                                                                    alt="Image Description"></a>
-                                                        </div>
-                                                        <div class="flex-center-between mb-1 d-none d-md-block">
-                                                            <div
-                                                                class="prodcut-price d-flex align-items-center position-relative">
-                                                                <ins
-                                                                    class="font-size-20 text-red text-decoration-none">$1999,00</ins>
-                                                                <del
-                                                                    class="font-size-12 tex-gray-6 position-absolute bottom-100">$2
-                                                                    299,00</del>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li
-                                            class="col-4 col-md-4 col-xl-2gdot5 product-item remove-divider-sm-down remove-divider">
-                                            <div class="product-item__outer h-100">
-                                                <div
-                                                    class="remove-prodcut-hover add-accessories product-item__inner px-xl-4 p-3">
-                                                    <div class="product-item__body pb-xl-2">
-                                                        <div class="mb-2 d-none d-md-block"><a
-                                                                href="../shop/product-categories-7-column-full-width.html"
-                                                                class="font-size-12 text-gray-5">Speakers</a></div>
-                                                        <h5 class="mb-1 product-item__title d-none d-md-block"><a
-                                                                href="#" class="text-blue font-weight-bold">Purple
-                                                                Solo 2 Wireless</a></h5>
-                                                        <div class="mb-2">
-                                                            <a href="{{ route('fe.shop') }}"
-                                                                class="d-block text-center"><img class="img-fluid"
-                                                                    src="{{ asset('client/img/212X200/img3.jpg') }}"
-                                                                    alt="Image Description"></a>
-                                                        </div>
-                                                        <div class="flex-center-between mb-1 d-none d-md-block">
-                                                            <div class="prodcut-price">
-                                                                <div class="text-gray-100">$685,00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div
-                                        class="form-check pl-4 pl-md-0 ml-md-4 mb-2 pb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="inlineCheckbox1" checked disabled>
-                                        <label class="form-check-label mb-1" for="inlineCheckbox1">
-                                            <strong>This product: </strong> Ultra Wireless S50 Headphones S50 with Bluetooth
-                                            - <span class="text-red font-size-16">$35.00</span>
-                                        </label>
-                                    </div>
-                                    <div
-                                        class="form-check pl-4 pl-md-0 ml-md-4 mb-2 pb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                            value="option1" checked>
-                                        <label class="form-check-label mb-1 text-blue" for="inlineCheckbox2">
-                                            <span class="text-decoration-on cursor-pointer-on">Universal Headphones Case in
-                                                Black</span> - <span class="text-red font-size-16">$159.00</span>
-                                        </label>
-                                    </div>
-                                    <div
-                                        class="form-check pl-4 pl-md-0 ml-md-4 mb-2 pb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
-                                            value="option2" checked>
-                                        <label class="form-check-label mb-1 text-blue" for="inlineCheckbox3">
-                                            <span class="text-decoration-on cursor-pointer-on">Headphones USB Wires</span>
-                                            - <span class="text-red font-size-16">$50.00</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-auto">
-                                    <div class="mr-xl-15">
-                                        <div class="mb-3">
-                                            <div class="text-red font-size-26 text-lh-1dot2">$244.00</div>
-                                            <div class="text-gray-6">for 3 item(s)</div>
-                                        </div>
-                                        <a href="#"
-                                            class="btn btn-sm btn-block btn-primary-dark btn-wide transition-3d-hover">Add
-                                            all to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="tab-pane fade" id="Jpills-two-example1" role="tabpanel"
                             aria-labelledby="Jpills-two-example1-tab">
                             <h3 class="font-size-24 mb-3">Perfectly Done</h3>
@@ -1255,7 +1120,7 @@ var quantityLoader = document.getElementById("quantity_loader");
             <div class="mb-6">
                 <div
                     class="d-flex justify-content-between align-items-center border-bottom border-color-1 flex-lg-nowrap flex-wrap mb-4">
-                    <h3 class="section-title mb-0 pb-2 font-size-22">Related products</h3>
+                    <h3 class="section-title mb-0 pb-2 font-size-22">Sản phẩm liên quan</h3>
                 </div>
                 <ul class="row list-unstyled products-group no-gutters">
                     <li class="col-6 col-md-3 col-xl-2gdot4-only col-wd-2 product-item">

@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use App\Models\Sku;
 
 class ShopController extends Controller
 {
@@ -47,6 +48,13 @@ class ShopController extends Controller
             ->orderBy('id', 'ASC')
             ->first()->image ?? null;
     }
+
+    // total product's quantity
+    foreach ($products as $product) {
+        $skus = SKU::where('product_id', $product->id)->get();
+        $totalQuantity = $skus->sum('quantity');
+        $product->total_quantity = $totalQuantity;
+        }
     $rcproducts = Product::join('sub_categories', 'products.sub_category_id', '=', 'sub_categories.id')
     ->select('products.*', 'sub_categories.name as sub_category_name')
     ->limit(10)
