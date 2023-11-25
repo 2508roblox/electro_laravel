@@ -3,6 +3,13 @@
 @section('content')
 @include('inc/_header')
 <!-- ========== MAIN CONTENT ========== -->
+<script>
+    // Mendapatkan data produk dari blade template
+    var productss = @json($productss);
+
+    // Menyimpan data produk ke localStorage
+    localStorage.setItem('products', JSON.stringify(productss));
+</script>
 <style>
     .overlay {
         position: fixed;

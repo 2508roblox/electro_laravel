@@ -40,25 +40,42 @@ class FrontendController extends Controller
             '6' => 'six',
         ];
         $products = Product::join('sub_categories', 'products.sub_category_id', '=', 'sub_categories.id')
-        ->select('products.*', 'sub_categories.name as sub_category_name')
-        ->limit(15)
-        ->orderBy('products.id', 'asc')
-        ->get();
+            ->select('products.*', 'sub_categories.name as sub_category_name')
+            ->limit(15)
+            ->orderBy('products.id', 'asc')
+            ->get();
 
-foreach ($products as $product) {
-$skus = SKU::where('product_id', $product->id)->get();
-$totalQuantity = $skus->sum('quantity');
-$product->total_quantity = $totalQuantity;
-}
+        foreach ($products as $product) {
+            $skus = SKU::where('product_id', $product->id)->get();
+            $totalQuantity = $skus->sum('quantity');
+            $product->total_quantity = $totalQuantity;
+        }
 
         foreach ($products as $product) {
             $product->image_url = $product->productImages()
                 ->orderBy('id', 'ASC')
                 ->first()->image ?? null;
         }
+        $productss = Product::join('sub_categories', 'products.sub_category_id', '=', 'sub_categories.id')
+            ->select('products.*', 'sub_categories.name as sub_category_name')
+
+            ->orderBy('products.id', 'asc')
+            ->get();
+
+        foreach ($productss as $product) {
+            $skus = SKU::where('product_id', $product->id)->get();
+            $totalQuantity = $skus->sum('quantity');
+            $product->total_quantity = $totalQuantity;
+        }
+
+        foreach ($productss as $product) {
+            $product->image_url = $product->productImages()
+                ->orderBy('id', 'ASC')
+                ->first()->image ?? null;
+        }
         // Wallet balance
         $userId = Auth::id();
-        if ( $userId) {
+        if ($userId) {
             $wallet = Wallet::where('user_id', $userId)->first();
 
             $transactions = Transaction::where('wallet_id', $wallet->id)
@@ -76,8 +93,10 @@ $product->total_quantity = $totalQuantity;
         //
 
 
-        return view('home', compact('sliders', 'number', 'categories', 'products'));
+        return view('home', compact('sliders', 'number', 'categories', 'products', 'productss'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -240,28 +259,28 @@ $product->total_quantity = $totalQuantity;
         $ratingCounts = $productComments->groupBy('rating')->map->count();
 
 
-// $variantValues = VariantValue::where('product_id', $product->id)->get();
+        // $variantValues = VariantValue::where('product_id', $product->id)->get();
 
-// $variantIds = $variantValues->pluck('variant_id')->unique();
+        // $variantIds = $variantValues->pluck('variant_id')->unique();
 
-// $variants = Variant::whereIn('id', $variantIds)->get();
-$skuCodes = Sku::where('product_id', $product->id)->pluck('sku_code');
-
-
-
-$variantValueIds = SkuVariant::whereIn('sku', $skuCodes)->pluck('variant_value_id');
-$variantValues = VariantValue::whereIn('id', $variantValueIds)->get();
-
-$variantIds = $variantValues->pluck('variant_id')->unique();
-$variants = Variant::whereIn('id', $variantIds)->get();
+        // $variants = Variant::whereIn('id', $variantIds)->get();
+        $skuCodes = Sku::where('product_id', $product->id)->pluck('sku_code');
 
 
 
+        $variantValueIds = SkuVariant::whereIn('sku', $skuCodes)->pluck('variant_value_id');
+        $variantValues = VariantValue::whereIn('id', $variantValueIds)->get();
 
-$product_quantity = Sku::select(  DB::raw('SUM(quantity) as total_quantity'))
-                        ->where('product_id',  $product->id)
+        $variantIds = $variantValues->pluck('variant_id')->unique();
+        $variants = Variant::whereIn('id', $variantIds)->get();
 
-                        ->get();
+
+
+
+        $product_quantity = Sku::select(DB::raw('SUM(quantity) as total_quantity'))
+            ->where('product_id',  $product->id)
+
+            ->get();
 
 
         return view(
@@ -271,7 +290,7 @@ $product_quantity = Sku::select(  DB::raw('SUM(quantity) as total_quantity'))
                 'sub_cate_name',
                 'cate_name',
                 'images',
-                 'product_quantity',
+                'product_quantity',
                 'totalQuantity',
                 'productComments',
                 'averageStars',
@@ -502,8 +521,7 @@ $product_quantity = Sku::select(  DB::raw('SUM(quantity) as total_quantity'))
     }
     public function about(Request $request)
     {
-        return view('frontend.pages.about' );
-
+        return view('frontend.pages.about');
     }
     // public function changeLanguage(Request $request)
     // {

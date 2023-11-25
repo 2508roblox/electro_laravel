@@ -7,9 +7,17 @@
                 <div class="flex-content-center">
                     <div class="font-size-13">
                         <ul class="list-inline mb-0">
-                            <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border"><a class="text-gray-90" title="30 days free return" href="#">{{ __('free_return') }} </a></li>
-                            <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border"><a class="text-gray-90" title="FREE SHIPPING  FOR OVER $40" href="#">{{ __('free_shipping') }} </a></li>
-                            <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border"><a class="text-gray-90" title="BEST WORLDWIDE DELIVERY" href="#">{{ __('best_delivery') }} </a></li>
+                            <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border"><a
+                                    class="text-gray-90" title="30 days free return"
+                                    href="#">{{ __('free_return') }} </a></li>
+                            <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border">
+                                <a class="text-gray-90" title="FREE SHIPPING  FOR OVER $40"
+                                    href="#">{{ __('free_shipping') }} </a>
+                            </li>
+                            <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border">
+                                <a class="text-gray-90" title="BEST WORLDWIDE DELIVERY"
+                                    href="#">{{ __('best_delivery') }} </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -24,11 +32,14 @@
                     <!-- Contact -->
                     <div class="d-none d-xl-block col-xl-5">
                         <ul class="list-inline mb-0">
-                            <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border mr-0">
-                                <a href="tel:+060800801858" class="u-header-topbar__nav-link"><i class="ec ec-phone mr-1"></i> +0989 999 999</a>
+                            <li
+                                class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border mr-0">
+                                <a href="tel:+060800801858" class="u-header-topbar__nav-link"><i
+                                        class="ec ec-phone mr-1"></i> +0989 999 999</a>
                             </li>
                             <li class="list-inline-item u-header-topbar__nav-item u-header-topbar__nav-item-no-border">
-                                <a href="mailto:info@electro.com" class="u-header-topbar__nav-link"><i class="ec ec-mail mr-1"></i> trangiangzxc@electro.com</a>
+                                <a href="mailto:info@electro.com" class="u-header-topbar__nav-link"><i
+                                        class="ec ec-mail mr-1"></i> trangiangzxc@electro.com</a>
                             </li>
                         </ul>
                     </div>
@@ -38,7 +49,13 @@
                         <!-- Nav -->
                         <nav class="navbar navbar-expand u-header__navbar py-0">
                             <!-- Fullscreen Toggle Button -->
-                            <button id="sidebarHeaderInvokerMenu" type="button" class="d-xl-none navbar-toggler d-block btn u-hamburger mr-3 mr-xl-0" aria-controls="sidebarHeader" aria-haspopup="true" aria-expanded="false" data-unfold-event="click" data-unfold-hide-on-scroll="false" data-unfold-target="#sidebarHeader1" data-unfold-type="css-animation" data-unfold-animation-in="fadeInLeft" data-unfold-animation-out="fadeOutLeft" data-unfold-duration="500">
+                            <button id="sidebarHeaderInvokerMenu" type="button"
+                                class="d-xl-none navbar-toggler d-block btn u-hamburger mr-3 mr-xl-0"
+                                aria-controls="sidebarHeader" aria-haspopup="true" aria-expanded="false"
+                                data-unfold-event="click" data-unfold-hide-on-scroll="false"
+                                data-unfold-target="#sidebarHeader1" data-unfold-type="css-animation"
+                                data-unfold-animation-in="fadeInLeft" data-unfold-animation-out="fadeOutLeft"
+                                data-unfold-duration="500">
                                 <span id="hamburgerTriggerMenu" class="u-hamburger__box">
                                     <span class="u-hamburger__inner"></span>
                                 </span>
@@ -46,10 +63,15 @@
                             <!-- End Fullscreen Toggle Button -->
 
                             <!-- Logo -->
-                            <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center mx-auto justify-content-center" href="{{route('home')}}" aria-label="Electro">
-                                <svg version="1.1" x="0px" y="0px" width="120px" height="42.52px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52" style="margin-bottom: 0;">
-                                    <ellipse class="ellipse-bg" fill-rule="evenodd" clip-rule="evenodd" fill="#FDD700" cx="170.05" cy="36.341" rx="5.32" ry="5.367"></ellipse>
-                                    <path fill-rule="evenodd" clip-rule="evenodd" fill="#333E48" d="M30.514,0.71c-0.034,0.003-0.066,0.008-0.056,0.056
+                            <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center mx-auto justify-content-center"
+                                href="{{ route('home') }}" aria-label="Electro">
+                                <svg version="1.1" x="0px" y="0px" width="120px" height="42.52px"
+                                    viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52"
+                                    style="margin-bottom: 0;">
+                                    <ellipse class="ellipse-bg" fill-rule="evenodd" clip-rule="evenodd" fill="#FDD700"
+                                        cx="170.05" cy="36.341" rx="5.32" ry="5.367"></ellipse>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" fill="#333E48"
+                                        d="M30.514,0.71c-0.034,0.003-0.066,0.008-0.056,0.056
                                             C30.263,0.995,29.876,1.181,29.79,1.5c-0.148,0.548,0,1.568,0,2.427v36.459c0.265,0.221,0.506,0.465,0.725,0.734h6.187
                                             c0.2-0.25,0.423-0.477,0.669-0.678V1.387C37.124,1.185,36.9,0.959,36.701,0.71H30.514z M117.517,12.731
                                             c-0.232-0.189-0.439-0.64-0.781-0.734c-0.754-0.209-2.039,0-3.121,0h-3.176V4.435c-0.232-0.189-0.439-0.639-0.781-0.733
@@ -91,26 +113,40 @@
                         </nav>
                         <!-- End Nav -->
                         <!-- ========== HEADER SIDEBAR ========== -->
-                        <aside id="sidebarHeader1" class="u-sidebar u-sidebar--left" aria-labelledby="sidebarHeaderInvokerMenu">
+                        <aside id="sidebarHeader1" class="u-sidebar u-sidebar--left"
+                            aria-labelledby="sidebarHeaderInvokerMenu">
                             <div class="u-sidebar__scroller">
                                 <div class="u-sidebar__container">
                                     <div class="u-header-sidebar__footer-offset pb-0">
                                         <!-- Toggle Button -->
                                         <div class="position-absolute top-0 right-0 z-index-2 pt-4 pr-7">
-                                            <button type="button" class="close ml-auto" aria-controls="sidebarHeader" aria-haspopup="true" aria-expanded="false" data-unfold-event="click" data-unfold-hide-on-scroll="false" data-unfold-target="#sidebarHeader1" data-unfold-type="css-animation" data-unfold-animation-in="fadeInLeft" data-unfold-animation-out="fadeOutLeft" data-unfold-duration="500">
-                                                <span aria-hidden="true"><i class="ec ec-close-remove text-gray-90 font-size-20"></i></span>
+                                            <button type="button" class="close ml-auto" aria-controls="sidebarHeader"
+                                                aria-haspopup="true" aria-expanded="false" data-unfold-event="click"
+                                                data-unfold-hide-on-scroll="false" data-unfold-target="#sidebarHeader1"
+                                                data-unfold-type="css-animation" data-unfold-animation-in="fadeInLeft"
+                                                data-unfold-animation-out="fadeOutLeft" data-unfold-duration="500">
+                                                <span aria-hidden="true"><i
+                                                        class="ec ec-close-remove text-gray-90 font-size-20"></i></span>
                                             </button>
                                         </div>
                                         <!-- End Toggle Button -->
 
                                         <!-- Content -->
                                         <div class="js-scrollbar u-sidebar__body">
-                                            <div id="headerSidebarContent" class="u-sidebar__content u-header-sidebar__content">
+                                            <div id="headerSidebarContent"
+                                                class="u-sidebar__content u-header-sidebar__content">
                                                 <!-- Logo -->
-                                                <a class="d-flex ml-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-vertical" href="{{route('home')}}" aria-label="Electro">
-                                                    <svg version="1.1" x="0px" y="0px" width="175.748px" height="42.52px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52" style="margin-bottom: 0;">
-                                                        <ellipse class="ellipse-bg" fill-rule="evenodd" clip-rule="evenodd" fill="#FDD700" cx="170.05" cy="36.341" rx="5.32" ry="5.367"></ellipse>
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" fill="#333E48" d="M30.514,0.71c-0.034,0.003-0.066,0.008-0.056,0.056
+                                                <a class="d-flex ml-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-vertical"
+                                                    href="{{ route('home') }}" aria-label="Electro">
+                                                    <svg version="1.1" x="0px" y="0px" width="175.748px"
+                                                        height="42.52px" viewBox="0 0 175.748 42.52"
+                                                        enable-background="new 0 0 175.748 42.52"
+                                                        style="margin-bottom: 0;">
+                                                        <ellipse class="ellipse-bg" fill-rule="evenodd"
+                                                            clip-rule="evenodd" fill="#FDD700" cx="170.05"
+                                                            cy="36.341" rx="5.32" ry="5.367"></ellipse>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" fill="#333E48"
+                                                            d="M30.514,0.71c-0.034,0.003-0.066,0.008-0.056,0.056
                                                                 C30.263,0.995,29.876,1.181,29.79,1.5c-0.148,0.548,0,1.568,0,2.427v36.459c0.265,0.221,0.506,0.465,0.725,0.734h6.187
                                                                 c0.2-0.25,0.423-0.477,0.669-0.678V1.387C37.124,1.185,36.9,0.959,36.701,0.71H30.514z M117.517,12.731
                                                                 c-0.232-0.189-0.439-0.64-0.781-0.734c-0.754-0.209-2.039,0-3.121,0h-3.176V4.435c-0.232-0.189-0.439-0.639-0.781-0.733
@@ -153,63 +189,91 @@
                                                 <!-- List -->
                                                 <ul id="headerSidebarList" class="u-header-collapse__nav">
                                                     <li class="u-has-submenu">
-                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{ route("home") }}" aria-expanded="false" aria-controls="headerSidebarHomeCollapse" data-target="">
-                                                             {{__('home')}}
+                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer"
+                                                            href="{{ route('home') }}" aria-expanded="false"
+                                                            aria-controls="headerSidebarHomeCollapse" data-target="">
+                                                            {{ __('home') }}
                                                         </a>
 
                                                     </li>
 
                                                     <li class="u-has-submenu">
-                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{ route("fe.shop") }}" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                             {{__('shop')}}
+                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer"
+                                                            href="{{ route('fe.shop') }}" data-target=""
+                                                            aria-expanded="false"
+                                                            aria-controls="headerSidebarPagesCollapse">
+                                                            {{ __('shop') }}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
-                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{ route("fe.blog") }}" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                             {{__('blog')}}
+                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer"
+                                                            href="{{ route('fe.blog') }}" data-target=""
+                                                            aria-expanded="false"
+                                                            aria-controls="headerSidebarPagesCollapse">
+                                                            {{ __('blog') }}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
-                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{route('admin.cart.list')}}"  data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                             {{__('cart')}}
+                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer"
+                                                            href="{{ route('admin.cart.list') }}" data-target=""
+                                                            aria-expanded="false"
+                                                            aria-controls="headerSidebarPagesCollapse">
+                                                            {{ __('cart') }}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
-                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{route('frontend.wishlist.list')}}" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                             {{__('wishlist')}}
+                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer"
+                                                            href="{{ route('frontend.wishlist.list') }}"
+                                                            data-target="" aria-expanded="false"
+                                                            aria-controls="headerSidebarPagesCollapse">
+                                                            {{ __('wishlist') }}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
-                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{route('frontend.order.list')}}" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                             {{__('order')}}
+                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer"
+                                                            href="{{ route('frontend.order.list') }}" data-target=""
+                                                            aria-expanded="false"
+                                                            aria-controls="headerSidebarPagesCollapse">
+                                                            {{ __('order') }}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
-                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{ route("frontend.myaccount.dashboard") }}" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                             {{__('profile')}}
+                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer"
+                                                            href="{{ route('frontend.myaccount.dashboard') }}"
+                                                            data-target="" aria-expanded="false"
+                                                            aria-controls="headerSidebarPagesCollapse">
+                                                            {{ __('profile') }}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
-                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="#" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                             {{__('features')}}
+                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer"
+                                                            href="#" data-target="" aria-expanded="false"
+                                                            aria-controls="headerSidebarPagesCollapse">
+                                                            {{ __('features') }}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
-                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer"  href="{{route('frontend.about')}}" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                             {{__('about_us')}}
+                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer"
+                                                            href="{{ route('frontend.about') }}" data-target=""
+                                                            aria-expanded="false"
+                                                            aria-controls="headerSidebarPagesCollapse">
+                                                            {{ __('about_us') }}
                                                         </a>
                                                     </li>
 
                                                     <li class="u-has-submenu">
-                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer" href="{{route('frontend.contact.view')}}" data-target="" aria-expanded="false" aria-controls="headerSidebarPagesCollapse">
-                                                            {{__('contact_us')}}
+                                                        <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer"
+                                                            href="{{ route('frontend.contact.view') }}"
+                                                            data-target="" aria-expanded="false"
+                                                            aria-controls="headerSidebarPagesCollapse">
+                                                            {{ __('contact_us') }}
                                                         </a>
                                                     </li>
 
@@ -228,19 +292,235 @@
                     <!-- End Logo -->
                     <!-- Search Bar -->
                     <div class="d-none d-xl-block col-xl-2gdot5">
-                        <form action="{{route('fe.search')}}" method="GET" class="js-focus-state max-width-244 ml-auto">
+                        <style>
+                            /* Dropdown Button */
+                            .dropbtn {
+                                background-color: #04AA6D;
+                                color: white;
+                                padding: 16px;
+                                font-size: 16px;
+                                border: none;
+                                cursor: pointer;
+                            }
+
+                            /* Dropdown button on hover & focus */
+                            .dropbtn:hover,
+                            .dropbtn:focus {
+                                background-color: #3e8e41;
+                            }
+
+                            /* The search field */
+                            #myInput {
+                                box-sizing: border-box;
+                                background-image: url('searchicon.png');
+                                background-position: 14px 12px;
+                                background-repeat: no-repeat;
+                                font-size: 16px;
+                                padding: 14px 20px 12px 45px;
+                                border: none;
+                                border-bottom: 1px solid #ddd;
+                            }
+
+                            /* The search field when it gets focus/clicked on */
+                            #myInput:focus {
+                                outline: 3px solid #ddd;
+                            }
+
+                            /* The container <div> - needed to position the dropdown content */
+                            .dropdown {
+                                position: relative;
+                                display: inline-block;
+                            }
+
+                            /* Dropdown Content (Hidden by Default) */
+                            .dropdown-content {
+                                display: none;
+                                position: absolute;
+                                background-color: #f6f6f6;
+                                min-width: 230px;
+                                border: 1px solid #ddd;
+                                z-index: 1;
+                            }
+
+                            /* Links inside the dropdown */
+                            .dropdown-content a {
+                                color: black;
+                                padding: 12px 16px;
+                                text-decoration: none;
+                                z-index: 999;
+                                display: block;
+                            }
+
+                            /* Change color of dropdown links on hover */
+                            .dropdown-content a:hover {
+                                background-color: #f1f1f1
+                            }
+
+                            /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+                            .show {
+                                display: block;
+                            }
+                        </style>
+                        <form action="{{ route('fe.search') }}" method="GET"
+                            class="js-focus-state max-width-244 ml-auto">
                             @csrf
                             <label class="sr-only" for="searchproduct">Search</label>
                             <div class="input-group border-bottom shadow-none placeholder-1 border-bottom-gray-18">
-                                <input type="text" class="form-control p-1 height-35 text-gray-90 shadow-none font-size-14 border-0 rounded-0 bg-transparent" name="text" id="searchproduct-item" placeholder="{{__('search_products')}}" aria-label="Search for products" aria-describedby="searchProduct1" required>
+                                <input type="text"
+                                    class="form-control p-1 height-35 text-gray-90 shadow-none font-size-14 border-0 rounded-0 bg-transparent"
+                                    name="text" id="myInput" onkeyup="filterFunction()"
+                                    onclick="showDropdown()" placeholder="{{ __('search_products') }}"
+                                    value="a" aria-label="Search for products" aria-describedby="searchProduct1"
+                                    required autocomplete="off">
+                                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+                                <script>
+                                    // Định nghĩa hàm chạy script
+                                    function runScript() {
+                                        // Lấy dữ liệu từ Local Storage
+                                        var products = localStorage.getItem('products');
+
+                                        if (products) {
+                                            // Chuyển đổi chuỗi JSON thành đối tượng JavaScript
+                                            products = JSON.parse(products);
+
+                                            // Lặp qua dữ liệu sản phẩm và tạo các thẻ <a>
+                                            $.each(products, function(index, product) {
+                                                var $a = $('<a>', {
+                                                    "data-product": product.name,
+                                                    "href": product.slug,
+                                                    "html": '<img  src="http://localhost:8000/storage/' + product.image_url +
+                                                        '" lazy style="width: 30px; z-index: 999; height: 30px;" alt="" width="20px" srcset="">' +
+                                                        product.name
+                                                });
+
+                                                $('#myDropdown').append($a);
+                                            });
+                                            var input, filter, ul, li, a, i, count;
+                                            input = document.getElementById("myInput");
+                                            filter = input.value.toUpperCase();
+                                            div = document.getElementById("myDropdown");
+                                            a = div.getElementsByTagName("a");
+                                            count = 0;
+                                            for (i = 0; i < a.length; i++) {
+                                                var product = a[i].getAttribute("data-product");
+                                                if (product.toUpperCase().indexOf(filter) > -1) {
+                                                    if (count < 5) { // Chỉ hiển thị khi chưa đạt đến 5 thẻ
+                                                        a[i].style.display = "";
+                                                        div.classList.add("show");
+                                                        count++;
+                                                        a[i].style.display = "none";
+                                                    } else {
+                                                        a[i].style.display = "none"; // Ẩn các thẻ sau khi đã đạt đến 5 thẻ
+                                                    }
+                                                } else {
+                                                    a[i].style.display = "none";
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    // Gọi hàm runScript khi trang web đã được tải hoàn toàn
+                                    window.addEventListener("load", runScript);
+                                </script>
+
+                                <div style="z-index: 99; margin-top: 50px" id="myDropdown" class="dropdown-content">
+
+                                    {{-- <a data-product="Anker 7-in-1 USB C Hub Adapter"
+                                        href="http://localhost:8000/anker-7-in-1-usb-c-hub-adapter">
+                                        <img src="http://localhost:8000/storage/images/1ovpwpx4Q3tJC2tpIq2ZMUTAlaTJAfwjILZqY3z8.png"
+                                            style="width: 30px; height: 30px;" alt="" width="20px"
+                                            srcset=""> Anker 7-in-1 USB C Hub Adapter</a> --}}
+
+
+                                </div>
+
+                                <script>
+                                    function showDropdown() {
+                                        var div = document.getElementById("myDropdown");
+                                        div.classList.add("show");
+                                    }
+
+                                    function filterFunction() {
+                                        var input, filter, ul, li, a, i, count;
+                                        input = document.getElementById("myInput");
+                                        filter = input.value.toUpperCase();
+                                        div = document.getElementById("myDropdown");
+                                        a = div.getElementsByTagName("a");
+                                        count = 0;
+                                        for (i = 0; i < a.length; i++) {
+                                            var product = a[i].getAttribute("data-product");
+                                            if (product.toUpperCase().indexOf(filter) > -1) {
+                                                if (count < 5) { // Chỉ hiển thị khi chưa đạt đến 5 thẻ
+                                                    a[i].style.display = "";
+                                                    div.classList.add("show");
+                                                    count++;
+                                                } else {
+                                                    a[i].style.display = "none"; // Ẩn các thẻ sau khi đã đạt đến 5 thẻ
+                                                }
+                                            } else {
+                                                a[i].style.display = "none";
+                                            }
+                                        }
+                                    }
+
+                                    // Hide dropdown when clicking outside the input
+                                    window.addEventListener("click", function(event) {
+                                        var input = document.getElementById("myInput");
+                                        var div = document.getElementById("myDropdown");
+                                        if (event.target !== input && event.target !== div) {
+                                            div.classList.remove("show");
+                                        }
+                                    });
+                                </script>
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary height-35 p-1 rounded-right-pill" type="button" id="searchProduct1">
+                                    <button class="btn btn-primary height-35 p-1 rounded-right-pill" type="submit"
+                                        id="searchProduct1">
                                         <span class="ec ec-search font-size-20"></span>
                                     </button>
                                 </div>
                             </div>
                         </form>
+
+                        <script>
+                            // duyệt tất cả tấm ảnh cần lazy-load
+                            const lazyImages = document.querySelectorAll('[lazy]');
+
+                            // chờ các tấm ảnh này xuất hiện trên màn hình
+                            const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+                                entries.forEach((entry) => {
+                                    // tấm ảnh này đã xuất hiện trên màn hình
+                                    if (entry.isIntersecting) {
+                                        const lazyImage = entry.target;
+                                        const src = lazyImage.dataset.src;
+
+                                        lazyImage.tagName.toLowerCase() === 'img'
+                                            // <img>: copy data-src sang src
+                                            ?
+                                            lazyImage.src = src
+
+                                            // <div>: copy data-src sang background-image
+                                            :
+                                            lazyImage.style.backgroundImage = "url(\'" + src + "\')";
+
+                                        // copy xong rồi thì bỏ attribute lazy đi
+                                        lazyImage.removeAttribute('lazy');
+
+                                        // job done, không cần observe nó nữa
+                                        observer.unobserve(lazyImage);
+                                    }
+                                });
+                            });
+
+                            // Observe từng tấm ảnh và chờ nó xuất hiện trên màn hình
+                            lazyImages.forEach((lazyImage) => {
+                                lazyImageObserver.observe(lazyImage);
+                            });
+                        </script>
+
                     </div>
+
+
                     <!-- End Search Bar -->
                     <!-- Header Icons -->
                     <div class="col text-right pl-0 pl-xl-3 position-static col-xl-2gdot5">
@@ -248,43 +528,72 @@
                             <ul class="d-flex list-unstyled mb-0 align-items-center">
                                 <!-- Search -->
                                 <li class="col d-xl-none px-2 px-sm-3 position-static">
-                                    <a id="searchClassicInvoker" class="font-size-22 text-gray-90 text-lh-1 btn-text-secondary" href="javascript:;" role="button" data-toggle="tooltip" data-placement="top" title="Search" aria-controls="searchClassic" aria-haspopup="true" aria-expanded="false" data-unfold-target="#searchClassic" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-delay="300" data-unfold-hide-on-scroll="true" data-unfold-animation-in="slideInUp" data-unfold-animation-out="fadeOut">
+                                    <a id="searchClassicInvoker"
+                                        class="font-size-22 text-gray-90 text-lh-1 btn-text-secondary"
+                                        href="javascript:;" role="button" data-toggle="tooltip"
+                                        data-placement="top" title="Search" aria-controls="searchClassic"
+                                        aria-haspopup="true" aria-expanded="false"
+                                        data-unfold-target="#searchClassic" data-unfold-type="css-animation"
+                                        data-unfold-duration="300" data-unfold-delay="300"
+                                        data-unfold-hide-on-scroll="true" data-unfold-animation-in="slideInUp"
+                                        data-unfold-animation-out="fadeOut">
                                         <span class="ec ec-search"></span>
                                     </a>
 
                                     <!-- Input -->
-                                    <div id="searchClassic" class="dropdown-menu dropdown-unfold dropdown-menu-right left-0 mx-2" aria-labelledby="searchClassicInvoker">
+                                    <div id="searchClassic"
+                                        class="dropdown-menu dropdown-unfold dropdown-menu-right left-0 mx-2"
+                                        aria-labelledby="searchClassicInvoker">
                                         <form class="js-focus-state input-group px-3">
                                             <input class="form-control" type="search" placeholder="Search Product">
                                             <div class="input-group-append">
-                                                <button class="btn btn-primary px-3" type="button"><i class="font-size-18 ec ec-search"></i></button>
+                                                <button class="btn btn-primary px-3" type="button"><i
+                                                        class="font-size-18 ec ec-search"></i></button>
                                             </div>
                                         </form>
                                     </div>
                                     <!-- End Input -->
                                 </li>
                                 <!-- End Search -->
-                                <li class="col d-none d-xl-block"><a href="{{route('frontend.order.list')}}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Hóa đơn">
-                                        <img style="height: 26px; width: 26px" src="{{asset('client/img/order-icon.png')}}" alt="">
+                                <li class="col d-none d-xl-block"><a href="{{ route('frontend.order.list') }}"
+                                        class="text-gray-90" data-toggle="tooltip" data-placement="top"
+                                        title="Hóa đơn">
+                                        <img style="height: 26px; width: 26px"
+                                            src="{{ asset('client/img/order-icon.png') }}" alt="">
                                     </a></li>
-                                <li class="col d-none d-xl-block"><a href="{{route('frontend.wishlist.list')}}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Yêu thích"><i class="font-size-22 ec ec-favorites"></i></a></li>
-                                <li class="col d-xl-none px-2 px-sm-3"><a href="{{ route("frontend.myaccount.dashboard") }}" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="My Account"><i class="font-size-22 ec ec-user"></i></a></li>
+                                <li class="col d-none d-xl-block"><a href="{{ route('frontend.wishlist.list') }}"
+                                        class="text-gray-90" data-toggle="tooltip" data-placement="top"
+                                        title="Yêu thích"><i class="font-size-22 ec ec-favorites"></i></a></li>
+                                <li class="col d-xl-none px-2 px-sm-3"><a
+                                        href="{{ route('frontend.myaccount.dashboard') }}" class="text-gray-90"
+                                        data-toggle="tooltip" data-placement="top" title="My Account"><i
+                                            class="font-size-22 ec ec-user"></i></a></li>
                                 <li class="col pr-xl-0 px-2 px-sm-3">
-                                    <a href="{{route('admin.cart.list')}}" class="text-gray-90 position-relative d-flex " data-toggle="tooltip" data-placement="top" title="Giỏ hàng">
+                                    <a href="{{ route('admin.cart.list') }}"
+                                        class="text-gray-90 position-relative d-flex " data-toggle="tooltip"
+                                        data-placement="top" title="Giỏ hàng">
                                         <i class="font-size-22 ec ec-shopping-bag"></i>
                                     </a>
                                 </li>
                                 <li class="col pr-xl-0 px-2 px-sm-3">
-                                    <a href="{{route('frontend.wallet')}}" class="text-gray-90 position-relative d-flex " data-toggle="tooltip" data-placement="top" title="Ví ảo">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Capa_1" width="20px" height="20px" viewBox="0 0 969.486 969.486" xml:space="preserve">
+                                    <a href="{{ route('frontend.wallet') }}"
+                                        class="text-gray-90 position-relative d-flex " data-toggle="tooltip"
+                                        data-placement="top" title="Ví ảo">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1"
+                                            id="Capa_1" width="20px" height="20px"
+                                            viewBox="0 0 969.486 969.486" xml:space="preserve">
                                             <g>
                                                 <g>
-                                                    <path d="M806.582,235.309L766.137,87.125l-137.434,37.51L571.451,9.072L114.798,235.309H0v725.105h907.137V764.973h62.35v-337.53    h-62.352V235.309H806.582z M718.441,170.63l17.654,64.68h-52.561h-75.887h-126.19l111.159-30.339l66.848-18.245L718.441,170.63z     M839.135,892.414H68V522.062v-129.13v-10.233v-69.787v-9.602h35.181h27.538h101.592h409.025h75.889h37.43h35.242h35.244h13.994    v51.272v72.86h-15.357h-35.244h-87.85H547.508h-55.217v27.356v75.888v8.758v35.244v35.244v155.039h346.846v127.441H839.135z     M901.486,696.973h-28.352h-34H560.291V591.375v-35.244v-35.244v-23.889v-1.555h3.139h90.086h129.129h56.492h34h4.445h23.904    V696.973z M540.707,100.191l21.15,42.688l-238.955,65.218L540.707,100.191z" />
-                                                    <polygon points="614.146,564.57 614.146,576.676 614.146,631.152 680.73,631.152 680.73,564.57 658.498,564.57   " />
+                                                    <path
+                                                        d="M806.582,235.309L766.137,87.125l-137.434,37.51L571.451,9.072L114.798,235.309H0v725.105h907.137V764.973h62.35v-337.53    h-62.352V235.309H806.582z M718.441,170.63l17.654,64.68h-52.561h-75.887h-126.19l111.159-30.339l66.848-18.245L718.441,170.63z     M839.135,892.414H68V522.062v-129.13v-10.233v-69.787v-9.602h35.181h27.538h101.592h409.025h75.889h37.43h35.242h35.244h13.994    v51.272v72.86h-15.357h-35.244h-87.85H547.508h-55.217v27.356v75.888v8.758v35.244v35.244v155.039h346.846v127.441H839.135z     M901.486,696.973h-28.352h-34H560.291V591.375v-35.244v-35.244v-23.889v-1.555h3.139h90.086h129.129h56.492h34h4.445h23.904    V696.973z M540.707,100.191l21.15,42.688l-238.955,65.218L540.707,100.191z" />
+                                                    <polygon
+                                                        points="614.146,564.57 614.146,576.676 614.146,631.152 680.73,631.152 680.73,564.57 658.498,564.57   " />
                                                 </g>
                                             </g>
                                         </svg>
-                                        <span class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">${{Session::get('wallet') ?  Session::get('wallet')  : '0' }}</span>
+                                        <span
+                                            class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">${{ Session::get('wallet') ? Session::get('wallet') : '0' }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -305,47 +614,68 @@
                     <div id="navBar" class="collapse navbar-collapse u-header__navbar-collapse">
                         <ul class="navbar-nav u-header__navbar-nav justify-content-center">
                             <!-- Home -->
-                            <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="HomeMegaMenu" class="nav-link u-header__nav-link  " href="{{route('home')}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="HomeSubMenu">{{__('home')}}</a>
+                            <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover"
+                                data-animation-in="slideInUp" data-animation-out="fadeOut">
+                                <a id="HomeMegaMenu" class="nav-link u-header__nav-link  "
+                                    href="{{ route('home') }}" aria-haspopup="true" aria-expanded="false"
+                                    aria-labelledby="HomeSubMenu">{{ __('home') }}</a>
                             </li>
                             <!-- End Home -->
                             <!-- Pages -->
-                            <li class="nav-item hs-has-mega-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut" data-position="left">
-                                <a id="homeMegaMenu" class="nav-link u-header__nav-link  " href="{{route('fe.shop')}}" aria-haspopup="true" aria-expanded="false">{{__('shop')}}</a>
+                            <li class="nav-item hs-has-mega-menu u-header__nav-item" data-event="hover"
+                                data-animation-in="slideInUp" data-animation-out="fadeOut" data-position="left">
+                                <a id="homeMegaMenu" class="nav-link u-header__nav-link  "
+                                    href="{{ route('fe.shop') }}" aria-haspopup="true"
+                                    aria-expanded="false">{{ __('shop') }}</a>
                             </li>
                             <!-- End Pages -->
 
                             <!-- Blog -->
-                            <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{route('fe.blog')}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">{{__('blog')}}</a>
+                            <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover"
+                                data-animation-in="slideInUp" data-animation-out="fadeOut">
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  "
+                                    href="{{ route('fe.blog') }}" aria-haspopup="true" aria-expanded="false"
+                                    aria-labelledby="blogSubMenu">{{ __('blog') }}</a>
 
                                 <!-- Blog - Submenu -->
 
                                 <!-- End Submenu -->
                             </li>
-                            <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{route('admin.cart.list')}}"  aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">{{__('cart')}}</a>
+                            <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover"
+                                data-animation-in="slideInUp" data-animation-out="fadeOut">
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  "
+                                    href="{{ route('admin.cart.list') }}" aria-haspopup="true" aria-expanded="false"
+                                    aria-labelledby="blogSubMenu">{{ __('cart') }}</a>
 
                                 <!-- Blog - Submenu -->
 
                                 <!-- End Submenu -->
                             </li>
-                            <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{route('frontend.wishlist.list')}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">{{__('wishlist')}}</a>
+                            <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover"
+                                data-animation-in="slideInUp" data-animation-out="fadeOut">
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  "
+                                    href="{{ route('frontend.wishlist.list') }}" aria-haspopup="true"
+                                    aria-expanded="false" aria-labelledby="blogSubMenu">{{ __('wishlist') }}</a>
 
                                 <!-- Blog - Submenu -->
 
                                 <!-- End Submenu -->
                             </li>
-                            <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{route('frontend.order.list')}}"  aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">{{__('order')}}</a>
+                            <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover"
+                                data-animation-in="slideInUp" data-animation-out="fadeOut">
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  "
+                                    href="{{ route('frontend.order.list') }}" aria-haspopup="true"
+                                    aria-expanded="false" aria-labelledby="blogSubMenu">{{ __('order') }}</a>
 
                                 <!-- Blog - Submenu -->
 
                                 <!-- End Submenu -->
                             </li>
-                            <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp" data-animation-out="fadeOut">
-                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  " href="{{ route("frontend.myaccount.dashboard") }}" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">{{__('profile')}}</a>
+                            <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover"
+                                data-animation-in="slideInUp" data-animation-out="fadeOut">
+                                <a id="blogMegaMenu" class="nav-link u-header__nav-link  "
+                                    href="{{ route('frontend.myaccount.dashboard') }}" aria-haspopup="true"
+                                    aria-expanded="false" aria-labelledby="blogSubMenu">{{ __('profile') }}</a>
 
                                 <!-- Blog - Submenu -->
 
@@ -355,19 +685,23 @@
 
                             <!-- Features -->
                             <li class="nav-item u-header__nav-item">
-                                <a class="nav-link u-header__nav-link" href="#" aria-haspopup="true" aria-expanded="false" aria-labelledby="featuresSubMenu">{{__('features')}}</a>
+                                <a class="nav-link u-header__nav-link" href="#" aria-haspopup="true"
+                                    aria-expanded="false" aria-labelledby="featuresSubMenu">{{ __('features') }}</a>
                             </li>
                             <!-- End Features -->
 
                             <!-- About Us -->
                             <li class="nav-item u-header__nav-item">
-                                <a class="nav-link u-header__nav-link" href="{{route('frontend.about')}}" aria-haspopup="true" aria-expanded="false" aria-labelledby="AboutUsSubMenu">{{__('about_us')}}</a>
+                                <a class="nav-link u-header__nav-link" href="{{ route('frontend.about') }}"
+                                    aria-haspopup="true" aria-expanded="false"
+                                    aria-labelledby="AboutUsSubMenu">{{ __('about_us') }}</a>
                             </li>
                             <!-- End About Us -->
 
                             <!-- Contact Us -->
                             <li class="nav-item u-header__nav-item">
-                                <a class="nav-link u-header__nav-link" href="{{route('frontend.contact.view')}}" aria-haspopup="true" aria-expanded="false">{{__('contact_us')}}</a>
+                                <a class="nav-link u-header__nav-link" href="{{ route('frontend.contact.view') }}"
+                                    aria-haspopup="true" aria-expanded="false">{{ __('contact_us') }}</a>
                             </li>
                             <!-- End Contact Us -->
                         </ul>
