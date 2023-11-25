@@ -3,6 +3,34 @@
 @section('content')
     @include('inc/_header')
     <main id="content" role="main">
+        @if (session('review'))
+            <script>
+                function showAlert() {
+
+                    Swal.fire({
+                        title: 'Thông báo',
+                        text: 'Thêm bình luận thành công!',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+                }
+                showAlert()
+            </script>
+        @endif
+        @if (session('errors'))
+            <script>
+                function showAlert() {
+
+                    Swal.fire({
+                        title: 'Thông báo',
+                        text: 'Thêm bình luận thất bại!',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+                showAlert()
+            </script>
+        @endif
         <!-- breadcrumb -->
         <div class="bg-gray-13 bg-md-transparent">
             <div class="container">
@@ -125,7 +153,11 @@
                                             @if ($product_quantity)
                                                 <span
                                                     class="text-green font-weight-bold">{{ $product_quantity[0]->total_quantity }}
+<<<<<<< HEAD
                                                     tồn kho</span>
+=======
+                                                    in stock</span>
+>>>>>>> hoang_new
                                             @else
                                                 <span class="text-red font-weight-bold">Out of Stock</span>
                                             @endif
@@ -145,6 +177,7 @@
                                             class="ec ec-favorites mr-1 font-size-15"></i> Yêu thích</p>
 
                                 </form>
+
                                 <form action="{{ route('admin.wishlist.store') }}" method="POST">
                                     @csrf
                                     <p style="cursor: pointer" class="text-gray-6 font-size-13 ml-2 mb-0"><i
@@ -423,6 +456,9 @@
                                     $(document).ready(function() {
                                         $('#addToCartBtn').on('click', function(e) {
                                             e.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+                                            var originalText = $(this).text(); // Lưu trữ nội dung 
+                                            $(this).attr('disabled', true).text('Loading...');
+                                            $(this).css('backgroundColor', '#333e48');
                                             // var id_quantity = $('#colorSelector').val();
                                             // var splitValues = id_quantity.split(":");
                                             // var color_id = splitValues[0]; // id của bảng productColor
@@ -445,6 +481,12 @@
                                                         "quantity": quantity
                                                     },
                                                     success: function(response) {
+                                                        setTimeout(function() {
+                                                            // Khôi phục nội dung ban đầu, trạng thái và màu nền của thẻ <a>
+                                                            $('#addToCartBtn').attr('disabled', false).text(
+                                                                originalText).css('backgroundColor', '');
+                                                        }, 2000);
+
                                                         function showAlert() {
 
                                                             Swal.fire({
@@ -459,6 +501,11 @@
                                                     },
                                                     error: function(xhr) {
 
+                                                        setTimeout(function() {
+                                                            // Khôi phục nội dung ban đầu, trạng thái và màu nền của thẻ <a>
+                                                            $('#addToCartBtn').attr('disabled', false).text(
+                                                                originalText).css('backgroundColor', '');
+                                                        }, 2000);
 
                                                         function showAlert() {
 
@@ -475,6 +522,12 @@
                                                     }
                                                 });
                                             } else {
+                                                setTimeout(function() {
+                                                    // Khôi phục nội dung ban đầu, trạng thái và màu nền của thẻ <a>
+                                                    $('#addToCartBtn').attr('disabled', false).text(originalText).css(
+                                                        'backgroundColor', '');
+                                                }, 2000);
+
                                                 function showAlert() {
 
                                                     Swal.fire({
@@ -1059,6 +1112,7 @@
                                     </ul>
                                     <!-- End Ratings -->
                                 </div>
+
                                 <div class="col-md-6">
                                     <h3 class="font-size-18 mb-5">Add a review</h3>
                                     <!-- Form -->
@@ -1148,6 +1202,7 @@
                                             </div>
                                         </div>
                                     </form>
+
                                     <!-- End Form -->
                                 </div>
                             </div>
