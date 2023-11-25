@@ -161,6 +161,7 @@
 
 
                                     </div>
+
                                 </div>
                             </div>
                             <div class="flex-horizontal-center flex-wrap mb-4">
@@ -174,13 +175,12 @@
 
                                 </form>
 
-                                <form action="{{ route('admin.wishlist.store') }}" method="POST">
-                                    @csrf
-                                    <p style="cursor: pointer" class="text-gray-6 font-size-13 ml-2 mb-0"><i
-                                            class="ec ec-compare mr-1 font-size-15"></i> Compare</p>
+
+                                    <a href="{{route('admin.cart.list')}}" class="text-gray-6 font-size-13"><i
+                                        class="ec ec-compare mr-1 font-size-15"></i> Xem giỏ hàng</a>
 
 
-                                </form>
+
                                 <script src="{{ asset('client/vendor/jquery/dist/jquery.min.js') }}"></script>
                                 <script>
                                     $(document).ready(function() {
@@ -270,6 +270,7 @@
 
                                                 variantInputs.forEach(input => {
                                                     input.addEventListener('change', function() {
+
                                                         const selectedValue = this.value;
 
                                                         if (this.checked && !selectedValues.includes(selectedValue)) {
@@ -283,6 +284,8 @@
                                                             return Array.from(variantInputs).some(input => input.value ===
                                                                 value && input.checked);
                                                         });
+                                                        var quantityLoader = document.getElementById("quantity_loader");
+                                                    quantityLoader.style.display = "block";
 
                                                         console.log('Các giá trị đã chọn:', selectedValues);
                                                         $.ajax({
@@ -294,6 +297,8 @@
                                                                 "data": selectedValues
                                                             },
                                                             success: function(response) {
+                                                                var quantityLoader = document.getElementById("quantity_loader");
+                                                    quantityLoader.style.display = "none";
                                                                 console.log(response);
                                                                 var data = response;
 
@@ -308,8 +313,10 @@
                                                                     "promotionPrice");
                                                                 promotionPriceElement.innerText = data.promotion_price ?
                                                                     "$" + data.promotion_price + ".00" : "";
+                                                                    // set max quantity
                                                                 var variantQuantityElement = document.getElementById(
                                                                     "variantQuantity");
+                                                                    variantQuantityElement.value = data.quantity;
                                                                 var variantQuantity_text = document.getElementById(
                                                                     "variantQuantity_text");
                                                                     // discount
@@ -332,7 +339,8 @@
                                                             },
                                                             error: function(xhr) {
                                                                 // Xử lý lỗi nếu có
-
+var quantityLoader = document.getElementById("quantity_loader");
+                                                    quantityLoader.style.display = "none";
                                                             }
                                                         });
                                                     });
@@ -346,8 +354,10 @@
                                 <input type="hidden" value="0" id="sku_id_input">
                                 <span id="sku_id">Chọn 1 biến thể</span>
                             </p>
-                            <div class="md-3 text-gray-9 font-size-14">Tình trạng:
+                            <div class="md-3 text-gray-9 font-size-14 d-flex align-middle gap-2" style="gap: 3px" >Tình trạng:
+                                <div class="spinner-border text-green" id="quantity_loader" style="width: 10px; height: 10px;display: none  " role="status">
 
+                                </div>
                                 <span class="text-green font-weight-bold" id="variantQuantity_text">0 </span>
                                 <span class="text-green font-weight-bold"> tồn kho</span>
 
@@ -356,6 +366,9 @@
 
                             <div class="mb-4">
                                 <div class="d-flex align-items-baseline">
+                                    <div class="spinner-border text-green" id="quantity_loader" style="width: 10px; height: 10px;display: none  " role="status">
+
+                                    </div>
                                     <ins id="promotionPrice"
                                         class="font-size-36 text-decoration-none text-warning">${{ $product->promotion_price }}.00</ins>
 
@@ -1272,8 +1285,8 @@
                                 </div>
                                 <div class="product-item__footer">
                                     <div class="border-top pt-2 flex-center-between flex-wrap">
-                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
+                                        <a href="{{route('admin.cart.list')}}" class="text-gray-6 font-size-13"><i
+                                            class="ec ec-compare mr-1 font-size-15"></i> Xem giỏ hàng</a>
                                         <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
                                                 class="ec ec-favorites mr-1 font-size-15"></i>Yêu thích</a>
                                     </div>
@@ -1310,8 +1323,8 @@
                                 </div>
                                 <div class="product-item__footer">
                                     <div class="border-top pt-2 flex-center-between flex-wrap">
-                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
+                                        <a href="{{route('admin.cart.list')}}" class="text-gray-6 font-size-13"><i
+                                                class="ec ec-compare mr-1 font-size-15"></i> Xem giỏ hàng</a>
                                         <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
                                                 class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
                                     </div>
@@ -1345,8 +1358,8 @@
                                 </div>
                                 <div class="product-item__footer">
                                     <div class="border-top pt-2 flex-center-between flex-wrap">
-                                        <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i
-                                                class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
+                                        <a href="{{route('admin.cart.list')}}" class="text-gray-6 font-size-13"><i
+                                            class="ec ec-compare mr-1 font-size-15"></i> Xem giỏ hàng</a>
                                         <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i
                                                 class="ec ec-favorites mr-1 font-size-15"></i> Yêu thích</a>
                                     </div>

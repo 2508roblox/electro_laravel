@@ -394,7 +394,7 @@ Route::controller(CartController::class)->group(function () {
 });
 // Route::controller(CartController::class)->group(function () {
 //     Route::get('/cart', 'index')->name('admin.cart.list');
-//     Route::post('/cart/add', 'store')->name('admin.wishlist.store');
+//     Route::post('/cart/add', 'store')->name('admin.wishlist.store');F
 //     Route::put('/cart/edit', 'update')->name('admin.cart.update');
 //     Route::get('/cart/{id}', 'destroy')->name('admin.cart.delete');
 // });

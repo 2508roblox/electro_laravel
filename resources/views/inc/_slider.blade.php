@@ -162,6 +162,11 @@
 
                                                             - {{ round((($product->price - $product->promotion_price) / $product->price) * 100) }}%
                                                             </div>
+                                                            @else
+                                                            <div class="" style="color: white; font-weight: 700;clip-path: polygon(0 0, 100% 0%, 85% 100%, 0% 100%); position: absolute; bottom: 0; left: -1rem; z-index: 100; width: 140px ; height: 20px; background: red">
+
+                                                               Hết hàng
+                                                                </div>
                                                            @endif
                                                         </a>
                                                 </div>
