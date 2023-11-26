@@ -112,6 +112,9 @@ Route::group(['prefix' => 'my-account'], function () {
     Route::get('/', [MyAccountController::class, 'index'])
         ->name('frontend.myaccount.dashboard')
         ->middleware(['auth']);
+    Route::get('/user-comments', [MyAccountController::class, 'userComments'])
+        ->name('frontend.myaccount.userComments')
+        ->middleware(['auth']);
     Route::controller(MyAccountController::class)->group(function () {
         Route::get('/order', 'order')->name('frontend.myaccount.order');
         Route::get('/address', 'address')->name('frontend.myaccount.address');

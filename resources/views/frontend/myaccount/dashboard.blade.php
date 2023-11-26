@@ -17,7 +17,7 @@
 
     main {
         min-width: 320px;
-        max-width: 800px;
+        max-width: 1200px;
         padding: 50px;
         margin: 0 auto;
         background: #fff;
@@ -54,7 +54,7 @@
     }
 
     label[for*='2']:before {
-        content: '\f4c0';
+        content: '\f075';
     }
 
     label[for*='3']:before {
@@ -114,7 +114,7 @@
     <label for="tab1">Dashboard</label>
 
     <input id="tab2" type="radio" name="tabs">
-    <label for="tab2">Orders</label>
+    <label for="tab2">Comments</label>
 
     <input id="tab3" type="radio" name="tabs">
     <label for="tab3">Addresses</label>
@@ -168,40 +168,51 @@
     </section>
 
     <section id="content2">
-        @if($loginHistory)
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">IP Address</th>
+                    <th scope="col">IP</th>
                     <th scope="col">Time</th>
-                    <th scope="col">Browser</th>
-                    <th scope="col">Not me?</th>
+                    <th scope="col">Comment</th>
+                    <th scope="col">Post</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Accept</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
                 @php
                 $counter = 1;
                 @endphp
-                @foreach ($loginHistory->sortByDesc('created_at') as $attribute)
+
+                @forelse($userComments as $comment)
                 <tr>
                     <td>{{ $counter }}</td>
-                    <td>{{ $attribute['ip_address'] }}</td>
-                    <td>{{ $attribute['created_at'] }}</td>
-                    <td>-</td>
-                    <td><a href="{{ route('frontend.forgot.view') }}">Reset Password</a></td>
+                    <td>{{ $comment->ip_address }}</td>
+                    <td>{{ $comment->created_at->format('d-m-Y H:i:s') }}</td>
+                    <td>{{ Illuminate\Support\Str::limit($comment->content, 50) }}</td>
+                    <td>
+                        <a type="button" class="btn btn-secondary" href="{{ route('fe.post', ['id' => $comment->blog_id]) }}" style="font-size: 12px; padding: 8px">Go to</a>
+                    </td>
+                    <td>{{ $comment->status }}</td>
+                    <td>{{ $comment->is_accept }}</td>
+                    <td>
+                        <a type="button" class="btn btn-secondary" href="#" style="font-size: 12px; padding: 8px">Hide</a>
+                        <a type="button" class="btn btn-secondary" href="#" style="font-size: 12px; padding: 8px">Show</a>
+                        <a type="button" class="btn btn-danger" href="#" style="font-size: 12px; padding: 8px">Delete</a>
+                    </td>
                 </tr>
                 @php
                 $counter++;
                 @endphp
-                @endforeach
+                @empty
+                <tr>
+                    <td colspan="8">No comments found.</td>
+                </tr>
+                @endforelse
             </tbody>
         </table>
-        @elseif($condition)
-        <p>
-            No order has been made yet.
-        </p>
-        @endif
     </section>
 
     <section id="content3">
