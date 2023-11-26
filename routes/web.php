@@ -210,6 +210,10 @@ Route::group(['prefix' => 'admin'], function () {
     });
     Route::controller(BlogAdminController::class)->group(function () {
         Route::get('/blog', 'index')->name('admin.blog');
+        Route::get('/blog/comment', 'showComment')->name('admin.blog.comment');
+        Route::get('/blog/comment/edit/{id}', 'editComment')->name('admin.blog.comment.edit');
+        Route::put('/blog/comment/edit/{id}', 'updateComment')->name('admin.blog.comment.update');
+        Route::delete('/blog/comment/{id}', 'destroy')->name('admin.blog.comment.delete');
         Route::get('/blog/create', 'create')->name('admin.blog.create');
         // Route::post('/blog/create', 'store')->name('admin.blog');
         // Route::get('/blog/{id}/edit', 'edit')->name('admin.blog');

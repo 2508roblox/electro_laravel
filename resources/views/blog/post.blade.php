@@ -38,13 +38,12 @@
 
                     <div class="mb-10">
                         <div class="border-bottom border-color-1 mb-10">
-                            <h4 class="section-title mb-0 pb-3 font-size-25">{{ $blog->comments_count }} Comments</h4>
+                            <h4 class="section-title mb-0 pb-3 font-size-25">{{ $blog->comments->where('is_accept', 'accepted')->where('status', 'show')->count() }} Comments</h4>
                         </div>
                         <ol class="nav">
                             @if($blog->comments)
                             @foreach($blog->comments->where('is_accept', 'accepted')->where('status', 'show')->sortByDesc('created_at') as $comment)
                             <li class="w-100 border-bottom pb-6 mb-6 border-color-1">
-                                <!-- Review -->
                                 <div class="d-block d-md-flex media br5left-pd10">
                                     <div class="media-body">
                                         <div class="d-flex">
@@ -62,7 +61,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End Review -->
                             </li>
                             @endforeach
                             @endif

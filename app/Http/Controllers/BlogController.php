@@ -125,4 +125,11 @@ class BlogController extends Controller
 
         return redirect()->back();
     }
+    
+    public function destroy($id)
+    {
+        $comment = BlogComment::find($id);
+        $comment->delete();
+        return redirect('admin/blog/comment');
+    }
 }

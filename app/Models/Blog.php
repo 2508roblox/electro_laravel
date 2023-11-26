@@ -28,10 +28,6 @@ class Blog extends Model
 
   public function getCommentsCountAttribute()
   {
-    $count = BlogComment::where('blog_id', $this->id)
-      ->where('status', 'published') // Thêm điều kiện status là "published"
-      ->count();
-    // dd($count);
-    return $count;
+    return $this->comments->count();
   }
 }
