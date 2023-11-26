@@ -13,8 +13,8 @@ class BlogController extends Controller
 {
     public function index()
     {
-
-        $blogs = Blog::all();
+        $blogs = Blog::orderBy('id', 'DESC')->get();
+        // $blogs = Blog::all();
         return view('blog.index', compact('blogs'));
     }
 

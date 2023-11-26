@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +24,7 @@ class BlogAdminController extends Controller
         $comments = BlogComment::orderBy('created_at', 'DESC')->get();
         return view('admin.blog.comment', compact('comments'));
     }
-    
+
     public function editComment($id)
     {
         $comment = BlogComment::find($id);
@@ -53,4 +56,47 @@ class BlogAdminController extends Controller
 
         return redirect()->back()->with('success', 'Comment updated successfully.');
     }
+
+    public function create()
+    {
+        return view('admin.blog.create');
+    }
+
+    public function getAndStorePost()
+    {
+        $newsApiKey = env('NEWSAPI');
+        $sourceNewsApiKey = env('SOURCE_NEWSAPI');
+
+        // Gửi yêu cầu đến News API
+        $response = Http::get("https://newsapi.org/v2/top-headlines", [
+            'sources' => $sourceNewsApiKey,
+            'apiKey' => $newsApiKey,
+        ]);
+
+        $newsArticles = $response->json()['articles'];
+
+        // Lưu vào cơ sở dữ liệu
+        foreach ($newsArticles as $article) {
+            Blog::create([
+                'title' => $article['title'],
+                'tag' => 'News',
+                'date_time' => now(),
+                'short_description' => $article['description'],
+                'long_description' => $article['content'],
+                'image' => $article['urlToImage'],
+                'slug' => Str::slug($article['title']),
+                'status' => 'published',
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Các bài viết từ News API đã được thêm vào cơ sở dữ liệu.');
+    }
+    
+    public function destroy($id)
+    {
+        $blog = Blog::find($id);
+        $blog->delete();
+        return redirect('admin/blog');
+    }
 }
+
