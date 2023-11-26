@@ -198,9 +198,13 @@
                     <td>{{ $comment->status }}</td>
                     <td>{{ $comment->is_accept }}</td>
                     <td>
-                        <a type="button" class="btn btn-secondary" href="#" style="font-size: 12px; padding: 8px">Hide</a>
-                        <a type="button" class="btn btn-secondary" href="#" style="font-size: 12px; padding: 8px">Show</a>
-                        <a type="button" class="btn btn-danger" href="#" style="font-size: 12px; padding: 8px">Delete</a>
+                        <a type="button" class="btn btn-secondary" href="{{ route('hideComment', $comment->id) }}" style="font-size: 12px; padding: 8px">Hide</a>
+
+                        <a type="button" class="btn btn-secondary" href="{{ route('showComment', $comment->id) }}" style="font-size: 12px; padding: 8px">Show</a>
+
+                        <a type="button" class="btn btn-danger" href="#" style="font-size: 12px; padding: 8px" onclick="openDeleteModal('{{ route('deleteComment', $comment->id) }}')">Delete</a>
+
+
                     </td>
                 </tr>
                 @php
@@ -213,6 +217,39 @@
                 @endforelse
             </tbody>
         </table>
+
+        <!-- Thêm modal Bootstrap -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Xác nhận xóa</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Bạn có chắc chắn muốn xóa comment này không?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                        <a id="confirmDeleteBtn" class="btn btn-danger" href="#">Xóa</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function openDeleteModal(deleteUrl) {
+                // Thiết lập href của nút xác nhận trong modal
+                document.getElementById('confirmDeleteBtn').setAttribute('href', deleteUrl);
+
+                // Mở modal
+                $('#deleteModal').modal('show');
+            }
+
+        </script>
+
+
     </section>
 
     <section id="content3">

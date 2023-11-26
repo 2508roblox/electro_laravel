@@ -116,6 +116,8 @@ Route::group(['prefix' => 'my-account'], function () {
         ->name('frontend.myaccount.userComments')
         ->middleware(['auth']);
     Route::controller(MyAccountController::class)->group(function () {
+        
+
         Route::get('/order', 'order')->name('frontend.myaccount.order');
         Route::get('/address', 'address')->name('frontend.myaccount.address');
         Route::get('/account-detail', 'accountdetail')->name('frontend.myaccount.accountdetail');
@@ -409,6 +411,9 @@ Route::prefix('blog')->group(function () {
         Route::get('/post/{id}', 'post')->name('fe.post');
         Route::get('/report-comment/{commentId}', 'reportComment')->name('reportComment');
         Route::post('/store-comment/{blogId}', 'storeComment')->name('storeComment');
+        Route::get('/hide-comment/{commentId}', 'hideComment')->name('hideComment');
+        Route::get('/show-comment/{commentId}', 'showComment')->name('showComment');
+        Route::get('/delete-comment/{commentId}', 'deleteComment')->name('deleteComment');
     });
 });
 ///// Frontend Routing

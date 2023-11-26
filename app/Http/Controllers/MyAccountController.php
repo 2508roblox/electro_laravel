@@ -14,7 +14,7 @@ class MyAccountController extends Controller
         $loginHistory = \App\Models\LoginHistory::where('user_id', auth()->id())->get();
         
         $userId = Auth::id();
-        $userComments = BlogComment::where('user_id', $userId)->orderBy('created_at', 'desc')->get();
+        $userComments = BlogComment::where('user_id', $userId)->where('is_deleted', '')->orderBy('created_at', 'desc')->get();
         
         return view("frontend.myaccount.dashboard", compact('loginHistory', 'userComments'));
     }

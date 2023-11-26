@@ -98,4 +98,31 @@ class BlogController extends Controller
 
         return redirect()->back();
     }
+
+    public function hideComment($commentId)
+    {
+        $comment = BlogComment::find($commentId);
+        $comment->status = 'hide';
+        $comment->save();
+
+        return redirect()->back();
+    }
+
+    public function showComment($commentId)
+    {
+        $comment = BlogComment::find($commentId);
+        $comment->status = 'show';
+        $comment->save();
+
+        return redirect()->back();
+    }
+
+    public function deleteComment($commentId)
+    {
+        $comment = BlogComment::find($commentId);
+        $comment->is_deleted = 'deleted';
+        $comment->save();
+
+        return redirect()->back();
+    }
 }
