@@ -4,6 +4,22 @@
     @include('inc/_header')
 
     <main id="content" role="main" class="checkout-page">
+        @if ($errors->any())
+            <script>
+                function showAlert() {
+
+                    Swal.fire({
+                        title: 'Thông báo',
+                        text: 'Vui lòng  nhập đầy đủ thông tin',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+                showAlert()
+            </script>
+        @endif
+
+
 
         {{-- <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
 
@@ -33,7 +49,8 @@
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../home/index.html">Home</a>
                             </li>
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">{{ __('checkout') }}
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">
+                                {{ __('checkout') }}
                             </li>
                         </ol>
                     </nav>
@@ -198,7 +215,7 @@
                                             @foreach ($checkoutData as $item)
                                                 <tr class="cart_item">
                                                     <td style="padding-right: .5rem">{{ $item['product_name'] }}
-                                                        <span  > - (
+                                                        <span> - (
                                                             {{ $item['sku_code'] }} )</span>
                                                         <strong class="product-quantity">× {{ $item['quantity'] }}</strong>
                                                     </td>
@@ -258,10 +275,11 @@
                                                     <div class="custom-control custom-radio">
                                                         <input type="radio" class="custom-control-input"
                                                             name="payment_mode" value="bank" id="stylishRadio1"
-                                                            name="stylishRadio" checked >
-                                                        <label class="custom-control-label form-label" id="bank_payment" for="stylishRadio1"
-                                                            data-toggle="collapse" data-target="#basicsCollapseOnee"
-                                                            aria-expanded="true" aria-controls="basicsCollapseOnee">
+                                                            name="stylishRadio" checked>
+                                                        <label class="custom-control-label form-label" id="bank_payment"
+                                                            for="stylishRadio1" data-toggle="collapse"
+                                                            data-target="#basicsCollapseOnee" aria-expanded="true"
+                                                            aria-controls="basicsCollapseOnee">
                                                             Direct bank transfer
                                                         </label>
                                                         <script>
@@ -293,9 +311,8 @@
                                             <div class="border-bottom border-color-1 border-dotted-bottom">
                                                 <div class="p-3" id="basicsHeadingThree">
                                                     <div class="custom-control custom-radio">
-                                                        <input
-                                                            {{ $balance < $totalRequiredAmount ? 'disabled' : '' }} type="radio"
-                                                            class="custom-control-input" id="wallet"
+                                                        <input {{ $balance < $totalRequiredAmount ? 'disabled' : '' }}
+                                                            type="radio" class="custom-control-input" id="wallet"
                                                             name="payment_mode" value="wallet">
                                                         <label class="custom-control-label   form-label" for="wallet"
                                                             data-toggle="collapse" data-target="#basicsCollapseThree"
@@ -333,7 +350,7 @@
                                     </div>
                                     <div class="form-group d-flex align-items-center justify-content-between px-3 mb-5">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
+                                            <input class="form-check-input" type="checkbox" value="" checked
                                                 id="defaultCheck10" required data-msg="Please agree terms and conditions."
                                                 data-error-class="u-has-error" data-success-class="u-has-success">
                                             <label class="form-check-label form-label" for="defaultCheck10">
@@ -343,11 +360,29 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <button type="submit"
-                                        class="btn btn-primary-dark-w btn-block btn-pill font-size-20 mb-3 py-3">Place
-                                        order</button>
+                                    <button type="submit" id="checkout-button"
+                                        class="btn btn-primary-dark-w btn-block btn-pill font-size-20 mb-3 py-3">Xác nhận
+                                        đặt hàng</button>
+                                    {{-- <script>
+                                        document.querySelector('#checkout-button').addEventListener('click', (e) => {
+                                            e.preventDefault();
+
+                                            // Disable the button and change its text
+                                            const loginButton = document.querySelector('#checkout-button');
+                                            loginButton.disabled = true;
+                                            loginButton.innerHTML = 'Loading...';
+                                            loginButton.style.backgroundColor = '#333e48';
+                                            loginButton.style.borderColor = '#333e48';
+                                            loginButton.style.color = '#fff';
+
+
+
+
+
+                                        });
+                                    </script> --}}
                                 </div>
-                                <!-- End Order Summary -->
+
                             </div>
                         </div>
                     </div>

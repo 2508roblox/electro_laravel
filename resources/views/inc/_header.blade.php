@@ -348,12 +348,19 @@
                                 padding: 12px 16px;
                                 text-decoration: none;
                                 z-index: 999;
-                                display: block;
+                                display: flex;
+                                /* justify-content: center; */
+                                align-items: center;
+                                /* text-align: center */
                             }
 
                             /* Change color of dropdown links on hover */
                             .dropdown-content a:hover {
                                 background-color: #f1f1f1
+                            }
+
+                            .dropdown-content a>p {
+                                margin: 0px !important
                             }
 
                             /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
@@ -370,8 +377,8 @@
                                     class="form-control p-1 height-35 text-gray-90 shadow-none font-size-14 border-0 rounded-0 bg-transparent"
                                     name="text" id="myInput" onkeyup="filterFunction()"
                                     onclick="showDropdown()" placeholder="{{ __('search_products') }}"
-                                    value="a" aria-label="Search for products" aria-describedby="searchProduct1"
-                                    required autocomplete="off">
+                                    aria-label="Search for products" aria-describedby="searchProduct1" required
+                                    autocomplete="off">
                                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
                                 <script>
@@ -386,13 +393,19 @@
 
                                             // Lặp qua dữ liệu sản phẩm và tạo các thẻ <a>
                                             $.each(products, function(index, product) {
+                                                var truncatedName = product.name.substring(0,
+                                                    12); // Get the first 12 characters of the product name
+
                                                 var $a = $('<a>', {
-                                                    "data-product": product.name,
+                                                    "data-product": truncatedName,
                                                     "href": product.slug,
-                                                    "html": '<img  src="http://localhost:8000/storage/' + product.image_url +
+                                                    "html": '<img src="http://localhost:8000/storage/' + product.image_url +
                                                         '" lazy style="width: 30px; z-index: 999; height: 30px;" alt="" width="20px" srcset="">' +
-                                                        product.name
+                                                        truncatedName + '...' +
+                                                        '<p style="color: red;">' + 'kho:' + product.total_quantity + '</p>'
                                                 });
+
+                                                $a.css("display", "flex"); // Set display flex using CSS method
 
                                                 $('#myDropdown').append($a);
                                             });
@@ -543,23 +556,30 @@
                                 </li>
                                 <li class="col pr-xl-0 px-2 px-sm-3">
                                     <a href="{{ route('frontend.wallet') }}"
-                                        class="text-gray-90 position-relative d-flex " data-toggle="tooltip"
+                                        style="display: flex; flex-direction: row" data-toggle="tooltip"
                                         data-placement="top" title="Ví ảo">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1"
-                                            id="Capa_1" width="20px" height="20px"
-                                            viewBox="0 0 969.486 969.486" xml:space="preserve">
-                                            <g>
-                                                <g>
-                                                    <path
-                                                        d="M806.582,235.309L766.137,87.125l-137.434,37.51L571.451,9.072L114.798,235.309H0v725.105h907.137V764.973h62.35v-337.53    h-62.352V235.309H806.582z M718.441,170.63l17.654,64.68h-52.561h-75.887h-126.19l111.159-30.339l66.848-18.245L718.441,170.63z     M839.135,892.414H68V522.062v-129.13v-10.233v-69.787v-9.602h35.181h27.538h101.592h409.025h75.889h37.43h35.242h35.244h13.994    v51.272v72.86h-15.357h-35.244h-87.85H547.508h-55.217v27.356v75.888v8.758v35.244v35.244v155.039h346.846v127.441H839.135z     M901.486,696.973h-28.352h-34H560.291V591.375v-35.244v-35.244v-23.889v-1.555h3.139h90.086h129.129h56.492h34h4.445h23.904    V696.973z M540.707,100.191l21.15,42.688l-238.955,65.218L540.707,100.191z" />
-                                                    <polygon
-                                                        points="614.146,564.57 614.146,576.676 614.146,631.152 680.73,631.152 680.73,564.57 658.498,564.57   " />
-                                                </g>
-                                            </g>
-                                        </svg>
-                                        <span
-                                            class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">${{ Session::get('wallet') ? Session::get('wallet') : '0' }}</span>
+                                        <button type="button" class="btn btn-secondary"
+                                            style="border-radius: 5px !important;padding: 5px !important; color: #fff">
+                                            <div style="display: flex">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink" fill="#fff"
+                                                    version="1.1" id="Capa_1" width="20px" height="20px"
+                                                    viewBox="0 0 969.486 969.486" xml:space="preserve">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M806.582,235.309L766.137,87.125l-137.434,37.51L571.451,9.072L114.798,235.309H0v725.105h907.137V764.973h62.35v-337.53    h-62.352V235.309H806.582z M718.441,170.63l17.654,64.68h-52.561h-75.887h-126.19l111.159-30.339l66.848-18.245L718.441,170.63z     M839.135,892.414H68V522.062v-129.13v-10.233v-69.787v-9.602h35.181h27.538h101.592h409.025h75.889h37.43h35.242h35.244h13.994    v51.272v72.86h-15.357h-35.244h-87.85H547.508h-55.217v27.356v75.888v8.758v35.244v35.244v155.039h346.846v127.441H839.135z     M901.486,696.973h-28.352h-34H560.291V591.375v-35.244v-35.244v-23.889v-1.555h3.139h90.086h129.129h56.492h34h4.445h23.904    V696.973z M540.707,100.191l21.15,42.688l-238.955,65.218L540.707,100.191z" />
+                                                            <polygon
+                                                                points="614.146,564.57 614.146,576.676 614.146,631.152 680.73,631.152 680.73,564.57 658.498,564.57   " />
+                                                        </g>
+                                                    </g>
+                                                </svg>:
+                                                <span style="display: flex !important; flex-direction: row !important"
+                                                    class="d-none d-xl-block font-weight-bold font-size-16 #fff ml-3">{{ Session::get('wallet') ? Session::get('wallet') : '0' }},00$
+                                                </span>
+                                            </div>
+                                        </button>
+
                                     </a>
                                 </li>
                             </ul>
