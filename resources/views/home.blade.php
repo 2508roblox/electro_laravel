@@ -18,8 +18,8 @@
         left: 0;
         height: 100%;
         width: 100%;
-        z-index: 1000;
-        opacity: 0.5;
+
+        z-index: 2000;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -36,7 +36,7 @@
     }
 </style>
 
-<div style="background-color: grey" class="overlay" id="myDiv">
+<div style="background-color: rgb(255, 255, 255)" class="overlay" id="myDiv">
     <i style="color: #fed700" class="loader fas fa-spinner fa-spin"></i>
 </div>
 
@@ -79,7 +79,7 @@
     @include('inc._slider')
     <!-- End Slider Section -->
 
-    <div class="container">
+    <div class="container" >
         {{-- <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {

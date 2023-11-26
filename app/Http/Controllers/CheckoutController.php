@@ -48,7 +48,9 @@ class CheckoutController extends Controller
             ->get();
         // Tạo một mảng để lưu thông tin checkout
         $checkoutData = [];
-
+                if($carts->count() < 1) {
+                    return redirect('cart')->with(['empty'=>true]);
+                };
         // Lặp qua từng cart để lấy thông tin cần thiết
         foreach ($carts as $cart) {
             // Kiểm tra nếu promotion_price không null, lấy promotion_price, ngược lại lấy price

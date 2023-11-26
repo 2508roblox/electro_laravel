@@ -575,7 +575,7 @@
                                                     </g>
                                                 </svg>:
                                                 <span style="display: flex !important; flex-direction: row !important"
-                                                    class="d-none d-xl-block font-weight-bold font-size-16 #fff ml-3">{{ Session::get('wallet') ? Session::get('wallet') : '0' }},00$
+                                                    class="d-none d-xl-block font-weight-bold font-size-16 #fff ml-3">{{ Session::get('wallet') }},00$
                                                 </span>
                                             </div>
                                         </button>

@@ -88,8 +88,10 @@ class FrontendController extends Controller
             $wallet->save();
 
             Session::put('wallet', $totalAmount);
+        }else {
+            Session::put('wallet', 0);
         }
-        Session::put('wallet', 0);
+
         //advertisement
         $product = Product::find(10);
 

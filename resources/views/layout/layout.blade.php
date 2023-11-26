@@ -18,7 +18,24 @@
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="{{ asset('client/css/font-electro.css') }}">
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
     <style>
+        body{
+            cursor: none
+        }
+        a,p,div{
+            cursor: none
+        }
+       
+        body:*{
+            cursor: none
+        }
+        div[class*='kursor'] {
+            background: #fed700 !important;
+        }
+        div[class*='kursor'] {
+            border-color: #fed700 !important;
+        }
         img {
             filter: grayscale(1);
         }
@@ -55,8 +72,37 @@
             padding: 15px !important;
             border-image: url(https://www.w3schools.com/cssref/border.png) 30 round !important;
         }
-    </style>
+        /* Webkit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 8px;
+}
 
+::-webkit-scrollbar-thumb {
+  background-color: #fed700; /* Màu sắc của thanh cuộn */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f2f2f2; /* Màu sắc của phần còn lại của thanh cuộn */
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+    </style>
+<script>
+    $(document).ready(function() {
+  $('a[href^="#"]').on('click', function(event) {
+    var target = $(this.getAttribute('href'));
+    if (target.length) {
+      event.preventDefault();
+      $('html, body').stop().animate({
+        scrollTop: target.offset().top
+      }, 1000); // Thời gian cuộn (milliseconds)
+    }
+  });
+});
+</script>
     @php
         $telegramBotToken = env('TELEGRAM_BOT_TOKEN');
         $chatId = env('TELEGRAM_CHAT_ID');
@@ -133,7 +179,7 @@
 
 
 
-<body>
+<body >
 
     @include('inc._topbar')
     @yield('content')
@@ -144,6 +190,7 @@
         <span class="fas fa-arrow-up u-go-to__inner"></span>
     </a>
     @include('inc._sidebarNavigation')
+    @include('inc._mouseEffect')
     @include('inc._accountSidebar')
     @include('inc._footer')
     <!-- End Go to Top -->
@@ -336,6 +383,13 @@
             lazyImageObserver.observe(lazyImage);
         });
     </script>
+<script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"  > </script>
+<script>
+    new kursor({
+        type: 2
+    })
+</script>
+
 
 </body>
 

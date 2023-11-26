@@ -1,9 +1,24 @@
 @extends('layout.layout')
 
 @section('content')
+
     @include('inc/_header')
 
     <main id="content" role="main" class="cart-page">
+        @if (session('empty'))
+        <script>
+            function showAlert() {
+
+                Swal.fire({
+                    title: 'Thông báo',
+                    text: 'Vui lòng mua một sản phẩm!',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+            showAlert()
+        </script>
+    @endif
         <!-- breadcrumb -->
         <div class="bg-gray-13 bg-md-transparent">
             <div class="container">
@@ -253,12 +268,13 @@
                                                     color: #fff !important;
                                                 }
                                             </style>
-                                            <a id="checkout-button"
-                                                class="btn btn-primary-dark-w ml-md-2 px-5 px-md-4 px-lg-5 w-100 w-md-auto d-none d-md-inline-block">Thanh
-                                                toán</a>
+                                        <a id="checkout-button"
+
+                                        class="btn btn-primary-dark-w ml-md-2 px-5 px-md-4 px-lg-5 w-100 w-md-auto d-none d-md-inline-block">Thanh toán</a>
                                             <script>
                                                 document.querySelector('#checkout-button').addEventListener('click', (e) => {
-                                                    e.preventDefault();
+    //                                                 e.preventDefault();
+
 
                                                     // Disable the button and change its text
                                                     const loginButton = document.querySelector('#checkout-button');
