@@ -166,7 +166,7 @@
                             </div>
                         </div>
                         <div class="saw-pulse__counter">{{ $userCount }}</div>
-                        <div class="sa-widget-table saw-pulse__table">
+                        {{-- <div class="sa-widget-table saw-pulse__table">
                             <table>
                                 <thead>
                                     <tr>
@@ -182,7 +182,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-12 col-lg-8 col-xxl-9 d-flex">

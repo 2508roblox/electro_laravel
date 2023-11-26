@@ -38,7 +38,7 @@ class BlogController extends Controller
             'content' => $request->input('content'),
             'status' => 'show',
             'is_accept' => 'not accepted',
-            'is_deleted' => '',
+            'is_deleted' => $request->default('none'),
             'ip_address' => $request->ip(),
             'report_count' => 0,
             'created_at' => date('d-m-Y H:i:s'),
