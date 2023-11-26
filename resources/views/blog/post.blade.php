@@ -133,6 +133,10 @@
                         <div class="alert alert-success">
                             {{ session('success') }}
                         </div>
+                        @else
+                        <div class="alert alert-error">
+                            {{ session('error') }}
+                        </div>
                         @endif
                         @if($errors->any())
                         <div class="alert alert-danger">

@@ -68,7 +68,7 @@ class BlogAdminController extends Controller
         $sourceNewsApiKey = env('SOURCE_NEWSAPI');
 
         // Gửi yêu cầu đến News API
-        $response = Http::get("https://newsapi.org/v2/top-headlines", [
+        $response = Http::get("https://newsapi.org/v2/everything", [
             'sources' => $sourceNewsApiKey,
             'apiKey' => $newsApiKey,
         ]);
@@ -89,9 +89,13 @@ class BlogAdminController extends Controller
             ]);
         }
 
-        return redirect()->back()->with('success', 'Các bài viết từ News API đã được thêm vào cơ sở dữ liệu.');
+        if ($newsArticles) {
+            return redirect()->back()->with('success', 'Các bài viết đã được thêm vào DB.');
+        } else {
+            return redirect()->back()->with('error', 'Có lỗi xảy ra. Các bài viết chưa được thêm vào DB.');
+        }
     }
-    
+
     public function destroy($id)
     {
         $blog = Blog::find($id);
@@ -99,4 +103,3 @@ class BlogAdminController extends Controller
         return redirect('admin/blog');
     }
 }
-
