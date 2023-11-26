@@ -26,6 +26,7 @@ class BlogController extends Controller
 
     public function storeComment(Request $request, $id)
     {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
         // Validate request
         $request->validate([
             'content' => 'required',
@@ -34,12 +35,13 @@ class BlogController extends Controller
         $comment = new BlogComment([
             'blog_id' => $id,
             'user_id' => auth()->user()->id,
-            'user_role' => auth()->user()->role_as,
             'content' => $request->input('content'),
-            'status' => 'draft',
+            'status' => 'show',
+            'is_accept' => 'not accepted',
+            'is_deleted' => '',
             'ip_address' => $request->ip(),
-            'ip_spam' => '',
             'report_count' => 0,
+            'created_at' => date('d-m-Y H:i:s'),
         ]);
 
         $comment->save();
@@ -48,13 +50,21 @@ class BlogController extends Controller
         $chatId = env('TELEGRAM_CHAT_ID');
         $ipAddress = $_SERVER['REMOTE_ADDR'];
         $authName = Auth::check() ? Auth::user()->name : "Guest";
-        date_default_timezone_set('Asia/Ho_Chi_Minh');
         $currentDateTime = date('d-m-Y H:i:s');
 
-        // $routeName = \Route::currentRouteName();
+        $postUrl = route('fe.post', ['id' => $id]);
 
         // Tạo nội dung thông báo
-        $message = "📢 User đã bình luận\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime\n📝 ID Bài viết: $id\n🗒️ Status: Draft";
+        $message = "
+        📢   User đã bình luận\n
+        -Vui lòng xem xét và chấp thuận\n
+        💻 $ipAddress\n
+        🙍‍♂️ $authName\n
+        ⌚ $currentDateTime\n
+        📝 ID Bài viết: $id\n
+        👌 Status: Show\n
+        🗒️ Cmt: $comment->content\n
+        🌐 URL Bài viết: $postUrl";
 
         $telegramApiUrl = "https://api.telegram.org/bot$telegramBotToken/sendMessage";
 
@@ -72,7 +82,11 @@ class BlogController extends Controller
         $result = curl_exec($ch);
         curl_close($ch);
 
-        return redirect()->back()->with('success', 'Your comment is under review.');
+        if ($comment) {
+            return redirect()->back()->with('success', 'Your comment is under review.');
+        } else {
+            return redirect()->back()->with('error', 'An error has occurred, please contact admin.');
+        }
     }
 
     public function reportComment($commentId)
@@ -84,5 +98,4 @@ class BlogController extends Controller
 
         return redirect()->back();
     }
-    
 }

@@ -12,14 +12,15 @@ class BlogComment extends Model
     protected $table = 'blog_comments';
     
     protected $fillable = [
-        'blog_id',  // Thêm trường blog_id vào đây
+        'blog_id',
         'user_id',
-        'user_role',
         'content',
         'status',
+        'is_accept',
+        'is_deleted',
         'ip_address',
-        'ip_spam',
         'report_count',
+        'created_at',
     ];
     
     public function user()

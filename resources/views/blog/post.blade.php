@@ -42,7 +42,7 @@
                         </div>
                         <ol class="nav">
                             @if($blog->comments)
-                            @foreach($blog->comments->where('status', 'published')->sortByDesc('created_at') as $comment)
+                            @foreach($blog->comments->where('is_accept', 'accepted')->sortByDesc('created_at') as $comment)
                             <li class="w-100 border-bottom pb-6 mb-6 border-color-1">
                                 <!-- Review -->
                                 <div class="d-block d-md-flex media br5left-pd10">

@@ -406,7 +406,6 @@ Route::prefix('blog')->group(function () {
         Route::get('/post/{id}', 'post')->name('fe.post');
         Route::get('/report-comment/{commentId}', 'reportComment')->name('reportComment');
         Route::post('/store-comment/{blogId}', 'storeComment')->name('storeComment');
-        // Route::get('/import-rss', [RssController::class, 'importRss'])->name('importRss');
     });
 });
 ///// Frontend Routing
