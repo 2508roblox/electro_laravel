@@ -42,7 +42,7 @@
                         </div>
                         <ol class="nav">
                             @if($blog->comments)
-                            @foreach($blog->comments->where('is_accept', 'accepted')->sortByDesc('created_at') as $comment)
+                            @foreach($blog->comments->where('is_accept', 'accepted')->where('status', 'show')->sortByDesc('created_at') as $comment)
                             <li class="w-100 border-bottom pb-6 mb-6 border-color-1">
                                 <!-- Review -->
                                 <div class="d-block d-md-flex media br5left-pd10">
@@ -73,7 +73,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="reportModalLabel">Thông báo</h5>
+                                        <h5 class="modal-title" id="reportModalLabel">Attention!</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -87,21 +87,34 @@
 
                         <script>
                             function reportComment(commentId) {
-                                // Gửi yêu cầu Ajax để cập nhật số lượng report
-                                $('#reportModal .modal-body').html('<div class="alert alert-success">Reported!</div>');
-                                $('#reportModal').modal('show');
-                                $.ajax({
-                                    url: "{{ route('reportComment', '') }}" + "/" + commentId
-                                    , method: "GET"
-                                    , success: function(response) {
-                                        // Hiển thị modal "Done" khi thành công
-                                    }
-                                    , error: function(error) {
-                                        // Hiển thị modal lỗi nếu có lỗi
-                                        // $('#reportModal .modal-body').html('<div class="alert alert-danger">Lỗi: ' + error.statusText + '</div>');
-                                        // $('#reportModal').modal('show');
-                                    }
-                                });
+                                // Kiểm tra xem người dùng đã report chưa
+                                var reported = sessionStorage.getItem('reportedComment' + commentId);
+
+                                if (reported) {
+                                    // Nếu đã report, hiển thị thông báo
+                                    $('#reportModal .modal-body').html('<div class="alert alert-warning">You have reported this comment!</div>');
+                                    $('#reportModal').modal('show');
+                                } else {
+                                    // Nếu chưa report, gửi yêu cầu Ajax để cập nhật số lượng report
+                                    $('#reportModal .modal-body').html('<div class="alert alert-success">Reported!</div>');
+                                    $('#reportModal').modal('show');
+
+                                    $.ajax({
+                                        url: "{{ route('reportComment', '') }}" + "/" + commentId
+                                        , method: "GET"
+                                        , success: function(response) {
+                                            // Hiển thị modal "Done" khi thành công
+                                        }
+                                        , error: function(error) {
+                                            // Hiển thị modal lỗi nếu có lỗi
+                                            $('#reportModal .modal-body').html('<div class="alert alert-danger">Lỗi: ' + error.statusText + '</div>');
+                                            $('#reportModal').modal('show');
+                                        }
+                                    });
+
+                                    // Lưu trạng thái đã report vào session
+                                    sessionStorage.setItem('reportedComment' + commentId, true);
+                                }
                             }
 
                         </script>
