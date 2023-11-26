@@ -25,4 +25,5 @@ class DashboardController extends Controller
         // dd($totalAmount);
         return view('admin.dashboard.index', compact('totalAmount', 'averageAmount', 'orderCount', 'userCount'));
     }
+
 }

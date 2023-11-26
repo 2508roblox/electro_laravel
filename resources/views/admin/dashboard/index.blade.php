@@ -176,7 +176,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><a class="text-reset">Maintenance Mode</a></td>
+                                        <td><a class="text-reset">Coming</a></td>
                                         <td class="text-end"><button class="btn btn-success">On</button></td>
                                         <td class="text-end"><button class="btn btn-danger">Off</button></td>
                                     </tr>

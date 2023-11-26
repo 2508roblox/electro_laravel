@@ -72,8 +72,8 @@ use App\Http\Controllers\Admin\SkuController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 */
-
 Route::get('/', [FrontendController::class, 'index'])->middleware(['localization'])->name('home');
+
 
 Route::get('change-language/{language}', function (string $language) {
     if (!in_array($language, ['en', 'es', 'vi'])) {
@@ -83,7 +83,8 @@ Route::get('change-language/{language}', function (string $language) {
     return redirect()->back();
 })->name('change-language');
 
-Route::get('/coming-soon', [ComingSoonController::class, 'index'])->name('error.coming-soon');
+// Route::get('/coming-soon', [ComingSoonController::class, 'index'])->name('coming-soon');
+// Route::post('/toggle-maintenance', [ComingSoonController::class, 'toggleMaintenanceMode'])->name('toggle-maintenance');
 
 Route::post('/variants/value/create', [VariantValueController::class, 'create']);
 
@@ -116,7 +117,7 @@ Route::group(['prefix' => 'my-account'], function () {
         ->name('frontend.myaccount.userComments')
         ->middleware(['auth']);
     Route::controller(MyAccountController::class)->group(function () {
-        
+
 
         Route::get('/order', 'order')->name('frontend.myaccount.order');
         Route::get('/address', 'address')->name('frontend.myaccount.address');

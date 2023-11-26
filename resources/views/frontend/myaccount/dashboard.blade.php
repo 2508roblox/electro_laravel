@@ -199,12 +199,8 @@
                     <td>{{ $comment->is_accept }}</td>
                     <td>
                         <a type="button" class="btn btn-secondary" href="{{ route('hideComment', $comment->id) }}" style="font-size: 12px; padding: 8px">Hide</a>
-
                         <a type="button" class="btn btn-secondary" href="{{ route('showComment', $comment->id) }}" style="font-size: 12px; padding: 8px">Show</a>
-
                         <a type="button" class="btn btn-danger" href="#" style="font-size: 12px; padding: 8px" onclick="openDeleteModal('{{ route('deleteComment', $comment->id) }}')">Delete</a>
-
-
                     </td>
                 </tr>
                 @php
@@ -229,21 +225,18 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Bạn có chắc chắn muốn xóa comment này không?
+                        Are you sure you want to delete this comment?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                        <a id="confirmDeleteBtn" class="btn btn-danger" href="#">Xóa</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <a id="confirmDeleteBtn" class="btn btn-danger" href="#">Confirm Delete</a>
                     </div>
                 </div>
             </div>
         </div>
         <script>
             function openDeleteModal(deleteUrl) {
-                // Thiết lập href của nút xác nhận trong modal
                 document.getElementById('confirmDeleteBtn').setAttribute('href', deleteUrl);
-
-                // Mở modal
                 $('#deleteModal').modal('show');
             }
 
