@@ -14,6 +14,9 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/cropped-electro-fav-icon-2-32x32.png">
+    <link rel="icon" sizes="192x192" href="/cropped-electro-fav-icon-2-32x32.png">
+    <link rel="apple-touch-icon" href="/cropped-electro-fav-icon-2-32x32.png">
+    <link rel="mask-icon" href="/cropped-electro-fav-icon-2-32x32.png" color="#000000">
 
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="{{ asset('client/css/font-electro.css') }}">
@@ -27,6 +30,7 @@
         img:focus {
             filter: grayscale(0);
         }
+
     </style>
 
 
@@ -34,13 +38,12 @@
 
     <!-- CSS W3SChool -->
     {{-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
     <style>
         @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+
     </style>
     <style>
         .swal2-styled.swal2-confirm {
@@ -55,48 +58,49 @@
             padding: 15px !important;
             border-image: url(https://www.w3schools.com/cssref/border.png) 30 round !important;
         }
+
     </style>
 
     @php
-        $telegramBotToken = env('TELEGRAM_BOT_TOKEN');
-        $chatId = env('TELEGRAM_CHAT_ID');
-        $ipAddress = $_SERVER['REMOTE_ADDR'];
-        $authName = Auth::check() ? Auth::user()->name : 'Guest';
-        date_default_timezone_set('Asia/Ho_Chi_Minh');
-        $currentDateTime = date('d-m-Y H:i:s');
+    $telegramBotToken = env('TELEGRAM_BOT_TOKEN');
+    $chatId = env('TELEGRAM_CHAT_ID');
+    $ipAddress = $_SERVER['REMOTE_ADDR'];
+    $authName = Auth::check() ? Auth::user()->name : 'Guest';
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $currentDateTime = date('d-m-Y H:i:s');
 
-        $routeName = \Route::currentRouteName();
+    $routeName = \Route::currentRouteName();
 
-        if ($routeName === 'home') {
-            $message = "💀 User truy cập trang chủ\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
-        } elseif ($routeName === 'login' || $routeName === 'register') {
-            $message = "💀 User đăng nhập/đăng ký\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
-        } elseif ($routeName === 'admin.checkout') {
-            $message = "💀 User thanh toán\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
-        } elseif ($routeName === 'frontend.order.list') {
-            $message = "💀 User đã thanh toán > Order\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
-        } else {
-            $message = null;
-            // $message = "User truy cập trang không xác định: $ipAddress | $authName";
-        }
+    if ($routeName === 'home') {
+    $message = "💀 User truy cập trang chủ\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
+    } elseif ($routeName === 'login' || $routeName === 'register') {
+    $message = "💀 User đăng nhập/đăng ký\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
+    } elseif ($routeName === 'admin.checkout') {
+    $message = "💀 User thanh toán\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
+    } elseif ($routeName === 'frontend.order.list') {
+    $message = "💀 User đã thanh toán > Order\n💻 $ipAddress\n🙍‍♂️ $authName\n⌚ $currentDateTime";
+    } else {
+    $message = null;
+    // $message = "User truy cập trang không xác định: $ipAddress | $authName";
+    }
 
-        $telegramApiUrl = "https://api.telegram.org/bot$telegramBotToken/sendMessage";
+    $telegramApiUrl = "https://api.telegram.org/bot$telegramBotToken/sendMessage";
 
-        // Dữ liệu gửi đến API
-        $data = [
-            'chat_id' => $chatId,
-            'text' => $message,
-        ];
+    // Dữ liệu gửi đến API
+    $data = [
+    'chat_id' => $chatId,
+    'text' => $message,
+    ];
 
-        // cURL để gửi request
-        $ch = curl_init($telegramApiUrl);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $result = curl_exec($ch);
-        curl_close($ch);
+    // cURL để gửi request
+    $ch = curl_init($telegramApiUrl);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $result = curl_exec($ch);
+    curl_close($ch);
 
-        // echo $result;
+    // echo $result;
 
     @endphp
 
@@ -109,12 +113,12 @@
             });
 
             socket.on('connect', () => {
-                @if (Route::currentRouteName() == 'home')
-                    socket.emit('chat-message', 'Có người đang truy cập trang Home');
-                @elseif (Route::currentRouteName() == 'login' || Route::currentRouteName() == 'register')
-                    socket.emit('chat-message', 'Có người đang truy cập trang Login/Register');
-                @elseif (Route::currentRouteName() == 'admin.checkout')
-                    socket.emit('chat-message', 'Có người đang thanh toán sản phẩm');
+                @if(Route::currentRouteName() == 'home')
+                socket.emit('chat-message', 'Có người đang truy cập trang Home');
+                @elseif(Route::currentRouteName() == 'login' || Route::currentRouteName() == 'register')
+                socket.emit('chat-message', 'Có người đang truy cập trang Login/Register');
+                @elseif(Route::currentRouteName() == 'admin.checkout')
+                socket.emit('chat-message', 'Có người đang thanh toán sản phẩm');
                 @endif
             });
 
@@ -126,6 +130,7 @@
                 // console.log('Nhận tin nhắn từ máy chủ:', message);
             });
         });
+
     </script>
     {{-- captcha --}}
     <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -138,9 +143,7 @@
     @include('inc._topbar')
     @yield('content')
 
-    <a class="js-go-to u-go-to " style="margin-right: 5rem; margin-bottom: .5rem;" href="#"
-        data-position='{"bottom": 15, "right": 15 }' data-type="fixed" data-offset-top="400" data-compensation="#header"
-        data-show-effect="slideInUp" data-hide-effect="slideOutDown">
+    <a class="js-go-to u-go-to " style="margin-right: 5rem; margin-bottom: .5rem;" href="#" data-position='{"bottom": 15, "right": 15 }' data-type="fixed" data-offset-top="400" data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown">
         <span class="fas fa-arrow-up u-go-to__inner"></span>
     </a>
     @include('inc._sidebarNavigation')
@@ -148,8 +151,7 @@
     @include('inc._footer')
     <!-- End Go to Top -->
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger intent="WELCOME" chat-title="Electro Assistant" agent-id="0953d30d-3636-4204-996e-37cad8d999e7"
-        language-code="en"></df-messenger>
+    <df-messenger intent="WELCOME" chat-title="Electro Assistant" agent-id="0953d30d-3636-4204-996e-37cad8d999e7" language-code="en"></df-messenger>
     <style>
         df-messenger {
 
@@ -164,6 +166,7 @@
         .title-wrapper {
             background: red !important;
         }
+
     </style>
     <!-- JS Global Compulsory -->
 
@@ -206,11 +209,11 @@
         $(window).on('load', function() {
             // initialization of HSMegaMenu component
             $('.js-mega-menu').HSMegaMenu({
-                event: 'hover',
-                direction: 'horizontal',
-                pageContainer: $('.container'),
-                breakpoint: 767.98,
-                hideTimeOut: 0
+                event: 'hover'
+                , direction: 'horizontal'
+                , pageContainer: $('.container')
+                , breakpoint: 767.98
+                , hideTimeOut: 0
             });
         });
 
@@ -233,12 +236,12 @@
 
             // initialization of countdowns
             var countdowns = $.HSCore.components.HSCountdown.init('.js-countdown', {
-                yearsElSelector: '.js-cd-years',
-                monthsElSelector: '.js-cd-months',
-                daysElSelector: '.js-cd-days',
-                hoursElSelector: '.js-cd-hours',
-                minutesElSelector: '.js-cd-minutes',
-                secondsElSelector: '.js-cd-seconds'
+                yearsElSelector: '.js-cd-years'
+                , monthsElSelector: '.js-cd-months'
+                , daysElSelector: '.js-cd-days'
+                , hoursElSelector: '.js-cd-hours'
+                , minutesElSelector: '.js-cd-minutes'
+                , secondsElSelector: '.js-cd-seconds'
             });
 
             // initialization of malihu scrollbar
@@ -275,8 +278,8 @@
             $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
                 beforeClose: function() {
                     $('#hamburgerTrigger').removeClass('is-active');
-                },
-                afterClose: function() {
+                }
+                , afterClose: function() {
                     $('#headerSidebarList .collapse.show').collapse('hide');
                 }
             });
@@ -299,6 +302,7 @@
             // initialization of select picker
             $.HSCore.components.HSSelectPicker.init('.js-select');
         });
+
     </script>
     {{-- font --}}
     <script>
@@ -335,6 +339,7 @@
         lazyImages.forEach((lazyImage) => {
             lazyImageObserver.observe(lazyImage);
         });
+
     </script>
 
 </body>
