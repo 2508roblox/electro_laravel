@@ -14,11 +14,13 @@ class DashboardController extends Controller
     public static function index()
     {
 
-        $totalAmount = DB::table('orders')->sum('total_amount');
-        $averageAmount = DB::table('orders')->avg('total_amount');
+        $totalAmount = DB::table('orders')
+        ->where('status', 'Thành Công')
+        ->sum('total_amount');
+        $averageAmount = DB::table('orders')->where('status', 'Thành Công')->avg('total_amount');
         $totalAmount = number_format($totalAmount, 2, '.', '');
         $averageAmount = number_format($averageAmount, 2, '.', '');
-        $orderCount = Order::count();
+        $orderCount = Order::where('status', 'Thành Công')->count();
         $userCount = User::count();
         // dd($orderCount);
         // dd($averageAmount);

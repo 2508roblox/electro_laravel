@@ -4,15 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Sku;
 use App\Models\Order;
+use App\Models\Wallet;
 use App\Models\OrderItem;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Mail\InvoiceOrderMailable;
 use App\Http\Controllers\Controller;
-use App\Models\Wallet;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class AdminOrderController extends Controller
 {
@@ -257,6 +258,14 @@ class AdminOrderController extends Controller
         $transaction->status = 'complete'; // Trạng thái giao dịch
         $transaction->method = 'shopping'; // Phương thức hoàn tiền
         $transaction->save();
+
+
+        $transactions = Transaction::where('wallet_id', $wallet->id)
+        ->where('status', 'complete')
+        ->get();
+
+    $totalAmount = $transactions->sum('amount');
+    Session::put('wallet', $totalAmount);
         return redirect()->back();
     }
     public function destroy(string $id)
