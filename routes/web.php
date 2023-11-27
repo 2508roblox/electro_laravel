@@ -61,6 +61,7 @@ use App\Http\Controllers\Admin\InBoxManagerController;
 use App\Http\Controllers\Admin\ProductColorController;
 use App\Http\Controllers\Admin\VariantValueController;
 use App\Http\Controllers\Admin\SkuController;
+use App\Http\Controllers\Admin\NewsController;
 
 
 /*
@@ -179,8 +180,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/category/{id}', 'destroy')->name('admin.category.delete');
     });
 
-    //value
-
     Route::controller(BrandController::class)->group(function () {
         Route::get('/brand', 'index')->name('admin.brand.list');
         Route::get('/brand/create', 'create')->name('admin.brand.create');
@@ -210,8 +209,13 @@ Route::group(['prefix' => 'admin'], function () {
     });
     Route::controller(BlogAdminController::class)->group(function () {
         Route::get('/blog', 'index')->name('admin.blog');
+        Route::get('/blog/comment', 'showComment')->name('admin.blog.comment');
+        Route::get('/blog/comment/edit/{id}', 'editComment')->name('admin.blog.comment.edit');
+        Route::put('/blog/comment/edit/{id}', 'updateComment')->name('admin.blog.comment.update');
+        Route::delete('/blog/comment/{id}', 'destroy')->name('admin.blog.comment.delete');
+        Route::delete('/blog/{id}', 'destroy')->name('admin.blog.delete');
         Route::get('/blog/create', 'create')->name('admin.blog.create');
-        // Route::post('/blog/create', 'store')->name('admin.blog');
+        Route::get('/blog/get-post', [BlogAdminController::class, 'getAndStorePost'])->name('admin.blog.get-post');
         // Route::get('/blog/{id}/edit', 'edit')->name('admin.blog');
         // Route::put('/blog/{id}/update', 'update')->name('admin.blog');
         // Route::delete('/blog/{id}', 'destroy')->name('admin.blog');

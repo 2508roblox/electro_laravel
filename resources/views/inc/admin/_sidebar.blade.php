@@ -143,6 +143,10 @@
                                               class="sa-nav__link"><span
                                                   class="sa-nav__menu-item-padding"></span><span
                                                   class="sa-nav__title">Danh sách bài viết</span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.blog.comment') }}"
+                                              class="sa-nav__link"><span
+                                                  class="sa-nav__menu-item-padding"></span><span
+                                                  class="sa-nav__title">Danh sách bình luận</span></a></li>
                                   </ul>
                               </li>
 
@@ -357,11 +361,11 @@
                                               class="sa-nav__link"><span
                                                   class="sa-nav__menu-item-padding"></span><span
                                                   class="sa-nav__title">Danh sách người dùng</span></a></li>
-                                      <li class="sa-nav__menu-item"><a
+                                      {{-- <li class="sa-nav__menu-item"><a
                                               href="{{ route('admin.activity-user.login') }}"
                                               class="sa-nav__link"><span
                                                   class="sa-nav__menu-item-padding"></span><span
-                                                  class="sa-nav__title">Lịch sử truy cập</span></a></li>
+                                                  class="sa-nav__title">Lịch sử hoạt động</span></a></li> --}}
 
                                   </ul>
                               </li>

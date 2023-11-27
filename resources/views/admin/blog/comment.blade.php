@@ -164,11 +164,15 @@
                                 <th class="w-min" data-orderable="false"><input type="checkbox" class="form-check-input m-0 fs-exact-16 d-block" aria-label="..." /></th>
                                 <th class="min-w-8x">#</th>
                                 <th class="min-w-8x">ID</th>
-                                <th class="min-w-8x">Image</th>
-                                <th class="min-w-8x">Title</th>
-                                <th class="min-w-8x">Tag</th>
-                                <th class="min-w-8x">Date</th>
-                                <th class="min-w-8x">Comment</th>
+                                <th class="min-w-8x">User</th>
+                                <th class="min-w-8x">Blog ID</th>
+                                <th class="min-w-8x">Content</th>
+                                <th class="min-w-8x">Status</th>
+                                <th class="min-w-8x">Accept</th>
+                                <th class="min-w-8x">User Deleted</th>
+                                <th class="min-w-8x">IP Address</th>
+                                <th class="min-w-8x">Reported</th>
+                                <th class="min-w-8x">Time</th>
                                 <th class="w-min" data-orderable="false"></th>
                             </tr>
                         </thead>
@@ -176,29 +180,32 @@
                             @php
                             $counter = 1;
                             @endphp
-                            @forelse ($blogs as $blog)
+                            @foreach($comments as $comment)
                             <tr>
                                 <td><input type="checkbox" class="form-check-input m-0 fs-exact-16 d-block" aria-label="..." /></td>
                                 <td><a class="text-reset">{{ $counter }}</a></td>
-                                <td><a class="text-reset">{{$blog->id}}</a></td>
-                                <td><a class="text-reset"><img src="{{$blog->image}}" alt="" width="50px"></a></td>
-                                <td><u><a href="/blog/post/{{$blog->id}}" target="_blank" class="text-reset">{{$blog->title}}</a></u></td>
-                                <td><a class="text-reset">{{$blog->tag}}</a></td>
-                                <td><a class="text-reset">{{$blog->date_time}}</a></td>
-                                <td><a class="text-reset">{{ $blog->comments_count }}</a></td>
+                                <td><a class="text-reset">{{ $comment->id }}</a></td>
+                                <td><a class="text-reset">{{ $comment->user->name }}</a></td>
+                                <td><u><a type="button" href="{{ route('fe.post', ['id' => $comment->blog_id]) }}" target="_blank" class="text-reset btn btn-primary">{{ $comment->blog_id }}</a></u></td>
+                                <td><a class="text-reset">{{ Illuminate\Support\Str::limit($comment->content, 20) }}</a></td>
+                                <td><a class="text-reset">{{ $comment->status }}</a></td>
+                                <td><a class="text-reset">{{ $comment->is_accept }}</a></td>
+                                <td><a class="text-reset">{{ $comment->is_deleted }}</a></td>
+                                <td><a class="text-reset">{{ $comment->ip_address }}</a></td>
+                                <td><a class="text-reset">{{ $comment->report_count }}</a></td>
+                                <td><a class="text-reset">{{ $comment->created_at->format('d-m-Y H:i:s') }}</a></td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-sa-muted btn-sm" type="button" id="blog-context-menu-0" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More"><svg xmlns="http://www.w3.org/2000/svg" width="3" height="13" fill="currentColor">
                                                 <path d="M1.5,8C0.7,8,0,7.3,0,6.5S0.7,5,1.5,5S3,5.7,3,6.5S2.3,8,1.5,8z M1.5,3C0.7,3,0,2.3,0,1.5S0.7,0,1.5,0 S3,0.7,3,1.5S2.3,3,1.5,3z M1.5,10C2.3,10,3,10.7,3,11.5S2.3,13,1.5,13S0,12.3,0,11.5S0.7,10,1.5,10z"></path>
                                             </svg></button>
                                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="user-context-menu-0">
-                                            {{-- <li><a class="dropdown-item" href="{{route('admin.user.edit', ['id' => $blog->id])}}">Edit</a></li> --}}
-                                            <li><a class="dropdown-item" href="/blog/post/{{ $blog->id }}" target="_blank">View</a></li>
+                                            <li><a class="dropdown-item" href="{{route('admin.blog.comment.edit', ['id' => $comment->id])}}">Edit</a></li>
                                             <li>
-                                                <form action="{{route('admin.blog.delete', ['id' => $blog->id])}}" method="POST">
+                                                <form action="{{route('admin.blog.comment.delete', ['id' => $comment->id])}}" met   hod="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="dropdown-item text-danger" href="#">Delete</button>
+                                                    <button type="submit" class="dropdown-item text-danger" href="#" onclick="return confirm('Delete?')">Delete</button>
                                                 </form>
                                             </li>
                                         </ul>
@@ -208,8 +215,7 @@
                             @php
                             $counter++;
                             @endphp
-                            @empty
-                            @endforelse
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

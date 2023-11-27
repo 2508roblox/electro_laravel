@@ -13,8 +13,8 @@ class BlogController extends Controller
 {
     public function index()
     {
-
-        $blogs = Blog::all();
+        $blogs = Blog::orderBy('id', 'DESC')->get();
+        // $blogs = Blog::all();
         return view('blog.index', compact('blogs'));
     }
 
@@ -124,5 +124,12 @@ class BlogController extends Controller
         $comment->save();
 
         return redirect()->back();
+    }
+    
+    public function destroy($id)
+    {
+        $comment = BlogComment::find($id);
+        $comment->delete();
+        return redirect('admin/blog/comment');
     }
 }
