@@ -172,13 +172,34 @@
                             <div class="alert alert-success">
                                 {{ 'You have ' . session('success') . '% discounnt' }}
                             </div>
+                            <script>
+                                function showAlert() {
+
+                                    Swal.fire({
+                                        title: 'Thông báo',
+                                        text: 'Thêm Mã giảm giá thành công ! , {{ 'You have ' . session('success') . '% discounnt' }}',
+                                        icon: 'success',
+                                        confirmButtonText: 'OK'
+                                    });
+                                }
+                                showAlert()
+                            </script>
                         @endif
 
                         <!-- Hiển thị flash message lỗi -->
                         @if (session('error'))
-                            <div class="alert alert-danger">
-                                {{ session('error') }}
-                            </div>
+                            <script>
+                                function showAlert() {
+
+                                    Swal.fire({
+                                        title: 'Thông báo',
+                                        text: 'Mã giảm giá không hợp lệ!',
+                                        icon: 'error',
+                                        confirmButtonText: 'OK'
+                                    });
+                                }
+                                showAlert()
+                            </script>
                         @endif
                     </div>
                 </div>

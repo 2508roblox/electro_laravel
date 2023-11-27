@@ -398,7 +398,7 @@
 
                                                 var $a = $('<a>', {
                                                     "data-product": truncatedName,
-                                                    "href": product.slug,
+                                                    "href": '/' + product.slug,
                                                     "html": '<img src="http://localhost:8000/storage/' + product.image_url +
                                                         '" lazy style="width: 30px; z-index: 999; height: 30px;" alt="" width="20px" srcset="">' +
                                                         truncatedName + '...' +
@@ -670,10 +670,7 @@
                             <!-- End Blog -->
 
                             <!-- Features -->
-                            <li class="nav-item u-header__nav-item">
-                                <a class="nav-link u-header__nav-link" href="#" aria-haspopup="true"
-                                    aria-expanded="false" aria-labelledby="featuresSubMenu">{{ __('features') }}</a>
-                            </li>
+
                             <!-- End Features -->
 
                             <!-- About Us -->
