@@ -41,7 +41,8 @@ class ShopController extends Controller
         // Tiếp tục xử lý dữ liệu và trả về kết quả
         $products = Product::join('sub_categories', 'products.sub_category_id', '=', 'sub_categories.id')
         ->select('products.*', 'sub_categories.name as sub_category_name')
-        ->get();
+        
+        ->paginate(15);
 
     foreach ($products as $product) {
         $product->image_url = $product->productImages()

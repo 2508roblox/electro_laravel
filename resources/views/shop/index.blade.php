@@ -371,7 +371,9 @@
                 <!-- Shop-control-bar Title -->
                 <div class="flex-center-between mb-3">
                     <h3 class="font-size-25 mb-0">Cửa hàng</h3>
-                    <p class="font-size-14 text-gray-90 mb-0">Showing 1–25 of 56 results</p>
+                    <p class="pagination-info">
+                        Showing {{ $products->firstItem() }}–{{ $products->lastItem() }} of {{ $products->total() }} results
+                    </p>
                 </div>
                 <!-- End shop-control-bar Title -->
                 <!-- Shop-control-bar -->
@@ -429,30 +431,8 @@
                         </ul>
                     </div>
                     <div class="d-flex">
-                        <form method="get">
-                            <!-- Select -->
-                            <select
-                                class="js-select selectpicker dropdown-select max-width-200 max-width-160-sm right-dropdown-0 px-2 px-xl-0"
-                                data-style="btn-sm bg-white font-weight-normal py-2 border text-gray-20 bg-lg-down-transparent border-lg-down-0">
-                                <option value="one" selected>Default sorting</option>
-                                <option value="two">Sort by popularity</option>
-                                <option value="three">Sort by average rating</option>
-                                <option value="four">Sort by latest</option>
-                                <option value="five">Sort by price: low to high</option>
-                                <option value="six">Sort by price: high to low</option>
-                            </select>
-                            <!-- End Select -->
-                        </form>
-                        <form method="POST" class="ml-2 d-none d-xl-block">
-                            <!-- Select -->
-                            <select class="js-select selectpicker dropdown-select max-width-120"
-                                data-style="btn-sm bg-white font-weight-normal py-2 border text-gray-20 bg-lg-down-transparent border-lg-down-0">
-                                <option value="one" selected>Show 20</option>
-                                <option value="two">Show 40</option>
-                                <option value="three">Show All</option>
-                            </select>
-                            <!-- End Select -->
-                        </form>
+                    
+
                     </div>
                     <nav class="px-3 flex-horizontal-center text-gray-20 d-none d-xl-flex">
                         <form method="post" class="min-width-50 mr-1">
@@ -864,13 +844,16 @@
                 <!-- Shop Pagination -->
                 <nav class="d-md-flex justify-content-between align-items-center border-top pt-3"
                     aria-label="Page navigation example">
-                    <div class="text-center text-md-left mb-3 mb-md-0">Showing 1–25 of 56 results</div>
+                    <p class="pagination-info">
+                        Showing {{ $products->firstItem() }}–{{ $products->lastItem() }} of {{ $products->total() }} results
+                    </p>
+
                     <ul class="pagination mb-0 pagination-shop justify-content-center justify-content-md-start">
-                        <li class="page-item"><a class="page-link current" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        {{ $products->links() }}
                     </ul>
                 </nav>
+
+
                 <!-- End Shop Pagination -->
             </div>
         </div>
