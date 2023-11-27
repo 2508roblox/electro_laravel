@@ -150,6 +150,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/order/{id}/received', 'received')->name('admin.order.received');
         Route::put('/order/edit', 'cancel')->name('admin.order.cancel');
         Route::get('/order/{id}/cancel', 'clientCancel')->name('admin.order.client.cancel');
+        Route::get('/order/{id}/refund', 'clientRefund')->name('admin.order.client.refund');
         Route::get('/order/{id}/generate', 'viewinvoice')->name('admin.invoice.view');
         Route::get('/order/{id}/mail', 'sendmail')->name('admin.invoice.mail');
         Route::get('/order/{id}/download', 'downloadinvoice')->name('admin.invoice.download');

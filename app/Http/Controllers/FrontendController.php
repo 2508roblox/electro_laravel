@@ -334,6 +334,7 @@ class FrontendController extends Controller
      */
     public function checkpayment(Request $request)
     {
+        Session::put('discount', 0);
         if ($request->vnp_ResponseCode == '24') {
             $order_id = $request->vnp_TxnRef;
             $order = Order::find($order_id);

@@ -86,10 +86,13 @@
                                     @elseif ($item['Status'] == 'Chưa thanh toán')
                                      <a style="border-radius: 10px !important" href="{{route('admin.checkout.pay', ['id' => $item['ID']])}}" class="btn btn-success rounded-0   font-weight-normal px-5 px-md-2 px-lg-5 w-100 w-md-auto">
                                     Thanh toán</a>
-                                @elseif ($item['Status'] == 'Đã xác nhận' || $item['Status'] == 'Đã thanh toán')
+                                @elseif ($item['Status'] == 'Đã xác nhận' )
                                 <a style="border-radius: 10px !important" href="{{route('admin.order.client.cancel', ['id' => $item['ID']])}}" class="btn btn-danger rounded-0   font-weight-normal px-5 px-md-2 px-lg-5 w-100 w-md-auto">
                                     Hủy đơn</a>
-                                @elseif ($item['Status'] == 'Đang giao hàng' || $item['Status'] == 'Đã thanh toán')
+                                @elseif ($item['Status']   == 'Đã thanh toán' )
+                                <a style="border-radius: 10px !important" href="{{route('admin.order.client.refund', ['id' => $item['ID']])}}" class="btn btn-danger rounded-0   font-weight-normal px-5 px-md-2 px-lg-5 w-100 w-md-auto">
+                                    Hoàn tiền</a>
+                                @elseif ($item['Status'] == 'Đang giao hàng' )
                                     <a style="border-radius: 10px !important" href="{{route('frontend.order.show', ['id' => $item['ID']])}}" class="btn btn-success rounded-0   font-weight-normal px-5 px-md-2 px-lg-5 w-100 w-md-auto">
                                     Đã nhận</a>
                                 @else

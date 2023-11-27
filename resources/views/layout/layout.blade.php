@@ -26,12 +26,13 @@
         a,p,div{
             cursor: none
         }
-       
+
         body:*{
             cursor: none
         }
+
         div[class*='kursor'] {
-            background: #fed700 !important;
+            background: #febe00 !important;
         }
         div[class*='kursor'] {
             border-color: #fed700 !important;
