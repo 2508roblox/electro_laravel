@@ -175,7 +175,7 @@
                         </div>
                         <header class="text-center mb-7">
                             <h2 class="h4 mb-0">{{ __('welcome_electro') }}</h2>
-                            <p>Fill out the form to get started.</p>
+                            <p>Điền thông tin dưới đây để đăng ký.</p>
                         </header>
                         <!-- End Title -->
                         <!-- Form Group -->
@@ -195,7 +195,7 @@
                                             </span>
                                         </div>
                                         <input type="text" class="form-control" name="name" id="signupName"
-                                            placeholder="Username" aria-label="Name" aria-describedby="signupEmailLabel"
+                                            placeholder="Tên tài khoản" aria-label="Name" aria-describedby="signupEmailLabel"
                                             required data-msg="Please enter a valid user name."
                                             data-error-class="u-has-error" data-success-class="u-has-success">
                                     </div>
@@ -234,7 +234,7 @@
                                             </span>
                                         </div>
                                         <input type="password" class="form-control" name="password" id="signupPassword"
-                                            placeholder="Password" aria-label="Password"
+                                            placeholder="Mật khẩu" aria-label="Password"
                                             aria-describedby="signupPasswordLabel" required
                                             data-msg="Your password is invalid. Please try again."
                                             data-error-class="u-has-error" data-success-class="u-has-success">
@@ -257,7 +257,7 @@
                                             </span>
                                         </div>
                                         <input type="password" class="form-control" name="confirmPassword"
-                                            id="signupConfirmPassword" placeholder="Confirm Password"
+                                            id="signupConfirmPassword" placeholder="Xác nhận mật khẩu"
                                             aria-label="Confirm Password" aria-describedby="signupConfirmPasswordLabel"
                                             required data-msg="Password does not match the confirm password."
                                             data-error-class="u-has-error" data-success-class="u-has-success">
@@ -278,9 +278,9 @@
                             </div>
 
                             <div class="text-center mb-4">
-                                <span class="small text-muted">Already have an account?</span>
+                                <span class="small text-muted">Đã có tài khoản?</span>
                                 <a class="js-animation-link small text-dark" href="javascript:;" data-target="#login"
-                                    data-link-group="idForm" data-animation-in="slideInUp">Login
+                                    data-link-group="idForm" data-animation-in="slideInUp">Đăng nhập ngay
                                 </a>
                             </div>
 
@@ -322,14 +322,16 @@
                                 })
                             });
                         </script> --}}
-                        <h3 class="font-size-18 mb-3">Sign up today and you will be able to :</h3>
+                        <h3 class="font-size-18 mb-3">Đăng ký tài khoản bạn sẽ có thể :</h3>
                         <ul class="list-group list-group-borderless">
                             <li class="list-group-item px-0"><i class="fas fa-check mr-2 text-green font-size-16"></i>
-                                Speed your way through checkout</li>
+                                Mua sản phẩm trong cửa hàng</li>
                             <li class="list-group-item px-0"><i class="fas fa-check mr-2 text-green font-size-16"></i>
-                                Track your orders easily</li>
+                                Thanh toán, xem trạng thái đơn hàng</li>
                             <li class="list-group-item px-0"><i class="fas fa-check mr-2 text-green font-size-16"></i>
-                                Keep a record of all your purchases</li>
+                                Bình luận đánh giá sản phẩm</li>
+                            <li class="list-group-item px-0"><i class="fas fa-check mr-2 text-green font-size-16"></i>
+                                Và nhiều chức năng khác</li>
                         </ul>
                     </div>
                 </div>

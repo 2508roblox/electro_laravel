@@ -79,17 +79,73 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $orderItems = DB::table('order_items')
-            ->join('products', 'products.id', '=', 'order_items.product_id')
+        // $orderItems = DB::table('order_items')
+        //     ->join('products', 'products.id', '=', 'order_items.product_id')
+        //     ->leftJoin('product_images', function ($join) {
+        //         $join->on('products.id', '=', 'product_images.product_id')
+        //             ->whereRaw('product_images.id = (SELECT MIN(id) FROM product_images WHERE product_id = products.id)');
+        //     })
+        //     ->select('order_items.id','order_items.quantity', 'order_items.price', 'products.name as product_name', 'product_images.image')
+        //     ->where('order_items.order_id', $id)
+        //     ->get();
+
+        // return view('frontend.pages.orderDetail', compact('orderItems'));
+        $order = Order::find($id);
+
+        // Tạo mảng để lưu thông tin các order
+        $orderData = [];
+
+
+            // Lấy thông tin order
+            $orderId = $order->id;
+            $date = $order->created_at->format('Y-m-d');
+            $method = $order->payment_mode;
+            $status = $order->status;
+
+            // Lấy thông tin order items dựa vào id của order
+            $orderItems = OrderItem::where('order_id', $orderId)->get();
+
+            // Tính tổng quantity và tổng total của order items
+            $totalQuantity = $orderItems->sum('quantity');
+            $totalPrice = $orderItems->sum(function ($item) {
+                return $item->quantity * $item->price;
+            });
+            // Thêm thông tin order và order items vào mảng
+            $orderData[] = [
+                'ID' => $orderId,
+                'Date' => $date,
+                'Total Quantity' => $totalQuantity,
+                'Total Price' => $totalPrice,
+                'Method' => $method,
+                'Status' => $status,
+                'Name' => ucwords($order->firstname . ' '. $order->lastname),
+
+
+
+            ];
+            //order items
+            $order_items = OrderItem::where('order_id', $orderId)
+            ->join('products', 'order_items.product_id', '=', 'products.id')
+
             ->leftJoin('product_images', function ($join) {
                 $join->on('products.id', '=', 'product_images.product_id')
                     ->whereRaw('product_images.id = (SELECT MIN(id) FROM product_images WHERE product_id = products.id)');
             })
-            ->select('order_items.id','order_items.quantity', 'order_items.price', 'products.name as product_name', 'product_images.image')
-            ->where('order_items.order_id', $id)
+
+            ->select(
+                'order_items.id',
+
+                'order_items.quantity',
+                'order_items.created_at',
+                'order_items.updated_at',
+                'product_images.image',
+                'products.name AS product_name',
+                'order_items.price AS price',
+
+            )
             ->get();
 
-        return view('frontend.pages.orderDetail', compact('orderItems'));
+      return view('admin.invoice.template',  ['order' => $orderData[0], 'order_data' => $order, 'order_items' => $order_items]);
     }
     /**
      * Show the form for editing the specified resource.

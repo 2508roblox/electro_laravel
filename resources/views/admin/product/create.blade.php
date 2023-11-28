@@ -14,16 +14,16 @@
                                 <div class="col">
                                     <nav class="mb-2" aria-label="breadcrumb">
                                         <ol class="breadcrumb breadcrumb-sa-simple">
-                                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                            <li class="breadcrumb-item"><a href="app-products-list.html">Products</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Create Product</li>
+                                            <li class="breadcrumb-item"><a href="{{ route('dashboard' ) }}">Thống kê</a></li>
+                                            <li class="breadcrumb-item"><a >Sản phẩm</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Tạo sản phẩm</li>
                                         </ol>
                                     </nav>
-                                    <h1 class="h3 m-0">Create Product</h1>
+                                    <h1 class="h3 m-0">Tạo sản phẩm</h1>
                                 </div>
                                 <div class="col-auto d-flex"><a href="#"
-                                        class="btn btn-secondary me-3">Duplicate</a><button id="create-product-button"
-                                        type="submit" href="#" class="btn btn-primary">Save</button></div>
+                                    class="btn btn-secondary me-3">Trở về</a><button type="submit" href="#"
+                                    class="btn btn-primary">Tạo</button></div>
                             </div>
                         </div>
                         <div class="sa-entity-layout"
@@ -33,13 +33,13 @@
                                     <div class="card">
                                         <div class="card-body p-5">
                                             <div class="mb-5">
-                                                <h2 class="mb-0 fs-exact-18">Basic information</h2>
+                                                <h2 class="mb-0 fs-exact-18">Thông tin cơ bản</h2>
                                             </div>
                                             @if ($errors->any())
                                                 {!! implode('', $errors->all('<div>:message</div>')) !!}
                                             @endif
                                             <div class="mb-4"><label for="form-product/name"
-                                                    class="form-label">Name</label><input name="name" type="text"
+                                                    class="form-label">Tên</label><input name="name" type="text"
                                                     class="form-control" id="form-product/name"
                                                     value="Brandix Screwdriver SCREW150" /></div>
                                             <div class="mb-4"><label for="form-product/slug"
@@ -54,7 +54,7 @@
                                                     product identifier. No longer than 255 characters.</div>
                                             </div>
                                             <div class="mb-4"><label for="form-product/description"
-                                                    class="form-label">Description</label>
+                                                    class="form-label">Mô tả</label>
 
                                                 <textarea name="description" rows="" cols="80" required>
 
@@ -68,8 +68,8 @@
 
 
                                             </div>
-                                            <div><label for="form-product/short-description" class="form-label">Short
-                                                    description</label>
+                                            <div><label for="form-product/short-description" class="form-label">Mô tả ngắn
+                                                    </label>
                                                 <textarea name="small_description" id="form-product/short-description" class="form-control" rows="2"></textarea>
                                             </div>
                                         </div>
@@ -375,7 +375,7 @@
                                     <div class="card mt-5">
                                         <div class="card-body p-5">
                                             <div class="mb-5">
-                                                <h2 class="mb-0 fs-exact-18">Images</h2>
+                                                <h2 class="mb-0 fs-exact-18">Hình ảnh</h2>
                                             </div>
                                         </div>
                                         <div class="mt-n5">
@@ -386,7 +386,7 @@
                                             </div>
                                             <div class="sa-divider"></div>
                                             <div class="px-5 py-4 my-2"><a href="#">
-                                                <label for="upload_media">Upload new image</label>
+                                                <label for="upload_media">Tải lên ảnh mới</label>
                                                 </a></div>
                                         </div>
                                     </div>

@@ -201,7 +201,7 @@
 
                                 </ul>
                             </div>
-                            <p>Description: {{ $product->small_description }}.</p>
+                            <p><strong>Mô tả sản phẩm</strong>: {{ $product->small_description }}.</p>
                             {{--  --}}
                             <!-- Hiển thị danh sách variants -->
 
@@ -210,7 +210,7 @@
 
 
                                     <div style="max-widtg : 180px; font-size: 1rem ;" class="variant-name">
-                                        {{ $variant->value }}:
+                                       <strong> {{ $variant->value }}:</strong>
                                     </div>
 
                                     <div class="variant-values" style="display: flex;   align-items: start; ">
@@ -356,7 +356,7 @@ var quantityLoader = document.getElementById("quantity_loader");
                                 <input type="hidden" value="0" id="sku_id_input">
                                 <span id="sku_id">Chọn 1 biến thể</span>
                             </p>
-                            <div class="md-3 text-gray-9 font-size-14 d-flex align-middle gap-2" style="gap: 3px" >Tình trạng:
+                            <div class="md-3 text-gray-9 font-size-14 d-flex align-middle gap-2" style="gap: 3px" ><strong>Tình trạng:</strong>
                                 <div class="spinner-border text-green" id="quantity_loader" style="width: 10px; height: 10px;display: none  " role="status">
 
                                 </div>
@@ -385,7 +385,7 @@ var quantityLoader = document.getElementById("quantity_loader");
 
                             <div class="d-md-flex align-items-end mb-3">
                                 <div class="max-width-150 mb-4 mb-md-0">
-                                    <h6 class="font-size-14"> {{ __('quantity') }}</h6>
+                                    <h6 class="font-size-14">><strong> {{ __('quantity') }}</strong></h6>
                                     <!-- Quantity -->
                                     <div class="border rounded-pill py-2 px-3 border-color-1">
                                         <div class="js-quantity row align-items-center">

@@ -172,13 +172,34 @@
                             <div class="alert alert-success">
                                 {{ 'You have ' . session('success') . '% discounnt' }}
                             </div>
+                            <script>
+                                function showAlert() {
+
+                                    Swal.fire({
+                                        title: 'Thông báo',
+                                        text: 'Thêm Mã giảm giá thành công ! , {{ 'You have ' . session('success') . '% discounnt' }}',
+                                        icon: 'success',
+                                        confirmButtonText: 'OK'
+                                    });
+                                }
+                                showAlert()
+                            </script>
                         @endif
 
                         <!-- Hiển thị flash message lỗi -->
                         @if (session('error'))
-                            <div class="alert alert-danger">
-                                {{ session('error') }}
-                            </div>
+                            <script>
+                                function showAlert() {
+
+                                    Swal.fire({
+                                        title: 'Thông báo',
+                                        text: 'Mã giảm giá không hợp lệ!',
+                                        icon: 'error',
+                                        confirmButtonText: 'OK'
+                                    });
+                                }
+                                showAlert()
+                            </script>
                         @endif
                     </div>
                 </div>
@@ -195,7 +216,7 @@
                                 <div class="p-4 mb-4 checkout-table">
                                     <!-- Title -->
                                     <div class="border-bottom border-color-1 mb-5">
-                                        <h3 class="section-title mb-0 pb-2 font-size-25">Your order</h3>
+                                        <h3 class="section-title mb-0 pb-2 font-size-25">Hóa đơn</h3>
                                     </div>
                                     <!-- End Title -->
 
@@ -203,8 +224,8 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th class="product-name">Product</th>
-                                                <th class="product-total">Total</th>
+                                                <th class="product-name">Sản phẩm</th>
+                                                <th class="product-total">Tổng</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -213,10 +234,17 @@
                                                 $totalShippingCost = 0; // Khởi tạo biến totalShippingCost để tính tổng phí vận chuyển
                                             @endphp
                                             @foreach ($checkoutData as $item)
+                                            <?php
+// Generate random RGB values
+$red = rand(0, 255);
+$green = rand(0, 255);
+$blue = rand(0, 255);
+$color = "rgb($red, $green, $blue)";
+?>
                                                 <tr class="cart_item">
                                                     <td style="padding-right: .5rem">{{ $item['product_name'] }}
-                                                        <span> - (
-                                                            {{ $item['sku_code'] }} )</span>
+                                                        <span style="color: {{$color}}"> -
+                                                            {{ $item['sku_code'] }} </span>
                                                         <strong class="product-quantity">× {{ $item['quantity'] }}</strong>
                                                     </td>
                                                     <td>${{ number_format($item['product_price'] * $item['quantity']) }}.00
@@ -235,7 +263,7 @@
 
                                         <tfoot>
                                             <tr>
-                                                <th>Subtotal</th>
+                                                <th>Tạm tính</th>
                                                 <td>${{ number_format($subtotal) }}.00 </td>
                                             </tr>
                                             <tr>
@@ -243,7 +271,7 @@
                                                 <td>${{ number_format($totalShippingCost) }}.00 </td>
                                             </tr>
                                             <tr>
-                                                <th>Discount</th>
+                                                <th>Giảm giá</th>
                                                 <td>
                                                     <span> -
                                                         ${{ number_format((Session::get('discount') / 100) * ($subtotal + $totalShippingCost)) }}
@@ -259,7 +287,7 @@
                                             <input type="number" hidden value="{{ $totalShippingCost }}"
                                                 name="shipping_price">
                                             <tr>
-                                                <th>Total</th>
+                                                <th>Tổng đơn</th>
                                                 <td><strong>${{ number_format($subtotal + $totalShippingCost - (Session::get('discount') / 100) * ($subtotal + $totalShippingCost)) }}.00
                                                     </strong></td>
                                             </tr>
@@ -391,7 +419,7 @@
                         <div class="pb-7 mb-7">
                             <!-- Title -->
                             <div class="border-bottom border-color-1 mb-5">
-                                <h3 class="section-title mb-0 pb-2 font-size-25">Billing details</h3>
+                                <h3 class="section-title mb-0 pb-2 font-size-25">Chi tiết hóa đơn</h3>
                             </div>
                             <!-- End Title -->
 

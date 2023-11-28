@@ -21,7 +21,7 @@
                     <div class="card saw-indicator flex-grow-1"
                         data-sa-container-query="{&quot;340&quot;:&quot;saw-indicator--size--lg&quot;}">
                         <div class="sa-widget-header saw-indicator__header">
-                            <h2 class="sa-widget-header__title">Total sells</h2>
+                            <h2 class="sa-widget-header__title">Tổng Doanh Thu</h2>
                             <div class="sa-widget-header__actions">
                                 <div class="dropdown"><button type="button" class="btn btn-sm btn-sa-muted d-block"
                                         id="widget-context-menu-1" data-bs-toggle="dropdown" aria-expanded="false"
@@ -62,7 +62,7 @@
                     <div class="card saw-indicator flex-grow-1"
                         data-sa-container-query="{&quot;340&quot;:&quot;saw-indicator--size--lg&quot;}">
                         <div class="sa-widget-header saw-indicator__header">
-                            <h2 class="sa-widget-header__title">Average order value</h2>
+                            <h2 class="sa-widget-header__title">Giá Trị Trung Bình</h2>
                             <div class="sa-widget-header__actions">
                                 <div class="dropdown"><button type="button" class="btn btn-sm btn-sa-muted d-block"
                                         id="widget-context-menu-2" data-bs-toggle="dropdown" aria-expanded="false"
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="saw-indicator__body">
-                            <div class="saw-indicator__value">${{ $averageAmount }}</div>
+                            <div class="saw-indicator__value">${{ $averageAmount / $orderCount }}</div>
                             <div class="saw-indicator__delta saw-indicator__delta--fall">
                                 <div class="saw-indicator__delta-direction"><svg xmlns="http://www.w3.org/2000/svg"
                                         width="9" height="9" viewBox="0 0 9 9" fill="currentColor">
@@ -103,7 +103,7 @@
                     <div class="card saw-indicator flex-grow-1"
                         data-sa-container-query="{&quot;340&quot;:&quot;saw-indicator--size--lg&quot;}">
                         <div class="sa-widget-header saw-indicator__header">
-                            <h2 class="sa-widget-header__title">Total orders</h2>
+                            <h2 class="sa-widget-header__title">Tổng Số Hóa Đơn</h2>
                             <div class="sa-widget-header__actions">
                                 <div class="dropdown"><button type="button" class="btn btn-sm btn-sa-muted d-block"
                                         id="widget-context-menu-3" data-bs-toggle="dropdown" aria-expanded="false"
@@ -144,7 +144,7 @@
                     <div class="card flex-grow-1 saw-pulse"
                         data-sa-container-query="{&quot;560&quot;:&quot;saw-pulse--size--lg&quot;}">
                         <div class="sa-widget-header saw-pulse__header">
-                            <h2 class="sa-widget-header__title">Active users</h2>
+                            <h2 class="sa-widget-header__title">Số người dùng</h2>
                             <div class="sa-widget-header__actions">
                                 <div class="dropdown"><button type="button" class="btn btn-sm btn-sa-muted d-block"
                                         id="widget-context-menu-4" data-bs-toggle="dropdown" aria-expanded="false"
@@ -187,11 +187,12 @@
                 </div>
                 <div class="col-12 col-lg-8 col-xxl-9 d-flex">
                     <div class="card flex-grow-1 saw-chart"
-                        data-sa-data="[{&quot;label&quot;:&quot;Jan&quot;,&quot;value&quot;:50},{&quot;label&quot;:&quot;Feb&quot;,&quot;value&quot;:130},{&quot;label&quot;:&quot;Mar&quot;,&quot;value&quot;:525},{&quot;label&quot;:&quot;Apr&quot;,&quot;value&quot;:285},{&quot;label&quot;:&quot;May&quot;,&quot;value&quot;:470},{&quot;label&quot;:&quot;Jun&quot;,&quot;value&quot;:130},{&quot;label&quot;:&quot;Jul&quot;,&quot;value&quot;:285},{&quot;label&quot;:&quot;Aug&quot;,&quot;value&quot;:240},{&quot;label&quot;:&quot;Sep&quot;,&quot;value&quot;:710},{&quot;label&quot;:&quot;Oct&quot;,&quot;value&quot;:470},{&quot;label&quot;:&quot;Nov&quot;,&quot;value&quot;:640},{&quot;label&quot;:&quot;Dec&quot;,&quot;value&quot;:1110}]">
+                        data-sa-data="[{&quot;label&quot;:&quot;Jan&quot;,&quot;value&quot;:{{$orderCountPerMonth['0']}}},{&quot;label&quot;:&quot;Feb&quot;,&quot;value&quot;:{{$orderCountPerMonth['1']}}},{&quot;label&quot;:&quot;Mar&quot;,&quot;value&quot;:{{$orderCountPerMonth['2']}}},{&quot;label&quot;:&quot;Apr&quot;,&quot;value&quot;:{{$orderCountPerMonth['3']}}},{&quot;label&quot;:&quot;May&quot;,&quot;value&quot;:{{$orderCountPerMonth['4']}}},{&quot;label&quot;:&quot;Jun&quot;,&quot;value&quot;:{{$orderCountPerMonth['5']}}},{&quot;label&quot;:&quot;Jul&quot;,&quot;value&quot;:{{$orderCountPerMonth['6']}}},{&quot;label&quot;:&quot;Aug&quot;,&quot;value&quot;:{{$orderCountPerMonth['7']}}},{&quot;label&quot;:&quot;Sep&quot;,&quot;value&quot;:{{$orderCountPerMonth['8']}}},{&quot;label&quot;:&quot;Oct&quot;,&quot;value&quot;:{{$orderCountPerMonth['9']}}},{&quot;label&quot;:&quot;Nov&quot;,&quot;value&quot;:{{$orderCountPerMonth['10']}}},{&quot;label&quot;:&quot;Dec&quot;,&quot;value&quot;:{{$orderCountPerMonth['11']}}}]">
                         <div class="sa-widget-header saw-chart__header">
-                            <h2 class="sa-widget-header__title">Income statistics</h2>
+                            <h2 class="sa-widget-header__title">Thống kê doanh thu theo tháng</h2>
                             <div class="sa-widget-header__actions">
-                                <div class="dropdown"><button type="button" class="btn btn-sm btn-sa-muted d-block"
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-sm btn-sa-muted d-block"
                                         id="widget-context-menu-5" data-bs-toggle="dropdown" aria-expanded="false"
                                         aria-label="More"><svg xmlns="http://www.w3.org/2000/svg" width="3"
                                             height="13" fill="currentColor">
@@ -215,6 +216,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-12 col-xxl-9 d-flex">
                     <div class="card flex-grow-1 saw-table">
                         <div class="sa-widget-header saw-table__header">
@@ -549,7 +551,7 @@
                     </div>
                 </div>
 
-            
+
             </div>
         </div>
     </div>

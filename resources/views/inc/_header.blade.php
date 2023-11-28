@@ -398,7 +398,7 @@
 
                                                 var $a = $('<a>', {
                                                     "data-product": truncatedName,
-                                                    "href": product.slug,
+                                                    "href": '/' + product.slug,
                                                     "html": '<img src="http://localhost:8000/storage/' + product.image_url +
                                                         '" lazy style="width: 30px; z-index: 999; height: 30px;" alt="" width="20px" srcset="">' +
                                                         truncatedName + '...' +
@@ -547,11 +547,16 @@
                                         href="{{ route('frontend.myaccount.dashboard') }}" class="text-gray-90"
                                         data-toggle="tooltip" data-placement="top" title="My Account"><i
                                             class="font-size-22 ec ec-user"></i></a></li>
-                                <li class="col pr-xl-0 px-2 px-sm-3">
+                                <li class="col pr-xl-0 px-2 px-sm-3 mr-4">
                                     <a href="{{ route('admin.cart.list') }}"
                                         class="text-gray-90 position-relative d-flex " data-toggle="tooltip"
                                         data-placement="top" title="Giỏ hàng">
                                         <i class="font-size-22 ec ec-shopping-bag"></i>
+                                        <span class="bg-lg-down-black width-22 height-22 bg-white position-absolute d-flex align-items-center justify-content-center rounded-circle left-12 top-8 font-weight-bold font-size-12">
+                                            {{ Session::has('cart_count') ? Session::get('cart_count') : 0 }}
+
+
+                                        </span>
                                     </a>
                                 </li>
                                 <li class="col pr-xl-0 px-2 px-sm-3">
@@ -575,7 +580,7 @@
                                                     </g>
                                                 </svg>:
                                                 <span style="display: flex !important; flex-direction: row !important"
-                                                    class="d-none d-xl-block font-weight-bold font-size-16 #fff ml-3">{{ Session::get('wallet') ? Session::get('wallet') : '0' }},00$
+                                                    class="d-none d-xl-block font-weight-bold font-size-16 #fff ml-3">{{ Session::get('wallet') ? Session::get('wallet') : 0 }}$
                                                 </span>
                                             </div>
                                         </button>
@@ -670,10 +675,7 @@
                             <!-- End Blog -->
 
                             <!-- Features -->
-                            <li class="nav-item u-header__nav-item">
-                                <a class="nav-link u-header__nav-link" href="#" aria-haspopup="true"
-                                    aria-expanded="false" aria-labelledby="featuresSubMenu">{{ __('features') }}</a>
-                            </li>
+
                             <!-- End Features -->
 
                             <!-- About Us -->

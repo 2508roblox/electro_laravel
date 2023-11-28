@@ -13,9 +13,11 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::orderBy('id', 'DESC')->get();
+        $blogs = Blog::orderBy('id', 'DESC')->paginate(10);
+        $totalBlogs = Blog::count(); // Lấy tổng số bài viết
+        // $blogs = Blog::orderBy('id', 'DESC')->get();
         // $blogs = Blog::all();
-        return view('blog.index', compact('blogs'));
+        return view('blog.index', compact('blogs', 'totalBlogs'));
     }
 
     public function post($id)

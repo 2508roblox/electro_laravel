@@ -48,7 +48,9 @@ class CheckoutController extends Controller
             ->get();
         // Tạo một mảng để lưu thông tin checkout
         $checkoutData = [];
-
+                if($carts->count() < 1) {
+                    return redirect('cart')->with(['empty'=>true]);
+                };
         // Lặp qua từng cart để lấy thông tin cần thiết
         foreach ($carts as $cart) {
             // Kiểm tra nếu promotion_price không null, lấy promotion_price, ngược lại lấy price
@@ -103,6 +105,7 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
+
         // Kiểm tra dữ liệu đầu vào
         $validator = Validator::make($request->all(), [
             'firstname' => 'required|max:255',
@@ -185,19 +188,20 @@ class CheckoutController extends Controller
 
         // Tính phí vận chuyển (1% giá trị tổng đơn)
 
-
+        Session::put('cart_count', 0);
         // Cộng phí vận chuyển vào tổng tiền đơn hàng
         if (!Session::get('discount') || Session::get('discount') == 0) {
             $totalAmount = ($totalAmount + $request->shipping_price);
         } else {
             $totalAmount = ($totalAmount + $request->shipping_price) - ($totalAmount + $request->shipping_price) * (Session::get('discount') / 100);
+            $order->discount =  ($totalAmount + $request->shipping_price) * (Session::get('discount') / 100);
         }
 
         // Lưu tổng tiền đơn hàng vào cột total_amount trong bảng orders
         $order->shipping_price = $request->shipping_price;
         $order->total_amount = $totalAmount;
         $order->update();
-        Session::put('discount', 0);
+        Session::forget('discount');
         //bank payment
         if ($request->payment_mode == 'wallet') {
             $userId = Auth::id();
@@ -228,6 +232,7 @@ class CheckoutController extends Controller
 
             Session::put('wallet', $totalAmount);
         } else if ($request->payment_mode == 'bank') {
+            Session::forget('discount');
 
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
             $vnp_Returnurl = "http://localhost:8000/checkpayment";
@@ -237,7 +242,7 @@ class CheckoutController extends Controller
             $vnp_TxnRef = $order->id; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
             $vnp_OrderInfo = 'Thanh Toán đơn hàng tại Electro';
             $vnp_OrderType = 'bank';
-            $vnp_Amount = ($order->shipping_price + $order->total_amount == 0.0 ? 0 : $order->shipping_price + $order->total_amount) * 100 * 24305;
+            $vnp_Amount = round(( ($order->shipping_price + $order->total_amount == 0.0 ? 0 : $order->shipping_price + $order->total_amount) ) * 100 * 24305) ;
             $vnp_Locale = 'vn';
             $vnp_BankCode = 'NCB';
             $vnp_IpAddr = 'http://localhost:8000/checkpayment';
@@ -357,7 +362,7 @@ class CheckoutController extends Controller
         $vnp_TxnRef = $order->id; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
         $vnp_OrderInfo = 'Thanh Toán đơn hàng tại Electro';
         $vnp_OrderType = 'bank';
-        $vnp_Amount = ($order->shipping_price + $order->total_amount == 0.0 ? 0 : $order->shipping_price + $order->total_amount) * 100 * 24305;
+        $vnp_Amount =round( ($order->shipping_price + $order->total_amount == 0.0 ? 0 : $order->shipping_price + $order->total_amount) * 100 * 24305);
         $vnp_Locale = 'vn';
         $vnp_BankCode = 'NCB';
         $vnp_IpAddr = 'http://localhost:8000/checkpayment';

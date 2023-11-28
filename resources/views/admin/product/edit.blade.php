@@ -15,16 +15,16 @@
                                 <div class="col">
                                     <nav class="mb-2" aria-label="breadcrumb">
                                         <ol class="breadcrumb breadcrumb-sa-simple">
-                                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                            <li class="breadcrumb-item"><a href="app-products-list.html">Products</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Edit Product</li>
+                                            <li class="breadcrumb-item"><a href="{{ route('dashboard' ) }}">Thống kê</a></li>
+                                            <li class="breadcrumb-item"><a >Sản phẩm</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Tạo sản phẩm</li>
                                         </ol>
                                     </nav>
-                                    <h1 class="h3 m-0">Edit Product</h1>
+                                    <h1 class="h3 m-0">Chỉnh sửa sản phẩm</h1>
                                 </div>
                                 <div class="col-auto d-flex"><a href="{{ route('admin.product.list') }}"
-                                        class="btn btn-secondary me-3">Back</a><button type="submit" href="#"
-                                        class="btn btn-primary">Save</button></div>
+                                        class="btn btn-secondary me-3">Trở về</a><button type="submit" href="#"
+                                        class="btn btn-primary">Cập nhập</button></div>
                             </div>
                         </div>
                         <div class="sa-entity-layout"
@@ -34,13 +34,13 @@
                                     <div class="card">
                                         <div class="card-body p-5">
                                             <div class="mb-5">
-                                                <h2 class="mb-0 fs-exact-18">Basic information</h2>
+                                                <h2 class="mb-0 fs-exact-18">Thông tin cơ bản</h2>
                                             </div>
                                             @if ($errors->any())
                                                 {!! implode('', $errors->all('<div>:message</div>')) !!}
                                             @endif
                                             <div class="mb-4"><label for="form-product/name"
-                                                    class="form-label">Name</label><input name="name" type="text"
+                                                    class="form-label">Tên</label><input name="name" type="text"
                                                     class="form-control" id="form-product/name"
                                                     value="{{$product->name}}" /></div>
                                             <div class="mb-4"><label for="form-product/slug"
@@ -55,7 +55,7 @@
                                                     product identifier. No longer than 255 characters.</div>
                                             </div>
                                             <div class="mb-4"><label for="form-product/description"
-                                                    class="form-label">Description</label>
+                                                    class="form-label">Mô tả</label>
 
                                                 <textarea  name="description" rows="" cols="80" required>
                                                     {{$product->description}}
@@ -70,8 +70,8 @@
 
 
                                             </div>
-                                            <div><label for="form-product/short-description" class="form-label">Short
-                                                    description</label>
+                                            <div><label for="form-product/short-description" class="form-label">Mô tả ngắn
+                                                     </label>
                                                 <textarea name="small_description" id="form-product/short-description" class="form-control" rows="2">
                                                     {{ $product->small_description }}
                                                 </textarea>
@@ -309,97 +309,98 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="sa-entity-layout__sidebar">
-                                    <div class="card w-100">
-                                        <div class="card-body p-5">
-                                            <div class="mb-5">
-                                                <h2 class="mb-0 fs-exact-18">Visibility</h2>
-                                            </div>
 
-                                            <div class="mb-4"><label class="form-check"><input type="radio"
-                                                        class="form-check-input"
-                                                        {{ $product->status == 'published' ? 'checked' : '' }}
-                                                        value="published" name="status" /><span
-                                                        class="form-check-label">Published</span></label><label
-                                                    class="form-check"><input type="radio" class="form-check-input"
-                                                        {{ $product->status == 'scheduled' ? 'checked' : '' }}
-                                                        value="scheduled" name="status" /><span
-                                                        class="form-check-label">Scheduled</span></label>
-                                                <label class="form-check mb-0"><input type="radio"
-                                                        class="form-check-input" value="hidden"
-                                                        {{ $product->status == 'hidden' ? 'checked' : '' }}
-                                                        name="status" /><span
-                                                        class="form-check-label">Hidden</span></label>
-                                            </div>
-                                            <div>
-                                                <label for="form-product/seo-title" class="form-label">Publish
-                                                    date</label><input name="publish_date"
-                                                    value="{{ $product->publish_date }}" type="text"
-                                                    class="form-control datepicker-here" id="form-product/publish-date"
-                                                    data-auto-close="true" data-language="en" />
-                                            </div>
+                            </div>
+                            <div class="sa-entity-layout__sidebar">
+                                <div class="card w-100">
+                                    <div class="card-body p-5">
+                                        <div class="mb-5">
+                                            <h2 class="mb-0 fs-exact-18">Visibility</h2>
+                                        </div>
+
+                                        <div class="mb-4"><label class="form-check"><input type="radio"
+                                                    class="form-check-input"
+                                                    {{ $product->status == 'published' ? 'checked' : '' }}
+                                                    value="published" name="status" /><span
+                                                    class="form-check-label">Published</span></label><label
+                                                class="form-check"><input type="radio" class="form-check-input"
+                                                    {{ $product->status == 'scheduled' ? 'checked' : '' }}
+                                                    value="scheduled" name="status" /><span
+                                                    class="form-check-label">Scheduled</span></label>
+                                            <label class="form-check mb-0"><input type="radio"
+                                                    class="form-check-input" value="hidden"
+                                                    {{ $product->status == 'hidden' ? 'checked' : '' }}
+                                                    name="status" /><span
+                                                    class="form-check-label">Hidden</span></label>
+                                        </div>
+                                        <div>
+                                            <label for="form-product/seo-title" class="form-label">Publish
+                                                date</label><input name="publish_date"
+                                                value="{{ $product->publish_date }}" type="text"
+                                                class="form-control datepicker-here" id="form-product/publish-date"
+                                                data-auto-close="true" data-language="en" />
                                         </div>
                                     </div>
-                                    <div class="card w-100 mt-5">
-                                        <div class="card-body p-5">
-                                            <div class="mb-5">
-                                                <h2 class="mb-0 fs-exact-18">Sub Category</h2>
-                                            </div>
-                                            <select name="sub_category_id" class="sa-select2 form-select">
-                                                @foreach ($sub_categories as $cate)
-
-                                                    <option {{ $cate->id == $product->sub_category_id ? 'selected' : '' }}
-                                                        value="{{ $cate->id }}">{{ $cate->name }}</option>
-                                                @endforeach ()
-
-
-                                            </select>
-                                            <div class="mt-4 mb-n2"><a href="#">Add new category</a></div>
+                                </div>
+                                <div class="card w-100 mt-5">
+                                    <div class="card-body p-5">
+                                        <div class="mb-5">
+                                            <h2 class="mb-0 fs-exact-18">Sub Category</h2>
                                         </div>
+                                        <select name="sub_category_id" class="sa-select2 form-select">
+                                            @foreach ($sub_categories as $cate)
+
+                                                <option {{ $cate->id == $product->sub_category_id ? 'selected' : '' }}
+                                                    value="{{ $cate->id }}">{{ $cate->name }}</option>
+                                            @endforeach ()
+
+
+                                        </select>
+                                        <div class="mt-4 mb-n2"><a href="#">Add new category</a></div>
                                     </div>
-                                    <div class="card w-100 mt-5">
-                                        <div class="card-body p-5">
-                                            <div class="mb-5">
-                                                <h2 class="mb-0 fs-exact-18">Brands</h2>
-                                            </div>
-                                            <select name="brand_id" class="sa-select2 form-select">
-                                                @foreach ($brands as $brand)
-                                                    <option
-                                                    {{ $brand->id == $product->brand_id ? 'selected' : '' }}
-                                                    value="{{$brand->id}}">{{ $brand->name }}</option>
-                                                @endforeach ()
-
-
-                                            </select>
-                                            <div class="mt-4 mb-n2"><a href="#">Add new category</a></div>
+                                </div>
+                                <div class="card w-100 mt-5">
+                                    <div class="card-body p-5">
+                                        <div class="mb-5">
+                                            <h2 class="mb-0 fs-exact-18">Brands</h2>
                                         </div>
+                                        <select name="brand_id" class="sa-select2 form-select">
+                                            @foreach ($brands as $brand)
+                                                <option
+                                                {{ $brand->id == $product->brand_id ? 'selected' : '' }}
+                                                value="{{$brand->id}}">{{ $brand->name }}</option>
+                                            @endforeach ()
+
+
+                                        </select>
+                                        <div class="mt-4 mb-n2"><a href="#">Add new category</a></div>
                                     </div>
-                                    {{-- <div class="card w-100 mt-5">
-                                        <div class="card-body p-5">
-                                            <div class="mb-5">
-                                                <h2 class="mb-0 fs-exact-18">Brands</h2>
-                                            </div>
-                                            <select name="brand_id" class="sa-select2 form-select">
-                                                @foreach ($brands as $brand)
-                                                    <option  value="{{$brand->id}}">{{ $brand->name }}</option>
-                                                @endforeach ()
+                                </div>
+                                {{-- <div class="card w-100 mt-5">
+                                    <div class="card-body p-5">
+                                        <div class="mb-5">
+                                            <h2 class="mb-0 fs-exact-18">Brands</h2>
+                                        </div>
+                                        <select name="brand_id" class="sa-select2 form-select">
+                                            @foreach ($brands as $brand)
+                                                <option  value="{{$brand->id}}">{{ $brand->name }}</option>
+                                            @endforeach ()
 
 
-                                            </select>
-                                            <div class="mt-4 mb-n2"><a href="#">Add new Brand</a></div>
-                                        </div>
-                                    </div> --}}
-                                    <div class="card w-100 mt-5">
-                                        <div class="card-body p-5">
-                                            <div class="mb-5">
-                                                <h2 class="mb-0 fs-exact-18">Tags</h2>
-                                            </div><select class="sa-select2 form-select" data-tags="true" multiple="">
-                                                <option selected="">Universe</option>
-                                                <option selected="">Sputnik</option>
-                                                <option selected="">Steel</option>
-                                                <option selected="">Rocket</option>
-                                            </select>
-                                        </div>
+                                        </select>
+                                        <div class="mt-4 mb-n2"><a href="#">Add new Brand</a></div>
+                                    </div>
+                                </div> --}}
+                                <div class="card w-100 mt-5">
+                                    <div class="card-body p-5">
+                                        <div class="mb-5">
+                                            <h2 class="mb-0 fs-exact-18">Tags</h2>
+                                        </div><select class="sa-select2 form-select" data-tags="true" multiple="">
+                                            <option selected="">Universe</option>
+                                            <option selected="">Sputnik</option>
+                                            <option selected="">Steel</option>
+                                            <option selected="">Rocket</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

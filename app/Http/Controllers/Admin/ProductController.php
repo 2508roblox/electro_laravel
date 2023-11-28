@@ -65,7 +65,8 @@ class ProductController extends Controller
 
         $latestProduct = Product::latest('id')->first() ;
         $latestProductId = $latestProduct->id ?? null;
-        $latestProductId +=  1;
+        // $latestProductId +=  1;
+        $latestProductId =  43;
         return view('admin.product.create', compact('sub_categories', 'colors', 'brands', 'variants', 'latestProductId'));
     }
 
@@ -108,7 +109,7 @@ class ProductController extends Controller
  // product_imgs
  if ($request->hasFile('images')) {
     foreach($request->images as $image){
-        $path = $image->store('images','public');
+        $path = $image->store('images');
         $product->productImages()->create([
            'image' => $path,
         ]);
@@ -207,7 +208,8 @@ if ($request->colors ?? false) {
      // product_imgs
      if ($request->hasFile('images')) {
         foreach($request->images as $image){
-            $path = $image->store('images','public');
+            $path = $image->store('images');
+
             $product->productImages()->create([
                'image' => $path,
             ]);

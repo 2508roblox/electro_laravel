@@ -173,7 +173,9 @@
 					<td style="margin-right: .5rem; text-align: end;">Qty</td>
 					<td style="margin-right: .5rem; text-align: end;">Total</td>
 				</tr>
-
+                @php
+                    $sbtotal = 0;
+                @endphp
                 @foreach ($order_items as $item)
                 <tr style="border-bottom: 1px solid rgb(220, 220, 220)">
                     <td colspan="2" class=" ">{{ $item->product_name }}
@@ -181,11 +183,15 @@
                             {{ $item->color_name }}</span> --}}
 
                     </td>
-                    <td style="text-align: end" class="sa-invoice__table-column--type--price">${{ $item->product_price }}.00
+                    <td style="text-align: end" class="sa-invoice__table-column--type--price">${{ $item->price }}.00
                     </td>
                     <td style="text-align: end" class="sa-invoice__table-column--type--quantity">{{ $item->quantity }}</td>
                     <td style="text-align: end" class="sa-invoice__table-column--type--total">
-                        ${{ number_format($item->quantity * $item->product_price) }}.00</td>
+                        ${{ number_format($item->quantity * $item->price) }}.00</td>
+                        @php
+
+                        $sbtotal +=  ($item->quantity * $item->price);
+                    @endphp
                 </tr>
             @endforeach
 
@@ -201,13 +207,13 @@
             </tr>
             <tr>
                 <td colspan="2" style="text-align: start" class="sa-invoice__table-column--type--header" colSpan="4">Discount</td>
-                <td class="sa-invoice__table-column--type--total">-$0.00</td>
+                <td class="sa-invoice__table-column--type--total">-${{$order_data['discount'] }} </td>
             </tr>
 
 
                 <tr style=" border-top: 1px solid gray">
                     <td colspan="2" style="text-align: start" class="sa-invoice__table-column--type--header" colSpan="4">Total</td>
-                    <td class="sa-invoice__table-column--type--total">${{ number_format($order_data['shipping_price'] + $order_data['total_amount']) }}.00</td>
+                    <td class="sa-invoice__table-column--type--total">${{ number_format( $order_data['total_amount']) }}.00</td>
                 </tr>
 			</table>
 		</div>

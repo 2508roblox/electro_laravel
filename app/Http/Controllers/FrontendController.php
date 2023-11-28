@@ -88,8 +88,10 @@ class FrontendController extends Controller
             $wallet->save();
 
             Session::put('wallet', $totalAmount);
+        }else {
+            Session::put('wallet', 0);
         }
-        Session::put('wallet', 0);
+
         //advertisement
         $product = Product::find(10);
 
@@ -332,6 +334,7 @@ class FrontendController extends Controller
      */
     public function checkpayment(Request $request)
     {
+        Session::put('discount', 0);
         if ($request->vnp_ResponseCode == '24') {
             $order_id = $request->vnp_TxnRef;
             $order = Order::find($order_id);

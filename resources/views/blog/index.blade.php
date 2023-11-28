@@ -10,7 +10,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
                         <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('home')}}">Trang chủ</a></li>
-                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Blog</li>
+                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Bài viết</li>
                     </ol>
                 </nav>
             </div>
@@ -29,7 +29,12 @@
                     <article class="card mb-13 border-0">
                         <div class="row" bis_skin_checked="1">
                             <div class="col-lg-4 mb-5 mb-lg-0" bis_skin_checked="1">
-                                <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="d-block"><img class="img-fluid min-height-250 object-fit-cover" src="{{$blog->image }}" alt="Image Description"></a>
+                                <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="d-block">
+                                    @if($blog->image)
+                                    <img class="img-fluid min-height-250 object-fit-cover" src="{{ $blog->image }}" alt="Image Description">
+                                    @else
+                                    <img class="img-fluid min-height-250 object-fit-cover" src="{{ asset('client/img/no-data.webp') }}" alt="No Data Image">
+                                    @endif
                             </div>
                             <div class="col-lg-8" bis_skin_checked="1">
                                 <div class="card-body p-0" bis_skin_checked="1">
@@ -43,14 +48,28 @@
                                     </div>
                                     <p>{{ $blog->short_description }}</p>
                                     <div class="flex-horizontal-center" bis_skin_checked="1">
-                                        <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="btn btn-soft-secondary-w mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5">Read More</a>
+                                        <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="btn btn-soft-secondary-w mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5">Đọc thêm</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </article>
                     @endforeach
-                    
+                    <!-- Blog Pagination -->
+                    <nav class="d-md-flex justify-content-between align-items-center border-top pt-3" aria-label="Page navigation example">
+                        <p class="pagination-info">
+                            Đang hiển thị {{ $blogs->firstItem() }}–{{ $blogs->lastItem() }} trong {{ $blogs->total() }} kết quả.
+                        </p>
+
+                        <ul class="pagination mb-0 pagination-shop justify-content-center justify-content-md-start">
+                            <nav>
+                                <ul class="pagination">
+                                    {{ $blogs->links() }}
+                                </ul>
+                            </nav>
+                        </ul>
+                    </nav>
+                    <!-- End Blog Pagination -->
                 </div>
             </div>
         </div>
