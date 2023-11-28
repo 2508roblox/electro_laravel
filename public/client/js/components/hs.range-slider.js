@@ -1,1 +1,242 @@
-var isEmpty=function(a){return /^function[^{]+\{\s*\}/m.test(a.toString())};(function(a){'use strict';a.HSCore.components.HSRangeSlider={_baseConfig:{hide_min_max:!0,hide_from_to:!0,onStart:function(){},onChange:function(){},onFinish:function(){},onUpdate:function(){}},pageCollection:a(),init:function(b,c){if(this.collection=b&&a(b).length?a(b):a(),!!a(b).length)return this.config=c&&a.isPlainObject(c)?a.extend({},this._baseConfig,c):this._baseConfig,this.config.itemSelector=b,this.initRangeSlider(),this.pageCollection},initRangeSlider:function(){var b=this,c=b.config,d=b.pageCollection;this.collection.each(function(b,e){var f=a(e),g=f.data("type"),h=f.data("result-min"),j=f.data("result-max"),k=f.data("result-secondary"),l=f.data("secondary-value"),m=!!f.data("grid"),n=f.data("foreground-target");f.ionRangeSlider({hide_min_max:c.hide_min_max,hide_from_to:c.hide_from_to,onStart:!0===isEmpty(c.onStart)?function(b){if(n){var c=100-(b.from_percent+(100-b.to_percent));a(n).css({left:b.from_percent+"%",width:c+"%"}),a(n+"> *").css({width:a(n).parent().width(),transform:"translateX(-"+b.from_percent+"%)"})}if(h&&"single"===g?a(h).is("input")?a(h).val(b.from):a(h).text(b.from):(h||j&&"double"===g)&&(a(h).is("input")?a(h).val(b.from):a(h).text(b.from),a(h).is("input")?a(j).val(b.to):a(j).text(b.to)),m&&"single"===g&&a(b.slider).find(".irs-grid-text").each(function(){var c=a(this);a(c).text()===b.from&&(a(b.slider).find(".irs-grid-text").removeClass("current"),a(c).addClass("current"))}),k){l.steps.push(b.max+1),l.values.push(l.values[l.values.length-1]+1);for(var d=0;d<l.steps.length;d++)b.from>=l.steps[d]&&b.from<l.steps[d+1]&&(a(k).is("input")?a(k).val(l.values[d]):a(k).text(l.values[d]))}}:c.onStart,onChange:!0===isEmpty(c.onChange)?function(b){if(n){var c=100-(b.from_percent+(100-b.to_percent));a(n).css({left:b.from_percent+"%",width:c+"%"}),a(n+"> *").css({width:a(n).parent().width(),transform:"translateX(-"+b.from_percent+"%)"})}if(h&&"single"===g?a(h).is("input")?a(h).val(b.from):a(h).text(b.from):(h||j&&"double"===g)&&(a(h).is("input")?a(h).val(b.from):a(h).text(b.from),a(h).is("input")?a(j).val(b.to):a(j).text(b.to)),m&&"single"===g&&a(b.slider).find(".irs-grid-text").each(function(){var c=a(this);a(c).text()===b.from&&(a(b.slider).find(".irs-grid-text").removeClass("current"),a(c).addClass("current"))}),k)for(var d=0;d<l.steps.length;d++)b.from>=l.steps[d]&&b.from<l.steps[d+1]&&(a(k).is("input")?a(k).val(l.values[d]):a(k).text(l.values[d]))}:c.onChange,onFinish:!0===isEmpty(c.onFinish)?function(){}:c.onFinish,onUpdate:!0===isEmpty(c.onUpdate)?function(){}:c.onUpdate});var o=f.data("ionRangeSlider");h&&"single"===g&&a(h).is("input")?a(h).on("change",function(){o.update({from:a(this).val()})}):(h||j&&"double"===g&&a(h).is("input")||a(j).is("input"))&&(a(h).on("change",function(){o.update({from:a(this).val()})}),a(j).on("change",function(){o.update({to:a(this).val()})})),a(window).on("resize",function(){a(n+"> *").css({width:a(n).parent().width()})}),d=d.add(f)})}}})(jQuery);
+/**
+ * Range Slider wrapper.
+ *
+ * @author Htmlstream
+ * @version 1.0
+ *
+ */
+var isEmpty = function isEmpty(f) {
+    return (/^function[^{]+\{\s*\}/m.test(f.toString())
+    );
+  }
+
+;(function ($) {
+  'use strict';
+
+  $.HSCore.components.HSRangeSlider = {
+    /**
+     *
+     *
+     * @var Object _baseConfig
+     */
+    _baseConfig: {
+      hide_min_max: true,
+      hide_from_to: true,
+      onStart: function () {},
+      onChange: function () {},
+      onFinish: function () {},
+      onUpdate: function () {}
+    },
+
+    /**
+     *
+     *
+     * @var jQuery pageCollection
+     */
+    pageCollection: $(),
+
+    /**
+     * Initialization of Range Slider wrapper.
+     *
+     * @param String selector (optional)
+     * @param Object config (optional)
+     *
+     * @return jQuery pageCollection - collection of initialized items.
+     */
+
+    init: function (selector, config) {
+
+      this.collection = selector && $(selector).length ? $(selector) : $();
+      if (!$(selector).length) return;
+
+      this.config = config && $.isPlainObject(config) ?
+        $.extend({}, this._baseConfig, config) : this._baseConfig;
+
+      this.config.itemSelector = selector;
+
+      this.initRangeSlider();
+
+      return this.pageCollection;
+
+    },
+
+    initRangeSlider: function () {
+      //Variables
+      var $self = this,
+        config = $self.config,
+        collection = $self.pageCollection;
+
+      //Actions
+      this.collection.each(function (i, el) {
+        //Variables
+        var $this = $(el),
+          type = $this.data('type'),
+          minResult = $this.data('result-min'),
+          maxResult = $this.data('result-max'),
+          secondaryResult = $this.data('result-secondary'),
+          secondaryValue = $this.data('secondary-value'),
+          hasGrid = Boolean($this.data('grid')),
+          graphForegroundTarget = $this.data('foreground-target');
+
+        $this.ionRangeSlider({
+          hide_min_max: config.hide_min_max,
+          hide_from_to: config.hide_from_to,
+          onStart: isEmpty(config.onStart) === true ? function (data) {
+            if (graphForegroundTarget) {
+              var w = (100 - (data.from_percent + (100 - data.to_percent)));
+
+              $(graphForegroundTarget).css({
+                left: data.from_percent + '%',
+                width: w + '%'
+              });
+
+              $(graphForegroundTarget + '> *').css({
+                width: $(graphForegroundTarget).parent().width(),
+                'transform': 'translateX(-' + data.from_percent + '%)'
+              });
+            }
+
+            if (minResult && type === 'single') {
+              if ($(minResult).is('input')) {
+                $(minResult).val(data.from);
+              } else {
+                $(minResult).text(data.from);
+              }
+            } else if (minResult || maxResult && type === 'double') {
+              if ($(minResult).is('input')) {
+                $(minResult).val(data.from);
+              } else {
+                $(minResult).text(data.from);
+              }
+
+              if ($(minResult).is('input')) {
+                $(maxResult).val(data.to);
+              } else {
+                $(maxResult).text(data.to);
+              }
+            }
+
+            if (hasGrid && type === 'single') {
+              $(data.slider).find('.irs-grid-text').each(function (i) {
+                var current = $(this);
+
+                if ($(current).text() === data.from) {
+                  $(data.slider).find('.irs-grid-text').removeClass('current');
+                  $(current).addClass('current');
+                }
+              });
+            }
+
+            if (secondaryResult) {
+              secondaryValue.steps.push(data.max + 1);
+              secondaryValue.values.push(secondaryValue.values[secondaryValue.values.length - 1] + 1);
+
+              for (var i = 0; i < secondaryValue.steps.length; i++) {
+                if (data.from >= secondaryValue.steps[i] && data.from < secondaryValue.steps[i + 1]) {
+                  if ($(secondaryResult).is('input')) {
+                    $(secondaryResult).val(secondaryValue.values[i]);
+                  } else {
+                    $(secondaryResult).text(secondaryValue.values[i]);
+                  }
+                }
+              }
+            }
+          } : config.onStart,
+          onChange: isEmpty(config.onChange) === true ? function (data) {
+            if (graphForegroundTarget) {
+              var w = (100 - (data.from_percent + (100 - data.to_percent)));
+
+              $(graphForegroundTarget).css({
+                left: data.from_percent + '%',
+                width: w + '%'
+              });
+
+              $(graphForegroundTarget + '> *').css({
+                width: $(graphForegroundTarget).parent().width(),
+                'transform': 'translateX(-' + data.from_percent + '%)'
+              });
+            }
+
+            if (minResult && type === 'single') {
+              if ($(minResult).is('input')) {
+                $(minResult).val(data.from);
+              } else {
+                $(minResult).text(data.from);
+              }
+            } else if (minResult || maxResult && type === 'double') {
+              if ($(minResult).is('input')) {
+                $(minResult).val(data.from);
+              } else {
+                $(minResult).text(data.from);
+              }
+
+              if ($(minResult).is('input')) {
+                $(maxResult).val(data.to);
+              } else {
+                $(maxResult).text(data.to);
+              }
+            }
+
+            if (hasGrid && type === 'single') {
+              $(data.slider).find('.irs-grid-text').each(function (i) {
+                var current = $(this);
+
+                if ($(current).text() === data.from) {
+                  $(data.slider).find('.irs-grid-text').removeClass('current');
+                  $(current).addClass('current');
+                }
+              });
+            }
+
+            if (secondaryResult) {
+              for (var i = 0; i < secondaryValue.steps.length; i++) {
+                if (data.from >= secondaryValue.steps[i] && data.from < secondaryValue.steps[i + 1]) {
+                  if ($(secondaryResult).is('input')) {
+                    $(secondaryResult).val(secondaryValue.values[i]);
+                  } else {
+                    $(secondaryResult).text(secondaryValue.values[i]);
+                  }
+                }
+              }
+            }
+          } : config.onChange,
+          onFinish: isEmpty(config.onFinish) === true ? function (data) {} : config.onFinish,
+          onUpdate: isEmpty(config.onUpdate) === true ? function (data) {} : config.onUpdate
+        });
+
+        var slider = $this.data('ionRangeSlider');
+
+        if (minResult && type === 'single' && $(minResult).is('input')) {
+          $(minResult).on('change', function () {
+            slider.update({
+              from: $(this).val()
+            });
+          });
+        } else if (minResult || maxResult && type === 'double' && $(minResult).is('input') || $(maxResult).is('input')) {
+          $(minResult).on('change', function () {
+            slider.update({
+              from: $(this).val()
+            });
+          });
+          $(maxResult).on('change', function () {
+            slider.update({
+              to: $(this).val()
+            });
+          });
+        }
+
+        $(window).on('resize', function () {
+          $(graphForegroundTarget + '> *').css({
+            width: $(graphForegroundTarget).parent().width()
+          });
+        });
+
+        //Actions
+        collection = collection.add($this);
+      });
+    }
+
+  };
+
+})(jQuery);
+1

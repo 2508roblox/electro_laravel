@@ -23,7 +23,7 @@
         body{
             cursor: none
         }
-        a,p,div{
+        a,p,div, button, input{
             cursor: none
         }
 

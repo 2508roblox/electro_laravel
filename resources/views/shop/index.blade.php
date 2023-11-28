@@ -70,8 +70,82 @@
                         <div class="border-bottom border-color-1 mb-5">
                             <h3 class="section-title section-title__sm mb-0 pb-2 font-size-18">Bộ lọc</h3>
                         </div>
+                        {{-- price --}}
+                        <div class="range-slider">
+                            <h4 class="font-size-14 mb-3 font-weight-bold">Khoảng giá</h4>
+                            <!-- Range Slider -->
+                            <form method="get" action="" >
+                                <div id="slider"></div>
+                                <input type="hidden" name="filter_min" id="filter_min" >
+                                <input type="hidden" name="filter_max" id="filter_max" >
+                                <!-- End Range Slider -->
+                                <div class="mt-4 text-gray-111 d-flex mb-4  ">
+                                    <span class="mr-0dot5 "><strong>Giá</strong>: </span>
+                                    <span id="rangeSliderExample3MinResult" class=""></span>$
+                                    <span class="mx-0dot5"> — </span>
+                                    <span id="max_price_text">$</span>
+                                    <span id="rangeSliderExample3MaxResult" class=""></span>$
+                                </div>
+
+                                <button type="submit" class="btn px-4 btn-primary-dark-w py-2 rounded-lg">Tìm kiếm</button>
+                            </form>
+
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css">
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+                            <script>
+                                var slider = document.getElementById('slider');
+                                var minPriceText = document.getElementById('rangeSliderExample3MinResult');
+                                var maxPriceText = document.getElementById('max_price_text');
+                                var minPriceInput = document.getElementById('filter_min');
+                                var maxPriceInput = document.getElementById('filter_max');
+
+                                // Check if slider values are stored in session
+                                var storedMinPrice = sessionStorage.getItem('minPrice');
+                                var storedMaxPrice = sessionStorage.getItem('maxPrice');
+
+                                // Set initial slider values
+                                var startMinPrice = storedMinPrice ? parseFloat(storedMinPrice) : 0;
+                                var startMaxPrice = storedMaxPrice ? parseFloat(storedMaxPrice) : 500;
+
+                                noUiSlider.create(slider, {
+                                    start: [startMinPrice, startMaxPrice],
+                                    connect: true,
+                                    range: {
+                                        'min': 0,
+                                        'max': 3000
+                                    },
+                                    format: {
+                                        to: function (value) {
+                                            return Math.round(value);
+                                        },
+                                        from: function (value) {
+                                            return value;
+                                        }
+                                    }
+                                });
+
+                                slider.noUiSlider.on('update', function (values) {
+                                    minPriceText.textContent = values[0];
+                                    maxPriceText.textContent = values[1];
+                                    minPriceInput.value = values[0];
+                                    maxPriceInput.value = values[1];
+
+                                    // Store slider values in session
+                                    sessionStorage.setItem('minPrice', values[0]);
+                                    sessionStorage.setItem('maxPrice', values[1]);
+                                });
+                            </script>
+                            <style>
+                                .noUi-connect {
+                                    background: #fed700;
+                                }
+                            </style>
+                        </div>
+                        {{-- price --}}
+                        <hr>
                         <div class="border-bottom pb-4 mb-4">
                             <h4 class="font-size-14 mb-3 font-weight-bold">Thương hiệu</h4>
+                            {{-- filter by range --}}
 
                             <!-- Checkboxes -->
                             <div class="form-group d-flex align-items-center justify-content-between mb-2 pb-1">
@@ -228,26 +302,7 @@
                             </a>
                             <!-- End Link -->
                         </div>
-                        <div class="range-slider">
-                            <h4 class="font-size-14 mb-3 font-weight-bold">Price</h4>
-                            <!-- Range Slider -->
-                            <input class="js-range-slider" type="text"
-                                data-extra-classes="u-range-slider u-range-slider-indicator u-range-slider-grid"
-                                data-type="double" data-grid="false" data-hide-from-to="true" data-prefix="$"
-                                data-min="0" data-max="3456" data-from="0" data-to="3456"
-                                data-result-min="#rangeSliderExample3MinResult"
-                                data-result-max="#rangeSliderExample3MaxResult">
-                            <!-- End Range Slider -->
-                            <div class="mt-1 text-gray-111 d-flex mb-4">
-                                <span class="mr-0dot5">Price: </span>
-                                <span>$</span>
-                                <span id="rangeSliderExample3MinResult" class=""></span>
-                                <span class="mx-0dot5"> — </span>
-                                <span>$</span>
-                                <span id="rangeSliderExample3MaxResult" class=""></span>
-                            </div>
-                            <button type="submit" class="btn px-4 btn-primary-dark-w py-2 rounded-lg">Filter</button>
-                        </div>
+
                     </div>
 
                 </div>
@@ -372,7 +427,7 @@
                 <div class="flex-center-between mb-3">
                     <h3 class="font-size-25 mb-0">Cửa hàng</h3>
                     <p class="pagination-info">
-                        Showing {{ $products->firstItem() }}–{{ $products->lastItem() }} of {{ $products->total() }} results
+                        Đang hiển thị {{ $products->firstItem() }}–{{ $products->lastItem() }} trong {{ $products->total() }} kết quả
                     </p>
                 </div>
                 <!-- End shop-control-bar Title -->
@@ -431,7 +486,7 @@
                         </ul>
                     </div>
                     <div class="d-flex">
-                    
+
 
                     </div>
                     <nav class="px-3 flex-horizontal-center text-gray-20 d-none d-xl-flex">
@@ -845,7 +900,7 @@
                 <nav class="d-md-flex justify-content-between align-items-center border-top pt-3"
                     aria-label="Page navigation example">
                     <p class="pagination-info">
-                        Showing {{ $products->firstItem() }}–{{ $products->lastItem() }} of {{ $products->total() }} results
+                        Đang hiển thị {{ $products->firstItem() }}–{{ $products->lastItem() }} trong {{ $products->total() }} kết quả.
                     </p>
 
                     <ul class="pagination mb-0 pagination-shop justify-content-center justify-content-md-start">

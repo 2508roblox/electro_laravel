@@ -15,6 +15,10 @@ class ShopController extends Controller
      */
     public function index(SubCategory $subcategory)
     {
+        // Get the minimum and maximum price values from the URL parameters
+        $filterMin = request()->input('filter_min');
+        $filterMax = request()->input('filter_max');
+
         $categories = Category::with(['sub_categories.products'])
             ->where('status', 'published')
             ->get();
@@ -37,40 +41,47 @@ class ShopController extends Controller
             $category->totalProducts = $totalCategoryProducts;
         }
 
+        // Retrieve products based on the price range
+        $productsQuery = Product::join('sub_categories', 'products.sub_category_id', '=', 'sub_categories.id')
+            ->select('products.*', 'sub_categories.name as sub_category_name');
 
-        // Tiếp tục xử lý dữ liệu và trả về kết quả
-        $products = Product::join('sub_categories', 'products.sub_category_id', '=', 'sub_categories.id')
-        ->select('products.*', 'sub_categories.name as sub_category_name')
-        
-        ->paginate(15);
+        if ($filterMin && $filterMax) {
 
-    foreach ($products as $product) {
-        $product->image_url = $product->productImages()
-            ->orderBy('id', 'ASC')
-            ->first()->image ?? null;
-    }
+            $productsQuery->whereBetween('promotion_price', [$filterMin, $filterMax]);
+        }else if($filterMin == 0 && $filterMax) {
+            $productsQuery->whereBetween('promotion_price', [0, $filterMax]);
 
-    // total product's quantity
-    foreach ($products as $product) {
-        $skus = SKU::where('product_id', $product->id)->get();
-        $totalQuantity = $skus->sum('quantity');
-        $product->total_quantity = $totalQuantity;
         }
-    $rcproducts = Product::join('sub_categories', 'products.sub_category_id', '=', 'sub_categories.id')
-    ->select('products.*', 'sub_categories.name as sub_category_name')
-    ->limit(10)
-    ->orderBy('id', 'DESC')
-    ->get();
 
-foreach ($products as $product) {
-    $product->image_url = $product->productImages()
-        ->orderBy('id', 'ASC')
-        ->first()->image ?? null;
-}
+        $products = $productsQuery->paginate(15);
+
+        foreach ($products as $product) {
+            $product->image_url = $product->productImages()
+                ->orderBy('id', 'ASC')
+                ->first()->image ?? null;
+        }
+
+        // Calculate total product quantity
+        foreach ($products as $product) {
+            $skus = SKU::where('product_id', $product->id)->get();
+            $totalQuantity = $skus->sum('quantity');
+            $product->total_quantity = $totalQuantity;
+        }
+
+        $rcproducts = Product::join('sub_categories', 'products.sub_category_id', '=', 'sub_categories.id')
+            ->select('products.*', 'sub_categories.name as sub_category_name')
+            ->limit(10)
+            ->orderBy('id', 'DESC')
+            ->get();
+
+        foreach ($products as $product) {
+            $product->image_url = $product->productImages()
+                ->orderBy('id', 'ASC')
+                ->first()->image ?? null;
+        }
 
         return view('shop.index', compact('products', 'categories', 'rcproducts'));
     }
-
     /**
      * Show the form for creating a new resource.
      */
