@@ -547,11 +547,16 @@
                                         href="{{ route('frontend.myaccount.dashboard') }}" class="text-gray-90"
                                         data-toggle="tooltip" data-placement="top" title="My Account"><i
                                             class="font-size-22 ec ec-user"></i></a></li>
-                                <li class="col pr-xl-0 px-2 px-sm-3">
+                                <li class="col pr-xl-0 px-2 px-sm-3 mr-4">
                                     <a href="{{ route('admin.cart.list') }}"
                                         class="text-gray-90 position-relative d-flex " data-toggle="tooltip"
                                         data-placement="top" title="Giỏ hàng">
                                         <i class="font-size-22 ec ec-shopping-bag"></i>
+                                        <span class="bg-lg-down-black width-22 height-22 bg-white position-absolute d-flex align-items-center justify-content-center rounded-circle left-12 top-8 font-weight-bold font-size-12">
+                                            {{ Session::has('cart_count') ? Session::get('cart_count') : 0 }}
+
+
+                                        </span>
                                     </a>
                                 </li>
                                 <li class="col pr-xl-0 px-2 px-sm-3">

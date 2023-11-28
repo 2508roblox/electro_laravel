@@ -188,7 +188,7 @@ class CheckoutController extends Controller
 
         // Tính phí vận chuyển (1% giá trị tổng đơn)
 
-
+        Session::put('cart_count', 0);
         // Cộng phí vận chuyển vào tổng tiền đơn hàng
         if (!Session::get('discount') || Session::get('discount') == 0) {
             $totalAmount = ($totalAmount + $request->shipping_price);

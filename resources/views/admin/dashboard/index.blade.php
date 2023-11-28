@@ -21,7 +21,7 @@
                     <div class="card saw-indicator flex-grow-1"
                         data-sa-container-query="{&quot;340&quot;:&quot;saw-indicator--size--lg&quot;}">
                         <div class="sa-widget-header saw-indicator__header">
-                            <h2 class="sa-widget-header__title">Total sells</h2>
+                            <h2 class="sa-widget-header__title">Tổng Doanh Thu</h2>
                             <div class="sa-widget-header__actions">
                                 <div class="dropdown"><button type="button" class="btn btn-sm btn-sa-muted d-block"
                                         id="widget-context-menu-1" data-bs-toggle="dropdown" aria-expanded="false"
@@ -62,7 +62,7 @@
                     <div class="card saw-indicator flex-grow-1"
                         data-sa-container-query="{&quot;340&quot;:&quot;saw-indicator--size--lg&quot;}">
                         <div class="sa-widget-header saw-indicator__header">
-                            <h2 class="sa-widget-header__title">Average order value</h2>
+                            <h2 class="sa-widget-header__title">Giá Trị Trung Bình</h2>
                             <div class="sa-widget-header__actions">
                                 <div class="dropdown"><button type="button" class="btn btn-sm btn-sa-muted d-block"
                                         id="widget-context-menu-2" data-bs-toggle="dropdown" aria-expanded="false"
@@ -103,7 +103,7 @@
                     <div class="card saw-indicator flex-grow-1"
                         data-sa-container-query="{&quot;340&quot;:&quot;saw-indicator--size--lg&quot;}">
                         <div class="sa-widget-header saw-indicator__header">
-                            <h2 class="sa-widget-header__title">Total orders</h2>
+                            <h2 class="sa-widget-header__title">Tổng Số Hóa Đơn</h2>
                             <div class="sa-widget-header__actions">
                                 <div class="dropdown"><button type="button" class="btn btn-sm btn-sa-muted d-block"
                                         id="widget-context-menu-3" data-bs-toggle="dropdown" aria-expanded="false"
@@ -216,7 +216,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-12 col-xxl-9 d-flex">
                     <div class="card flex-grow-1 saw-table">
                         <div class="sa-widget-header saw-table__header">

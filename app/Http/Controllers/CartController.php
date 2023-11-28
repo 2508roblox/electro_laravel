@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sku;
 use App\Models\Cart;
 use App\Models\ProductColor;
-use App\Models\Sku;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
@@ -30,7 +31,7 @@ class CartController extends Controller
         ->select('carts.id as cart_id','products.name as product_name', 'product_images.image as product_image',   'carts.quantity', 'carts.sku_id', 'skus.original_price', 'skus.promotion_price', 'skus.sku_code as sku','skus.quantity as max_variant_quantity')
         ->where('carts.user_id', Auth::user()->id)
         ->get();
-
+        Session::put('cart_count', $carts->count());
         return view('frontend.pages.cart', compact('carts') );
 
     }

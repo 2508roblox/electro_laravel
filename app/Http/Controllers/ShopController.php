@@ -53,7 +53,7 @@ class ShopController extends Controller
 
         }
 
-        $products = $productsQuery->paginate(15);
+        $products = $productsQuery->orderBy('id', 'asc')->paginate(15);
 
         foreach ($products as $product) {
             $product->image_url = $product->productImages()

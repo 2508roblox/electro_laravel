@@ -11,9 +11,9 @@
                 <div class="my-md-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="../home/index.html">Home</a>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('home')}}">Trang chủ</a>
                             </li>
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Cart</li>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Ví ảo</li>
                         </ol>
                     </nav>
                 </div>
@@ -24,21 +24,21 @@
 
         <div class="container">
             <div class="mb-4">
-                <h1 class="text-center" style="font-size: 28px; color: #333;">Wallet</h1>
+                <h1 class="text-center" style="font-size: 28px; color: #333;">Ví ảo</h1>
             </div>
             <div class="d-flex align-items-center justify-content-center">
                 <div class="mb-10 cart-table col-7"
                     style="margin-bottom: 10rem; background-color: #f8f9fa; border-radius: 10px; padding: 20px;">
                     <div class="d-flex justify-content-between">
-                        <p>Main account</p>
-                        <p>Electro wallet</p>
+                        <p>Tài khoản chính</p>
+                        <p>Ví Electro </p>
                     </div>
                     <div class="d-flex justify-content-between">
                         <div class="d-flex flex-column">
                             <h1 style="font-size: 44px; color: #333;">Số dư Ví Electro:</h1>
                             <p>*** **** *** 678</p>
                         </div>
-                        <h1 style="font-size: 44px; color: #333;"> {{ $wallet->balance }}.00$</h1>
+                        <h1 style="font-size: 44px; color: #333;"> {{ $wallet->balance }}$</h1>
                     </div>
                     <a style="cursor: pointer" class="btn rounded-sm btn-primary mt-3 transition" id="transactionBtn">Lịch
                         sử nạp tiền</a>
