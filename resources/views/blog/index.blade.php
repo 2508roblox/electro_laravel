@@ -10,7 +10,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
                         <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('home')}}">Trang chủ</a></li>
-                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Blog</li>
+                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Bài viết</li>
                     </ol>
                 </nav>
             </div>
@@ -43,14 +43,14 @@
                                     </div>
                                     <p>{{ $blog->short_description }}</p>
                                     <div class="flex-horizontal-center" bis_skin_checked="1">
-                                        <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="btn btn-soft-secondary-w mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5">Read More</a>
+                                        <a href="{{ route('fe.post', ['id' => $blog->id]) }}" class="btn btn-soft-secondary-w mb-md-0 font-weight-normal px-5 px-md-4 px-lg-5">Đọc thêm</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </article>
                     @endforeach
-                    
+
                 </div>
             </div>
         </div>

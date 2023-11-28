@@ -11,7 +11,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a href="{{route('home')}}">Trang chủ</a></li>
-                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Blog</li>
+                            <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">Bài viết</li>
                         </ol>
                     </nav>
                 </div>
@@ -100,13 +100,13 @@
                     </aside>
                     <aside class="mb-7">
                         <div class="border-bottom border-color-1 mb-5">
-                            <h3 class="section-title section-title__sm mb-0 pb-2 font-size-18">About Blog</h3>
+                            <h3 class="section-title section-title__sm mb-0 pb-2 font-size-18">Về Bài viết</h3>
                         </div>
                         <p class="text-gray-90 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus, eget viverra nulla sem vitae neque. Quisque id sodales libero.</p>
                     </aside>
                     <aside class="mb-7">
                         <div class="border-bottom border-color-1 mb-5">
-                            <h3 class="section-title section-title__sm mb-0 pb-2 font-size-18">Categories</h3>
+                            <h3 class="section-title section-title__sm mb-0 pb-2 font-size-18">Danh mục</h3>
                         </div>
                         <div class="list-group">
                             <a href="../blog/single-blog-post.html" class="font-bold-on-hover px-3 py-2 list-group-item list-group-item-action border-0"><i class="mr-2 fas fa-angle-right"></i> Design</a>
@@ -121,7 +121,7 @@
                     </aside>
                     <aside class="mb-7">
                         <div class="border-bottom border-color-1 mb-5">
-                            <h3 class="section-title section-title__sm mb-0 pb-2 font-size-18">Recent Posts</h3>
+                            <h3 class="section-title section-title__sm mb-0 pb-2 font-size-18">Bài viết gần đây</h3>
                         </div>
                         <article class="mb-4">
                             <div class="media">
@@ -182,7 +182,7 @@
                     </aside>
                     <aside class="mb-7">
                         <div class="border-bottom border-color-1 mb-5">
-                            <h3 class="section-title section-title__sm mb-0 pb-2 font-size-18">Tags Clouds</h3>
+                            <h3 class="section-title section-title__sm mb-0 pb-2 font-size-18">Thẻ Clouds</h3>
                         </div>
                         <div class="d-flex flex-wrap mx-n1">
                             <a href="../blog/single-blog-post.html" class="text-gray-90 mb-2 bg-primary-on-hover py-2 px-3 border mx-1">amazon like</a>
