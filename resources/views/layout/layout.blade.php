@@ -151,7 +151,7 @@ html {
     <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const socket = io('http://localhost:7000', {
+            const socket = io('https://electro-whsy.onrender.com/', {
                 transports: ['websocket']
             });
 

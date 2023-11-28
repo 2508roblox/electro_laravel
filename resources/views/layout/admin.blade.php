@@ -55,7 +55,7 @@
 
     <script>
         // Kết nối tới máy chủ Socket.IO
-        const socket = io('http://localhost:7000');
+        const socket = io('https://electro-whsy.onrender.com/');
 
         socket.on('chat-message', (message) => {
             console.log('Received message from server:', message);

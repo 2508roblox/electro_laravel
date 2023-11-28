@@ -399,7 +399,7 @@
                                                 var $a = $('<a>', {
                                                     "data-product": truncatedName,
                                                     "href": '/' + product.slug,
-                                                    "html": '<img src="http://localhost:8000/storage/' + product.image_url +
+                                                    "html": '<img src="https://electro.io.vn/storage/' + product.image_url +
                                                         '" lazy style="width: 30px; z-index: 999; height: 30px;" alt="" width="20px" srcset="">' +
                                                         truncatedName + '...' +
                                                         '<p style="color: red;">' + 'kho:' + product.total_quantity + '</p>'
