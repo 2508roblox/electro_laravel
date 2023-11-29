@@ -65,8 +65,8 @@ class ProductController extends Controller
 
         $latestProduct = Product::latest('id')->first() ;
         $latestProductId = $latestProduct->id ?? null;
-        // $latestProductId +=  1;
-        $latestProductId =  43;
+        $latestProductId +=  1;
+        // $latestProductId =  43;
         return view('admin.product.create', compact('sub_categories', 'colors', 'brands', 'variants', 'latestProductId'));
     }
 
