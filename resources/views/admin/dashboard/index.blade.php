@@ -220,7 +220,7 @@
                 <div class="col-12 col-xxl-9 d-flex">
                     <div class="card flex-grow-1 saw-table">
                         <div class="sa-widget-header saw-table__header">
-                            <h2 class="sa-widget-header__title">Recent orders</h2>
+                            <h2 class="sa-widget-header__title">Hóa đơn gần đây</h2>
                             <div class="sa-widget-header__actions">
                                 <div class="dropdown"><button type="button" class="btn btn-sm btn-sa-muted d-block"
                                         id="widget-context-menu-6" data-bs-toggle="dropdown" aria-expanded="false"
@@ -231,7 +231,7 @@
                                             </path>
                                         </svg></button>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="widget-context-menu-6">
-                                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                                        <li><a class="dropdown-item" href="#">Cài đặt</a></li>
                                         <li><a class="dropdown-item" href="#">Move</a></li>
                                         <li>
                                             <hr class="dropdown-divider" />
@@ -285,7 +285,7 @@
                                             </div>
                                         </td>
                                         <td>{{ $order['Date'] }}</td>
-                                        <td>${{ number_format($order['Total Price'], 2) }}</td>
+                                        <td class="text-success">${{ number_format($order['Total Price'], 2) }}</td>
                                     </tr>
                                     @empty
                                     <tr>

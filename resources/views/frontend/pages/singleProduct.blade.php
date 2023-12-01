@@ -161,6 +161,21 @@
 
 
                                     </div>
+                                    <div class=" ml-3 text-gray-9 font-size-14">Đã bán:
+                                        @isset($product_quantity)
+                                            @if ($product_quantity)
+                                                <span
+                                                    class="text-green font-weight-bold">{{ $sumQuantity  }}
+                                                    sản phẩm</span>
+                                            @else
+                                            <span
+                                            class="text-red font-weight-bold">0
+                                            sản phẩm</span>
+                                            @endif
+                                        @endisset
+
+
+                                    </div>
 
                                 </div>
                             </div>
