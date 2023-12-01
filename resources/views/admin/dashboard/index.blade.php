@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="saw-indicator__body">
-                            <div class="saw-indicator__value">${{ $averageAmount / $orderCount }}</div>
+                            <div class="saw-indicator__value">${{ $averageAmount  }}</div>
                             <div class="saw-indicator__delta saw-indicator__delta--fall">
                                 <div class="saw-indicator__delta-direction"><svg xmlns="http://www.w3.org/2000/svg"
                                         width="9" height="9" viewBox="0 0 9 9" fill="currentColor">
@@ -187,7 +187,7 @@
                 </div>
                 <div class="col-12 col-lg-8 col-xxl-9 d-flex">
                     <div class="card flex-grow-1 saw-chart"
-                        data-sa-data="[{&quot;label&quot;:&quot;Jan&quot;,&quot;value&quot;:{{$orderCountPerMonth['0']}}},{&quot;label&quot;:&quot;Feb&quot;,&quot;value&quot;:{{$orderCountPerMonth['1']}}},{&quot;label&quot;:&quot;Mar&quot;,&quot;value&quot;:{{$orderCountPerMonth['2']}}},{&quot;label&quot;:&quot;Apr&quot;,&quot;value&quot;:{{$orderCountPerMonth['3']}}},{&quot;label&quot;:&quot;May&quot;,&quot;value&quot;:{{$orderCountPerMonth['4']}}},{&quot;label&quot;:&quot;Jun&quot;,&quot;value&quot;:{{$orderCountPerMonth['5']}}},{&quot;label&quot;:&quot;Jul&quot;,&quot;value&quot;:{{$orderCountPerMonth['6']}}},{&quot;label&quot;:&quot;Aug&quot;,&quot;value&quot;:{{$orderCountPerMonth['7']}}},{&quot;label&quot;:&quot;Sep&quot;,&quot;value&quot;:{{$orderCountPerMonth['8']}}},{&quot;label&quot;:&quot;Oct&quot;,&quot;value&quot;:{{$orderCountPerMonth['9']}}},{&quot;label&quot;:&quot;Nov&quot;,&quot;value&quot;:{{$orderCountPerMonth['10']}}},{&quot;label&quot;:&quot;Dec&quot;,&quot;value&quot;:{{$orderCountPerMonth['11']}}}]">
+                        data-sa-data="[{&quot;label&quot;:&quot;Jan&quot;,&quot;value&quot;:{{$totalAmountPerMonth['0']}}},{&quot;label&quot;:&quot;Feb&quot;,&quot;value&quot;:{{$totalAmountPerMonth['1']}}},{&quot;label&quot;:&quot;Mar&quot;,&quot;value&quot;:{{$totalAmountPerMonth['2']}}},{&quot;label&quot;:&quot;Apr&quot;,&quot;value&quot;:{{$totalAmountPerMonth['3']}}},{&quot;label&quot;:&quot;May&quot;,&quot;value&quot;:{{$totalAmountPerMonth['4']}}},{&quot;label&quot;:&quot;Jun&quot;,&quot;value&quot;:{{$totalAmountPerMonth['5']}}},{&quot;label&quot;:&quot;Jul&quot;,&quot;value&quot;:{{$totalAmountPerMonth['6']}}},{&quot;label&quot;:&quot;Aug&quot;,&quot;value&quot;:{{$totalAmountPerMonth['7']}}},{&quot;label&quot;:&quot;Sep&quot;,&quot;value&quot;:{{$totalAmountPerMonth['8']}}},{&quot;label&quot;:&quot;Oct&quot;,&quot;value&quot;:{{$totalAmountPerMonth['9']}}},{&quot;label&quot;:&quot;Nov&quot;,&quot;value&quot;:{{$totalAmountPerMonth['10']}}},{&quot;label&quot;:&quot;Dec&quot;,&quot;value&quot;:{{$totalAmountPerMonth['11']}}}]">
                         <div class="sa-widget-header saw-chart__header">
                             <h2 class="sa-widget-header__title">Thống kê doanh thu theo tháng</h2>
                             <div class="sa-widget-header__actions">
