@@ -30,6 +30,7 @@ use App\Http\Controllers\ProductRatingController;
 use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\MyAccountController;
 use App\Http\Controllers\ComingSoonController;
+use App\Http\Controllers\AboutUsController;
 
 use App\Http\Controllers\Auth\LogoutController;
 
@@ -428,8 +429,8 @@ Route::post('/wallet/create', [FrontendController::class, 'wallet'])->middleware
 Route::get('/transaction', [FrontendController::class, 'transaction'])->middleware(['auth'])->name('frontend.transaction');
 Route::post('/transaction/create', [FrontendController::class, 'createTransaction'])->middleware(['auth'])->name('frontend.transaction.store');
 Route::get('/checkdeposit', [FrontendController::class, 'checkdeposit'])->middleware(['auth'])->name('frontend.transaction.checkdeposit');
-Route::get('/about-us', [FrontendController::class, 'about'])->middleware(['auth'])->name('frontend.about');
 
+Route::get('/about-us', [AboutUsController::class, 'index'])->name('frontend.about');
 // wallet
 // show all categories and category's sub categories
 Route::get('/category/{category_slug}', [FrontendController::class, 'showCategories'])->middleware(['localization'])->name('frontend.category.list');

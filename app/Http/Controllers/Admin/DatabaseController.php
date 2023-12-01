@@ -25,7 +25,8 @@ class DatabaseController extends Controller
         // Hiển thị mảng chứa tên của các bảng
         // dd($tableNames);
 
-        return view('admin.database.index', compact('tableNames'));
+
+        return view('admin.database.index', compact('tableNames', ['analyticsData' => $response]));
     }
     public function detail($id)
     {

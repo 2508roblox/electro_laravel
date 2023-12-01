@@ -548,10 +548,7 @@ class FrontendController extends Controller
             return redirect('/wallet');
         }
     }
-    public function about(Request $request)
-    {
-        return view('frontend.pages.about');
-    }
+ 
     // public function changeLanguage(Request $request)
     // {
     //     $lang = $request->language;
