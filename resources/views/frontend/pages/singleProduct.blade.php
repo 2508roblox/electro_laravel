@@ -23,7 +23,7 @@
 
                     Swal.fire({
                         title: 'Thông báo',
-                        text: 'Thêm bình luận thất bại!',
+                        text: 'Bạn cần mua sản phẩm mới có thể bình luận!',
                         icon: 'error',
                         confirmButtonText: 'OK'
                     });

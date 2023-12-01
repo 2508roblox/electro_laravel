@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ProductComment;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
@@ -11,6 +12,20 @@ class ProductRatingController extends Controller
 {
     public function rating(Request $request)
     {
+        // check if use have buy this product
+        $orderItems = DB::table('order_items')
+    ->join('orders', 'order_items.order_id', '=', 'orders.id')
+    ->where('orders.user_id', Auth::id())
+    ->where('orders.status', 'Thành công')
+    ->where('order_items.product_id', $request->product_id)
+    ->select('order_items.*')
+    ->get();
+    if ($orderItems->isEmpty()) {
+        return Redirect::back()->withErrors(['errors' => true]);
+
+
+    }
+
         // Lấy dữ liệu từ request
         $validatedData = $request->validate([
             'product_id' => 'required',
@@ -39,6 +54,5 @@ class ProductRatingController extends Controller
 
         // Debug để kiểm tra
         return Redirect::back()->with(['review' => true]);
-        return Redirect::back()->with(['errors' => true]);
     }
 }
