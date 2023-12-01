@@ -336,7 +336,7 @@
                             .dropdown-content {
                                 display: none;
                                 position: absolute;
-                                background-color: #f6f6f6;
+                                background-color: #ffffff;
                                 min-width: 230px;
                                 border: 1px solid #ddd;
                                 z-index: 1;
@@ -394,13 +394,13 @@
                                             $.each(products, function(index, product) {
                                                 var truncatedName = product.name.substring(0, 12); // Get the first 12 characters of the product name
 
-                                                var $a = $('<a>', {
+                                                var $a = $('<a  >', {
                                                     "data-product": truncatedName,
                                                     "href": '/' + product.slug,
-                                                    "html": '<img data-src="http://localhost:8000/storage/' + product.image_url +
-                                                        '" style="width: 30px; z-index: 999; height: 30px;" alt="" width="20px" srcset="">' +
+                                                    "html": '<img    data-src="http://localhost:8000/storage/' + product.image_url +
+                                                        '" style="width: 30px;object-fit:contain; z-index: 999; height: 30px;" alt="" width="30px" srcset="">' +
                                                         truncatedName + '...' +
-                                                        '<p style="color: red;">' + 'kho:' + product.total_quantity + '</p>'
+                                                        '<p    style="color: red;">' + 'kho:' + product.total_quantity + '</p>'
                                                 });
 
                                                 $a.css("display", "flex"); // Set display flex using CSS method
@@ -457,6 +457,12 @@
 
 
                                 </div>
+                                <style>
+                                    #myDropdown a{
+                                    border-bottom: 1px solid gray;
+                                    }
+
+                                                </style>
 
                                 <script>
                                     function showDropdown() {
