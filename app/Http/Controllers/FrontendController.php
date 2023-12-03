@@ -11,6 +11,7 @@ use App\Models\Wallet;
 use App\Models\Product;
 use App\Models\Variant;
 use App\Models\Category;
+use App\Models\OrderItem;
 use App\Models\SkuVariant;
 use App\Models\SubCategory;
 use App\Models\Transaction;
@@ -309,7 +310,11 @@ class FrontendController extends Controller
             ->where('product_id',  $product->id)
 
             ->get();
-
+        // total sold number
+        $sumQuantity = OrderItem::join('orders', 'order_items.order_id', '=', 'orders.id')
+    ->where('order_items.product_id',   $product->id)
+    ->where('orders.status', 'Thành công')
+    ->sum('order_items.quantity');
 
         return view(
             'frontend.pages.singleProduct',
@@ -324,7 +329,8 @@ class FrontendController extends Controller
                 'averageStars',
                 'ratingCounts',
                 'variantValues',
-                'variants'
+                'variants',
+                'sumQuantity'
             )
         )->with('reviewCount', $productComments->count());;
     }

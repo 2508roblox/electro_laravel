@@ -20,6 +20,7 @@
                 showAlert()
             </script>
         @endif
+
         {{-- <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
 
 
@@ -239,11 +240,14 @@
                                             data-msg="Your password is invalid. Please try again."
                                             data-error-class="u-has-error" data-success-class="u-has-success">
                                     </div>
-                                    @error('password')
-                                        <p style="color: red; margin-bottom: 0px"> {{ $message }}</p>
-                                    @enderror
+
                                 </div>
                             </div>
+                            @if (session('password'))
+                            <p style="color: red; margin-bottom: 0px">    Password phải từ 8 kí tự bao gồm chữ hoa, chữ thường, kí tự đặc biệt.</p>
+
+                        @endif
+
                             <!-- End Input -->
 
                             <!-- Form Group -->

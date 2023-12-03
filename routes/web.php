@@ -428,7 +428,7 @@ Route::post('/wallet/create', [FrontendController::class, 'wallet'])->middleware
 Route::get('/transaction', [FrontendController::class, 'transaction'])->middleware(['auth'])->name('frontend.transaction');
 Route::post('/transaction/create', [FrontendController::class, 'createTransaction'])->middleware(['auth'])->name('frontend.transaction.store');
 Route::get('/checkdeposit', [FrontendController::class, 'checkdeposit'])->middleware(['auth'])->name('frontend.transaction.checkdeposit');
-Route::get('/about-us', [FrontendController::class, 'about'])->middleware(['auth'])->name('frontend.about');
+Route::get('/about-us', [FrontendController::class, 'about'])->name('frontend.about');
 
 // wallet
 // show all categories and category's sub categories

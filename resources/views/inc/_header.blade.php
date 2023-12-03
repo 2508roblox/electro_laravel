@@ -336,7 +336,7 @@
                             .dropdown-content {
                                 display: none;
                                 position: absolute;
-                                background-color: #f6f6f6;
+                                background-color: #ffffff;
                                 min-width: 230px;
                                 border: 1px solid #ddd;
                                 z-index: 1;
@@ -384,7 +384,6 @@
                                 <script>
                                     // Định nghĩa hàm chạy script
                                     function runScript() {
-                                        // Lấy dữ liệu từ Local Storage
                                         var products = localStorage.getItem('products');
 
                                         if (products) {
@@ -393,43 +392,54 @@
 
                                             // Lặp qua dữ liệu sản phẩm và tạo các thẻ <a>
                                             $.each(products, function(index, product) {
-                                                var truncatedName = product.name.substring(0,
-                                                    12); // Get the first 12 characters of the product name
+                                                var truncatedName = product.name.substring(0, 12); // Get the first 12 characters of the product name
 
-                                                var $a = $('<a>', {
+                                                var $a = $('<a  >', {
                                                     "data-product": truncatedName,
                                                     "href": '/' + product.slug,
-                                                    "html": '<img src="https://electro.io.vn/storage/' + product.image_url +
-                                                        '" lazy style="width: 30px; z-index: 999; height: 30px;" alt="" width="20px" srcset="">' +
+                                                    "html": '<img    data-src="http://localhost:8000/storage/' + product.image_url +
+                                                        '" style="width: 30px;object-fit:contain; z-index: 999; height: 30px;" alt="" width="30px" srcset="">' +
                                                         truncatedName + '...' +
-                                                        '<p style="color: red;">' + 'kho:' + product.total_quantity + '</p>'
+                                                        '<p    style="color: red;">' + 'kho:' + product.total_quantity + '</p>'
                                                 });
 
                                                 $a.css("display", "flex"); // Set display flex using CSS method
 
                                                 $('#myDropdown').append($a);
                                             });
-                                            var input, filter, ul, li, a, i, count;
-                                            input = document.getElementById("myInput");
-                                            filter = input.value.toUpperCase();
-                                            div = document.getElementById("myDropdown");
-                                            a = div.getElementsByTagName("a");
-                                            count = 0;
-                                            for (i = 0; i < a.length; i++) {
-                                                var product = a[i].getAttribute("data-product");
-                                                if (product.toUpperCase().indexOf(filter) > -1) {
-                                                    if (count < 5) { // Chỉ hiển thị khi chưa đạt đến 5 thẻ
-                                                        a[i].style.display = "";
-                                                        div.classList.add("show");
-                                                        count++;
-                                                        a[i].style.display = "none";
-                                                    } else {
-                                                        a[i].style.display = "none"; // Ẩn các thẻ sau khi đã đạt đến 5 thẻ
-                                                    }
-                                                } else {
-                                                    a[i].style.display = "none";
+
+                                            // Hàm kiểm tra xem phần tử có trong viewport hay không
+                                            function isElementInViewport(el) {
+                                                var rect = el.getBoundingClientRect();
+                                                return (
+                                                    rect.top >= 0 &&
+                                                    rect.left >= 0 &&
+                                                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                                                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                                                );
+                                            }
+
+                                            // Hàm tải ảnh khi phần tử được hiển thị trong viewport
+                                            function loadImage(element) {
+                                                var src = element.getAttribute('data-src');
+                                                if (src) {
+                                                    element.src = src;
+                                                    element.removeAttribute('data-src');
                                                 }
                                             }
+
+                                            // Bắt sự kiện scroll để kiểm tra và tải ảnh
+                                        input = document.getElementById("myInput");
+
+                                        input.addEventListener('click', function() {
+                                                var images = document.querySelectorAll('img[data-src]');
+                                                for (var i = 0; i < images.length; i++) {
+                                                    var image = images[i];
+                                                    if (isElementInViewport(image)) {
+                                                        loadImage(image);
+                                                    }
+                                                }
+                                            });
                                         }
                                     }
 
@@ -447,6 +457,12 @@
 
 
                                 </div>
+                                <style>
+                                    #myDropdown a{
+                                    border-bottom: 1px solid gray;
+                                    }
+
+                                                </style>
 
                                 <script>
                                     function showDropdown() {

@@ -23,7 +23,7 @@
 
                     Swal.fire({
                         title: 'Thông báo',
-                        text: 'Thêm bình luận thất bại!',
+                        text: 'Bạn cần mua sản phẩm mới có thể bình luận!',
                         icon: 'error',
                         confirmButtonText: 'OK'
                     });
@@ -156,6 +156,21 @@
                                                     tồn kho</span>
                                             @else
                                                 <span class="text-red font-weight-bold">Out of Stock</span>
+                                            @endif
+                                        @endisset
+
+
+                                    </div>
+                                    <div class=" ml-3 text-gray-9 font-size-14">Đã bán:
+                                        @isset($product_quantity)
+                                            @if ($product_quantity)
+                                                <span
+                                                    class="text-green font-weight-bold">{{ $sumQuantity  }}
+                                                    sản phẩm</span>
+                                            @else
+                                            <span
+                                            class="text-red font-weight-bold">0
+                                            sản phẩm</span>
                                             @endif
                                         @endisset
 
@@ -589,7 +604,7 @@ var quantityLoader = document.getElementById("quantity_loader");
                 <div class="borders-radius-17 border p-4 mt-4 mt-md-0 px-lg-10 py-lg-9">
                     <div class="tab-content" id="Jpills-tabContent">
 
-                        <div class="tab-pane fade" id="Jpills-two-example1" role="tabpanel"
+                        <div class="tab-pane fade  active show" id="Jpills-two-example1" role="tabpanel"
                             aria-labelledby="Jpills-two-example1-tab">
                             <h3 class="font-size-24 mb-3">Perfectly Done</h3>
                             <p>Praesent ornare, ex a interdum consectetur, lectus diam sodales elit, vitae egestas est enim

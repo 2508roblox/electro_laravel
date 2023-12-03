@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 
 class RegisterController extends Controller
 {
@@ -22,26 +24,37 @@ class RegisterController extends Controller
     public function index()
     {
         return view('auth.auth');
-    }
-    public function register(Request $request, User $user)
+    }public function register(Request $request, User $user)
     {
         $existingUser = User::where('email', $request->input('email'))->first();
         if ($existingUser) {
             return redirect('auth/register')->with(['email' => true]);
         } else {
-
-            $formFields = $request->validate([
+            $validator = Validator::make($request->all(), [
                 'name' => 'required',
                 'email' => ['required', 'email', Rule::unique('users', 'email')],
-                'password' => 'required',
+                'password' => ['required', Password::min(8)
+                ->letters()
+                ->mixedCase()
+                ->numbers()
+                ->symbols()
+                ->uncompromised()]
+                ,
                 'g-recaptcha-response' => ['required', new ReCaptcha]
             ]);
+
+            if ($validator->fails()) {
+                return redirect('auth/register')->with(['password' => true]);
+            }
+
+            $formFields = $validator->validated();
+
             $formFields['otp'] = random_int(100000, 999999);
             Session::put('registeredEmail', $formFields['email']);
             Session::put('verifyStatus', null);
             $user = User::create($formFields);
             // send otp mail
-            Mail::to(($formFields['email']))->send(new VerifyMail($formFields['otp']));
+            Mail::to($formFields['email'])->send(new VerifyMail($formFields['otp']));
             // create wallet with userId
             $wallet = new Wallet;
             $wallet->user_id = $user->id;

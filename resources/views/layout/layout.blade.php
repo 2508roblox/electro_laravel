@@ -20,23 +20,30 @@
     <link rel="stylesheet" href="{{ asset('css/all.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
     <style>
-        body{
-            cursor: none
-        }
-        a,p,div, button, input{
+        body {
             cursor: none
         }
 
-        body:*{
+        a,
+        p,
+        div,
+        button,
+        input {
+            cursor: none
+        }
+
+        body:* {
             cursor: none
         }
 
         div[class*='kursor'] {
             background: #febe00 !important;
         }
+
         div[class*='kursor'] {
             border-color: #fed700 !important;
         }
+
         img {
             filter: grayscale(1);
         }
@@ -73,37 +80,39 @@
             padding: 15px !important;
             border-image: url(https://www.w3schools.com/cssref/border.png) 30 round !important;
         }
+
         /* Webkit (Chrome, Safari, Opera) */
-::-webkit-scrollbar {
-  width: 8px;
-}
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
 
-::-webkit-scrollbar-thumb {
-  background-color: #fed700; /* Màu sắc của thanh cuộn */
-}
+        ::-webkit-scrollbar-thumb {
+            background-color: #fed700;
+            /* Màu sắc của thanh cuộn */
+        }
 
-::-webkit-scrollbar-track {
-  background-color: #f2f2f2; /* Màu sắc của phần còn lại của thanh cuộn */
-}
-html {
-  scroll-behavior: smooth;
-}
+        ::-webkit-scrollbar-track {
+            background-color: #f2f2f2;
+            /* Màu sắc của phần còn lại của thanh cuộn */
+        }
 
-
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
-<script>
-    $(document).ready(function() {
-  $('a[href^="#"]').on('click', function(event) {
-    var target = $(this.getAttribute('href'));
-    if (target.length) {
-      event.preventDefault();
-      $('html, body').stop().animate({
-        scrollTop: target.offset().top
-      }, 1000); // Thời gian cuộn (milliseconds)
-    }
-  });
-});
-</script>
+    <script>
+        $(document).ready(function() {
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top
+                    }, 1000); // Thời gian cuộn (milliseconds)
+                }
+            });
+        });
+    </script>
     @php
         $telegramBotToken = env('TELEGRAM_BOT_TOKEN');
         $chatId = env('TELEGRAM_CHAT_ID');
@@ -144,10 +153,7 @@ html {
         curl_close($ch);
 
         // echo $result;
-
     @endphp
-
-
     <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -177,11 +183,28 @@ html {
     {{-- captcha --}}
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
+<body>
+    {{-- topbar process --}}
+    <script src="{{ asset('client/js/components/topbar.js') }}"></script>
+    <script src="{{ asset('client/js/components/topbar.min.js') }}"></script>
+    <script>
+        topbar.config({
+            autoRun: true,
+            barThickness: 5,
+            barColors: {
+                '0': 'rgb(255,201,62)',
 
+                '.50': 'rgb(255,201,62)',
 
+                '1.0': 'rgb(255,201,62)'
+            },
+            shadowBlur: 10,
+            shadowColor: 'rgba(0,   0,   0,   .6)'
 
-<body >
+        })
+        topbar.show()
 
+    </script>
     @include('inc._topbar')
     @yield('content')
 
@@ -195,9 +218,9 @@ html {
     @include('inc._accountSidebar')
     @include('inc._footer')
     <!-- End Go to Top -->
-    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     <df-messenger intent="WELCOME" chat-title="Electro Assistant" agent-id="0953d30d-3636-4204-996e-37cad8d999e7"
         language-code="en"></df-messenger>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     <style>
         df-messenger {
 
@@ -214,41 +237,9 @@ html {
         }
     </style>
     <!-- JS Global Compulsory -->
-
     <script src="{{ asset('js/all.js') }}"></script>
-
-
+    <script src="{{ asset('js/lazy-load.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- JS Plugins Init. -->
     <script>
         $(window).on('load', function() {
@@ -348,48 +339,14 @@ html {
             $.HSCore.components.HSSelectPicker.init('.js-select');
         });
     </script>
-    {{-- font --}}
+
+    <script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"></script>
     <script>
-        // duyệt tất cả tấm ảnh cần lazy-load
-        const lazyImages = document.querySelectorAll('[lazy]');
-
-        // chờ các tấm ảnh này xuất hiện trên màn hình
-        const lazyImageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach((entry) => {
-                // tấm ảnh này đã xuất hiện trên màn hình
-                if (entry.isIntersecting) {
-                    const lazyImage = entry.target;
-                    const src = lazyImage.dataset.src;
-
-                    lazyImage.tagName.toLowerCase() === 'img'
-                        // <img>: copy data-src sang src
-                        ?
-                        lazyImage.src = src
-
-                        // <div>: copy data-src sang background-image
-                        :
-                        lazyImage.style.backgroundImage = "url(\'" + src + "\')";
-
-                    // copy xong rồi thì bỏ attribute lazy đi
-                    lazyImage.removeAttribute('lazy');
-
-                    // job done, không cần observe nó nữa
-                    observer.unobserve(lazyImage);
-                }
-            });
-        });
-
-        // Observe từng tấm ảnh và chờ nó xuất hiện trên màn hình
-        lazyImages.forEach((lazyImage) => {
-            lazyImageObserver.observe(lazyImage);
-        });
+        new kursor({
+            type: 2
+        })
+        topbar.hide()
     </script>
-<script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"  > </script>
-<script>
-    new kursor({
-        type: 2
-    })
-</script>
 
 
 </body>
