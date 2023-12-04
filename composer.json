@@ -17,7 +17,8 @@
         "laravel/socialite": "^5.10",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
-        "simplepie/simplepie": "^1.8"
+        "simplepie/simplepie": "^1.8",
+        "spatie/laravel-responsecache": "^7.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

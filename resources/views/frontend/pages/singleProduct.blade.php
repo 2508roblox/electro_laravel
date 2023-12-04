@@ -567,6 +567,7 @@ var quantityLoader = document.getElementById("quantity_loader");
                                             }
 
                                         });
+                                        
                                     });
                                 </script>
                             </div>

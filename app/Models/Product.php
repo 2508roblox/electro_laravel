@@ -7,9 +7,10 @@ use App\Models\SubCategory;
 use App\Models\ProductColor;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use App\Traits\ClearsResponseCache;
 class Product extends Model
 {
+    use ClearsResponseCache;
     use HasFactory;
     protected $table = 'products';
     protected $fillable = [
@@ -30,6 +31,7 @@ class Product extends Model
         "meta_description",
 
   ];
+
   public function getSubCate () {
     return $this->belongsTo(SubCategory::class, 'sub_category_id');
   }
@@ -63,4 +65,5 @@ class Product extends Model
     //         ->orWhere('tags', 'like', '%' . request('search') . '%');
     // }
 }
+
 }
