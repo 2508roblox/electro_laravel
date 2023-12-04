@@ -2,7 +2,7 @@
 
 @section('content')
 @include('inc/_header')
-@include('inc/_advertisement')
+{{-- @include('inc/_advertisement') --}}
 <!-- ========== MAIN CONTENT ========== -->
 <script>
     // Mendapatkan data produk dari blade template
@@ -166,7 +166,7 @@
                 </div>
             </div>
         </div>
-     
+
         <!-- Full banner -->
         <div class="mb-8">
             <a href="{{ route("fe.shop") }}" class="d-block text-gray-90">
