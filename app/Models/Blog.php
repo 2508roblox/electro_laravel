@@ -18,7 +18,8 @@ class Blog extends Model
     'short_description',
     'long_description',
     'image',
-    'slug'
+    'slug',
+    'status'
   ];
 
   public function comments()

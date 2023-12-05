@@ -218,8 +218,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/blog/{id}', 'destroy')->name('admin.blog.delete');
         Route::get('/blog/create', 'create')->name('admin.blog.create');
         Route::get('/blog/get-post', [BlogAdminController::class, 'getAndStorePost'])->name('admin.blog.get-post');
-        // Route::get('/blog/{id}/edit', 'edit')->name('admin.blog');
-        // Route::put('/blog/{id}/update', 'update')->name('admin.blog');
+        Route::get('/blog/{id}/edit', 'edit')->name('admin.blog.edit');
+        Route::put('/blog/{id}/update', 'update')->name('admin.blog.update');
         // Route::delete('/blog/{id}', 'destroy')->name('admin.blog');
     });
     //CRUD Color

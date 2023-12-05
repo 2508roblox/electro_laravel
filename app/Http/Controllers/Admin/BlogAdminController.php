@@ -19,6 +19,44 @@ class BlogAdminController extends Controller
         $blogs = Blog::orderBy('id', 'DESC')->get();
         return view('admin.blog.index', compact('blogs'));
     }
+    
+    public function edit($id)
+    {
+        $blog = Blog::find($id);
+        $blogs = Blog::all();
+        return view('admin.blog.edit', compact('blog', 'blogs'));
+    }
+    
+    public function update(Request $request, $id)
+    {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        // Validate request
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required',
+            'tag' => 'required',
+            'short_description' => 'required',
+            'long_description' => 'required',
+            'image' => 'required',
+            'status' => 'required|in:Published,Draft',
+            'updated_at' => now(),
+        ]);
+
+        $blog = Blog::find($id);
+
+        $blog->title = $request->input('title');
+        $blog->slug = $request->input('slug');
+        $blog->tag = $request->input('tag');
+        $blog->short_description = $request->input('short_description');
+        $blog->long_description = $request->input('long_description');
+        $blog->image = $request->input('image');
+        $blog->status = $request->input('status');
+        $blog->updated_at = $request->date('d-m-Y H:i:s');
+
+        $blog->save();
+
+        return redirect()->back()->with('success', 'Blog updated successfully.');
+    }
     public function showComment()
     {
         $comments = BlogComment::orderBy('created_at', 'DESC')->get();
@@ -85,7 +123,7 @@ class BlogAdminController extends Controller
                 'long_description' => $article['content'],
                 'image' => $article['urlToImage'],
                 'slug' => Str::slug($article['title']),
-                'status' => 'published',
+                'status' => 'Draft',
             ]);
         }
 

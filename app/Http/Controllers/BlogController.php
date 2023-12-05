@@ -13,7 +13,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::orderBy('id', 'DESC')->paginate(10);
+        $blogs = Blog::orderBy('id', 'DESC')->where('status', 'Published')->paginate(10);
         $totalBlogs = Blog::count(); // Lấy tổng số bài viết
         // $blogs = Blog::orderBy('id', 'DESC')->get();
         // $blogs = Blog::all();

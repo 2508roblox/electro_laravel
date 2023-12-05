@@ -58,10 +58,14 @@
     }
 
     label[for*='3']:before {
-        content: '\f601';
+        content: '\f07a';
     }
 
     label[for*='4']:before {
+        content: '\f601';
+    }
+
+    label[for*='5']:before {
         content: '\f2bd';
     }
 
@@ -116,11 +120,16 @@
     <input id="tab2" type="radio" name="tabs">
     <label for="tab2">Comments</label>
 
-    <input id="tab3" type="radio" name="tabs">
-    <label for="tab3">Addresses</label>
+    <a href="{{ route('frontend.order.list') }}">
+        <input id="tab3" type="radio" name="tabs">
+        <a href="{{ route('frontend.order.list') }}"><label for="tab3">Order</label></a>
+    </a>
 
     <input id="tab4" type="radio" name="tabs">
-    <label for="tab4">Account details</label>
+    <label for="tab4">Addresses</label>
+
+    <input id="tab5" type="radio" name="tabs">
+    <label for="tab5">Account details</label>
 
     <section id="content1">
         <p>Hello <b>{{ Auth::user()->name }}</b>
@@ -245,7 +254,7 @@
 
     </section>
 
-    <section id="content3">
+    <section id="content4">
         <p>The following addresses will be used on the checkout page by default.</p>
         @if(session('success'))
         <div class="alert alert-success">
@@ -374,7 +383,7 @@
 
     </section>
 
-    <section id="content4">
+    <section id="content5">
         @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
