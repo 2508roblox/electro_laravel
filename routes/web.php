@@ -216,6 +216,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/blog/comment/edit/{id}', 'updateComment')->name('admin.blog.comment.update');
         Route::delete('/blog/comment/{id}', 'destroy')->name('admin.blog.comment.delete');
         Route::delete('/blog/{id}', 'destroy')->name('admin.blog.delete');
+        Route::post('/blog/create', 'store')->name('admin.blog.store');
         Route::get('/blog/create', 'create')->name('admin.blog.create');
         Route::get('/blog/get-post', [BlogAdminController::class, 'getAndStorePost'])->name('admin.blog.get-post');
         Route::get('/blog/{id}/edit', 'edit')->name('admin.blog.edit');

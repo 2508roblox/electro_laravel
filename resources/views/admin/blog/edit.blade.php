@@ -75,7 +75,12 @@
                                     </div>
                                     <div class="mb-4">
                                         <label for="form-blog/long_description" class="form-label">Long description</label>
-                                        <textarea name="long_description" id="form-blog/long_description" class="form-control" rows="2">{{ $blog->long_description }}</textarea>
+                                        <textarea name="long_description" rows="" cols="80" required>{{ $blog->long_description }}</textarea>
+                                        <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+                                        <script>
+                                            CKEDITOR.replace('long_description');
+
+                                        </script>
                                     </div>
                                     <div class="mb-4">
                                         <label for="form-blog/image" class="form-label">Image</label>

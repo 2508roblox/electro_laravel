@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Models\BlogComment;
 use App\Models\Blog;
+use App\Services\ImgurService;
 
 class BlogAdminController extends Controller
 {
@@ -19,14 +20,14 @@ class BlogAdminController extends Controller
         $blogs = Blog::orderBy('id', 'DESC')->get();
         return view('admin.blog.index', compact('blogs'));
     }
-    
+
     public function edit($id)
     {
         $blog = Blog::find($id);
         $blogs = Blog::all();
         return view('admin.blog.edit', compact('blog', 'blogs'));
     }
-    
+
     public function update(Request $request, $id)
     {
         date_default_timezone_set('Asia/Ho_Chi_Minh');
@@ -99,6 +100,111 @@ class BlogAdminController extends Controller
     {
         return view('admin.blog.create');
     }
+
+    public function store(Request $request)
+    {
+        // Validate input
+        $request->validate([
+            'fileImage' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'title' => 'required',
+            'slug' => 'required|unique:blogs',
+            'tag' => 'required|max:255',
+            'short_description' => 'required',
+            'long_description' => 'required',
+            'status' => 'required|in:Published,draft',
+        ]);
+
+        // Xử lý upload hình ảnh lên Imgur và nhận link
+        $imgurLink = $this->uploadToImgur($request->file('fileImage'));
+
+        // Tạo blog mới
+        $blog = new Blog([
+            'title' => $request->input('title'),
+            'tag' => $request->input('tag'),
+            'date_time' => now(), // Đặt ngày giờ hiện tại hoặc có thể sửa đổi theo yêu cầu
+            'short_description' => $request->input('short_description'),
+            'long_description' => $request->input('long_description'),
+            'image' => $imgurLink,
+            'slug' => Str::slug($request->input('title')), // Tự động tạo slug từ title
+            'status' => $request->input('status'),
+            // Thêm các trường khác nếu cần
+        ]);
+
+        // Lưu blog vào cơ sở dữ liệu
+        $blog->save();
+
+        // Chuyển hướng hoặc trả về view mong muốn
+        return redirect()->route('admin.blog')->with('success', 'Blog đã được tạo thành công!');
+    }
+
+    // Phương thức để upload hình ảnh lên Imgur
+    private function uploadToImgur($file)
+    {
+        $clientId = config('app.imgur_client_id');
+        $clientSecret = config('app.imgur_client_secret');
+
+        // Kiểm tra xem đã cung cấp đủ thông tin Imgur trong file env không
+        if (!$clientId || !$clientSecret) {
+            // Xử lý trường hợp thiếu thông tin Imgur
+            return redirect()->back()->with('error', 'Vui lòng cung cấp thông tin Imgur Client ID và Client Secret trong file env.');
+        }
+
+        // Gọi Imgur API để upload hình ảnh
+        $response = Http::withHeaders([
+            'Authorization' => 'Client-ID ' . $clientId,
+        ])->attach('image', file_get_contents($file), $file->getClientOriginalName())
+            ->post('https://api.imgur.com/3/image');
+
+        // Kiểm tra xem có lỗi không
+        if ($response->failed()) {
+            // Xử lý trường hợp lỗi khi upload hình ảnh
+            return redirect()->back()->with('error', 'Có lỗi khi upload hình ảnh lên Imgur.');
+        }
+
+        // Lấy link hình ảnh từ phản hồi của Imgur API
+        $imgurLink = $response->json('data.link');
+
+        return $imgurLink;
+    }
+
+
+    // public function create(Request $request)
+    // {
+
+    //     // Validate input data
+    //     $request->validate([
+    //         'title' => 'required',
+    //         'tag' => 'required',
+    //         'slug' => 'required',
+    //         'short_description' => 'required',
+    //         'long_description' => 'required',
+    //         'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+    //         'status' => 'required|in:Published,Draft',
+    //     ]);
+
+    //     // Tạo đối tượng ImgurService
+    //     $imgurService = new ImgurService();
+
+    //     // Upload hình ảnh lên Imgur và lấy link
+    //     $imgLink = $imgurService->uploadImage($request->file('fileImage'));
+
+    //     // Tạo đối tượng Blog mới
+    //     $blog = new Blog([
+    //         'title' => $request->input('title'),
+    //         'tag' => $request->input('tag'),
+    //         'short_description' => $request->input('short_description'),
+    //         'long_description' => $request->input('long_description'),
+    //         'image' => $imgLink,
+    //         'status' => $request->input('status'),
+    //     ]);
+
+    //     // Lưu vào cơ sở dữ liệu
+    //     $blog->save();
+
+    //     // Redirect hoặc thông báo thành công
+    //     return redirect()->route('admin.blog.create')->with('success', 'Blog được tạo thành công');
+
+    // }
 
     public function getAndStorePost()
     {

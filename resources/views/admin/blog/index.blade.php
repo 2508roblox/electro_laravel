@@ -169,6 +169,7 @@
                                 <th class="min-w-8x">Tag</th>
                                 <th class="min-w-8x">Date</th>
                                 <th class="min-w-8x">Comment</th>
+                                <th class="min-w-8x">Status</th>
                                 <th class="w-min" data-orderable="false"></th>
                             </tr>
                         </thead>
@@ -186,6 +187,17 @@
                                 <td><a class="text-reset">{{$blog->tag}}</a></td>
                                 <td><a class="text-reset">{{$blog->date_time}}</a></td>
                                 <td><a class="text-reset">{{ $blog->comments_count }}</a></td>
+                                <td>
+                                    <a class="text-reset">
+                                        @php
+                                        if ($blog->status == NULL || $blog->status == '') {
+                                        echo "Unknow";
+                                        } else {
+                                        echo $blog->status;
+                                        }
+                                        @endphp
+                                    </a>
+                                </td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-sa-muted btn-sm" type="button" id="blog-context-menu-0" data-bs-toggle="dropdown" aria-expanded="false" aria-label="More"><svg xmlns="http://www.w3.org/2000/svg" width="3" height="13" fill="currentColor">
