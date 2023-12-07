@@ -464,6 +464,10 @@
                                               class="sa-nav__link"><span
                                                   class="sa-nav__menu-item-padding"></span><span
                                                   class="sa-nav__title">Danh sách email</span></a></li>
+                                      <li class="sa-nav__menu-item"><a href="{{ route('admin.contact.index') }}"
+                                              class="sa-nav__link"><span
+                                                  class="sa-nav__menu-item-padding"></span><span
+                                                  class="sa-nav__title">Contact</span></a></li>
 
                                   </ul>
                               </li>

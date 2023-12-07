@@ -11,32 +11,42 @@ class ContactController extends Controller
 
     function index(Request $request)
     {
-
-
-        $contacts = Contact::all();
-        return view('frontend.pages.contact' );
+        // $contacts = Contact::all();
+        return view('frontend.pages.contact');
     }
 
-function store(Request $request)
-{
-    $validator = Validator::make($request->all(), [
-        'firstname' => 'required|max:255',
-        'lastname' => 'required|max:255',
-        'subject' => 'required|max:255',
-        'message' => 'required|max:255',
-    ]);
+    function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'firstname' => 'required|max:255',
+            'lastname' => 'required|max:255',
+            'subject' => 'required|max:255',
+            'message' => 'required|max:255',
+        ]);
 
-    if ($validator->fails()) {
-        return redirect()->back()->withErrors($validator)->withInput();
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $contact = new Contact();
+        $contact->firstname = $request->input('firstname');
+        $contact->lastname = $request->input('lastname');
+        $contact->subject = $request->input('subject');
+        $contact->message = $request->input('message');
+        $contact->save();
+
+        return redirect()->back()->with('success', 'Contact added successfully!');
     }
-
-    $contact = new Contact();
-    $contact->firstname = $request->input('firstname');
-    $contact->lastname = $request->input('lastname');
-    $contact->subject = $request->input('subject');
-    $contact->message = $request->input('message');
-    $contact->save();
-
-    return redirect()->back()->with('success', 'Contact added successfully!');
-}
+    
+    public function indexAdmin()
+    {
+        $contact = Contact::all();
+        return view('admin.contact.index', compact('contact'));
+    }
+    
+    public function contactDetail($id)
+    {
+        $contactDetail = Contact::find($id);
+        return view('admin.contact.contact_detail', compact('contactDetail'));
+    }
 }

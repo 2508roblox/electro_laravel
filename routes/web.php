@@ -63,6 +63,7 @@ use App\Http\Controllers\Admin\ProductColorController;
 use App\Http\Controllers\Admin\VariantValueController;
 use App\Http\Controllers\Admin\SkuController;
 use App\Http\Controllers\Admin\NewsController;
+// use App\Http\Controllers\Admin\ContactController;
 
 
 /*
@@ -273,6 +274,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/inbox/invoice/{id}', 'detail_invoice')->name('admin.inbox.invoice.detail');
         Route::get('/inbox/{id}', 'detail_verify')->name('admin.inbox.id');
     });
+    Route::controller(ContactController::class)->group(function () {
+        Route::get('/contact', 'indexAdmin')->name('admin.contact.index');
+        Route::get('/contact/{id}', 'contactDetail')->name('admin.contact.detail');
+    });
     Route::controller(TaskManagerController::class)->group(function () {
         Route::get('/task-manager', 'index')->name('admin.task-manager');
     });
@@ -309,6 +314,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/infomation/technology', 'technology')->name('admin.infomation.technology');
         Route::get('/infomation/assignment', 'assignment')->name('admin.infomation.assignment');
     });
+    
 });
 // 2.0 auth
 
